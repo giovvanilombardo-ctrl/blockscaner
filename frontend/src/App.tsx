@@ -14,6 +14,7 @@ import AccountGate from "./cd/account/AccountGate";
 import MiArea from "./cd/account/MiArea";
 import MiCuenta from "./cd/account/MiCuenta";
 import ResetPassword from "./cd/account/ResetPassword";
+import AccountPortal from "./pages/AccountPortal";
 import Contact from "./pages/Contact";
 import SectionPage from "./pages/SectionPage";
 import Legal from "./pages/Legal";
@@ -30,7 +31,7 @@ const queryClient = new QueryClient();
 // Render the visitor email popup only on public-facing routes.
 const EmailPopupGate = ({ showEmailPopup, onClose }: { showEmailPopup: boolean; onClose: () => void }) => {
   const { pathname } = useLocation();
-  const hidden = ["/admin", "/dashboard", "/konto", "/login", "/chat", "/reset-password"].some((p) =>
+  const hidden = ["/admin", "/dashboard", "/konto", "/account", "/login", "/chat", "/reset-password"].some((p) =>
     pathname.startsWith(p)
   );
   if (hidden) return null;
@@ -83,6 +84,7 @@ const AppContent = () => {
           <Route path="/login" element={<AuthPage />} />
           <Route path="/dashboard" element={<AccountGate><MiArea /></AccountGate>} />
           <Route path="/konto" element={<AccountGate><MiCuenta /></AccountGate>} />
+          <Route path="/account" element={<AccountGate><AccountPortal /></AccountGate>} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />

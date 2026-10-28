@@ -831,6 +831,9 @@ async def storage_file(token: str):
 
 app.include_router(api_router)
 
+from portal_wallet import create_wallet_router
+app.include_router(create_wallet_router(db, require_user, is_admin))
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,

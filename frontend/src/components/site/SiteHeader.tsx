@@ -1,9 +1,10 @@
 import { t as _t, lang, setLang } from "@/i18n";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Search, X, LifeBuoy, ChevronDown } from "lucide-react";
+import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound } from "lucide-react";
 import { sections } from "@/content/site";
 import SearchDialog from "./SearchDialog";
+import { supabase } from "@/integrations/supabase/client";
 
 export const BrandMark = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
@@ -17,7 +18,14 @@ const SiteHeader = () => {
   const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const loc = useLocation();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => setLoggedIn(!!data.session));
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => setLoggedIn(!!s));
+    return () => { sub.subscription.unsubscribe(); };
+  }, []);
 
   useEffect(() => { setOpen(null); setMobile(false); }, [loc.pathname]);
   useEffect(() => {
@@ -84,6 +92,11 @@ const SiteHeader = () => {
           <Link to="/hilfe#erste-schritte" className="hidden sm:flex items-center gap-2 bg-primary px-4 py-2 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition">
             <LifeBuoy className="h-3.5 w-3.5" /> {_t("Soforthilfe")}
           </Link>
+          {loggedIn && (
+            <Link to="/account" data-testid="nav-my-account" className="hidden sm:flex items-center gap-2 border border-primary px-4 py-2 text-xs font-medium text-primary hover:bg-primary hover:text-primary-foreground transition">
+              <UserRound className="h-3.5 w-3.5" /> {_t("Mein Konto")}
+            </Link>
+          )}
           <button className="lg:hidden p-2" aria-label={_t("Menü")} aria-expanded={mobile} onClick={() => setMobile(!mobile)}>
             {mobile ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>

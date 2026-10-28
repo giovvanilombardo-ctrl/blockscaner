@@ -71,6 +71,29 @@ See `/app/memory/test_credentials.md`.
 - Admin: support@blockchain-24.com / BtcEth200!
 - Test user: testuser1@example.com / Test1234
 
+## Account Portal (added this session, 2026-10-28)
+Ported the structure & design of the uploaded "Mi área / Mi cuenta" portal zip onto the site as the
+authenticated account area, Blockscaner-branded (light theme, blue accent) and bilingual (DE/EN via
+the site toggle). Features implemented and verified:
+- Route `/account` (gated by `AccountGate`). New page `src/pages/AccountPortal.tsx` + components
+  `src/components/account/{WithdrawalWizard,ProfileKyc}.tsx`, design system `src/account-portal.css`
+  (the zip's client-area CSS re-themed to Blockscaner light/blue), i18n helper `src/i18n/portal.ts`.
+- Wallet & balances: live estimated total value + per-asset holdings, tabs
+  Wallet / Exchange / Withdraw / History. "Mein Konto" appears in the site header when logged in.
+- Currency exchange / swap: 14 assets (BTC, ETH, USDT, SOL, BNB, TRX + EUR/USD/GBP/CHF/JPY/CNY/AUD/CAD),
+  live rates via CoinGecko (crypto) + Frankfurter/ECB (fiat), 1.5% fee, success screen.
+- Withdrawal wizard: bank transfer (IBAN validated + saved) or crypto wallet, manual review,
+  deducts balance, lists past payouts.
+- Profile & KYC dialog: edit name/phone + verification details (DOB, country, ID doc, address).
+
+Backend: new module `src/../../backend/portal_wallet.py` mounted at `/api/portal/*` — `GET /wallet`,
+`GET /rates`, `POST /swap`, `POST /bank`, `POST /withdraw`, `POST /profile`. New Mongo collections:
+`cartera_saldos`, `cartera_movimientos`, `cartera_estado` (wallet), reusing `user_balances` (admin-funded
+base), `user_bank_details`, `withdrawal_requests`, `casos` (auto-credits recovered funds to the wallet).
+Live rates fetched server-side. Verified: swap executes with live BTC rate, withdrawal records + deducts.
+
+The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
+
 ## Backlog / next tasks
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
 - P1: Decide production from-domain (verify a real sending domain in Resend for delivery to
