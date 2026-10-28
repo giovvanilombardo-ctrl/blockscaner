@@ -1,0 +1,80 @@
+# PRD — Blockscaner Website Copy (Blockchain-24 / Blockscaner)
+
+## Original problem statement
+"Copy this exact website as it is in the zip file" — the zip contained a complete German
+blockchain-forensics / crypto-recovery website ("Blockscaner Rückgewinnungsdienst"), originally
+a Vite + React + TypeScript + Supabase app with ~30 pages (marketing sections, help topics,
+legal, wallet tracker, AI chat assistant, customer login + dashboard, admin dashboard).
+
+## User decisions (discovery answers)
+- Include **everything**: public pages, login, dashboards, admin area, chat.
+- Emails: **store enquiries in DB + show in admin area AND send real emails** (managed email proxy).
+- Chat assistant: **AI-powered using Emergent LLM key** (OpenAI text, SSE streaming, German).
+- Wallet tracker: **live blockchain lookups** (browser-direct to Blockchair/Blockcypher, no key).
+- Content: **German only** — the Spanish `/cd` section was dropped per user choice.
+
+## Architecture (port target)
+The original ran on **Supabase** (Postgres + Edge Functions + Storage + Auth). It was ported to
+**FastAPI + MongoDB (motor) + React (CRA)** while keeping the copied frontend byte-for-byte
+identical wherever possible:
+
+- **Frontend** (`/app/frontend`): CRA + craco (aliased `@` → src), TypeScript port of the Vite app.
+  - `src/integrations/supabase/client.ts` = **compatibility shim** exposing `supabase.auth`,
+    `supabase.functions.invoke`, `supabase.from(table)` and `supabase.storage` — all backed by
+    the local FastAPI backend via `REACT_APP_BACKEND_URL` + `/api`. Copied components call it
+    unchanged.
+  - `src/pages/ChatAssistant.tsx` fetches the OpenAI-compatible SSE stream from
+    `/api/functions/chat-victim`.
+  - `src/App.tsx`: routes incl. `/login`, `/dashboard` (AccountGate→MiArea), `/admin/login`,
+    `/admin`, `/chat`, help topics, legal, wallet tools. Spanish `/cd` route removed.
+  - `EmailPopupGate` only shows the visitor email-collection popup on public routes
+    (hidden on /admin, /dashboard, /konto, /login, /chat, /reset-password).
+
+- **Backend** (`/app/backend/server.py`):
+  - **Auth**: JWT (bcrypt + PyJWT). `/api/auth/login`, `/api/auth/user`, `/api/auth/logout`,
+    `/api/auth/update`, `/api/auth/reset-request`, `/api/auth/reset-confirm`.
+  - **Admin seeding** on startup from `ADMIN_EMAIL`/`ADMIN_PASSWORD` env.
+  - **PostgREST-style gateway** `/api/rest/{table}` supporting eq/gte/in/order/limit, with
+    row-level ownership enforcement (owner-scoped tables), public-insert tables (leads,
+    chat_sessions), and admin-only tables (email_tracking). Excludes password_hash.
+  - **Edge-function ports** under `/api/functions/*`:
+    `account-register`, `account-verify` (6-digit email OTP), `notify-lead` (lead notification
+    + confirmation email + case-document download links), `send-visitor-reminder`,
+    `admin-manage-users` (create/list/update-balance/delete/handle-withdrawal),
+    `chat-victim` (litellm streaming, Emergent proxy `/llm`, German forensic system prompt).
+  - **Storage**: GridFS. `/api/storage/upload` (case-documents bucket, caso-documentos owner
+    paths), `/api/storage/sign` (signed download tokens), `/api/storage/file?token=`.
+  - **Email tracking** pixel `/api/email-track` (open/click).
+  - **Emails** via Emergent managed proxy `https://integrations.emergentagent.com/api/v1/email/send`
+    (`X-Email-Key: EMERGENT_EMAIL_KEY`), with the guardrail gate (no forms/credential-asks,
+    absolute-https links, anchor-text/host match, no shorteners). All templates fixed server-side;
+    callers pass only data. On 402 insufficient-credits the app degrades to storing leads in DB
+    (still shown in admin) instead of failing the user flow.
+
+## What's implemented (this session, 2026-10-28)
+- Full visual + functional copy of the German site (home, section/topic pages, legal, wallet
+  tracker, contact, chat, customer area, admin panel) running on FastAPI+Mongo.
+- Working admin login + dashboard (Users, Leads, Withdrawals, Email Tracking, Overview).
+- Working customer registration → OTP (email) → login → case-tracking dashboard.
+- Working AI Betrugsassistent chat (SSE streaming, German, Form-complete lead capture).
+- Lead capture from hero/contact/chat forms → DB + admin list.
+- Guardrailed transactional email templates (OTP, lead notify+confirm, reminder, welcome,
+  deposit, withdrawal, reset). Email sending code verified end-to-end through the managed proxy.
+
+## Known limitation / environment state
+- **Managed email proxy returns 402 "insufficient credits"** at the time of the last test
+  (account billing). Code handles it gracefully (leads stored + shown in admin; OTP/reset mails
+  would queue as logged-mode). When credits are topped up, emails send with no code change.
+
+## Credentials
+See `/app/memory/test_credentials.md`.
+- Admin: support@blockchain-24.com / BtcEth200!
+- Test user: testuser1@example.com / Test1234
+
+## Backlog / next tasks
+- P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
+- P1: Decide production from-domain (verify a real sending domain in Resend for delivery to
+  arbitrary inboxes, not just the Resend test inbox).
+- P1: Run the full scheduled-recurring-task for `send-visitor-reminder` follow-ups (cron).
+- P2: Re-add the Spanish `/cd` international section if ever wanted (files still available).
+- P2: Wallet report PDF polish + live price feed caching.

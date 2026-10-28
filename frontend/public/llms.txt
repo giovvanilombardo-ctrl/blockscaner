@@ -1,0 +1,11 @@
+# Blockscaner Rückgewinnungsdienst
+
+> Spezialisierter Dienst für Blockchain-Forensik und Rückgewinnung gestohlener Kryptowährungen für Betrugsopfer in Deutschland, Österreich und der Schweiz.
+
+Blockscaner unterstützt Opfer von Krypto-Betrug (Investitionsbetrug, Phishing, Fake-Börsen, Romance Scams, Ponzi-Systeme, Rug Pulls, gehackte Wallets) mit forensischer Wallet-Analyse, Transaktions-Tracking, gerichtsverwertbaren Berichten und Zusammenarbeit mit Strafverfolgungsbehörden und Krypto-Börsen weltweit.
+
+## Pages
+
+- [Startseite](/): Übersicht der Leistungen, Prozess, Statistiken und FAQ zur Krypto-Rückgewinnung.
+- [Kontakt](/contact): Kontaktformular für Betrugsopfer zur Meldung eines Falls.
+- [KI-Assistent](/chat): Deutschsprachiger KI-Chatbot, der Opfern hilft, ihren Betrugsfall strukturiert zu dokumentieren.
