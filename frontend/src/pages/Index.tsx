@@ -1,4 +1,4 @@
-import { t as _t } from "@/i18n";
+import { t as _t, lang, setLang } from "@/i18n";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -42,6 +42,24 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
     {/* HERO */}
     <section className="relative overflow-hidden bg-deep text-deep-foreground min-h-[calc(100vh-6rem)] flex items-center">
       <BloomField />
+      <div className="absolute top-5 right-6 lg:right-10 z-10 flex items-center rounded-full border border-deep-foreground/30 bg-deep-foreground/10 backdrop-blur-sm overflow-hidden text-[11px] font-mono uppercase tracking-widest">
+        <button
+          onClick={() => setLang("de")}
+          aria-pressed={lang === "de"}
+          data-testid="hero-lang-de"
+          className={`px-3.5 py-1.5 transition-colors ${lang === "de" ? "bg-background text-foreground font-semibold" : "text-deep-foreground/80 hover:text-deep-foreground"}`}
+        >
+          DE
+        </button>
+        <button
+          onClick={() => setLang("en")}
+          aria-pressed={lang === "en"}
+          data-testid="hero-lang-en"
+          className={`px-3.5 py-1.5 transition-colors ${lang === "en" ? "bg-background text-foreground font-semibold" : "text-deep-foreground/80 hover:text-deep-foreground"}`}
+        >
+          EN
+        </button>
+      </div>
       <div className="relative mx-auto w-full max-w-5xl px-6 lg:px-10 py-24 grid gap-10 md:grid-cols-2 items-center">
         <h1 className="font-display text-4xl md:text-5xl font-light leading-[1.1]">{_t("Kriminelle skalieren mit KI. Verbrechensbekämpfer skalieren mit Blockscaner.")}</h1>
         <div className="md:ml-auto md:max-w-xs border-t border-deep-foreground/50 pt-3">
