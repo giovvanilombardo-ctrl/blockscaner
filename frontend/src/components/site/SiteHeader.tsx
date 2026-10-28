@@ -1,10 +1,13 @@
 import { t as _t, lang, setLang } from "@/i18n";
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound, LayoutDashboard } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound, LayoutDashboard, LogOut } from "lucide-react";
 import { sections } from "@/content/site";
 import SearchDialog from "./SearchDialog";
 import { supabase } from "@/integrations/supabase/client";
+import {
+  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export const BrandMark = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
@@ -42,7 +45,7 @@ const SiteHeader = () => {
       <div className="hidden md:flex h-8 items-center justify-between border-b border-border px-6 lg:px-10 text-[11px] font-mono uppercase tracking-[0.14em] text-muted-foreground">
         <span>{_t("Unabhängige Aufklärung · Digitale Forensik · Blockchain-Analyse")}</span>
         <div className="flex items-center gap-5">
-          <Link to="/login" className="text-primary">{_t("Kundenportal")}</Link>
+          {!loggedIn && <Link to="/login" className="text-primary">{_t("Kundenportal")}</Link>}
           <span aria-label={_t("Sprache")} className="flex items-center gap-1">
             <button onClick={() => setLang("de")} aria-pressed={lang === "de"} className={lang === "de" ? "text-foreground font-semibold" : "text-primary"}>DE</button>
             <span>/</span>
@@ -78,30 +81,50 @@ const SiteHeader = () => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button onClick={() => setSearchOpen(true)} className="flex items-center gap-2 border border-border px-3 py-2 text-xs text-primary hover:border-primary transition" aria-label={_t("Suche öffnen")}>
+          <button onClick={() => setSearchOpen(true)} className="flex items-center justify-center border border-border p-2 text-primary hover:border-primary transition" aria-label={_t("Suche öffnen")}>
             <Search className="h-3.5 w-3.5" />
-            <span className="hidden xl:inline">{_t("Suche")}</span>
-            <kbd className="hidden xl:inline font-mono text-[10px] opacity-60">⌘K</kbd>
           </button>
-          <Link to="/login" className="hidden sm:flex items-center whitespace-nowrap border border-primary px-4 py-2 text-xs font-medium text-primary transition">
-            {_t("Anmelden")}
-          </Link>
-          <Link to="/login?modo=registro" className="hidden sm:flex items-center whitespace-nowrap bg-primary px-4 py-2 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition">
-            {_t("Konto erstellen")}
-          </Link>
-          <Link to="/hilfe#erste-schritte" className="hidden sm:flex items-center gap-2 bg-primary px-4 py-2 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition">
-            <LifeBuoy className="h-3.5 w-3.5" /> {_t("Soforthilfe")}
-          </Link>
-          {loggedIn && (
-            <Link to="/dashboard" data-testid="nav-private-area" className="hidden sm:flex items-center gap-2 border border-primary px-4 py-2 text-xs font-medium text-primary hover:bg-primary hover:text-primary-foreground transition">
-              <LayoutDashboard className="h-3.5 w-3.5" /> {_t("Privater Bereich")}
-            </Link>
+
+          {!loggedIn && (
+            <>
+              <Link to="/login" className="hidden sm:flex items-center whitespace-nowrap border border-primary px-4 py-2 text-xs font-medium text-primary transition">
+                {_t("Anmelden")}
+              </Link>
+              <Link to="/login?modo=registro" className="hidden sm:flex items-center whitespace-nowrap bg-primary px-4 py-2 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition">
+                {_t("Konto erstellen")}
+              </Link>
+            </>
           )}
+
           {loggedIn && (
-            <Link to="/account" data-testid="nav-my-account" className="hidden sm:flex items-center gap-2 border border-primary px-4 py-2 text-xs font-medium text-primary hover:bg-primary hover:text-primary-foreground transition">
-              <UserRound className="h-3.5 w-3.5" /> {_t("Mein Konto")}
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button data-testid="nav-account-menu" className="hidden sm:flex items-center gap-2 border border-primary px-4 py-2 text-xs font-medium text-primary hover:bg-primary hover:text-primary-foreground transition" aria-label={_t("Mein Konto")}>
+                  <UserRound className="h-3.5 w-3.5" /> {_t("Mein Konto")} <ChevronDown className="h-3 w-3" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-52">
+                <DropdownMenuItem asChild>
+                  <Link to="/dashboard" data-testid="menu-private-area" className="flex items-center gap-2 cursor-pointer">
+                    <LayoutDashboard className="h-4 w-4" /> {_t("Privater Bereich")}
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/account" data-testid="menu-my-account" className="flex items-center gap-2 cursor-pointer">
+                    <UserRound className="h-4 w-4" /> {_t("Mein Konto")}
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  className="flex items-center gap-2 cursor-pointer text-destructive"
+                  onSelect={async () => { await supabase.auth.signOut(); window.location.assign("/"); }}
+                >
+                  <LogOut className="h-4 w-4" /> {_t("Abmelden")}
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           )}
+
           <button className="lg:hidden p-2" aria-label={_t("Menü")} aria-expanded={mobile} onClick={() => setMobile(!mobile)}>
             {mobile ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -145,8 +168,18 @@ const SiteHeader = () => {
             </Link>
           ))}
           <Link to="/contact" className="block border-b border-border px-6 py-4">{_t("Kontakt")}</Link>
-          <Link to="/login" className="block border-b border-border px-6 py-4 text-primary">{_t("Anmelden")}</Link>
-          <Link to="/login?modo=registro" className="block bg-primary px-6 py-4 text-sm font-medium text-primary-foreground">{_t("Konto erstellen")}</Link>
+          {loggedIn ? (
+            <>
+              <Link to="/dashboard" className="flex items-center gap-2 border-b border-border px-6 py-4 text-primary"><LayoutDashboard className="h-4 w-4" /> {_t("Privater Bereich")}</Link>
+              <Link to="/account" className="flex items-center gap-2 border-b border-border px-6 py-4 text-primary"><UserRound className="h-4 w-4" /> {_t("Mein Konto")}</Link>
+              <button onClick={async () => { await supabase.auth.signOut(); window.location.assign("/"); }} className="flex w-full items-center gap-2 px-6 py-4 text-left text-destructive"><LogOut className="h-4 w-4" /> {_t("Abmelden")}</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="block border-b border-border px-6 py-4 text-primary">{_t("Anmelden")}</Link>
+              <Link to="/login?modo=registro" className="block bg-primary px-6 py-4 text-sm font-medium text-primary-foreground">{_t("Konto erstellen")}</Link>
+            </>
+          )}
         </div>
       )}
 

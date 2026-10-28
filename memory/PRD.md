@@ -104,11 +104,13 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - **Avatar**: account pill now shows the client's initials (e.g. "MT") instead of a generic icon.
 - **Email**: managed-proxy credits still insufficient (account-level) — emails queue as logged-mode until
   topped up (Profile → Manage plan → Universal Key → Add Balance / auto top-up).
-- **Separated Private area vs My account (2026-10-28)**: two distinct sections. **Mein Konto** (header,
-  `/account` + `/konto`) = the account portal (wallet, exchange, withdraw, history, KYC). **Privater
-  Bereich** (header, `/dashboard`) = the case tracker (MiArea journey). Login redirects to the Private
-  area; the header shows both buttons when signed in. The portal keeps a "Mein Fall" tab linking to
-  `/dashboard`.
+- **Separated Private area vs My account (2026-10-28)**: two distinct sections. **Mein Konto** (`/account`)
+  = account portal (wallet, exchange, withdraw, history, KYC). **Privater Bereich** (`/dashboard`) = case
+  tracker (MiArea). Login redirects to the Private area; the portal keeps a "Mein Fall" tab to `/dashboard`.
+- **Header remodel (2026-10-28)**: the top-right action cluster had too many buttons (Search, Anmelden,
+  Konto erstellen, Soforthilfe, Privater Bereich, Mein Konto). Now: logged out → Search icon + Anmelden +
+  Konto erstellen (Soforthilfe moved to mobile menu + "Kundenportal" top-bar link); logged in → Search +
+  one "Mein Konto" dropdown containing Privater Bereich / Mein Konto / Abmelden. Mobile menu mirrors both.
 
 ## Backlog / next tasks
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
