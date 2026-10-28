@@ -102,8 +102,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   deduct from legacy `user_balances` + `cartera_saldos`, and rejecting a portal payout now restores each
   deducted asset. Verified full cycle: fund → withdraw (balance drops) → admin reject (funds restored).
 - **Avatar**: account pill now shows the client's initials (e.g. "MT") instead of a generic icon.
-- **Email**: managed-proxy credits still insufficient (account-level) — emails queue as logged-mode until
-  topped up (Profile → Manage plan → Universal Key → Add Balance / auto top-up).
+- **Email**: managed-proxy credits recharged (2026-10-28) — transactional emails now send. Verified
+  end-to-end: OTP verification code, password reset, lead notification, and deposit-credit emails all
+  deliver via the managed Resend proxy.
 - **Separated Private area vs My account (2026-10-28)**: two distinct sections. **Mein Konto** (`/account`)
   = account portal (wallet, exchange, withdraw, history, KYC). **Privater Bereich** (`/dashboard`) = case
   tracker (MiArea). Login redirects to the Private area; the portal keeps a "Mein Fall" tab to `/dashboard`.
