@@ -25,7 +25,7 @@
   padding:.62rem .8rem; border-radius:12px; color:#c6d2e4; font-size:.86rem; cursor:pointer; transition:.15s; }
 .ap-nav-item svg{ width:1.05rem; height:1.05rem; flex:none; }
 .ap-nav-item:hover{ background:rgba(255,255,255,.06); color:#fff; }
-.ap-nav-item.is-active{ background:var(--mint); color:#06281f; font-weight:700; }
+.ap-nav-item.is-active{ background:var(--pa); color:#ffffff; font-weight:700; }
 .ap-logout{ margin-top:auto; color:#c6d2e4; }
 
 /* ---- Content ---- */
