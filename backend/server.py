@@ -611,11 +611,18 @@ async def admin_manage_users(request: Request, admin=Depends(require_admin)):
              "$setOnInsert": {"id": str(uuid.uuid4()), "user_id": uid, "currency": currency}},
             upsert=True)
         if balance > previous:
+            amount_added = round(balance - previous, 8)
+            # record the deposit in the client's wallet activity feed
+            await db.cartera_movimientos.insert_one({
+                "id": str(uuid.uuid4()), "user_id": uid, "tipo": "deposito",
+                "activo": currency, "cantidad": amount_added, "importe": amount_added,
+                "eur": amount_added, "nota": "admin_credit", "created_at": now_iso(),
+            })
             profile = await db.profiles.find_one({"id": uid})
             if profile and profile.get("email"):
                 subject, html = deposit_email(
                     profile.get("full_name") or profile["email"], profile["email"],
-                    currency, round(balance - previous, 8), format_date_de())
+                    currency, amount_added, format_date_de())
                 try:
                     await send_email(to=profile["email"], subject=subject, html=html)
                 except HTTPException:
@@ -679,6 +686,15 @@ async def admin_manage_users(request: Request, admin=Depends(require_admin)):
                     {"$inc": {"balance": amount}, "$set": {"updated_at": now_iso()},
                      "$setOnInsert": {"id": str(uuid.uuid4()), "user_id": uid, "currency": currency}},
                     upsert=True)
+
+        # record the withdrawal decision in the client's wallet activity feed
+        await db.cartera_movimientos.insert_one({
+            "id": str(uuid.uuid4()), "user_id": withdrawal["user_id"],
+            "tipo": "retirada_aprobada" if new_status == "approved" else "retirada_rechazada",
+            "importe": float(withdrawal.get("eur_amount") or withdrawal["amount"]),
+            "eur": float(withdrawal.get("eur_amount") or withdrawal["amount"]),
+            "estado": new_status, "created_at": now_iso(),
+        })
 
         profile = await db.profiles.find_one({"id": withdrawal["user_id"]})
         if profile and profile.get("email"):

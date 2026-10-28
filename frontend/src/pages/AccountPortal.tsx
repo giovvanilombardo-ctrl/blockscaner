@@ -323,10 +323,7 @@ function OverviewView({p,lang,nombre,saldos,tasas,totalEur,retiros,movs,setView,
         <h3 className="ap-card-title">{p("Letzte Bewegungen","Latest activity")}</h3>
         {lastMovs.length===0 && <p className="ap-empty" style={{padding:"1.5rem 0"}}>{p("Noch keine Bewegungen.","No activity yet.")}</p>}
         {lastMovs.map((m:any)=>(
-          <div key={m.id} className="ap-table-row">
-            <span className={`ap-tag ${m.tipo==="recuperacion"?"ap-tag--ok":m.tipo==="retirada"?"ap-tag--bad":"ap-tag--pend"}`}>{m.tipo==="cambio"?p("Tausch","Swap"):m.tipo==="retirada"?p("Auszahlung","Payout"):p("Rückgewinnung","Recovery")}</span>
-            <div style={{flex:1}}><b>{m.tipo==="cambio"?`${num(m.entregado,m.desde)} ${m.desde} → ${num(m.recibido,m.hacia)} ${m.hacia}`:m.importe?eur(m.importe):m.eur?eur(m.eur):"—"}</b></div>
-          </div>
+          <MovRow key={m.id} m={m} p={p} lang={lang}/>
         ))}
         <button className="ap-linkbtn" onClick={()=>setView("movements")}>{p("Alle ansehen","View all")}</button>
       </div>
@@ -349,6 +346,34 @@ function OverviewView({p,lang,nombre,saldos,tasas,totalEur,retiros,movs,setView,
   </div>);
 }
 
+/* Shared activity row — clear label, +/- amount, date */
+function MovRow({m,p,lang}:{m:any;p:(a:string,b:string)=>string;lang:string}){
+  const LABELS:Record<string,[string,string]>={
+    cambio:["Tausch","Swap"],
+    retirada:["Auszahlung beantragt","Payout requested"],
+    retirada_aprobada:["Auszahlung genehmigt","Payout approved"],
+    retirada_rechazada:["Auszahlung abgelehnt","Payout rejected"],
+    recuperacion:["Rückgewinnung","Recovery"],
+    deposito:["Einzahlung","Deposit"],
+  };
+  const tagCls = m.tipo==="deposito"||m.tipo==="recuperacion"||m.tipo==="retirada_aprobada" ? "ap-tag--ok"
+    : m.tipo==="retirada" ? "ap-tag--pend"
+    : m.tipo==="retirada_rechazada" ? "ap-tag--bad" : "ap-tag--pend";
+  const [de,en] = LABELS[m.tipo] || [m.tipo,m.tipo];
+  // sign & display value
+  let sign="", value="";
+  if(m.tipo==="cambio"){ value=`${num(m.entregado,m.desde)} ${m.desde} → ${num(m.recibido,m.hacia)} ${m.hacia}`; }
+  else if(m.tipo==="deposito"||m.tipo==="recuperacion"){ sign="+"; value=eur(m.importe ?? m.eur ?? m.cantidad ?? 0); }
+  else { sign="−"; value=eur(m.importe ?? m.eur ?? 0); }
+  return (
+    <div className="ap-table-row">
+      <span className={`ap-tag ${tagCls}`}>{p(de,en)}</span>
+      <div style={{flex:1}}><b className={sign==="+"?"ap-amt-pos":sign==="−"?"ap-amt-neg":""}>{sign}{value}</b></div>
+      <small style={{color:"#64748b"}}>{new Date(m.created_at).toLocaleString(lang==="en"?"en-GB":"de-DE")}</small>
+    </div>
+  );
+}
+
 function MovementsView({p,lang,movs}:any){
   return (<>
     <p className="ap-kicker">{p("Guthaben","Funds")}</p>
@@ -356,13 +381,7 @@ function MovementsView({p,lang,movs}:any){
     <p className="ap-sub">{p("Alle Transaktionen Ihres Wallets.","All your wallet transactions.")}</p>
     <div className="ap-card">
       {movs.length===0 && <div className="ap-empty">{p("Noch keine Bewegungen.","No activity yet.")}</div>}
-      {movs.map((m:any)=>(
-        <div key={m.id} className="ap-table-row">
-          <span className={`ap-tag ${m.tipo==="recuperacion"?"ap-tag--ok":m.tipo==="retirada"?"ap-tag--bad":"ap-tag--pend"}`}>{m.tipo==="cambio"?p("Tausch","Swap"):m.tipo==="retirada"?p("Auszahlung","Payout"):m.tipo==="recuperacion"?p("Rückgewinnung","Recovery"):m.tipo}</span>
-          <div style={{flex:1}}><b>{m.tipo==="cambio"?`${num(m.entregado,m.desde)} ${m.desde} → ${num(m.recibido,m.hacia)} ${m.hacia}`:m.importe?eur(m.importe):m.eur?eur(m.eur):"—"}</b></div>
-          <small style={{color:"#64748b"}}>{new Date(m.created_at).toLocaleString(lang==="en"?"en-GB":"de-DE")}</small>
-        </div>
-      ))}
+      {movs.map((m:any)=>( <MovRow key={m.id} m={m} p={p} lang={lang}/> ))}
     </div>
   </>);
 }

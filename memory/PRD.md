@@ -102,6 +102,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   deduct from legacy `user_balances` + `cartera_saldos`, and rejecting a portal payout now restores each
   deducted asset. Verified full cycle: fund → withdraw (balance drops) → admin reject (funds restored).
 - **Avatar**: account pill now shows the client's initials (e.g. "MT") instead of a generic icon.
+- **Transaction history visibility (2026-10-28)**: every deposit and payout now appears in the client's
+  account history. Admin `update_balance` (deposit) logs a `deposito` movement; `handle_withdrawal`
+  (approve/reject) logs `retirada_aprobada`/`retirada_rechazada`. The portal Bewegungen feed + Overview
+  "Letzte Bewegungen" render all types with clear labels and +/− signed amounts (green deposit / red payout).
 - **Money-figure polish (2026-10-28)**: amounts now use tabular lining numerals with a metallic/engraved
   treatment — hero balance (silver gradient + soft shadow), sidebar total (blue metallic sheen + glow), and
   card/asset figures (refined shadow) — for a professional financial-platform feel.

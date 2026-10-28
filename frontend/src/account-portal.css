@@ -197,3 +197,7 @@
   color:#0f172a; text-shadow:0 1px 0 rgba(255,255,255,.6), 0 8px 18px rgba(15,23,42,.08);
 }
 .ap-sum b{ background:linear-gradient(180deg,#12213a 0%,#2c4a77 55%,#0f1c31 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+/* activity amount signs */
+.ap-amt-pos{ color:#16a34a; font-variant-numeric:tabular-nums; }
+.ap-amt-neg{ color:#dc2626; font-variant-numeric:tabular-nums; }
