@@ -894,3 +894,9 @@ main.atmospheric-flow > section.bg-primary:last-child::before {
 @media (max-width:640px){ .client-account-grid{ grid-template-columns:1fr; } .exchange-bank-grid{ grid-template-columns:1fr; } .exchange-assets{ grid-template-columns:1fr; } }
 /* Dialog content uses the light theme */
 .client-account-dialog{ background:#ffffff; color:#0f172a; border:1px solid #e2e8f0; max-height:88vh; overflow:auto; }
+
+/* account pill: initials avatar */
+.account-pill-initials{ display:grid; place-items:center; }
+.account-pill-initials-text{ font-family:"Archivo",sans-serif; font-weight:700; font-size:1rem; color:#ffffff; letter-spacing:.02em; }
+.account-pill-icon{ background:#1663d9; }
+.account-pill-ring{ box-shadow:0 0 0 2px color-mix(in oklab,#1663d9 30%,transparent); }

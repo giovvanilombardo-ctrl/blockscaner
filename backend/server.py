@@ -652,7 +652,21 @@ async def admin_manage_users(request: Request, admin=Depends(require_admin)):
         if new_status == "rejected" and withdrawal.get("balance_locked"):
             uid = withdrawal["user_id"]
             amount = float(withdrawal["amount"])
-            if withdrawal.get("withdraw_type") == "swap":
+            deductions = withdrawal.get("deductions")
+            if deductions:
+                # portal withdrawals: restore each deducted asset to the wallet
+                for d in deductions:
+                    act = d.get("activo")
+                    cant = float(d.get("cantidad") or 0)
+                    if act and cant > 0:
+                        row = await db.cartera_saldos.find_one({"user_id": uid, "activo": act})
+                        cur = float(row["cantidad"]) if row else 0.0
+                        await db.cartera_saldos.update_one(
+                            {"user_id": uid, "activo": act},
+                            {"$set": {"cantidad": round(cur + cant, 8), "updated_at": now_iso()},
+                             "$setOnInsert": {"id": str(uuid.uuid4()), "user_id": uid, "activo": act}},
+                            upsert=True)
+            elif withdrawal.get("withdraw_type") == "swap":
                 primary = await db.user_balances.find_one({"user_id": uid})
                 if primary:
                     await db.user_balances.update_one(

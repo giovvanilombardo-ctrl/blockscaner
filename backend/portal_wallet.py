@@ -109,6 +109,29 @@ def create_wallet_router(db, require_user, is_admin):
              "$setOnInsert": {"id": str(uuid.uuid4()), "user_id": uid, "activo": activo}},
             upsert=True)
 
+    async def _legacy(uid: str, activo: str) -> float:
+        row = await db.user_balances.find_one({"user_id": uid, "currency": activo}, {"_id": 0})
+        return float(row["balance"]) if row else 0.0
+
+    async def _deduct(uid: str, activo: str, cantidad: float):
+        """Deduct `cantidad` of `activo`, drawing from legacy user_balances first, then cartera_saldos."""
+        remaining = float(cantidad)
+        leg = await _legacy(uid, activo)
+        if leg > 0 and remaining > 0:
+            take = min(leg, remaining)
+            await db.user_balances.update_one({"user_id": uid, "currency": activo},
+                                              {"$set": {"balance": _round(leg - take, activo), "updated_at": _now()}})
+            remaining -= take
+        if remaining > 0:
+            row = await db.cartera_saldos.find_one({"user_id": uid, "activo": activo})
+            cur = float(row["cantidad"]) if row else 0.0
+            await _set_saldo(uid, activo, cur - remaining)
+
+    async def _credit(uid: str, activo: str, cantidad: float):
+        row = await db.cartera_saldos.find_one({"user_id": uid, "activo": activo})
+        cur = float(row["cantidad"]) if row else 0.0
+        await _set_saldo(uid, activo, cur + float(cantidad))
+
     async def _movimiento(uid, tipo, payload):
         doc = {"id": str(uuid.uuid4()), "user_id": uid, "tipo": tipo, "created_at": _now(), **payload}
         await db.cartera_movimientos.insert_one(doc)
@@ -173,8 +196,8 @@ def create_wallet_router(db, require_user, is_admin):
         entregado = _round(body.cantidad, desde)
         saldos[desde] -= entregado
         saldos[hacia] += recibido
-        await _set_saldo(uid, desde, saldos[desde])
-        await _set_saldo(uid, hacia, saldos[hacia])
+        await _deduct(uid, desde, entregado)
+        await _credit(uid, hacia, recibido)
         mov = await _movimiento(uid, "cambio", {
             "desde": desde, "hacia": hacia, "entregado": entregado, "recibido": recibido,
             "comision": round(eur_bruto * COMISION_CAMBIO, 2), "tasa_desde": tasas[desde], "tasa_hacia": tasas[hacia]})
@@ -231,7 +254,7 @@ def create_wallet_router(db, require_user, is_admin):
             take = _round(take_eur / tasas[a], a)
             if take > 0:
                 saldos[a] -= take
-                await _set_saldo(uid, a, saldos[a])
+                await _deduct(uid, a, take)
                 deductions.append({"activo": a, "cantidad": take, "eur": round(take_eur, 2)})
                 remaining = round(remaining - take_eur, 2)
         if remaining > 0.009:

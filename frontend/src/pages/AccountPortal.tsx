@@ -53,6 +53,9 @@ export default function AccountPortal(){
 
   const { data: me } = useQuery({ queryKey:["me"], queryFn: async ()=>{ const { data:{ user } } = await supabase.auth.getUser(); return user; } });
   const nombre = me?.user_metadata?.full_name || me?.user_metadata?.nombre || me?.email || "";
+  const initials = (nombre || "")
+    .split(/[\s@.]+/).filter(Boolean).slice(0,2)
+    .map((w:string)=>w[0]?.toUpperCase()).join("") || "B";
 
   const saldos: Record<string,number> = data?.saldos || {};
   const tasas: Record<string,number> = data?.tasas || {};
@@ -82,7 +85,7 @@ export default function AccountPortal(){
                 <h1>{nombre ? p(`Hallo, ${nombre}`,`Hello, ${nombre}`) : p("Hallo","Hello")}</h1>
               </div>
               <button onClick={()=>setShowKyc(true)} className="account-pill" aria-label={p("Konto & Verifizierung öffnen","Open account & verification")}>
-                <span className="account-pill-icon" aria-hidden="true"><span className="account-pill-ring"/><UserRound/></span>
+                <span className="account-pill-icon account-pill-initials" aria-hidden="true"><span className="account-pill-ring"/><span className="account-pill-initials-text">{initials}</span></span>
                 <span className="account-pill-text"><span className="account-pill-title">{p("Mein Konto","My account")}</span><span className="account-pill-sub">{p("Profil & KYC","Profile & KYC")}</span></span>
                 <span className="account-pill-arrow" aria-hidden="true">→</span>
               </button>

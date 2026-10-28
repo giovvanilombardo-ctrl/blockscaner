@@ -94,6 +94,17 @@ Live rates fetched server-side. Verified: swap executes with live BTC rate, with
 
 The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 
+
+## Follow-up (2026-10-28, second pass)
+- **Fund a client**: admin → Users → Set Balance credits `user_balances`, which now merges into the portal
+  wallet. Verified: admin credited +2 ETH → client wallet shows 2 ETH.
+- **Approve/reject payouts**: admin "Withdrawals" tab calls `handle_withdrawal`. Fixed swap/withdraw to
+  deduct from legacy `user_balances` + `cartera_saldos`, and rejecting a portal payout now restores each
+  deducted asset. Verified full cycle: fund → withdraw (balance drops) → admin reject (funds restored).
+- **Avatar**: account pill now shows the client's initials (e.g. "MT") instead of a generic icon.
+- **Email**: managed-proxy credits still insufficient (account-level) — emails queue as logged-mode until
+  topped up (Profile → Manage plan → Universal Key → Add Balance / auto top-up).
+
 ## Backlog / next tasks
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
 - P1: Decide production from-domain (verify a real sending domain in Resend for delivery to
