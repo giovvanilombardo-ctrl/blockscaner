@@ -47,12 +47,12 @@ export default function AuthPage() {
   const enter = async () => {
     if (going.current) return; going.current = true;
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setEntering(true); await new Promise((r) => setTimeout(r, 2300)); }
-    navigate("/account", { replace: true });
+    navigate("/dashboard", { replace: true });
   };
 
   useEffect(() => {
     document.title = L("Kundenzugang – Blockscaner", "Customer access – Blockscaner");
-    supabase.auth.getSession().then(({ data }) => { if (data.session) navigate("/account", { replace: true }); });
+    supabase.auth.getSession().then(({ data }) => { if (data.session) navigate("/dashboard", { replace: true }); });
   }, [navigate]);
 
   async function onSubmit(e: React.FormEvent) {

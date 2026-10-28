@@ -22,7 +22,7 @@ export default function ResetPassword() {
           setBusy(false);
           if (error) return toast.error(L("Der Link ist ungültig oder abgelaufen.", "The link is invalid or has expired."));
           toast.success(L("Passwort gespeichert", "Password saved"));
-          navigate("/account", { replace: true });
+          navigate("/dashboard", { replace: true });
         }}>
           <h1 className="font-display text-2xl font-bold">{L("Neues Passwort festlegen", "Set a new password")}</h1>
           <div><Label htmlFor="r-a">{L("Neues Passwort", "New password")}</Label><Input id="r-a" type="password" autoComplete="new-password" value={a} onChange={(e) => setA(e.target.value)} /></div>

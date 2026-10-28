@@ -1,7 +1,7 @@
 import { t as _t, lang, setLang } from "@/i18n";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound } from "lucide-react";
+import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound, LayoutDashboard } from "lucide-react";
 import { sections } from "@/content/site";
 import SearchDialog from "./SearchDialog";
 import { supabase } from "@/integrations/supabase/client";
@@ -92,6 +92,11 @@ const SiteHeader = () => {
           <Link to="/hilfe#erste-schritte" className="hidden sm:flex items-center gap-2 bg-primary px-4 py-2 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition">
             <LifeBuoy className="h-3.5 w-3.5" /> {_t("Soforthilfe")}
           </Link>
+          {loggedIn && (
+            <Link to="/dashboard" data-testid="nav-private-area" className="hidden sm:flex items-center gap-2 border border-primary px-4 py-2 text-xs font-medium text-primary hover:bg-primary hover:text-primary-foreground transition">
+              <LayoutDashboard className="h-3.5 w-3.5" /> {_t("Privater Bereich")}
+            </Link>
+          )}
           {loggedIn && (
             <Link to="/account" data-testid="nav-my-account" className="hidden sm:flex items-center gap-2 border border-primary px-4 py-2 text-xs font-medium text-primary hover:bg-primary hover:text-primary-foreground transition">
               <UserRound className="h-3.5 w-3.5" /> {_t("Mein Konto")}
