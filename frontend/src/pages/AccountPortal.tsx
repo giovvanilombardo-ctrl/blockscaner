@@ -145,7 +145,14 @@ function WalletView({p,lang,saldos,tasas,totalEur,criptoEur,fiatEur,activos,setV
           {criptoHoldings.length>0 ? (
             <div className="ap-crypto-list">
               {criptoHoldings.map(h=>(
-                <div key={h.a} className="ap-crypto-line"><span className={`ap-coin c-${h.a}`} style={{width:18,height:18,fontSize:10}}>{SIMB[h.a]}</span><b>{num(h.v,h.a)}</b><span className="ap-crypto-sym">{h.a}</span></div>
+                <div key={h.a} className="ap-crypto-line">
+                  <span className={`ap-coin c-${h.a}`} style={{width:18,height:18,fontSize:10}}>{SIMB[h.a]}</span>
+                  <span className="ap-crypto-amt">
+                    <b>{num(h.v,h.a)}</b>
+                    <small className="ap-crypto-eur">{eur(h.v*(tasas[h.a]||0))}</small>
+                  </span>
+                  <span className="ap-crypto-sym">{h.a}</span>
+                </div>
               ))}
             </div>
           ) : <b>—</b>}
