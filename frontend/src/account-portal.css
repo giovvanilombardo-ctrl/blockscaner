@@ -172,3 +172,28 @@
 .ap-link:hover{ color:#1252b8; }
 .ap-linkbtn:hover{ color:#1252b8; }
 .ap-asset-pill:hover{ border-color:var(--pa); color:var(--pa); }
+
+/* === Professional money figures (metallic / engraved) === */
+/* Big hero balance — engraved metallic white with soft depth */
+.ap-hero-left b{
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing:-.03em;
+  background:linear-gradient(180deg,#ffffff 0%,#dbe7fb 34%,#9db8e6 50%,#eef4ff 58%,#ffffff 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 2px 10px rgba(0,0,0,.35));
+  position:relative;
+}
+/* Sidebar total — polished blue with subtle glow */
+.ap-total strong{
+  font-variant-numeric: tabular-nums lining-nums; letter-spacing:-.01em;
+  background:linear-gradient(180deg,#cfe2ff 0%,#7db4f5 50%,#bcd6fb 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 1px 6px rgba(22,99,217,.45));
+}
+
+/* Sum cards + asset values — refined mono-spaced figures with soft shadow */
+.ap-sum b,.ap-asset-eur b,.ap-dist-vals strong{
+  font-variant-numeric: tabular-nums lining-nums; letter-spacing:-.015em;
+  color:#0f172a; text-shadow:0 1px 0 rgba(255,255,255,.6), 0 8px 18px rgba(15,23,42,.08);
+}
+.ap-sum b{ background:linear-gradient(180deg,#12213a 0%,#2c4a77 55%,#0f1c31 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }

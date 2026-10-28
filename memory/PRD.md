@@ -102,6 +102,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   deduct from legacy `user_balances` + `cartera_saldos`, and rejecting a portal payout now restores each
   deducted asset. Verified full cycle: fund → withdraw (balance drops) → admin reject (funds restored).
 - **Avatar**: account pill now shows the client's initials (e.g. "MT") instead of a generic icon.
+- **Money-figure polish (2026-10-28)**: amounts now use tabular lining numerals with a metallic/engraved
+  treatment — hero balance (silver gradient + soft shadow), sidebar total (blue metallic sheen + glow), and
+  card/asset figures (refined shadow) — for a professional financial-platform feel.
 - **Overview redesign + blue theme (2026-10-28)**: rebuilt the Übersicht view to match the Ciberdelito
   "Hola / cartera" screenshot — dark total-balance hero with 4 action buttons (Tauschen/Abheben/Banken/
   Verlauf), a 4-column asset-distribution grid (name, amount, € value, %), and two bottom cards (Letzte
