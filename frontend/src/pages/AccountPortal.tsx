@@ -131,6 +131,7 @@ function Card({title,kicker,children}:{title:string;kicker:string;children:React
 }
 
 function WalletView({p,lang,saldos,tasas,totalEur,criptoEur,fiatEur,activos,setView}:any){
+  const criptoHoldings = ACTIVOS.filter(a=>!isFiat(a) && (saldos[a]||0)>0).map(a=>({a, v:saldos[a]}));
   return (<>
     <p className="ap-kicker">{p("Guthaben","Funds")}</p>
     <h1 className="ap-title">{p("Mein Wallet","My wallet")}</h1>
@@ -141,8 +142,14 @@ function WalletView({p,lang,saldos,tasas,totalEur,criptoEur,fiatEur,activos,setV
       <div className="ap-summary">
         <div className="ap-sum">
           <small><span className="ap-coin c-BTC" style={{width:16,height:16,fontSize:9}}>₿</span> {p("Kryptowerte","Crypto assets")}</small>
-          <b>{eur(criptoEur)}</b>
-          <span>{criptoEur>0? p("Verfügbar","Available") : p("Keine Kryptowerte verfügbar","No crypto assets available")}</span>
+          {criptoHoldings.length>0 ? (
+            <div className="ap-crypto-list">
+              {criptoHoldings.map(h=>(
+                <div key={h.a} className="ap-crypto-line"><span className={`ap-coin c-${h.a}`} style={{width:18,height:18,fontSize:10}}>{SIMB[h.a]}</span><b>{num(h.v,h.a)}</b><span className="ap-crypto-sym">{h.a}</span></div>
+              ))}
+            </div>
+          ) : <b>—</b>}
+          <span>{criptoHoldings.length>0? p("Verfügbar","Available") : p("Keine Kryptowerte verfügbar","No crypto assets available")}</span>
         </div>
         <div className="ap-sum">
           <small><span className="ap-coin c-EUR" style={{width:16,height:16,fontSize:9}}>€</span> {p("Währungen","Currencies")}</small>

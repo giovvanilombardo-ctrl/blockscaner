@@ -212,3 +212,9 @@
   font-variant-numeric:tabular-nums lining-nums;
   background:none; -webkit-background-clip:initial; background-clip:initial; color:#0d1420;
 }
+
+/* Crypto assets card — list of coins, amounts only (no EUR total) */
+.ap-crypto-list{ display:grid; gap:.4rem; margin:.4rem 0 .2rem; }
+.ap-crypto-line{ display:flex; align-items:center; gap:.5rem; }
+.ap-crypto-line b{ font-variant-numeric:tabular-nums lining-nums; font-weight:800; color:#0a0f1a; font-size:1.05rem; text-shadow:0 1px 0 rgba(255,255,255,.55), 0 -1px 1px rgba(0,0,0,.3), 0 8px 18px rgba(2,6,23,.12); }
+.ap-crypto-sym{ font-size:.72rem; color:#64748b; font-weight:700; letter-spacing:.04em; }
