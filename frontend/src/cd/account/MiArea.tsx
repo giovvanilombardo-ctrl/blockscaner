@@ -104,7 +104,7 @@ export default function MiArea() {
           <header className="client-welcome">
             <div className="client-welcome-heading">
               <div><p>{L("Privater Bereich", "Private area")}</p><h1>{nombre ? `${L("Hallo", "Hello")}, ${nombre}` : L("Hallo", "Hello")}</h1></div>
-              <Link to="/konto" className="account-pill"><span className="account-pill-icon"><span className="account-pill-ring" /><UserRound /></span><span className="account-pill-text"><span className="account-pill-title">{L("Mein Konto", "My account")}</span><span className="account-pill-sub">{L("Profil verwalten", "Manage profile")}</span></span></Link>
+              <Link to="/account" className="account-pill"><span className="account-pill-icon"><span className="account-pill-ring" /><UserRound /></span><span className="account-pill-text"><span className="account-pill-title">{L("Mein Konto", "My account")}</span><span className="account-pill-sub">{L("Profil verwalten", "Manage profile")}</span></span></Link>
             </div>
             <span>{L("Hier verfolgen Sie Ihren Fall Schritt für Schritt.", "Here you can follow your case step by step.")}</span>
           </header>

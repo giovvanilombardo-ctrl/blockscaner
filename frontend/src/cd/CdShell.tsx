@@ -55,7 +55,7 @@ export function CdNav() {
           <button onClick={() => setLang(lang === "de" ? "en" : "de")} className="h-8 rounded-full px-2 text-xs font-semibold text-muted-foreground hover:text-foreground" aria-label="Sprache / Language">
             {lang === "de" ? "EN" : "DE"}
           </button>
-          <Link to={on ? "/dashboard" : "/login"}>
+          <Link to={on ? "/account" : "/login"}>
             <CdButton variant="outline" className={cn("h-8 px-2.5 text-[11px] sm:h-9 sm:px-4 sm:text-sm", on && "site-account-button")}>
               <UserRound className="hidden h-4 w-4 sm:block" />
               {on ? L("Mein Bereich", "My area") : L("Anmelden", "Sign in")}

@@ -83,7 +83,7 @@ const AppContent = () => {
           <Route path="/chat" element={<ChatAssistant />} />
           <Route path="/login" element={<AuthPage />} />
           <Route path="/dashboard" element={<AccountGate><MiArea /></AccountGate>} />
-          <Route path="/konto" element={<AccountGate><MiCuenta /></AccountGate>} />
+          <Route path="/konto" element={<AccountGate><AccountPortal /></AccountGate>} />
           <Route path="/account" element={<AccountGate><AccountPortal /></AccountGate>} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/admin/login" element={<AdminLogin />} />

@@ -72,7 +72,7 @@ export default function MiCuenta() {
             <button type="button" className="acct-logout" onClick={() => logout()}><LogOut /> {L("Abmelden", "Sign out")}</button>
           </aside>
           <main className="acct-main">
-            <div className="acct-top"><CdBack /><Link to="/dashboard" className="acct-link">{L("Zurück zu meinem Fall", "Back to my case")}</Link></div>
+            <div className="acct-top"><CdBack /><Link to="/account" className="acct-link">{L("Zurück zu meinem Fall", "Back to my case")}</Link></div>
 
             {sec === "resumen" && (
               <section className="acct-section">
@@ -82,7 +82,7 @@ export default function MiCuenta() {
                     <h3>{L("Ihr Fall", "Your case")}</h3>
                     <p className="text-sm text-muted-foreground">{L("Akte", "File")} {caso?.referencia ?? "—"} · {L("Phase", "Stage")} {caso?.fase ?? 1} / 6: {STOPS[Math.max(0, Math.min(5, (caso?.fase ?? 1) - 1))].title} · {caso?.progreso ?? 0}%</p>
                     <p className="mt-2 text-sm">{caso?.proxima_accion || L("Ihr Team meldet sich mit dem nächsten Schritt.", "Your team will get back to you with the next step.")}</p>
-                    <Link to="/dashboard" className="acct-more">{L("Meinen Weg ansehen", "View my journey")}</Link>
+                    <Link to="/account" className="acct-more">{L("Meinen Weg ansehen", "View my journey")}</Link>
                   </div>
                   <div className="acct-card">
                     <h3>{L("Kontostatus", "Account status")}</h3>

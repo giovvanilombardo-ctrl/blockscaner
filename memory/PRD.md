@@ -104,6 +104,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - **Avatar**: account pill now shows the client's initials (e.g. "MT") instead of a generic icon.
 - **Email**: managed-proxy credits still insufficient (account-level) — emails queue as logged-mode until
   topped up (Profile → Manage plan → Universal Key → Add Balance / auto top-up).
+- **Unified "My account" entry (2026-10-28, bugfix)**: clicking "Mein Konto" previously opened the old
+  settings page (`/konto`) so users saw no change. Now every account entry — the header "Mein Konto" link,
+  login redirect, and `/account` + `/konto` routes — opens the new portal (`AccountPortal`). The case
+  tracker stays reachable at `/dashboard` and via a new **"Mein Fall"** tab inside the portal.
 
 ## Backlog / next tasks
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.

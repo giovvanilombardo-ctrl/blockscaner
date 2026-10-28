@@ -102,6 +102,7 @@ export default function AccountPortal(){
                 <TabsTrigger value="exchange"><ArrowLeftRight className="h-4 w-4"/> {p("Tauschen","Exchange")}</TabsTrigger>
                 <TabsTrigger value="withdraw"><ArrowDownToLine className="h-4 w-4"/> {p("Auszahlen","Withdraw")}</TabsTrigger>
                 <TabsTrigger value="history"><History className="h-4 w-4"/> {p("Verlauf","History")}</TabsTrigger>
+                <TabsTrigger value="case"><ShieldCheck className="h-4 w-4"/> {p("Mein Fall","My case")}</TabsTrigger>
               </TabsList>
 
               {/* WALLET */}
@@ -174,6 +175,18 @@ export default function AccountPortal(){
                       </span>
                     </div>
                   ))}
+                </div>
+              </TabsContent>
+
+              {/* CASE JOURNEY (existing tracker) */}
+              <TabsContent value="case" className="client-summary">
+                <div className="client-summary-copy">
+                  <p>{p("Mein Fall","My case")}</p>
+                  <h3>{p("Verfolgen Sie Ihren Fall Schritt für Schritt","Follow your case step by step")}</h3>
+                  <p>{p("Sehen Sie die aktuelle Phase, die Chronologie der Schritte und die nächsten Aktionen Ihres Teams in der Fallübersicht.","See the current stage, the timeline of steps and your team's next actions in the case tracker.")}</p>
+                </div>
+                <div className="client-withdrawal-actions">
+                  <Button asChild><Link to="/dashboard"><ShieldCheck className="h-4 w-4"/> {p("Fallübersicht öffnen","Open case tracker")}</Link></Button>
                 </div>
               </TabsContent>
             </Tabs>
