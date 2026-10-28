@@ -3,7 +3,7 @@
    re-themed to Blockscaner light/blue branding)
    ============================================================ */
 .account-portal{ --pa:#1663d9; --pa-soft:#eaf1fb; --ink:#0f172a; --mut:#64748b; --line:#e2e8f0;
-  --panel:#ffffff; --navy:#0c1b34; --navy-2:#122444; --mint:#10b981;
+  --panel:#ffffff; --navy:#0c1b34; --navy-2:#122444; --mint:#1663d9;
   min-height:100vh; background:#f4f7fb; font-family:"IBM Plex Sans",system-ui,sans-serif;
   display:flex; gap:0; }
 .account-portal h1,.account-portal h2,.account-portal h3,.ap-title{ font-family:"Archivo",sans-serif; }
@@ -19,7 +19,7 @@
 .ap-user-mail{ font-size:.72rem; color:#9fb0c9; word-break:break-all; }
 .ap-total{ background:var(--navy-2); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:.9rem 1rem; }
 .ap-total small{ display:block; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:#8fa2c0; }
-.ap-total strong{ font-size:1.5rem; font-weight:800; color:#34d399; font-family:"Archivo"; }
+.ap-total strong{ font-size:1.5rem; font-weight:800; color:#7db4f5; font-family:"Archivo"; }
 .ap-nav-group small{ display:block; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:#7288a5; margin:1rem .4rem .4rem; }
 .ap-nav-item{ display:flex; align-items:center; gap:.7rem; width:100%; text-align:left; background:none; border:0;
   padding:.62rem .8rem; border-radius:12px; color:#c6d2e4; font-size:.86rem; cursor:pointer; transition:.15s; }
@@ -50,7 +50,7 @@
 .ap-market{ margin-left:auto; align-self:flex-start; background:#f6fbff; border:1px solid var(--line); border-radius:14px; padding:.7rem 1rem; font-size:.78rem; }
 .ap-market b{ display:flex; align-items:center; gap:.4rem; font-size:.8rem; }
 .ap-market span{ color:var(--mut); font-size:.68rem; }
-.ap-dot{ width:8px; height:8px; border-radius:50%; background:var(--mint); display:inline-block; box-shadow:0 0 0 3px rgba(16,185,129,.2); }
+.ap-dot{ width:8px; height:8px; border-radius:50%; background:var(--mint); display:inline-block; box-shadow:0 0 0 3px rgba(22,99,217,.2); }
 .ap-banner{ display:flex; gap:.8rem; align-items:flex-start; border:1px dashed var(--line); background:#f8fbff; border-radius:16px; padding:1rem 1.2rem; margin-top:1.2rem; }
 .ap-banner svg{ color:var(--pa); flex:none; margin-top:.1rem; }
 .ap-banner b{ display:block; font-size:.92rem; color:var(--ink); }
@@ -111,7 +111,7 @@
 .ap-table-row{ display:flex; align-items:center; gap:1rem; padding:.9rem .2rem; border-bottom:1px solid var(--line); font-size:.86rem; }
 .ap-table-row:last-child{ border-bottom:0; }
 .ap-tag{ font-size:.64rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .6rem; border-radius:999px; }
-.ap-tag--ok{ background:#e7f8ef; color:#16a34a; } .ap-tag--pend{ background:#fff5e0; color:#d97706; } .ap-tag--bad{ background:#ffe7e7; color:#dc2626; }
+.ap-tag--ok{ background:#e7f0fe; color:#1663d9; } .ap-tag--pend{ background:#fff5e0; color:#d97706; } .ap-tag--bad{ background:#ffe7e7; color:#dc2626; }
 .ap-empty{ text-align:center; color:var(--mut); padding:2.5rem 1rem; font-size:.88rem; }
 .ap-grid2{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
 .ap-input{ width:100%; border:1px solid var(--line); background:#fff; border-radius:10px; padding:.6rem .8rem; font-size:.9rem; color:var(--ink); outline:none; }
@@ -127,3 +127,40 @@
   .ap-exchange{ grid-template-columns:1fr; }
   .ap-title{ font-size:2rem; }
 }
+
+/* === Overview (Hola / total balance hero + asset grid) === */
+.ap-hero{ display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap;
+  background:linear-gradient(135deg,#0c1b34,#123058); border-radius:22px; padding:2.2rem 2.4rem; margin-top:1.6rem; color:#fff; }
+.ap-hero-left small{ display:block; font-size:.78rem; color:#a9c6ef; margin-bottom:.4rem; }
+.ap-hero-left b{ font-family:"Archivo"; font-size:3.4rem; font-weight:800; line-height:1; letter-spacing:-.02em; }
+.ap-hero-left span{ display:block; margin-top:.5rem; font-size:.82rem; color:#9db8e0; }
+.ap-hero-actions{ display:flex; gap:.7rem; flex-wrap:wrap; }
+.ap-hero-actions button{ display:flex; flex-direction:column; align-items:center; gap:.45rem; min-width:88px;
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); color:#eafff5; border-radius:14px;
+  padding:.9rem 1rem; font-size:.72rem; font-weight:600; cursor:pointer; transition:.15s; }
+.ap-hero-actions button:hover{ background:rgba(255,255,255,.14); transform:translateY(-1px); }
+.ap-hero-actions button svg{ width:1.25rem; height:1.25rem; }
+
+.ap-dist{ position:relative; overflow:hidden; }
+.ap-dist-bar{ height:4px; background:#e9f5ef; border-radius:99px; margin-bottom:1.4rem; }
+.ap-dist-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem 1.6rem; }
+.ap-dist-cell{ opacity:.5; }
+.ap-dist-cell.has{ opacity:1; }
+.ap-dist-name{ display:flex; align-items:center; gap:.5rem; margin-bottom:.4rem; }
+.ap-dist-name b{ font-size:.82rem; font-weight:700; color:#0f172a; }
+.ap-dist-vals strong{ display:block; font-size:1rem; font-weight:800; color:#0f172a; }
+.ap-dist-vals small{ font-size:.68rem; color:#64748b; }
+
+.ap-overview-bottom{ display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1.5rem; }
+.ap-card-title{ font-size:1.05rem; font-weight:800; margin:0 0 1rem; font-family:"Archivo"; }
+.ap-linkbtn{ background:none; border:0; color:#1663d9; font-weight:600; font-size:.8rem; cursor:pointer; padding:0; margin-top:1rem; }
+.ap-progress{ height:6px; background:#e9f5ef; border-radius:99px; overflow:hidden; }
+.ap-progress>div{ height:100%; background:#1663d9; border-radius:99px; }
+.ap-progress-label{ display:block; font-size:.72rem; color:#64748b; margin:.5rem 0 1rem; }
+.ap-checklist{ display:grid; gap:.6rem; }
+.ap-check{ display:flex; align-items:center; gap:.6rem; font-size:.84rem; color:#64748b; }
+.ap-check.done{ color:#0f172a; }
+.ap-check.done svg{ color:#1663d9; }
+.ap-check-circle{ width:16px; height:16px; border-radius:50%; border:2px solid #cbd5e1; flex:none; }
+
+@media (max-width:900px){ .ap-dist-grid{ grid-template-columns:repeat(2,1fr); } .ap-overview-bottom{ grid-template-columns:1fr; } .ap-hero{ padding:1.6rem; } .ap-hero-left b{ font-size:2.4rem; } }

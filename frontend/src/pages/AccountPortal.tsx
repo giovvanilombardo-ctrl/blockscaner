@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   LayoutDashboard, Wallet, History, Landmark, UserRound, ShieldCheck,
   Bell, FileCheck, LifeBuoy, LogOut, ArrowLeftRight, ArrowDownToLine,
-  Lock, CheckCircle2, ChevronRight, ArrowLeft,
+  Lock, CheckCircle2, ChevronRight, ArrowLeft, ArrowUpRight,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -112,7 +112,7 @@ export default function AccountPortal(){
         {!isLoading && data && (
           <motion.div initial={reduceMotion?false:{opacity:0,y:14}} animate={{opacity:1,y:0}} transition={{duration:.5,ease:[.22,1,.36,1]}}>
             {view==="wallet" && <WalletView p={p} lang={lang} {...{saldos,tasas,totalEur,criptoEur,fiatEur,activos,setView}}/>}
-            {view==="overview" && <OverviewView p={p} {...{totalEur,criptoEur,fiatEur,activos,retiros,setView}}/>}
+            {view==="overview" && <OverviewView p={p} lang={lang} nombre={nombre} {...{saldos,tasas,totalEur,criptoEur,fiatEur,activos,retiros,movs,setView}} perfil={data} me={me}/>}
             {view==="movements" && <MovementsView p={p} lang={lang} movs={movs}/>}
             {view==="withdraw" && <WithdrawView p={p} lang={lang} totalEur={totalEur} banco={data?.banco} retiros={retiros} onDone={()=>qc.invalidateQueries({queryKey:["portal-wallet"]})}/>}
             {view==="profile" && <Card title={p("Persönliche Daten","Personal data")} kicker={p("Konto","Account")}><ProfileKyc onDone={()=>qc.invalidateQueries({queryKey:["portal-wallet"]})}/></Card>}
@@ -261,22 +261,92 @@ function ExchangePanel({p,saldos,tasas}:any){
   );
 }
 
-function OverviewView({p,totalEur,criptoEur,fiatEur,activos,retiros,setView}:any){
+function OverviewView({p,lang,nombre,saldos,tasas,totalEur,retiros,movs,setView,perfil,me}:any){
   const pend = retiros.filter((r:any)=>r.status==="pending").length;
-  return (<>
-    <p className="ap-kicker">{p("Guthaben","Funds")}</p>
-    <h1 className="ap-title">{p("Übersicht","Overview")}</h1>
-    <p className="ap-sub">{p("Ein kurzer Blick auf Ihr Konto.","A quick look at your account.")}</p>
-    <div className="ap-summary" style={{marginTop:"1.4rem"}}>
-      <div className="ap-sum"><small>{p("Gesamtwert","Total value")}</small><b>{eur(totalEur)}</b><span>{p("Indikativ in Euro","Indicative in euros")}</span></div>
-      <div className="ap-sum"><small>{p("Werte mit Guthaben","Assets with balance")}</small><b>{activos}</b><span>{criptoEur>0||fiatEur>0? p("Aktiv","Active"):p("Noch keine","None yet")}</span></div>
-      <div className="ap-sum"><small>{p("Ausstehende Auszahlungen","Pending payouts")}</small><b>{pend}</b><span>{p("In Prüfung","Under review")}</span></div>
+  const pct = (e:number)=> totalEur>0? Math.round((e/totalEur)*100) : 0;
+  const hasTel = !!(me?.user_metadata?.telefono || perfil?.banco?.telefono);
+  const checks = [
+    { done:true, de:"E-Mail bestätigt", en:"Email confirmed" },
+    { done:true, de:"Persönliche Daten vollständig", en:"Personal data complete" },
+    { done:hasTel, de:"Kontakt-Telefon", en:"Contact phone" },
+    { done:!!perfil?.banco, de:"Bankkonto hinterlegt", en:"Bank account registered" },
+    { done:false, de:"Konto verifiziert", en:"Account verified" },
+  ];
+  const doneCount = checks.filter(c=>c.done).length;
+  const lastMovs = movs.slice(0,4);
+
+  return (<div className="ap-overview">
+    <p className="ap-kicker">{p("Mein Konto","My account")}</p>
+    <h1 className="ap-title">{nombre ? p(`Hallo, ${nombre}`,`Hello, ${nombre}`) : p("Hallo","Hello")}</h1>
+    <p className="ap-sub">{p("Ihr persönliches Zentrum zum Ansehen, Verschieben und Abheben der zurückgewonnenen Gelder.","Your personal centre to view, move and withdraw the recovered funds.")}</p>
+
+    {/* Hero balance card */}
+    <div className="ap-hero">
+      <div className="ap-hero-left">
+        <small>{p("Gesamtwert deines Wallets","Total value of your wallet")}</small>
+        <b>{eur(totalEur)}</b>
+        <span>{pend>0? p(`${pend} Auszahlung(en) ausstehend`,`${pend} pending payout(s)`) : p("Keine Auszahlungen ausstehend","No pending payouts")}</span>
+      </div>
+      <div className="ap-hero-actions">
+        <button onClick={()=>setView("wallet")}><ArrowLeftRight className="h-5 w-5"/><span>{p("Tauschen","Swap")}</span></button>
+        <button onClick={()=>setView("withdraw")}><ArrowUpRight className="h-5 w-5"/><span>{p("Abheben","Withdraw")}</span></button>
+        <button onClick={()=>setView("withdraw")}><Landmark className="h-5 w-5"/><span>{p("Banken","Banks")}</span></button>
+        <button onClick={()=>setView("movements")}><ArrowDownToLine className="h-5 w-5"/><span>{p("Verlauf","Statement")}</span></button>
+      </div>
     </div>
-    <div className="ap-actions">
-      <button className="ap-action" onClick={()=>setView("wallet")}><Wallet className="h-4 w-4"/> {p("Wallet öffnen","Open wallet")}</button>
-      <button className="ap-action ap-action--ghost" onClick={()=>setView("withdraw")}><Landmark className="h-4 w-4"/> {p("Auszahlen","Withdraw")}</button>
+
+    {/* Asset distribution grid */}
+    <div className="ap-card ap-dist">
+      <div className="ap-dist-bar"/>
+      <div className="ap-dist-grid">
+        {ACTIVOS.map(a=>{
+          const v=saldos[a]||0; const e=v*(tasas[a]||0); const has=v>0;
+          return (
+            <div key={a} className={`ap-dist-cell ${has?"has":""}`}>
+              <div className="ap-dist-name">
+                <span className={`ap-coin c-${a}`} style={{width:20,height:20,fontSize:10}}>{SIMB[a]}</span>
+                <b>{NOM[a]?.[lang==="en"?1:0]}</b>
+              </div>
+              <div className="ap-dist-vals">
+                <strong>{eur(e)}</strong>
+                <small>{num(v,a)} {a} · {pct(e)}%</small>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
-  </>);
+
+    {/* Bottom two cards */}
+    <div className="ap-overview-bottom">
+      <div className="ap-card">
+        <h3 className="ap-card-title">{p("Letzte Bewegungen","Latest activity")}</h3>
+        {lastMovs.length===0 && <p className="ap-empty" style={{padding:"1.5rem 0"}}>{p("Noch keine Bewegungen.","No activity yet.")}</p>}
+        {lastMovs.map((m:any)=>(
+          <div key={m.id} className="ap-table-row">
+            <span className={`ap-tag ${m.tipo==="recuperacion"?"ap-tag--ok":m.tipo==="retirada"?"ap-tag--bad":"ap-tag--pend"}`}>{m.tipo==="cambio"?p("Tausch","Swap"):m.tipo==="retirada"?p("Auszahlung","Payout"):p("Rückgewinnung","Recovery")}</span>
+            <div style={{flex:1}}><b>{m.tipo==="cambio"?`${num(m.entregado,m.desde)} ${m.desde} → ${num(m.recibido,m.hacia)} ${m.hacia}`:m.importe?eur(m.importe):m.eur?eur(m.eur):"—"}</b></div>
+          </div>
+        ))}
+        <button className="ap-linkbtn" onClick={()=>setView("movements")}>{p("Alle ansehen","View all")}</button>
+      </div>
+
+      <div className="ap-card">
+        <h3 className="ap-card-title">{p("Kontostand","Account status")}</h3>
+        <div className="ap-progress"><div style={{width:`${(doneCount/checks.length)*100}%`}}/></div>
+        <small className="ap-progress-label">{p(`${doneCount} von ${checks.length} abgeschlossen`,`${doneCount} of ${checks.length} completed`)}</small>
+        <div className="ap-checklist">
+          {checks.map((c,i)=>(
+            <div key={i} className={`ap-check ${c.done?"done":""}`}>
+              {c.done? <CheckCircle2 className="h-4 w-4"/> : <span className="ap-check-circle"/>}
+              <span>{p(c.de,c.en)}</span>
+            </div>
+          ))}
+        </div>
+        <button className="ap-linkbtn" onClick={()=>setView("kyc")}>{p("Verifizierung ansehen","View verification")}</button>
+      </div>
+    </div>
+  </div>);
 }
 
 function MovementsView({p,lang,movs}:any){

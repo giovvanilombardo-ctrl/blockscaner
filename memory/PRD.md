@@ -102,6 +102,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   deduct from legacy `user_balances` + `cartera_saldos`, and rejecting a portal payout now restores each
   deducted asset. Verified full cycle: fund → withdraw (balance drops) → admin reject (funds restored).
 - **Avatar**: account pill now shows the client's initials (e.g. "MT") instead of a generic icon.
+- **Overview redesign + blue theme (2026-10-28)**: rebuilt the Übersicht view to match the Ciberdelito
+  "Hola / cartera" screenshot — dark total-balance hero with 4 action buttons (Tauschen/Abheben/Banken/
+  Verlauf), a 4-column asset-distribution grid (name, amount, € value, %), and two bottom cards (Letzte
+  Bewegungen + Kontostand progress checklist). Re-themed all green accents to Blockscaner blue (hero card
+  navy-blue, kicker/active/progress/total all blue).
 - **My account redesign to the Ciberdelito portal look (2026-10-28)**: rebuilt `src/pages/AccountPortal.tsx`
   to match the screenshot — dark navy rounded sidebar (initials avatar, name+email, green "Gesamtguthaben"
   total, grouped nav: Guthaben [Übersicht, Mein Wallet, Bewegungen, Auszahlungen & Banken], Konto [Persönliche
