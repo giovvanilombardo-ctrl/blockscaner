@@ -192,7 +192,7 @@
 }
 
 /* Sum cards + asset values — refined mono-spaced figures with soft shadow */
-.ap-sum b,.ap-asset-eur b,.ap-dist-vals strong{
+.ap-sum b,.ap-asset-eur b,.ap-asset-mid b,.ap-dist-vals strong{
   font-variant-numeric: tabular-nums lining-nums; letter-spacing:-.015em;
   color:#0f172a; text-shadow:0 1px 0 rgba(255,255,255,.6), 0 8px 18px rgba(15,23,42,.08);
 }
