@@ -201,3 +201,16 @@
 /* activity amount signs */
 .ap-amt-pos{ color:#16a34a; font-variant-numeric:tabular-nums; }
 .ap-amt-neg{ color:#dc2626; font-variant-numeric:tabular-nums; }
+
+/* === STRONGER professional money treatment (clearer) === */
+.ap-sum b{
+  background:linear-gradient(180deg,#1b3a6b 0%,#0d1c33 45%,#3f639b 60%,#16305a 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  font-variant-numeric:tabular-nums lining-nums;
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.5)) drop-shadow(0 3px 8px rgba(15,23,42,.18));
+}
+.ap-asset-eur b,.ap-asset-mid b{
+  font-variant-numeric:tabular-nums lining-nums;
+  background:linear-gradient(180deg,#2c4a77 0%,#12213a 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
