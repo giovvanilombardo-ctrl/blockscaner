@@ -102,6 +102,14 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   deduct from legacy `user_balances` + `cartera_saldos`, and rejecting a portal payout now restores each
   deducted asset. Verified full cycle: fund → withdraw (balance drops) → admin reject (funds restored).
 - **Avatar**: account pill now shows the client's initials (e.g. "MT") instead of a generic icon.
+- **My account redesign to the Ciberdelito portal look (2026-10-28)**: rebuilt `src/pages/AccountPortal.tsx`
+  to match the screenshot — dark navy rounded sidebar (initials avatar, name+email, green "Gesamtguthaben"
+  total, grouped nav: Guthaben [Übersicht, Mein Wallet, Bewegungen, Auszahlungen & Banken], Konto [Persönliche
+  Daten, Sicherheit, Benachrichtigungen, Verifizierung], Support [Hilfe], Abmelden) + light content
+  (kicker "GUTHABEN", big title, crypto/currency summary cards, "Markt verfügbar" chip, activation banner,
+  asset list with live EUR rates, instant-exchange panel with "So funktioniert's", action pill buttons).
+  Re-themed to Blockscaner light/blue. New design CSS in `src/account-portal.css`. Removed SiteLayout on
+  this page (sidebar replaces it); bilingual via `i18n/portal.ts`. All views wired to `/api/portal/*`.
 - **Email**: managed-proxy credits recharged (2026-10-28) — transactional emails now send. Verified
   end-to-end: OTP verification code, password reset, lead notification, and deposit-credit emails all
   deliver via the managed Resend proxy.

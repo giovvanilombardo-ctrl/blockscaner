@@ -2,43 +2,35 @@ import { useMemo, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  ArrowDownToLine, ArrowLeftRight, Landmark, Lock, Wallet, History,
-  ShieldCheck, TrendingUp, LogOut, UserRound, CheckCircle2,
+  LayoutDashboard, Wallet, History, Landmark, UserRound, ShieldCheck,
+  Bell, FileCheck, LifeBuoy, LogOut, ArrowLeftRight, ArrowDownToLine,
+  Lock, CheckCircle2, ChevronRight, ArrowLeft,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useP } from "@/i18n/portal";
 import "@/account-portal.css";
-import SiteLayout from "@/components/site/SiteLayout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { WithdrawalWizard } from "@/components/account/WithdrawalWizard";
 import { ProfileKyc } from "@/components/account/ProfileKyc";
 
 const ACTIVOS = ["BTC","ETH","USDT","SOL","BNB","TRX","EUR","USD","GBP","CHF","JPY","CNY","AUD","CAD"];
 const FIAT = ["EUR","USD","GBP","CHF","JPY","CNY","AUD","CAD"];
-const SIMBOLOS: Record<string,string> = { BTC:"₿",ETH:"Ξ",USDT:"₮",SOL:"S",BNB:"B",TRX:"T",EUR:"€",USD:"$",GBP:"£",CHF:"₣",JPY:"¥",CNY:"元",AUD:"A$",CAD:"C$" };
-const NOMBRES: Record<string,[string,string]> = {
+const SIMB: Record<string,string> = { BTC:"₿",ETH:"Ξ",USDT:"₮",SOL:"S",BNB:"B",TRX:"T",EUR:"€",USD:"$",GBP:"£",CHF:"₣",JPY:"¥",CNY:"元",AUD:"A$",CAD:"C$" };
+const NOM: Record<string,[string,string]> = {
   BTC:["Bitcoin","Bitcoin"],ETH:["Ethereum","Ethereum"],USDT:["Tether","Tether"],SOL:["Solana","Solana"],BNB:["BNB","BNB"],TRX:["TRON","TRON"],
   EUR:["Euro","Euro"],USD:["US-Dollar","US Dollar"],GBP:["Britisches Pfund","British Pound"],CHF:["Schweizer Franken","Swiss Franc"],
   JPY:["Japanischer Yen","Japanese Yen"],CNY:["Chinesischer Yuan","Chinese Yuan"],AUD:["Australischer Dollar","Australian Dollar"],CAD:["Kanadischer Dollar","Canadian Dollar"],
 };
-
-const isFiat = (a:string)=>FIAT.includes(a);
-const fmtNum = (v:number, a:string)=> new Intl.NumberFormat("de-DE",{maximumFractionDigits: isFiat(a)||a==="USDT"?2:8}).format(v||0);
-const eur = (v:number)=> new Intl.NumberFormat("de-DE",{style:"currency",currency:"EUR"}).format(v||0);
+const isFiat=(a:string)=>FIAT.includes(a);
+const num=(v:number,a:string)=> new Intl.NumberFormat("de-DE",{maximumFractionDigits:isFiat(a)||a==="USDT"?2:8}).format(v||0);
+const eur=(v:number)=> new Intl.NumberFormat("de-DE",{style:"currency",currency:"EUR"}).format(v||0);
 
 export default function AccountPortal(){
   const { p, lang } = useP();
   const navigate = useNavigate();
   const qc = useQueryClient();
   const reduceMotion = useReducedMotion();
-  const [tab, setTab] = useState("wallet");
-  const [showWithdraw, setShowWithdraw] = useState(false);
-  const [showKyc, setShowKyc] = useState(false);
+  const [view, setView] = useState("wallet");
 
   const { data, isLoading } = useQuery({
     queryKey:["portal-wallet"],
@@ -50,240 +42,310 @@ export default function AccountPortal(){
     },
     refetchInterval: 15000,
   });
-
   const { data: me } = useQuery({ queryKey:["me"], queryFn: async ()=>{ const { data:{ user } } = await supabase.auth.getUser(); return user; } });
-  const nombre = me?.user_metadata?.full_name || me?.user_metadata?.nombre || me?.email || "";
-  const initials = (nombre || "")
-    .split(/[\s@.]+/).filter(Boolean).slice(0,2)
-    .map((w:string)=>w[0]?.toUpperCase()).join("") || "B";
+
+  const nombre = me?.user_metadata?.full_name || me?.user_metadata?.nombre || "—";
+  const email = me?.email || "";
+  const initials = (nombre||"").split(/[\s@.]+/).filter(Boolean).slice(0,2).map((w:string)=>w[0]?.toUpperCase()).join("") || "B";
 
   const saldos: Record<string,number> = data?.saldos || {};
   const tasas: Record<string,number> = data?.tasas || {};
   const totalEur = data?.total_eur ?? 0;
-  const movimientos = data?.movimientos || [];
+  const movs = data?.movimientos || [];
   const retiros = data?.retiros || [];
 
-  const holdings = useMemo(()=>ACTIVOS.map(a=>({a, v: saldos[a]||0, eur:(saldos[a]||0)*(tasas[a]||0)})).filter(h=>h.v>0).sort((x,y)=>y.eur-x.eur),[saldos,tasas]);
+  const holdings = useMemo(()=>ACTIVOS.map(a=>({a,v:saldos[a]||0,eur:(saldos[a]||0)*(tasas[a]||0)})).filter(h=>h.v>0),[saldos,tasas]);
+  const criptoEur = holdings.filter(h=>!isFiat(h.a)).reduce((s,h)=>s+h.eur,0);
+  const fiatEur = holdings.filter(h=>isFiat(h.a)).reduce((s,h)=>s+h.eur,0);
+  const activos = holdings.length;
 
-  async function cerrarSesion(){ await qc.cancelQueries(); qc.clear(); await supabase.auth.signOut(); navigate("/login",{replace:true}); }
+  async function logout(){ await qc.cancelQueries(); qc.clear(); await supabase.auth.signOut(); navigate("/login",{replace:true}); }
+
+  const NAV = [
+    { id:"overview", icon:LayoutDashboard, de:"Übersicht", en:"Overview", group:p("Guthaben","Funds") },
+    { id:"wallet", icon:Wallet, de:"Mein Wallet", en:"My wallet", group:null },
+    { id:"movements", icon:History, de:"Bewegungen", en:"Activity", group:null },
+    { id:"withdraw", icon:Landmark, de:"Auszahlungen & Banken", en:"Payouts & banks", group:null },
+    { id:"profile", icon:UserRound, de:"Persönliche Daten", en:"Personal data", group:p("Konto","Account") },
+    { id:"security", icon:ShieldCheck, de:"Sicherheit", en:"Security", group:null },
+    { id:"notifications", icon:Bell, de:"Benachrichtigungen", en:"Notifications", group:null },
+    { id:"kyc", icon:FileCheck, de:"Verifizierung", en:"Verification", group:null },
+  ];
 
   return (
-    <div className="client-area-page">
-      <SiteLayout>
-        <main className="client-area-shell">
-          <div className="client-area-topbar">
-            <Link to="/" className="text-sm text-muted-foreground hover:text-primary">← {p("Startseite","Home")}</Link>
-            <div className="client-area-actions">
-              <Button variant="ghost" onClick={cerrarSesion}><LogOut className="h-4 w-4"/> {p("Abmelden","Sign out")}</Button>
-            </div>
+    <div className="account-portal">
+      <aside className="ap-sidebar">
+        <div className="ap-user">
+          <div className="ap-avatar">{initials}</div>
+          <div style={{minWidth:0}}>
+            <div className="ap-user-name">{nombre}</div>
+            <div className="ap-user-mail">{email}</div>
           </div>
-
-          <motion.header className="client-welcome" initial={reduceMotion?false:{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:.6, ease:[.22,1,.36,1]}}>
-            <div className="client-welcome-heading">
-              <div>
-                <p>{p("Privater Bereich","Private area")}</p>
-                <h1>{nombre ? p(`Hallo, ${nombre}`,`Hello, ${nombre}`) : p("Hallo","Hello")}</h1>
-              </div>
-              <button onClick={()=>setShowKyc(true)} className="account-pill" aria-label={p("Konto & Verifizierung öffnen","Open account & verification")}>
-                <span className="account-pill-icon account-pill-initials" aria-hidden="true"><span className="account-pill-ring"/><span className="account-pill-initials-text">{initials}</span></span>
-                <span className="account-pill-text"><span className="account-pill-title">{p("Mein Konto","My account")}</span><span className="account-pill-sub">{p("Profil & KYC","Profile & KYC")}</span></span>
-                <span className="account-pill-arrow" aria-hidden="true">→</span>
+        </div>
+        <div className="ap-total">
+          <small>{p("Gesamtguthaben","Total balance")}</small>
+          <strong>{eur(totalEur)}</strong>
+        </div>
+        <nav>
+          {NAV.map(n=>{ const Icon=n.icon; return (
+            <div key={n.id}>
+              {n.group && <small>{n.group}</small>}
+              <button className={`ap-nav-item ${view===n.id?"is-active":""}`} onClick={()=>setView(n.id)} data-testid={`nav-${n.id}`}>
+                <Icon/> {p(n.de,n.en)}
               </button>
             </div>
-            <span>{p("Verfolgen Sie Ihr Guthaben, tauschen Sie Währungen und beantragen Sie Auszahlungen.","Track your balance, exchange currencies and request payouts.")}</span>
-          </motion.header>
+          );})}
+          <small>{p("Support","Support")}</small>
+          <Link to="/kundenservice" className="ap-nav-item"><LifeBuoy/> {p("Hilfe","Help")}</Link>
+        </nav>
+        <button className="ap-nav-item ap-logout" onClick={logout}><LogOut/> {p("Abmelden","Sign out")}</button>
+      </aside>
 
-          {isLoading && <div className="client-loading"><Wallet/> {p("Ihr Konto wird vorbereitet…","Preparing your account…")}</div>}
+      <main className="ap-content">
+        <div className="ap-topbar">
+          <Link to="/" className="ap-back"><ArrowLeft className="h-4 w-4"/> {p("Zurück","Back")}</Link>
+          <Link to="/dashboard" className="ap-link">{p("Zu meinem Fall","To my case")} →</Link>
+        </div>
 
-          {!isLoading && data && (
-            <Tabs value={tab} onValueChange={setTab} className="client-journey">
-              <TabsList className="client-stage-tabs">
-                <TabsTrigger value="wallet"><Wallet className="h-4 w-4"/> {p("Wallet","Wallet")}</TabsTrigger>
-                <TabsTrigger value="exchange"><ArrowLeftRight className="h-4 w-4"/> {p("Tauschen","Exchange")}</TabsTrigger>
-                <TabsTrigger value="withdraw"><ArrowDownToLine className="h-4 w-4"/> {p("Auszahlen","Withdraw")}</TabsTrigger>
-                <TabsTrigger value="history"><History className="h-4 w-4"/> {p("Verlauf","History")}</TabsTrigger>
-                <TabsTrigger value="case"><ShieldCheck className="h-4 w-4"/> {p("Mein Fall","My case")}</TabsTrigger>
-              </TabsList>
+        {isLoading && <div className="ap-empty">{p("Ihr Konto wird geladen…","Loading your account…")}</div>}
 
-              {/* WALLET */}
-              <TabsContent value="wallet" className="client-summary">
-                <div className="client-summary-topline">
-                  <span><Wallet/> {p("Mein Guthaben","My balance")}</span>
-                  <span className="client-status-pill client-status-current"><TrendingUp/> {p("Live","Live")}</span>
-                </div>
-                <div className="exchange-hero">
-                  <div className="exchange-hero-box exchange-hero-box-total">
-                    <span className="exchange-hero-box-label">{p("Geschätzter Gesamtwert","Estimated total value")}</span>
-                    <strong>{eur(totalEur)}</strong>
-                  </div>
-                  <div className="exchange-hero-breakdown">
-                    {holdings.length===0 && <p className="exchange-hero-empty">{p("Noch kein Guthaben. Sobald Gelder aus Ihrem Fall zurückgewonnen wurden, erscheinen sie hier.","No balance yet. Once funds from your case are recovered, they will appear here.")}</p>}
-                    {holdings.map(h=>(
-                      <div key={h.a} className="exchange-hero-holding">
-                        <span className={`exchange-asset-mark exchange-asset-mark--${h.a.toLowerCase()} is-active`}>{SIMBOLOS[h.a]}</span>
-                        <div><strong>{fmtNum(h.v,h.a)} {h.a}</strong><small>{NOMBRES[h.a]?.[lang==="en"?1:0]}</small></div>
-                        <span className="exchange-hero-holding-right">{eur(h.eur)}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="client-withdrawal-actions">
-                  <Button onClick={()=>setTab("exchange")}><ArrowLeftRight className="h-4 w-4"/> {p("Währung tauschen","Exchange currency")}</Button>
-                  <Button variant="outline" onClick={()=>setShowWithdraw(true)}><ArrowDownToLine className="h-4 w-4"/> {p("Auszahlung beantragen","Request payout")}</Button>
-                </div>
-              </TabsContent>
-
-              {/* EXCHANGE / SWAP */}
-              <TabsContent value="exchange"><ExchangePanel saldos={saldos} tasas={tasas} onDone={()=>qc.invalidateQueries({queryKey:["portal-wallet"]})} p={p} lang={lang}/></TabsContent>
-
-              {/* WITHDRAW */}
-              <TabsContent value="withdraw" className="client-withdrawal-area">
-                <div className="client-summary-copy">
-                  <p>{p("Auszahlung beantragen","Request a payout")}</p>
-                  <h3>{p("Überweisen Sie Ihr Guthaben","Transfer your balance")}</h3>
-                  <p>{p("Verfügbar: ","Available: ")}{eur(totalEur)}</p>
-                </div>
-                <WithdrawalWizard totalEur={totalEur} banco={data?.banco} onSubmit={async ()=>{ await qc.invalidateQueries({queryKey:["portal-wallet"]}); }}/>
-                {retiros.length>0 && (
-                  <div className="client-request-history">
-                    <h4>{p("Ihre Auszahlungen","Your payouts")}</h4>
-                    {retiros.map((r:any)=>(
-                      <div key={r.id} className="client-money-route">
-                        <span className={`client-status-pill ${r.status==="approved"||r.status==="pagada"?"client-withdrawal-aprobada":r.status==="rejected"?"client-withdrawal-rechazada":""}`}>{r.status}</span>
-                        <strong>{eur(r.eur_amount ?? r.amount)}</strong>
-                        <small>{new Date(r.created_at).toLocaleDateString(lang==="en"?"en-GB":"de-DE")}</small>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </TabsContent>
-
-              {/* HISTORY */}
-              <TabsContent value="history" className="client-transactions">
-                <h4 className="client-kicker">{p("Bewegungen","Activity")}</h4>
-                {movimientos.length===0 && <p className="client-empty">{p("Noch keine Bewegungen.","No activity yet.")}</p>}
-                <div className="client-activity-list">
-                  {movimientos.map((m:any)=>(
-                    <div key={m.id} className="client-money-flow">
-                      <span className="client-money-icon"><History/></span>
-                      <div>
-                        <strong>{m.tipo==="cambio"? p("Umtausch","Exchange") : m.tipo==="retirada"? p("Auszahlung","Payout") : m.tipo==="recuperacion"? p("Rückgewinnung","Recovery") : m.tipo}</strong>
-                        <small>{new Date(m.created_at).toLocaleString(lang==="en"?"en-GB":"de-DE")}</small>
-                      </div>
-                      <span className="client-money-primary">
-                        {m.tipo==="cambio" ? `${fmtNum(m.entregado,m.desde)} ${m.desde} → ${fmtNum(m.recibido,m.hacia)} ${m.hacia}` : m.importe? eur(m.importe): m.eur? eur(m.eur):""}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </TabsContent>
-
-              {/* CASE JOURNEY (existing tracker) */}
-              <TabsContent value="case" className="client-summary">
-                <div className="client-summary-copy">
-                  <p>{p("Mein Fall","My case")}</p>
-                  <h3>{p("Verfolgen Sie Ihren Fall Schritt für Schritt","Follow your case step by step")}</h3>
-                  <p>{p("Sehen Sie die aktuelle Phase, die Chronologie der Schritte und die nächsten Aktionen Ihres Teams in der Fallübersicht.","See the current stage, the timeline of steps and your team's next actions in the case tracker.")}</p>
-                </div>
-                <div className="client-withdrawal-actions">
-                  <Button asChild><Link to="/dashboard"><ShieldCheck className="h-4 w-4"/> {p("Fallübersicht öffnen","Open case tracker")}</Link></Button>
-                </div>
-              </TabsContent>
-            </Tabs>
-          )}
-
-          <div className="client-contact-line">
-            <ShieldCheck className="h-4 w-4"/> {p("Ihre Gelder werden sicher verwahrt. Fragen? ","Your funds are held securely. Questions? ")}<Link to="/kundenservice" className="text-primary">{p("Kundenservice","Customer service")}</Link>
-          </div>
-        </main>
-      </SiteLayout>
-
-      <Dialog open={showWithdraw} onOpenChange={setShowWithdraw}>
-        <DialogContent className="client-account-dialog">
-          <DialogHeader><DialogTitle>{p("Auszahlung beantragen","Request payout")}</DialogTitle></DialogHeader>
-          <WithdrawalWizard totalEur={totalEur} banco={data?.banco} onSubmit={async ()=>{ setShowWithdraw(false); await qc.invalidateQueries({queryKey:["portal-wallet"]}); }}/>
-        </DialogContent>
-      </Dialog>
-
-      <Dialog open={showKyc} onOpenChange={setShowKyc}>
-        <DialogContent className="client-account-dialog">
-          <DialogHeader><DialogTitle>{p("Mein Konto & Verifizierung","My account & verification")}</DialogTitle></DialogHeader>
-          <ProfileKyc perfil={data?.banco ? null : null} onDone={()=>{ setShowKyc(false); qc.invalidateQueries({queryKey:["portal-wallet"]}); }}/>
-        </DialogContent>
-      </Dialog>
+        {!isLoading && data && (
+          <motion.div initial={reduceMotion?false:{opacity:0,y:14}} animate={{opacity:1,y:0}} transition={{duration:.5,ease:[.22,1,.36,1]}}>
+            {view==="wallet" && <WalletView p={p} lang={lang} {...{saldos,tasas,totalEur,criptoEur,fiatEur,activos,setView}}/>}
+            {view==="overview" && <OverviewView p={p} {...{totalEur,criptoEur,fiatEur,activos,retiros,setView}}/>}
+            {view==="movements" && <MovementsView p={p} lang={lang} movs={movs}/>}
+            {view==="withdraw" && <WithdrawView p={p} lang={lang} totalEur={totalEur} banco={data?.banco} retiros={retiros} onDone={()=>qc.invalidateQueries({queryKey:["portal-wallet"]})}/>}
+            {view==="profile" && <Card title={p("Persönliche Daten","Personal data")} kicker={p("Konto","Account")}><ProfileKyc onDone={()=>qc.invalidateQueries({queryKey:["portal-wallet"]})}/></Card>}
+            {view==="kyc" && <Card title={p("Verifizierung","Verification")} kicker={p("Konto","Account")}><ProfileKyc onDone={()=>qc.invalidateQueries({queryKey:["portal-wallet"]})}/></Card>}
+            {view==="security" && <Card title={p("Sicherheit","Security")} kicker={p("Konto","Account")}><SecurityView p={p}/></Card>}
+            {view==="notifications" && <Card title={p("Benachrichtigungen","Notifications")} kicker={p("Konto","Account")}><NotificationsView p={p}/></Card>}
+          </motion.div>
+        )}
+      </main>
     </div>
   );
 }
 
-/* ---------- Exchange / Swap panel ---------- */
-function ExchangePanel({ saldos, tasas, onDone, p, lang }:{ saldos:Record<string,number>; tasas:Record<string,number>; onDone:()=>void; p:(a:string,b:string)=>string; lang:string }){
-  const [desde, setDesde] = useState("BTC");
-  const [hacia, setHacia] = useState("EUR");
-  const [cantidad, setCantidad] = useState("");
-  const [busy, setBusy] = useState(false);
-  const [done, setDone] = useState<any>(null);
-  const [err, setErr] = useState("");
+function Card({title,kicker,children}:{title:string;kicker:string;children:React.ReactNode}){
+  return (<div><p className="ap-kicker">{kicker}</p><h1 className="ap-title">{title}</h1><div className="ap-card">{children}</div></div>);
+}
 
-  const tasasArr = tasas||{};
-  const amt = parseFloat(cantidad)||0;
-  const bruto = amt*(tasasArr[desde]||0);
-  const neto = bruto*(1-0.015);
-  const recibido = tasasArr[hacia]? neto/tasasArr[hacia] : 0;
-  const canSwap = amt>0 && desde!==hacia && (saldos[desde]||0)>=amt;
+function WalletView({p,lang,saldos,tasas,totalEur,criptoEur,fiatEur,activos,setView}:any){
+  return (<>
+    <p className="ap-kicker">{p("Guthaben","Funds")}</p>
+    <h1 className="ap-title">{p("Mein Wallet","My wallet")}</h1>
+    <p className="ap-sub">{p("Verwalten Sie Ihre zurückgewonnenen Kryptowerte und sehen Sie deren indikativen Wert in Euro.","Manage your recovered crypto assets and see their indicative value in euros.")}</p>
 
-  async function doSwap(){
+    <div className="ap-card">
+      <div className="ap-card-kicker"><Wallet className="h-3.5 w-3.5"/> {p("Krypto-Wallet","Crypto wallet")}</div>
+      <div className="ap-summary">
+        <div className="ap-sum">
+          <small><span className="ap-coin c-BTC" style={{width:16,height:16,fontSize:9}}>₿</span> {p("Kryptowerte","Crypto assets")}</small>
+          <b>{eur(criptoEur)}</b>
+          <span>{criptoEur>0? p("Verfügbar","Available") : p("Keine Kryptowerte verfügbar","No crypto assets available")}</span>
+        </div>
+        <div className="ap-sum">
+          <small><span className="ap-coin c-EUR" style={{width:16,height:16,fontSize:9}}>€</span> {p("Währungen","Currencies")}</small>
+          <b>{eur(fiatEur)}</b>
+          <span>{fiatEur>0? p("Verfügbar","Available") : p("Keine Währungen verfügbar","No currencies available")}</span>
+        </div>
+        <div className="ap-market">
+          <b><span className="ap-dot"/> {p("Markt verfügbar","Market available")}</b>
+          <span>{p("Indikative Kurse","Indicative rates")}</span>
+        </div>
+      </div>
+
+      <div className="ap-banner">
+        <Lock className="h-5 w-5"/>
+        <div>
+          <b>{p("Ihr Wallet wird aktiviert, sobald die ersten Kryptowerte zurückgewonnen sind","Your wallet activates once the first crypto assets are recovered")}</b>
+          <p>{p("Sobald die Ermittlungen erfolgreich abgeschlossen sind, erscheinen die zurückgewonnenen Werte hier. Sie werden niemals als Euro gutgeschrieben.","Once the investigation concludes successfully, the recovered assets appear here. They are never credited as euros.")}</p>
+        </div>
+      </div>
+
+      <div className="ap-list-head"><span>{p("Meine Werte","My assets")} · {activos} {p("mit Guthaben","with balance")}</span><span>{p("Wert EUR","Value EUR")}</span></div>
+      <div>
+        {ACTIVOS.filter(a=>!isFiat(a)).map(a=>{
+          const v=saldos[a]||0; const e=v*(tasas[a]||0);
+          return (
+            <div key={a} className="ap-asset">
+              <span className={`ap-coin c-${a}`}>{SIMB[a]}</span>
+              <div><div className="ap-asset-name">{NOM[a]?.[lang==="en"?1:0]}</div><div className="ap-asset-sym">{a}</div></div>
+              <div className="ap-asset-mid"><b>{num(v,a)}</b><small>{p("Verfügbar","Available")}</small></div>
+              <div className="ap-asset-eur"><b>{eur(e)}</b><small>{tasas[a]? `${num(tasas[a],a)} € / ${a}`:"—"}</small></div>
+              <ChevronRight className="ap-chev h-4 w-4"/>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="ap-actions">
+        <button className="ap-action" onClick={()=>setView("withdraw")}><ArrowDownToLine className="h-4 w-4"/> {p("Auszahlen (Bank)","Withdraw (bank)")}</button>
+        <button className="ap-action ap-action--ghost" onClick={()=>setView("movements")}><History className="h-4 w-4"/> {p("Aktivität","Activity")}</button>
+      </div>
+    </div>
+
+    <ExchangePanel p={p} saldos={saldos} tasas={tasas}/>
+  </>);
+}
+
+function ExchangePanel({p,saldos,tasas}:any){
+  const qc = useQueryClient();
+  const [desde,setDesde]=useState("BTC"); const [hacia,setHacia]=useState("EUR");
+  const [cantidad,setCantidad]=useState(""); const [busy,setBusy]=useState(false);
+  const [done,setDone]=useState<any>(null); const [err,setErr]=useState("");
+  const amt=parseFloat(cantidad)||0;
+  const bruto=amt*(tasas[desde]||0); const neto=bruto*0.985; const recibido=tasas[hacia]?neto/tasas[hacia]:0;
+  const can=amt>0 && desde!==hacia && (saldos[desde]||0)>=amt;
+  async function go(){
     setBusy(true); setErr("");
     try{
       const { data:{ session } } = await supabase.auth.getSession();
-      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/portal/swap`,{ method:"POST", headers:{"Content-Type":"application/json", Authorization:`Bearer ${session?.access_token}`}, body: JSON.stringify({desde,hacia,cantidad:amt})});
-      const j = await res.json();
-      if(!res.ok) throw new Error(j.detail||"Fehler");
-      setDone(j.movimiento); onDone();
-    }catch(e:any){ setErr(e.message); }
+      const res=await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/portal/swap`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${session?.access_token}`},body:JSON.stringify({desde,hacia,cantidad:amt})});
+      const j=await res.json(); if(!res.ok) throw new Error(j.detail||"Fehler");
+      setDone(j.movimiento); qc.invalidateQueries({queryKey:["portal-wallet"]});
+    }catch(e:any){ setErr(e.message==="Saldo insuficiente"?p("Saldo nicht ausreichend","Insufficient balance"):e.message); }
     setBusy(false);
   }
-
   if(done) return (
-    <div className="exchange-success client-summary">
-      <div className="exchange-success-badge"><svg viewBox="0 0 72 72"><circle className="exchange-success-circle" cx="36" cy="36" r="31"/><path className="exchange-success-tick" d="M23 37.5 32 46.5 50 27"/></svg></div>
+    <div className="ap-card" style={{textAlign:"center",display:"grid",justifyItems:"center",gap:"0.6rem"}}>
+      <CheckCircle2 className="h-10 w-10" style={{color:"#16a34a"}}/>
       <h3>{p("Tausch abgeschlossen","Exchange complete")}</h3>
-      <div className="exchange-confirm-route">
-        <div><span className={`exchange-asset-mark exchange-asset-mark--${done.desde.toLowerCase()}`}>{SIMBOLOS[done.desde]}</span><span><small>{p("Gegeben","Given")}</small><strong>{fmtNum(done.entregado,done.desde)} {done.desde}</strong></span></div>
-        <ArrowLeftRight/>
-        <div><span className={`exchange-asset-mark exchange-asset-mark--${done.hacia.toLowerCase()}`}>{SIMBOLOS[done.hacia]}</span><span><small>{p("Erhalten","Received")}</small><strong>{fmtNum(done.recibido,done.hacia)} {done.hacia}</strong></span></div>
-      </div>
-      <Button onClick={()=>{setDone(null); setCantidad("");}}>{p("Neuer Tausch","New exchange")}</Button>
+      <p className="ap-sub">{num(done.entregado,done.desde)} {done.desde} → {num(done.recibido,done.hacia)} {done.hacia}</p>
+      <button className="ap-action" onClick={()=>{setDone(null);setCantidad("");}}>{p("Neuer Tausch","New exchange")}</button>
     </div>
   );
-
   return (
-    <div className="client-summary exchange-workspace">
-      <div className="client-summary-topline"><span><ArrowLeftRight/> {p("Währung tauschen","Exchange currency")}</span><span className="client-status-pill client-status-current"><Lock/> 1,5% {p("Gebühr","fee")}</span></div>
-      <div className="exchange-assets">
-        <div className="exchange-field">
-          <Label>{p("Von","From")}</Label>
-          <select value={desde} onChange={e=>setDesde(e.target.value)} className="exchange-bank-select">
-            {ACTIVOS.map(a=><option key={a} value={a} disabled={(saldos[a]||0)<=0}>{a} — {fmtNum(saldos[a]||0,a)}</option>)}
-          </select>
-          <Input inputMode="decimal" placeholder="0,00" value={cantidad} onChange={e=>setCantidad(e.target.value.replace(",","."))}/>
-          <button type="button" className="exchange-max" onClick={()=>setCantidad(String(saldos[desde]||0))}>{p("MAX","MAX")}</button>
+    <div className="ap-card ap-exchange" style={{marginTop:"1.4rem"}}>
+      <div>
+        <p className="ap-kicker">{p("Sofortiger Tausch","Instant exchange")}</p>
+        <h2 style={{fontSize:"1.3rem",fontWeight:800,margin:".3rem 0 1rem"}}>{p("Verkaufen oder tauschen","Sell or swap")} {desde}</h2>
+        <div className="ap-field">
+          <label>{p("Sie geben","You give")}</label>
+          <div className="ap-field-row">
+            <input inputMode="decimal" placeholder="0,00" value={cantidad} onChange={e=>setCantidad(e.target.value.replace(",","."))}/>
+            <select className="ap-asset-pill" value={desde} onChange={e=>setDesde(e.target.value)}>
+              {ACTIVOS.map(a=><option key={a} value={a} disabled={(saldos[a]||0)<=0}>{a}</option>)}
+            </select>
+          </div>
+          <div className="ap-field-row" style={{marginTop:".4rem"}}>
+            <button className="ap-mini" onClick={()=>setCantidad(String(saldos[desde]||0))}>{p("Maximum verwenden","Use max")}</button>
+            <small style={{color:"#64748b",fontSize:".7rem"}}>{p("Verfügbar","Available")}: {num(saldos[desde]||0,desde)} {desde}</small>
+          </div>
         </div>
-        <button type="button" className="exchange-switch" onClick={()=>{setDesde(hacia); setHacia(desde);}} aria-label="swap"><ArrowLeftRight/></button>
-        <div className="exchange-field exchange-field--receive">
-          <Label>{p("Zu","To")}</Label>
-          <select value={hacia} onChange={e=>setHacia(e.target.value)} className="exchange-bank-select">
-            {ACTIVOS.filter(a=>a!==desde).map(a=><option key={a} value={a}>{a}</option>)}
-          </select>
-          <div className="exchange-locked-input">{recibido? fmtNum(recibido,hacia):"0,00"}</div>
+        <div className="ap-field">
+          <label>{p("Sie erhalten","You receive")}</label>
+          <div className="ap-field-row">
+            <input readOnly value={recibido? num(recibido,hacia):"0"}/>
+            <select className="ap-asset-pill" value={hacia} onChange={e=>setHacia(e.target.value)}>
+              {ACTIVOS.filter(a=>a!==desde).map(a=><option key={a} value={a}>{a}</option>)}
+            </select>
+          </div>
         </div>
+        <div className="ap-meta"><span>{p("Indikativer Kurs","Indicative rate")}</span><b>1 {desde} = {tasas[desde]&&tasas[hacia]?num(tasas[desde]/tasas[hacia],hacia):"—"} {hacia}</b></div>
+        <div className="ap-meta"><span>{p("Gebühr (1,5 %)","Fee (1.5%)")}</span><b>{eur(bruto*0.015)}</b></div>
+        <div className="ap-meta"><span>{p("Geschätzter Wert","Estimated value")}</span><b>{eur(neto)}</b></div>
+        {err && <p className="ap-err">{err}</p>}
+        <button className="ap-btn" disabled={!can||busy} onClick={go}>{busy? p("Wird verarbeitet…","Processing…") : p("Tausch prüfen","Review exchange")} →</button>
       </div>
-      <div className="exchange-quote">
-        <span>{p("Kurs","Rate")}: 1 {desde} ≈ {tasasArr[desde]&&tasasArr[hacia]? fmtNum(tasasArr[desde]/tasasArr[hacia],hacia):"—"} {hacia}</span>
-        <span>{p("Gebühr (1,5 %)","Fee (1.5%)")}: {eur(bruto*0.015)}</span>
+      <div className="ap-panel">
+        <h3 style={{fontSize:"1.05rem",fontWeight:800,marginBottom:".6rem"}}>{p("So funktioniert's","How it works")}</h3>
+        <ol className="ap-howto">
+          <li><span className="ap-stepnum">1</span><div><b>{p("Verkaufen:","Sell:")}</b><span>{p("tauschen Sie Krypto in Euro oder eine andere Währung.","swap crypto into euros or another currency.")}</span></div></li>
+          <li><span className="ap-stepnum">2</span><div><b>{p("Kaufen:","Buy:")}</b><span>{p("nutzen Sie Ihre Euro oder Währungen, um wieder Krypto zu kaufen.","use your euros or currencies to buy crypto again.")}</span></div></li>
+          <li><span className="ap-stepnum">3</span><div><b>{p("Auszahlen:","Withdraw:")}</b><span>{p("senden Sie Ihre Euro oder Währungen an Ihre Bank.","send your euros or currencies to your bank.")}</span></div></li>
+        </ol>
+        <p className="ap-note"><ShieldCheck className="h-3 w-3"/> {p("Zum Auszahlen auf die Bank verkaufen Sie zuerst Ihre Kryptowerte hier in Euro (oder eine andere Währung).","To withdraw to the bank, first sell your crypto here into euros (or another currency).")}</p>
       </div>
-      {err && <p className="exchange-validation">{err==="Saldo insuficiente"? p("Saldo nicht ausreichend","Insufficient balance"):err}</p>}
-      <Button className="exchange-btn-confirm" disabled={!canSwap||busy} onClick={doSwap}>{busy? p("Wird verarbeitet…","Processing…") : p("Jetzt tauschen","Exchange now")}</Button>
-      <p className="exchange-footnote"><ShieldCheck className="h-3 w-3"/> {p("Sichere Ausführung mit Live-Kursen.","Secure execution with live rates.")}</p>
     </div>
   );
+}
+
+function OverviewView({p,totalEur,criptoEur,fiatEur,activos,retiros,setView}:any){
+  const pend = retiros.filter((r:any)=>r.status==="pending").length;
+  return (<>
+    <p className="ap-kicker">{p("Guthaben","Funds")}</p>
+    <h1 className="ap-title">{p("Übersicht","Overview")}</h1>
+    <p className="ap-sub">{p("Ein kurzer Blick auf Ihr Konto.","A quick look at your account.")}</p>
+    <div className="ap-summary" style={{marginTop:"1.4rem"}}>
+      <div className="ap-sum"><small>{p("Gesamtwert","Total value")}</small><b>{eur(totalEur)}</b><span>{p("Indikativ in Euro","Indicative in euros")}</span></div>
+      <div className="ap-sum"><small>{p("Werte mit Guthaben","Assets with balance")}</small><b>{activos}</b><span>{criptoEur>0||fiatEur>0? p("Aktiv","Active"):p("Noch keine","None yet")}</span></div>
+      <div className="ap-sum"><small>{p("Ausstehende Auszahlungen","Pending payouts")}</small><b>{pend}</b><span>{p("In Prüfung","Under review")}</span></div>
+    </div>
+    <div className="ap-actions">
+      <button className="ap-action" onClick={()=>setView("wallet")}><Wallet className="h-4 w-4"/> {p("Wallet öffnen","Open wallet")}</button>
+      <button className="ap-action ap-action--ghost" onClick={()=>setView("withdraw")}><Landmark className="h-4 w-4"/> {p("Auszahlen","Withdraw")}</button>
+    </div>
+  </>);
+}
+
+function MovementsView({p,lang,movs}:any){
+  return (<>
+    <p className="ap-kicker">{p("Guthaben","Funds")}</p>
+    <h1 className="ap-title">{p("Bewegungen","Activity")}</h1>
+    <p className="ap-sub">{p("Alle Transaktionen Ihres Wallets.","All your wallet transactions.")}</p>
+    <div className="ap-card">
+      {movs.length===0 && <div className="ap-empty">{p("Noch keine Bewegungen.","No activity yet.")}</div>}
+      {movs.map((m:any)=>(
+        <div key={m.id} className="ap-table-row">
+          <span className={`ap-tag ${m.tipo==="recuperacion"?"ap-tag--ok":m.tipo==="retirada"?"ap-tag--bad":"ap-tag--pend"}`}>{m.tipo==="cambio"?p("Tausch","Swap"):m.tipo==="retirada"?p("Auszahlung","Payout"):m.tipo==="recuperacion"?p("Rückgewinnung","Recovery"):m.tipo}</span>
+          <div style={{flex:1}}><b>{m.tipo==="cambio"?`${num(m.entregado,m.desde)} ${m.desde} → ${num(m.recibido,m.hacia)} ${m.hacia}`:m.importe?eur(m.importe):m.eur?eur(m.eur):"—"}</b></div>
+          <small style={{color:"#64748b"}}>{new Date(m.created_at).toLocaleString(lang==="en"?"en-GB":"de-DE")}</small>
+        </div>
+      ))}
+    </div>
+  </>);
+}
+
+function WithdrawView({p,lang,totalEur,banco,retiros,onDone}:any){
+  return (<>
+    <p className="ap-kicker">{p("Guthaben","Funds")}</p>
+    <h1 className="ap-title">{p("Auszahlungen & Banken","Payouts & banks")}</h1>
+    <p className="ap-sub">{p("Überweisen Sie Ihr Guthaben auf Ihre Bank oder Krypto-Wallet.","Transfer your balance to your bank or crypto wallet.")}</p>
+    <div className="ap-card">
+      <div className="ap-meta" style={{marginBottom:"1rem"}}><span>{p("Verfügbar","Available")}</span><b>{eur(totalEur)}</b></div>
+      <WithdrawalWizard totalEur={totalEur} banco={banco} onSubmit={onDone}/>
+    </div>
+    {retiros.length>0 && (
+      <div className="ap-card">
+        <div className="ap-card-kicker"><Landmark className="h-3.5 w-3.5"/> {p("Ihre Auszahlungen","Your payouts")}</div>
+        {retiros.map((r:any)=>(
+          <div key={r.id} className="ap-table-row">
+            <span className={`ap-tag ${r.status==="approved"?"ap-tag--ok":r.status==="rejected"?"ap-tag--bad":"ap-tag--pend"}`}>{r.status}</span>
+            <div style={{flex:1}}><b>{eur(r.eur_amount ?? r.amount)}</b></div>
+            <small style={{color:"#64748b"}}>{new Date(r.created_at).toLocaleDateString(lang==="en"?"en-GB":"de-DE")}</small>
+          </div>
+        ))}
+      </div>
+    )}
+  </>);
+}
+
+function SecurityView({p}:any){
+  const [cur,setCur]=useState(""); const [nw,setNw]=useState(""); const [msg,setMsg]=useState(""); const [busy,setBusy]=useState(false);
+  async function save(){
+    setBusy(true); setMsg("");
+    const { error } = await supabase.auth.updateUser({ password:nw, current_password:cur } as any);
+    setMsg(error? p("Passwort konnte nicht geändert werden","Could not change password") : p("Passwort aktualisiert","Password updated"));
+    setBusy(false);
+  }
+  return (<div>
+    <div className="ap-grid2">
+      <div><span className="ap-label">{p("Aktuelles Passwort","Current password")}</span><input type="password" className="ap-input" value={cur} onChange={e=>setCur(e.target.value)}/></div>
+      <div><span className="ap-label">{p("Neues Passwort","New password")}</span><input type="password" className="ap-input" value={nw} onChange={e=>setNw(e.target.value)}/></div>
+    </div>
+    {msg && <p className="ap-note">{msg}</p>}
+    <button className="ap-btn" style={{marginTop:"1rem",width:"auto",padding:".8rem 2rem"}} disabled={!cur||!nw||busy} onClick={save}><Lock className="h-4 w-4"/> {p("Passwort ändern","Change password")}</button>
+  </div>);
+}
+function NotificationsView({p}:any){
+  const [on,setOn]=useState<Record<string,boolean>>({email:true,payout:true,case:true});
+  const Tog=({k,de,en}:any)=>(<div className="ap-table-row"><div style={{flex:1}}><b>{p(de,en)}</b></div>
+    <button onClick={()=>setOn({...on,[k]:!on[k]})} className={`ap-tag ${on[k]?"ap-tag--ok":"ap-tag--pend"}`} style={{border:0,cursor:"pointer"}}>{on[k]?p("An","On"):p("Aus","Off")}</button></div>);
+  return (<div>
+    <Tog k="email" de="E-Mail-Benachrichtigungen" en="Email notifications"/>
+    <Tog k="payout" de="Auszahlungs-Updates" en="Payout updates"/>
+    <Tog k="case" de="Fall-Fortschritt" en="Case progress"/>
+    <p className="ap-note"><Bell className="h-3 w-3"/> {p("Wählen Sie, worüber wir Sie informieren.","Choose what we notify you about.")}</p>
+  </div>);
 }
