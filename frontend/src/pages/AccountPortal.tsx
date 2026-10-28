@@ -146,17 +146,16 @@ function WalletView({p,lang,saldos,tasas,totalEur,criptoEur,fiatEur,activos,setV
             <div className="ap-crypto-list">
               {criptoHoldings.map(h=>(
                 <div key={h.a} className="ap-crypto-line">
-                  <span className={`ap-coin c-${h.a}`} style={{width:18,height:18,fontSize:10}}>{SIMB[h.a]}</span>
-                  <span className="ap-crypto-amt">
-                    <b>{num(h.v,h.a)}</b>
+                  <span className={`ap-coin c-${h.a}`}>{SIMB[h.a]}</span>
+                  <div className="ap-crypto-amt">
+                    <b>{num(h.v,h.a)} <span className="ap-crypto-sym">{h.a}</span></b>
                     <small className="ap-crypto-eur">{eur(h.v*(tasas[h.a]||0))}</small>
-                  </span>
-                  <span className="ap-crypto-sym">{h.a}</span>
+                  </div>
                 </div>
               ))}
             </div>
           ) : <b>—</b>}
-          <span>{criptoHoldings.length>0? p("Verfügbar","Available") : p("Keine Kryptowerte verfügbar","No crypto assets available")}</span>
+          <span className="ap-sum-foot">{criptoHoldings.length>0? `${criptoHoldings.length} ${p("Werte","assets")}` : p("Keine Kryptowerte verfügbar","No crypto assets available")}</span>
         </div>
         <div className="ap-sum">
           <small><span className="ap-coin c-EUR" style={{width:16,height:16,fontSize:9}}>€</span> {p("Währungen","Currencies")}</small>
