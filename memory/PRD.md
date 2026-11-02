@@ -168,9 +168,17 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   to the detail page. Blockscaner blue throughout.
 
 ## Backlog / next tasks
+- P0: Move CoinGecko price fetching to the FastAPI backend with caching — client-side calls still hit
+  intermittent 429 rate limits (price occasionally shows 0,00 € / "—" on coin detail and markets pages).
+- P1: Create individual detail pages for the other cryptocurrencies (only Bitcoin has full custom content).
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
 - P1: Decide production from-domain (verify a real sending domain in Resend for delivery to
   arbitrary inboxes, not just the Resend test inbox).
 - P1: Run the full scheduled-recurring-task for `send-visitor-reminder` follow-ups (cron).
 - P2: Re-add the Spanish `/cd` international section if ever wanted (files still available).
 - P2: Wallet report PDF polish + live price feed caching.
+
+- **Coin page TOC + hero cleanup (2026-11-02)**: sticky sidebar TOC deleted then re-inserted per user request
+  (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the
+  Bitcoin page because it was a full screenshot of youngplatform.com that visually duplicated the page
+  title and TOC (asset file kept at `src/assets/btc-hero.png`, just no longer rendered).

@@ -9,7 +9,6 @@ export type CoinContent = {
 
 export const BITCOIN: CoinContent = {
   id: "bitcoin", sym: "BTC", name: "Bitcoin",
-  heroImage: "btc-hero",
   title: "Buy Bitcoin (BTC): value and price trends",
   lead: "Find out what Bitcoin (BTC) is, the first crypto-asset: how the network works, who governs it, who holds it today between ETFs and companies, and what to consider before buying.",
   whitepaper: "https://bitcoin.org/bitcoin.pdf",
