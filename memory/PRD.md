@@ -224,6 +224,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   the final CTA block (#business-contact) on /business; hero "Contact us", settle "Talk to us" and
   workshop "Request info" buttons scroll to it and preselect the topic. Whole Business page zoomed
   1.15x per user (CSS zoom on .bz-page); hero coins re-spaced and mobile h1 fixed to avoid hyphen split.
+  OTC Desk card rebuilt to match the user's reference photo exactly (2026-11-02): dark navy card,
+  green "OTC Desk" accent, upright white coin with orange BTC logo, thick SVG swoosh arrows (green
+  down-left, blue up-right) with userSpaceOnUse arrowhead markers, "Less fee"/"Less risks" pill tags.
 
 - **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
   and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.

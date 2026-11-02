@@ -280,16 +280,26 @@ export default function Business() {
 
           <div className="bz-grid-2">
             <Reveal className="bz-card bz-card-blue">
-              <h3>{_t("Move large capital with our")} <span className="bz-accent">{_t("OTC Desk")}</span></h3>
+              <h3>{_t("Move large capital with our")} <span className="bz-accent-green">{_t("OTC Desk")}</span></h3>
               <p>{_t("Reduce trading costs and minimise volatility risks. The OTC service enables efficient and secure management of significant capital.")}</p>
               <div className="bz-otc-art">
-                <span className="bz-tag bz-tag-up"><ArrowUpRight className="h-3 w-3" /> {_t("Less fee")}</span>
-                <div className="bz-otc-coin">
+                <svg viewBox="0 0 400 230" className="bz-otc-svg" aria-hidden="true">
+                  <defs>
+                    <marker id="bz-arr-g" markerWidth="28" markerHeight="28" refX="19" refY="14" orient="auto" markerUnits="userSpaceOnUse">
+                      <path d="M2,4 L26,14 L2,24 z" fill="#22c55e" />
+                    </marker>
+                    <marker id="bz-arr-b" markerWidth="28" markerHeight="28" refX="19" refY="14" orient="auto" markerUnits="userSpaceOnUse">
+                      <path d="M2,4 L26,14 L2,24 z" fill="#2f9cf0" />
+                    </marker>
+                  </defs>
+                  <path d="M 205 22 C 120 22, 82 80, 58 192" stroke="#22c55e" strokeWidth="13" fill="none" strokeLinecap="round" markerEnd="url(#bz-arr-g)" />
+                  <path d="M 235 208 C 305 192, 335 140, 352 40" stroke="#2f9cf0" strokeWidth="13" fill="none" strokeLinecap="round" markerEnd="url(#bz-arr-b)" />
+                </svg>
+                <div className="bz-otc-coin2">
                   {coins[0] && <img src={coins[0].image} alt={coins[0].name} />}
                 </div>
+                <span className="bz-tag bz-tag-up"><ArrowDownUp className="h-3 w-3" /> {_t("Less fee")}</span>
                 <span className="bz-tag bz-tag-down"><ArrowDownUp className="h-3 w-3" /> {_t("Less risks")}</span>
-                <div className="bz-otc-arrow bz-otc-arrow-a" />
-                <div className="bz-otc-arrow bz-otc-arrow-b" />
               </div>
             </Reveal>
             <Reveal className="bz-card" delay={120}>
