@@ -23,39 +23,59 @@ _cache: dict = {}
 _locks: dict = {}
 
 
+async def _fetch(path: str, params: dict):
+    """One upstream call with a short retry budget (fail fast - the caller or a
+    background refresh decides what to serve instead)."""
+    for attempt in range(2):
+        try:
+            async with httpx.AsyncClient(timeout=8) as c:
+                r = await c.get(f"{CG}{path}", params=params)
+            if r.status_code == 200:
+                return r.json()
+            if r.status_code == 429:
+                await asyncio.sleep(1.5 * (attempt + 1))
+                continue
+            logger.info("coingecko %s -> HTTP %s", path, r.status_code)
+            return None
+        except Exception as e:
+            logger.info("coingecko %s failed: %s", path, e)
+            await asyncio.sleep(1)
+    return None
+
+
+async def _refresh(key: str, path: str, params: dict, transform):
+    lock = _locks.setdefault(key, asyncio.Lock())
+    if lock.locked():  # a refresh is already in flight for this key
+        return
+    async with lock:
+        data = await _fetch(path, params)
+        if data is not None:
+            if transform:
+                data = transform(data)
+            _cache[key] = {"t": time.time(), "data": data}
+
+
 async def _cached(key: str, ttl: int, path: str, params: dict, transform=None):
+    """Stale-while-revalidate: any cached entry is served instantly; expired
+    entries refresh in the background. Only a never-seen key waits."""
     now = time.time()
     ent = _cache.get(key)
     if ent and now - ent["t"] < ttl:
         return ent["data"]
+    if ent:
+        asyncio.create_task(_refresh(key, path, params, transform))
+        return ent["data"]
     lock = _locks.setdefault(key, asyncio.Lock())
     async with lock:
         ent = _cache.get(key)
-        if ent and time.time() - ent["t"] < ttl:
+        if ent:
             return ent["data"]
-        data = None
-        for attempt in range(3):
-            try:
-                async with httpx.AsyncClient(timeout=8) as c:
-                    r = await c.get(f"{CG}{path}", params=params)
-                if r.status_code == 200:
-                    data = r.json()
-                    break
-                if r.status_code == 429:
-                    await asyncio.sleep(2 * (attempt + 1))
-                    continue
-                logger.info("coingecko %s -> HTTP %s", path, r.status_code)
-                break
-            except Exception as e:
-                logger.info("coingecko %s failed: %s", path, e)
-                await asyncio.sleep(1)
+        data = await _fetch(path, params)
         if data is not None:
             if transform:
                 data = transform(data)
             _cache[key] = {"t": time.time(), "data": data}
             return data
-        if ent:  # serve stale rather than nothing
-            return ent["data"]
         raise HTTPException(status_code=503, detail="Market data temporarily unavailable")
 
 

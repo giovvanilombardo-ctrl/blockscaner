@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { t as _t } from "@/i18n";
 import SiteLayout from "@/components/site/SiteLayout";
@@ -17,46 +17,120 @@ const HERO_IMAGES: Record<string, string> = { "btc-hero": btcHero };
 
 function CoinChart({ coinId, sym, current }: { coinId: string; sym: string; current: any }) {
   const [range, setRange] = useState("1M");
-  const [points, setPoints] = useState<number[]>([]);
+  const [points, setPoints] = useState<{ t: number; p: number }[]>([]);
+  const [error, setError] = useState(false);
+  const [hover, setHover] = useState<number | null>(null);
+  const [nonce, setNonce] = useState(0);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const API = process.env.REACT_APP_BACKEND_URL;
+  const daysOf = (r: string) => (r === "1D" ? 1 : r === "1W" ? 7 : r === "1M" ? 30 : r === "6M" ? 180 : 730);
+
   useEffect(() => {
     let alive = true;
-    const days = range === "1D" ? 1 : range === "1W" ? 7 : range === "1M" ? 30 : range === "6M" ? 180 : 730;
-    const load = (attempt = 0) => {
-      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/market/chart/${coinId}?days=${days}`)
+    setError(false);
+    const run = (attempt = 0) => {
+      fetch(`${API}/api/market/chart/${coinId}?days=${daysOf(range)}`)
         .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-        .then((j) => { if (alive) setPoints((j.prices || []).map((p: any[]) => p[1])); })
-        .catch(() => { if (alive && attempt < 3) setTimeout(() => load(attempt + 1), 1500 * (attempt + 1)); });
+        .then((j) => {
+          if (!alive) return;
+          const pts = (j.prices || []).map((p: any[]) => ({ t: p[0], p: p[1] }));
+          if (pts.length > 1) { setPoints(pts); setError(false); }
+          else if (attempt < 2) setTimeout(() => run(attempt + 1), 1500 * (attempt + 1));
+          else setError(true);
+        })
+        .catch(() => {
+          if (!alive) return;
+          if (attempt < 2) setTimeout(() => run(attempt + 1), 1500 * (attempt + 1));
+          else setError(true);
+        });
     };
-    load();
+    run();
     return () => { alive = false; };
-  }, [coinId, range]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coinId, range, nonce]);
 
-  const w = 600, h = 220;
-  const path = useMemo(() => {
-    if (points.length < 2) return "";
-    const min = Math.min(...points), max = Math.max(...points), rng = max - min || 1;
-    return points.map((v, i) => `${(i / (points.length - 1)) * w},${h - ((v - min) / rng) * (h - 24) - 12}`).join(" ");
-  }, [points]);
-  const up = points.length > 1 && points[points.length - 1] >= points[0];
+  /* warm the other ranges in the background so the range buttons switch instantly */
+  useEffect(() => {
+    const timers = RANGES.filter((r) => r !== "1M").map((r, i) =>
+      setTimeout(() => { fetch(`${API}/api/market/chart/${coinId}?days=${daysOf(r)}`).catch(() => {}); }, 3000 * (i + 1))
+    );
+    return () => timers.forEach(clearTimeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coinId]);
+
+  const w = 600, h = 220, n = points.length;
+  const min = n ? Math.min(...points.map((x) => x.p)) : 0;
+  const max = n ? Math.max(...points.map((x) => x.p)) : 0;
+  const rng = max - min || 1;
+  const xy = (i: number) => ({ x: (i / (n - 1)) * w, y: h - ((points[i].p - min) / rng) * (h - 24) - 12 });
+  const path = useMemo(() => (n > 1 ? points.map((_, i) => `${xy(i).x},${xy(i).y}`).join(" ") : ""), [points]); // eslint-disable-line react-hooks/exhaustive-deps
+  const up = n > 1 && points[n - 1].p >= points[0].p;
+
+  const moveTo = (clientX: number) => {
+    if (!svgRef.current || n < 2) return;
+    const rect = svgRef.current.getBoundingClientRect();
+    const px = ((clientX - rect.left) / rect.width) * w;
+    setHover(Math.max(0, Math.min(n - 1, Math.round((px / w) * (n - 1)))));
+  };
+
+  const fmtTime = (t: number) => {
+    const d = new Date(t);
+    if (range === "1D") return d.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
+    if (range === "1W" || range === "1M") return d.toLocaleString("de-DE", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+    return d.toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" });
+  };
+
+  const hv = hover !== null && n > 1 ? xy(hover) : null;
+  const tipClass = hv ? (hv.x / w > 0.8 ? "tip-r" : hv.x / w < 0.2 ? "tip-l" : "") : "";
 
   return (
     <div className="cd-chart">
       <div className="cd-chart-head">
         <div>
           <p className="cd-chart-name">{sym === "BTC" ? "Bitcoin" : sym}</p>
-          <p className="cd-chart-price">{current ? eur(current.current_price) : "—"}</p>
+          <p className="cd-chart-price">{hv && hover !== null ? eur(points[hover].p) : current ? eur(current.current_price) : "—"}</p>
           <p className={`cd-chart-change ${(current?.price_change_percentage_24h || 0) >= 0 ? "up" : "down"}`}>
-            {current ? `${(current.price_change_percentage_24h || 0).toFixed(2)} %` : "—"}
+            {hv && hover !== null ? fmtTime(points[hover].t) : current ? `${(current.price_change_percentage_24h || 0).toFixed(2)} %` : "—"}
           </p>
         </div>
         {current?.image && <img src={current.image} alt={sym} className="cd-chart-icon" />}
       </div>
-      <svg viewBox={`0 0 ${w} ${h}`} className="cd-chart-svg" preserveAspectRatio="none">
-        {points.length > 1 && <polyline fill="none" stroke={up ? "#16a34a" : "#f0b90b"} strokeWidth="2" points={path} />}
-      </svg>
+      <div className="cd-chart-plot">
+        <svg
+          ref={svgRef}
+          viewBox={`0 0 ${w} ${h}`}
+          className="cd-chart-svg"
+          preserveAspectRatio="none"
+          onMouseMove={(e) => moveTo(e.clientX)}
+          onMouseLeave={() => setHover(null)}
+          onTouchMove={(e) => moveTo(e.touches[0].clientX)}
+          onTouchEnd={() => setHover(null)}
+          data-testid="coin-chart-svg"
+        >
+          {n > 1 && <polyline fill="none" stroke={up ? "#16a34a" : "#f0b90b"} strokeWidth="2" points={path} />}
+          {hv && hover !== null && (
+            <>
+              <line x1={hv.x} y1={0} x2={hv.x} y2={h} stroke="#94a3b8" strokeWidth="1" strokeDasharray="4 3" />
+              <circle cx={hv.x} cy={hv.y} r="4.5" fill={up ? "#16a34a" : "#f0b90b"} stroke="#fff" strokeWidth="2" />
+            </>
+          )}
+        </svg>
+        {hv && hover !== null && (
+          <div className={`cd-chart-tip ${tipClass}`} style={{ left: `${(hv.x / w) * 100}%` }} data-testid="coin-chart-tooltip">
+            <b>{eur(points[hover].p)}</b>
+            <span>{fmtTime(points[hover].t)}</span>
+          </div>
+        )}
+        {error && (
+          <div className="cd-chart-err" data-testid="coin-chart-error">
+            <span>{_t("Chart temporarily unavailable.")}</span>
+            <button onClick={() => setNonce((x) => x + 1)} data-testid="coin-chart-retry">{_t("Retry")}</button>
+          </div>
+        )}
+      </div>
       <div className="cd-ranges">
         {RANGES.map((r) => (
-          <button key={r} onClick={() => setRange(r)} className={`cd-range ${range === r ? "on" : ""}`}>{r}</button>
+          <button key={r} onClick={() => { setRange(r); setHover(null); }} className={`cd-range ${range === r ? "on" : ""}`} data-testid={`chart-range-${r}`}>{r}</button>
         ))}
       </div>
     </div>

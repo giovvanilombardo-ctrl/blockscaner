@@ -180,6 +180,16 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - P2: Re-add the Spanish `/cd` international section if ever wanted (files still available).
 - P2: Wallet report PDF polish.
 
+- **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
+  and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.
+  Fixes: (1) `_cached()` in market_data.py is now stale-while-revalidate — any cached entry serves
+  instantly and refreshes in the background (verified 0.59s stale serve vs 12.5s before); retry budget
+  shortened to fail fast. (2) CoinChart rewritten: stores timestamped points, mouse/touch crosshair with
+  dashed guide line, highlighted dot and tooltip (price + date/time), header price/time follow the
+  cursor, all ranges prefetched in the background ~3s apart after page load so 1D/1W/6M/2Y switch
+  instantly, and a visible "Chart temporarily unavailable — Retry" overlay instead of silent blanks.
+  Verified in browser: markets rows in 0.9s, tooltips at 15-95% hover positions, all 5 ranges render.
+
 - **Richer pages + SEO + price alerts + related coins (2026-11-02)**:
   (1) Full hand-written 8-section pages for SOL, XRP, USDT, BNB, ADA, DOGE (`coins.ts`, registered in
   COINS; their old KNOWN template entries removed). (2) Per-coin SEO via new `src/components/Seo.tsx`
