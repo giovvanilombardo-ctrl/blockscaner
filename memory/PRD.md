@@ -180,6 +180,17 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - P2: Re-add the Spanish `/cd` international section if ever wanted (files still available).
 - P2: Wallet report PDF polish.
 
+- **Business page rebuild (2026-11-02)**: full dark interactive `/business` from the user's 5 youngplatform
+  screenshots — hero with live floating coin dishes (icons from `/api/market/coins?per_page=40`, CSS float
+  animations), scrolling assets marquee (pause on hover), count-up stat cards (300+ / 2M+), treasury
+  section (green report banner, OTC Desk card with animated arrows, Sub-account people art, Staking phone
+  mock, Loyalty card), payments section (blue banner, "Receive crypto, settle in Euro" with animated
+  BTC→EUR flow), training section (report banner, E-learning video mock with pulsing play button, Academy
+  browser mock with graduation cap, Finance/IT/Legal workshop cards), final CTA. Scroll-reveal via
+  IntersectionObserver throughout; all CTAs link to /contact, /products or /blog. Trustpilot badges and
+  YP partner logos from the screenshots intentionally omitted (would be fabricated claims). Blockscaner
+  blue accent; per-route Seo added.
+
 - **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
   and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.
   Fixes: (1) `_cached()` in market_data.py is now stale-while-revalidate — any cached entry serves
