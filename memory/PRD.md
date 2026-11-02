@@ -190,7 +190,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   IntersectionObserver throughout; all CTAs link to /contact, /products or /blog. Trustpilot badges and
   YP partner logos from the screenshots intentionally omitted (would be fabricated claims). Blockscaner
   blue accent; per-route Seo added. Hero coins restyled after feedback: large white 3D dishes on deep
-  black (#030405), cropped at the hero corners/edges like the reference; mobile shrinks/hides big coins.
+  black (#030405), cropped at the hero corners/edges like the reference; then arranged as two diagonal
+  clusters stepping from the top-left and bottom-right corners toward the title (user feedback); mobile
+  keeps two small coins flanking the CTA.
 
 - **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
   and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.

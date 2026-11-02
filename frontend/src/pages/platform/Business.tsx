@@ -68,12 +68,12 @@ function CountUp({ to, suffix }: { to: number; suffix: string }) {
 }
 
 const COIN_POSITIONS = [
-  { top: "-4%", left: "1.5%", size: 260, d: 0 },
-  { top: "26%", left: "4%", size: 96, d: 1.2 },
-  { top: "58%", left: "0.5%", size: 140, d: 2.1 },
-  { top: "2%", right: "3%", size: 115, d: 0.6 },
-  { top: "32%", right: "0.5%", size: 155, d: 1.5 },
-  { bottom: "-4%", right: "2%", size: 250, d: 0.9 },
+  { top: "0%", left: "4%", size: 240, d: 0 },
+  { top: "20%", left: "13%", size: 100, d: 1.2 },
+  { top: "48%", left: "15%", size: 130, d: 2.1 },
+  { bottom: "28%", right: "15%", size: 115, d: 0.6 },
+  { bottom: "14%", right: "11%", size: 150, d: 1.5 },
+  { bottom: "-3%", right: "3%", size: 250, d: 0.9 },
 ];
 
 function ReportBtn({ id }: { id: string }) {
