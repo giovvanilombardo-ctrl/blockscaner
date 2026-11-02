@@ -217,7 +217,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   original 38MB — pymupdf inflates image streams, gs broke a type-3 glyph so qpdf was used).
   All 4 "Download the Report" buttons serve it with download attr. REMAINING: page 22 contact emails
   (n.dellavalle@young.business, f.manuzzi@young.business) untouched — personal addresses, user must
-  decide replacements.
+  decide replacements. DONE (2026-11-02): emails replaced with Fabiomantovani@blockscaner.com and
+  Giusymora@blockscaner.com (names/roles/phones left as-is per user). No @young.business strings remain.
 
 - **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
   and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.
