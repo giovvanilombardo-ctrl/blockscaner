@@ -154,6 +154,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   modeled on youngplatform — "To trade" (Blockscaner, Blockscaner Pro) and "To learn" (Blockscaner Step,
   Academy), each with a colored icon tile + bold title + short description, in a white rounded card.
 
+- **Markets page → youngplatform style (2026-11-02)**: rebuilt `/markets` as a full markets table —
+  breadcrumb, "Crypto Markets" title, search bar, "All / Crypto-assets available on Blockscaner", and a live
+  table (Name+icon, Price, 7-day sparkline Graph, Trend 24h, Market Cap, 24H Volume, Buy) with pagination.
+  Data from CoinGecko markets endpoint (120 assets, sparkline_in_7d). Blockscaner blue Buy buttons → sign-up.
+
 ## Backlog / next tasks
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
 - P1: Decide production from-domain (verify a real sending domain in Resend for delivery to
