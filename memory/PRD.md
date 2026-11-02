@@ -190,6 +190,16 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   first visible section). Known soft spot: chart for non-BTC coins can 503 while CoinGecko rate-limits
   the shared preview egress IP until the cache warms; frontend retries and the cache then serves all.
 
+- **Detail pages for ALL listed coins (2026-11-02)**: every coin on `/markets` now opens a full detail
+  page — no more "Asset not found". BTC/ETH keep hand-written long-form content; 13 majors keep curated
+  generic pages; all other coins get a dynamic page built from a new cached backend profile endpoint
+  (`GET /api/market/info/{id}`, 24h TTL: description, genesis date, categories, homepage/explorer/
+  whitepaper links) via `coinFromInfo()`/`coinFromMarket()` in `coins.ts`. Page renders instantly with
+  live market data, then upgrades to full descriptive content when the profile arrives.
+  `GET /api/market/coin/{id}` now resolves from the warm markets-list cache first (~150ms, survives
+  CoinGecko 429 storms); invalid ids return fast 404 -> "Asset not found". Self-tested via curl +
+  screenshots (sui, near, litecoin, notacoin123).
+
 - **Coin page TOC + hero cleanup (2026-11-02)**: sticky sidebar TOC deleted then re-inserted per user request
   (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the
   Bitcoin page because it was a full screenshot of youngplatform.com that visually duplicated the page

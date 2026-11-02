@@ -5,6 +5,7 @@ export type CoinContent = {
   title: string; lead: string;
   sections: CoinSection[];
   whitepaper?: string;
+  links?: { label: string; url: string }[];
 };
 
 export const BITCOIN: CoinContent = {
@@ -194,6 +195,78 @@ export function genericCoin(id: string): CoinContent | undefined {
       { id: "summary", title: "In summary", body: [
         `${k.name} (${k.sym}) in brief: ${k.use} On Blockscaner you can buy and sell it on a spot basis, including fractional amounts, starting from €20.`,
       ]},
+    ],
+  };
+}
+
+/* ---------------- Dynamic pages for every other listed coin ---------------- */
+
+const RISK_BODY = (sym: string) => [
+  `${sym} is a volatile asset: its price can move by double-digit percentages in a single day, and crypto-assets involve a significant risk of losing up to the entirety of the capital invested. Never invest money you cannot afford to lose.`,
+  "If you transfer to an external wallet, always check the supported destination network in the app: sending on the wrong blockchain can result in the permanent loss of funds.",
+];
+
+const SUMMARY_BODY = (name: string) => [
+  `On Blockscaner you can buy and sell ${name} on a spot basis, including fractional amounts, starting from €20. Check the live market data on this page before making any decision, and visit the Academy to learn more about how crypto-assets work.`,
+];
+
+function htmlToText(h: string): string {
+  return h
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&nbsp;/g, " ");
+}
+
+/** Build a full detail page from the backend's /api/market/info profile. */
+export function coinFromInfo(info: any, marketRow?: any): CoinContent {
+  const name = info.name || marketRow?.name || info.id;
+  const sym = String(info.symbol || marketRow?.symbol || "").toUpperCase();
+  const paras = htmlToText(info.description || "")
+    .split(/\r?\n+/)
+    .map((s: string) => s.replace(/\s+/g, " ").trim())
+    .filter((s: string) => s.length > 60)
+    .slice(0, 6);
+  const sections: CoinSection[] = [];
+  sections.push({
+    id: "what", title: `What is ${name} (${sym})`,
+    body: paras.length ? paras : [
+      `${name} (${sym}) is a crypto-asset listed on Blockscaner. This page shows its live market data, key facts and useful links.`,
+    ],
+  });
+  const facts: string[] = [];
+  if (info.genesis_date) facts.push(`${name} was launched on ${info.genesis_date}.`);
+  if (info.categories?.length) facts.push(`Sector: ${info.categories.slice(0, 3).join(", ")}.`);
+  if (facts.length) sections.push({ id: "facts", title: "Key facts", body: facts });
+  sections.push({ id: "consider", title: `What to consider before buying ${sym}`, body: RISK_BODY(sym) });
+  sections.push({ id: "summary", title: "In summary", body: SUMMARY_BODY(name) });
+  const links: { label: string; url: string }[] = [];
+  if (info.homepage?.[0]) links.push({ label: "Official website", url: info.homepage[0] });
+  if (info.explorer?.[0]) links.push({ label: "Block explorer", url: info.explorer[0] });
+  return {
+    id: info.id, sym, name,
+    title: `Buy ${name} (${sym}): value and price trends`,
+    lead: `Find out what ${name} (${sym}) is: live price, market data and what to consider before buying on Blockscaner.`,
+    whitepaper: info.whitepaper || undefined,
+    links: links.length ? links : undefined,
+    sections,
+  };
+}
+
+/** Minimal fallback page built only from a markets-table row (when the
+ *  profile endpoint is unavailable but the coin is listed). */
+export function coinFromMarket(row: any): CoinContent {
+  const name = row.name || row.id;
+  const sym = String(row.symbol || "").toUpperCase();
+  return {
+    id: row.id, sym, name,
+    title: `Buy ${name} (${sym}): value and price trends`,
+    lead: `Live price, market data and what to consider before buying ${name} (${sym}) on Blockscaner.`,
+    sections: [
+      { id: "what", title: `What is ${name} (${sym})`, body: [
+        `${name} (${sym}) is a crypto-asset listed on Blockscaner. This page shows its live market data below; descriptive content is temporarily unavailable.`,
+      ]},
+      { id: "consider", title: `What to consider before buying ${sym}`, body: RISK_BODY(sym) },
+      { id: "summary", title: "In summary", body: SUMMARY_BODY(name) },
     ],
   };
 }

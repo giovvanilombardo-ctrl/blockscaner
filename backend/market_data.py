@@ -23,7 +23,7 @@ _cache: dict = {}
 _locks: dict = {}
 
 
-async def _cached(key: str, ttl: int, path: str, params: dict):
+async def _cached(key: str, ttl: int, path: str, params: dict, transform=None):
     now = time.time()
     ent = _cache.get(key)
     if ent and now - ent["t"] < ttl:
@@ -50,6 +50,8 @@ async def _cached(key: str, ttl: int, path: str, params: dict):
                 logger.info("coingecko %s failed: %s", path, e)
                 await asyncio.sleep(1)
         if data is not None:
+            if transform:
+                data = transform(data)
             _cache[key] = {"t": time.time(), "data": data}
             return data
         if ent:  # serve stale rather than nothing
@@ -69,6 +71,12 @@ async def market_coins(per_page: int = Query(120, le=250), page: int = Query(1, 
 async def market_coin(coin_id: str):
     if not _ID_RE.match(coin_id):
         raise HTTPException(status_code=400, detail="invalid coin id")
+    # serve from the warm markets-list cache first (survives 429 storms)
+    for key, ent in list(_cache.items()):
+        if key.startswith("coins:") and isinstance(ent["data"], list):
+            for row in ent["data"]:
+                if row.get("id") == coin_id:
+                    return row
     data = await _cached(f"coin:{coin_id}", 60, "/coins/markets", {
         "vs_currency": "eur", "ids": coin_id,
         "price_change_percentage": "24h", "sparkline": "true",
@@ -95,6 +103,31 @@ async def simple_price(ids: str = Query(..., max_length=500)):
     if prices:
         return {cid: {"eur": v} for cid, v in prices.items()}
     raise HTTPException(status_code=503, detail="Market data temporarily unavailable")
+
+
+@router.get("/info/{coin_id}")
+async def coin_info(coin_id: str):
+    """Slim per-coin profile (description, facts, links) for dynamic coin pages.
+    Cached 24h - descriptive content rarely changes."""
+    if not _ID_RE.match(coin_id):
+        raise HTTPException(status_code=400, detail="invalid coin id")
+
+    def slim(d: dict) -> dict:
+        links = d.get("links") or {}
+        return {
+            "id": d.get("id"), "symbol": d.get("symbol"), "name": d.get("name"),
+            "description": (d.get("description") or {}).get("en") or "",
+            "genesis_date": d.get("genesis_date"),
+            "categories": [c for c in (d.get("categories") or []) if c],
+            "homepage": [u for u in (links.get("homepage") or []) if u],
+            "explorer": [u for u in (links.get("blockchain_site") or []) if u],
+            "whitepaper": links.get("whitepaper") or "",
+        }
+
+    return await _cached(f"info:{coin_id}", 86400, f"/coins/{coin_id}", {
+        "localization": "false", "tickers": "false", "market_data": "false",
+        "community_data": "false", "developer_data": "false", "sparkline": "false",
+    }, transform=slim)
 
 
 async def eur_prices_for(ids: list) -> dict:

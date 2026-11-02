@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { t as _t } from "@/i18n";
 import SiteLayout from "@/components/site/SiteLayout";
 import { ChevronRight, ArrowUpRight, ExternalLink } from "lucide-react";
-import { COINS, CoinContent, genericCoin } from "@/content/coins";
+import { COINS, CoinContent, genericCoin, coinFromInfo, coinFromMarket } from "@/content/coins";
 import btcHero from "@/assets/btc-hero.png";
 import "@/platform.css";
 
@@ -63,10 +63,42 @@ function CoinChart({ coinId, sym, current }: { coinId: string; sym: string; curr
 
 export default function CoinDetail() {
   const { coinId = "bitcoin" } = useParams();
-  const coin: CoinContent | undefined = COINS[coinId] || genericCoin(coinId);
+  const staticCoin = COINS[coinId] || genericCoin(coinId);
+  const [dynCoin, setDynCoin] = useState<CoinContent | null>(null);
+  const [infoTried, setInfoTried] = useState(false);
+  const coin: CoinContent | undefined = staticCoin || dynCoin || undefined;
   const [market, setMarket] = useState<any>(null);
   const [topMovers, setTopMovers] = useState<any[]>([]);
   const [activeSection, setActiveSection] = useState("");
+
+  /* Dynamic page: for coins without hand-written content, build the page from
+     the backend profile (description, facts, links). Falls back to a minimal
+     page from the markets row so every listed coin always opens. */
+  useEffect(() => {
+    if (staticCoin) { setDynCoin(null); setInfoTried(true); return; }
+    let alive = true;
+    setDynCoin(null); setInfoTried(false);
+    const API = process.env.REACT_APP_BACKEND_URL;
+    (async () => {
+      let marketRow: any = null;
+      let marketStatus = 0;
+      try { const r = await fetch(`${API}/api/market/coin/${coinId}`); marketStatus = r.status; if (r.ok) marketRow = await r.json(); } catch { /* handled below */ }
+      // render a live-data page immediately; upgrade to full content when the profile arrives
+      if (marketRow?.id && alive) { setDynCoin(coinFromMarket(marketRow)); setInfoTried(true); }
+      if (marketStatus !== 404) {
+        try {
+          const r = await fetch(`${API}/api/market/info/${coinId}`);
+          if (r.ok) {
+            const info = await r.json();
+            if (alive) { setDynCoin(coinFromInfo(info, marketRow)); setInfoTried(true); }
+            return;
+          }
+        } catch { /* handled below */ }
+      }
+      if (alive && !marketRow?.id) { setDynCoin(null); setInfoTried(true); }
+    })();
+    return () => { alive = false; };
+  }, [coinId, staticCoin]);
 
   useEffect(() => {
     if (!coin) return;
@@ -105,6 +137,13 @@ export default function CoinDetail() {
   }, [coin]);
 
   if (!coin) {
+    if (!staticCoin && !infoTried) {
+      return (
+        <SiteLayout>
+          <div className="pf-hero"><h1 className="pf-title">{_t("Loading…")}</h1></div>
+        </SiteLayout>
+      );
+    }
     return (
       <SiteLayout>
         <div className="pf-hero"><h1 className="pf-title">{_t("Asset not found")}</h1>
@@ -170,12 +209,21 @@ export default function CoinDetail() {
               </div>
             </section>
 
-            {coin.whitepaper && (
+            {(coin.whitepaper || coin.links?.length) && (
               <section className="cd-section">
                 <h2>{_t("Useful links")}</h2>
-                <a href={coin.whitepaper} target="_blank" rel="noreferrer" className="cd-link">
-                  {_t("Whitepaper")} <ExternalLink className="h-4 w-4" />
-                </a>
+                <div className="cd-links">
+                  {coin.whitepaper && (
+                    <a href={coin.whitepaper} target="_blank" rel="noreferrer" className="cd-link">
+                      {_t("Whitepaper")} <ExternalLink className="h-4 w-4" />
+                    </a>
+                  )}
+                  {coin.links?.map((l) => (
+                    <a key={l.url} href={l.url} target="_blank" rel="noreferrer" className="cd-link">
+                      {l.label} <ExternalLink className="h-4 w-4" />
+                    </a>
+                  ))}
+                </div>
               </section>
             )}
 
