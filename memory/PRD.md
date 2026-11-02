@@ -189,7 +189,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   browser mock with graduation cap, Finance/IT/Legal workshop cards), final CTA. Scroll-reveal via
   IntersectionObserver throughout; all CTAs link to /contact, /products or /blog. Trustpilot badges and
   YP partner logos from the screenshots intentionally omitted (would be fabricated claims). Blockscaner
-  blue accent; per-route Seo added.
+  blue accent; per-route Seo added. Hero coins restyled after feedback: large white 3D dishes on deep
+  black (#030405), cropped at the hero corners/edges like the reference; mobile shrinks/hides big coins.
 
 - **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
   and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.
