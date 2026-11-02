@@ -64,19 +64,19 @@ const SiteHeader = () => {
           </span>
         </div>
       </div>
-      <div className="flex h-16 items-center justify-between gap-6 px-6 lg:px-10">
+      <div className="relative flex h-16 items-center gap-6 px-6 lg:px-10">
         <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Blockscaner">
           <BrandMark className="h-7 w-7 text-foreground" />
           <span className="font-display text-lg font-semibold tracking-tight" style={{ fontStretch: "112%" }}>Blockscaner</span>
         </Link>
 
-        <nav aria-label={_t("Main navigation")} className="hidden lg:block">
+        <nav aria-label={_t("Main navigation")} className="hidden lg:block absolute left-1/2 -translate-x-1/2">
           <ul className="flex items-center gap-1">
             {NAV_LINKS.map((n) => (
               <li key={n.path}>
                 <Link
                   to={n.path}
-                  className={`whitespace-nowrap px-3 py-2 text-[13px] transition-colors ${loc.pathname === n.path ? "text-foreground font-semibold" : "text-primary hover:text-foreground"}`}
+                  className={`whitespace-nowrap rounded-md px-3.5 py-2 text-sm font-medium tracking-tight transition-colors ${loc.pathname === n.path ? "bg-secondary text-foreground font-semibold" : "text-foreground/80 hover:text-foreground hover:bg-secondary/60"}`}
                 >
                   {_t(n.label)}
                 </Link>
@@ -85,7 +85,7 @@ const SiteHeader = () => {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2">
           <button onClick={() => setSearchOpen(true)} className="flex items-center justify-center border border-border p-2 text-primary hover:border-primary transition" aria-label={_t("Suche öffnen")}>
             <Search className="h-3.5 w-3.5" />
           </button>
