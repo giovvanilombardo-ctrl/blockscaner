@@ -107,6 +107,10 @@ export default function Business() {
               </div>
             );
           })}
+          {/* big euro coin, seen from a tilted angle */}
+          <div className="bz-euro-wrap">
+            <div className="bz-coin-euro-big"><span>€</span></div>
+          </div>
           <Reveal className="bz-hero-in">
             <h1 className="bz-h1">
               {_t("Your company's")}<br />
