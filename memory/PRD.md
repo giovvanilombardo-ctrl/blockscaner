@@ -144,6 +144,12 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   (AccountPortal wallet/exchange/withdraw/KYC) and the case tracker are UNCHANGED and fully working.
   Kept-but-legacy: recovery help topics, legal pages, ChatAssistant (German forensic prompt) — pending rebrand.
 
+- **Header → youngplatform style (2026-11-02)**: rebuilt the header to match youngplatform.com's structure,
+  font and dimensions — Blockscaner logo+name left, centered black menu (Products/Markets/Business/About us/
+  Blog/Support), and right side: a globe language icon (opens EN/DE/FR/ES/IT menu) + text "Log in" + filled
+  rounded "Sign up" pill (Blockscaner blue). Removed the top utility bar. Logged-in users get a rounded blue
+  "My account" pill.
+
 ## Backlog / next tasks
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
 - P1: Decide production from-domain (verify a real sending domain in Resend for delivery to

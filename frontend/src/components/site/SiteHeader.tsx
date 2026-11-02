@@ -1,7 +1,7 @@
 import { t as _t, lang, setLang, LANGS } from "@/i18n";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound, LayoutDashboard, LogOut } from "lucide-react";
+import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound, LayoutDashboard, LogOut, Globe } from "lucide-react";
 import SearchDialog from "./SearchDialog";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -50,33 +50,19 @@ const SiteHeader = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md" onMouseLeave={() => setOpen(null)}>
-      <div className="hidden md:flex h-8 items-center justify-between border-b border-border px-6 lg:px-10 text-[11px] font-mono uppercase tracking-[0.14em] text-muted-foreground">
-        <span>{_t("Crypto · Trading · Investing")}</span>
-        <div className="flex items-center gap-5">
-          {!loggedIn && <Link to="/login" className="text-primary">{_t("Client area")}</Link>}
-          <span aria-label={_t("Language")} className="flex items-center gap-1.5">
-            {LANGS.map((l, i) => (
-              <span key={l.code} className="flex items-center gap-1.5">
-                {i > 0 && <span className="opacity-40">·</span>}
-                <button onClick={() => setLang(l.code)} aria-pressed={lang === l.code} className={lang === l.code ? "text-foreground font-semibold" : "text-primary hover:text-foreground"}>{l.label}</button>
-              </span>
-            ))}
-          </span>
-        </div>
-      </div>
-      <div className="relative flex h-16 items-center gap-6 px-6 lg:px-10">
-        <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Blockscaner">
-          <BrandMark className="h-7 w-7 text-foreground" />
-          <span className="font-display text-lg font-semibold tracking-tight" style={{ fontStretch: "112%" }}>Blockscaner</span>
+      <div className="relative flex h-[72px] items-center gap-6 px-6 lg:px-10">
+        <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="Blockscaner">
+          <BrandMark className="h-8 w-8 text-foreground" />
+          <span className="font-display text-[19px] font-bold tracking-tight text-foreground">Blockscaner</span>
         </Link>
 
         <nav aria-label={_t("Main navigation")} className="hidden lg:block absolute left-1/2 -translate-x-1/2">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-8">
             {NAV_LINKS.map((n) => (
               <li key={n.path}>
                 <Link
                   to={n.path}
-                  className={`whitespace-nowrap rounded-md px-3.5 py-2 text-sm font-medium tracking-tight transition-colors ${loc.pathname === n.path ? "bg-secondary text-foreground font-semibold" : "text-foreground/80 hover:text-foreground hover:bg-secondary/60"}`}
+                  className={`whitespace-nowrap text-[15px] font-semibold tracking-tight transition-colors ${loc.pathname === n.path ? "text-foreground" : "text-foreground/90 hover:text-foreground"}`}
                 >
                   {_t(n.label)}
                 </Link>
@@ -85,18 +71,30 @@ const SiteHeader = () => {
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2">
-          <button onClick={() => setSearchOpen(true)} className="flex items-center justify-center border border-border p-2 text-primary hover:border-primary transition" aria-label={_t("Suche öffnen")}>
-            <Search className="h-3.5 w-3.5" />
-          </button>
+        <div className="ml-auto flex items-center gap-5">
+          {/* language globe */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="flex items-center justify-center text-foreground hover:text-primary transition" aria-label={_t("Language")} data-testid="lang-globe">
+                <Globe className="h-[22px] w-[22px]" strokeWidth={1.7}/>
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-32">
+              {LANGS.map((l) => (
+                <DropdownMenuItem key={l.code} onSelect={() => setLang(l.code)} className={`cursor-pointer ${lang === l.code ? "font-semibold" : ""}`}>
+                  {l.label}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {!loggedIn && (
             <>
-              <Link to="/login" className="hidden sm:flex items-center whitespace-nowrap border border-primary px-4 py-2 text-xs font-medium text-primary transition">
+              <Link to="/login" className="hidden sm:block text-[15px] font-semibold text-foreground hover:text-primary transition">
                 {_t("Log in")}
               </Link>
-              <Link to="/login?modo=registro" className="hidden sm:flex items-center whitespace-nowrap bg-primary px-4 py-2 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition">
-                {_t("Create account")}
+              <Link to="/login?modo=registro" className="hidden sm:inline-flex items-center rounded-full bg-primary px-6 py-2.5 text-[15px] font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition">
+                {_t("Sign up")}
               </Link>
             </>
           )}
@@ -104,8 +102,8 @@ const SiteHeader = () => {
           {loggedIn && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button data-testid="nav-account-menu" className="hidden sm:flex items-center gap-2 border border-primary px-4 py-2 text-xs font-medium text-primary hover:bg-primary hover:text-primary-foreground transition" aria-label={_t("Mein Konto")}>
-                  <UserRound className="h-3.5 w-3.5" /> {_t("Mein Konto")} <ChevronDown className="h-3 w-3" />
+                <button data-testid="nav-account-menu" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-[15px] font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition" aria-label={_t("My account")}>
+                  <UserRound className="h-4 w-4" /> {_t("My account")} <ChevronDown className="h-3.5 w-3.5" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-52">
