@@ -50,13 +50,14 @@ const SiteHeader = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md" onMouseLeave={() => setOpen(null)}>
-      <div className="relative flex h-[72px] items-center gap-6 px-6 lg:px-10">
+      <div className="relative flex h-[72px] items-center justify-center px-6 lg:px-10">
+        <div className="flex items-center gap-16 lg:gap-24">
         <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="Blockscaner">
           <BrandMark className="h-8 w-8 text-foreground" />
           <span className="font-display text-[19px] font-bold tracking-tight text-foreground">Blockscaner</span>
         </Link>
 
-        <nav aria-label={_t("Main navigation")} className="hidden lg:block absolute left-1/2 -translate-x-1/2">
+        <nav aria-label={_t("Main navigation")} className="hidden lg:block">
           <ul className="flex items-center gap-8">
             {NAV_LINKS.map((n) => (
               <li key={n.path}>
@@ -71,7 +72,7 @@ const SiteHeader = () => {
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-5">
+        <div className="flex items-center gap-5">
           {/* language globe */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -131,6 +132,7 @@ const SiteHeader = () => {
           <button className="lg:hidden p-2" aria-label={_t("Menü")} aria-expanded={mobile} onClick={() => setMobile(!mobile)}>
             {mobile ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
+        </div>
         </div>
       </div>
 
