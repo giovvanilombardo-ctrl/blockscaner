@@ -153,14 +153,16 @@
 .bz-page{ overflow-x:hidden; }
 .bz-hero{ position:relative; width:100%; min-height:82vh; display:grid; place-items:center; text-align:center;
   background:transparent; overflow:visible; }
-.bz-hero-in{ position:relative; z-index:2; padding:4rem 1.5rem; }
-/* hero coins — crafted 3D metal: parallax layer -> tilt layer -> float layer -> face */
-.bz-coin-par{ position:absolute; z-index:1;
-  transform:translate3d(calc(var(--mx, 0) * var(--depth, 1) * 15px), calc(var(--my, 0) * var(--depth, 1) * 10px), 0);
-  transition:transform .45s cubic-bezier(.22,.61,.36,1); }
+.bz-hero-in{ position:relative; z-index:2; padding:4rem 1.5rem 7.5rem; }
+/* hero coins — photoreal renders with autonomous per-coin drift */
+.bz-coin-par{ position:absolute; z-index:1; }
 .bz-coin-tilt{ transform:perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) rotateZ(var(--rz, 0deg)); transform-style:preserve-3d; }
-.bz-coin-spin{ position:relative; width:100%; height:100%; animation:bz-drift 7s ease-in-out infinite; }
-@keyframes bz-drift{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+.bz-coin-spin{ position:relative; width:100%; height:100%; animation:bz-drift-a 7s ease-in-out infinite; }
+/* each coin moves on its own path */
+@keyframes bz-drift-a{ 0%,100%{ transform:translate(0,0) rotate(0deg);} 33%{ transform:translate(7px,-15px) rotate(1.6deg);} 66%{ transform:translate(-6px,-7px) rotate(-1deg);} }
+@keyframes bz-drift-b{ 0%,100%{ transform:translate(0,0) rotate(0deg);} 50%{ transform:translate(-9px,-19px) rotate(-2.2deg);} }
+@keyframes bz-drift-c{ 0%,100%{ transform:translate(0,0);} 25%{ transform:translate(8px,-9px);} 50%{ transform:translate(0,-17px);} 75%{ transform:translate(-8px,-9px);} }
+@keyframes bz-drift-d{ 0%,100%{ transform:translate(0,0) rotate(-1.2deg);} 40%{ transform:translate(-11px,-11px) rotate(1.8deg);} 70%{ transform:translate(5px,-19px) rotate(.4deg);} }
 
 /* photorealistic coin renders: flood-fill alpha cutouts; drop-shadow follows the coin shape */
 .bz-coin-photo{ width:100%; height:100%; object-fit:contain; display:block;
@@ -240,7 +242,8 @@
 
 /* trusted marquee */
 .bz-trusted{ max-width:1200px; margin:4.5rem auto 0; text-align:center; }
-.bz-marquee{ overflow:hidden; margin:1.6rem 0 2.4rem; -webkit-mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+.bz-marquee{ overflow:hidden; margin:1.6rem 0 2.4rem; width:100vw; margin-left:calc(50% - 50vw);
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
   mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
 .bz-marquee-track{ display:flex; gap:3rem; width:max-content; animation:bz-scroll 26s linear infinite; }
 .bz-marquee:hover .bz-marquee-track{ animation-play-state:paused; }

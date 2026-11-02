@@ -205,8 +205,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   NOT available on the proxy): 7 studio-shot silver coins with reeded edges + embossed brand logos in
   `frontend/src/assets/coins/*.png` (script: `backend/scripts/gen_coins.py`, model
   gemini-3-pro-image-preview). Black backdrop removed via border flood-fill alpha cutout (numpy BFS,
-  per-image threshold; euro needed 78 vs 52), CSS drop-shadow re-grounds each coin. Hero keeps drift +
-  mouse parallax; photos carry their own baked perspective so CSS tilt is disabled for hero coins.
+  per-image threshold; euro needed 78 vs 52), CSS drop-shadow re-grounds each coin. Mouse parallax was
+  REMOVED per user request: each of the 7 hero coins drifts autonomously on its own keyframe path
+  (bz-drift-a/b/c/d, per-coin duration/delay), sizes enlarged. Trusted-by marquee is full-bleed (100vw).
 
 - **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
   and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.

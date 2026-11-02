@@ -81,12 +81,12 @@ function CountUp({ to, suffix }: { to: number; suffix: string }) {
 
 /* exact reference layout: photorealistic coin renders lying on the black surface */
 const HERO_SLOTS = [
-  { coin: "ripple", top: "15%", left: "3.5%", size: 150, rz: -8, depth: 1.0, d: 1.2 },
-  { coin: "usd-coin", top: "3%", left: "7%", size: 400, rz: 4, depth: 1.8, d: 0 },
-  { coin: "tether", top: "29%", left: "7.5%", size: 190, rz: -5, depth: 1.2, d: 2.1 },
-  { coin: "polkadot", top: "55%", right: "12.5%", size: 135, rz: 6, depth: 0.9, d: 0.6 },
-  { coin: "ethereum", bottom: "15%", right: "6%", size: 165, rz: 5, depth: 1.1, d: 1.5 },
-  { coin: "bitcoin", bottom: "-3%", right: "6%", size: 310, rz: -4, depth: 1.5, d: 0.9 },
+  { coin: "ripple", top: "13%", left: "3%", size: 185, rz: -8, depth: 1.0, d: 1.2, anim: "b" },
+  { coin: "usd-coin", top: "1.5%", left: "3.5%", size: 440, rz: 4, depth: 1.8, d: 0, anim: "a" },
+  { coin: "tether", top: "32%", left: "4.5%", size: 210, rz: -5, depth: 1.2, d: 2.1, anim: "c" },
+  { coin: "polkadot", top: "44%", right: "16%", size: 165, rz: 6, depth: 0.9, d: 0.6, anim: "d" },
+  { coin: "ethereum", bottom: "30%", right: "8%", size: 205, rz: 5, depth: 1.1, d: 1.5, anim: "b" },
+  { coin: "bitcoin", bottom: "-4%", right: "5%", size: 390, rz: -4, depth: 1.5, d: 0.9, anim: "c" },
 ];
 
 function ReportBtn({ id }: { id: string }) {
@@ -99,20 +99,6 @@ function ReportBtn({ id }: { id: string }) {
 
 export default function Business() {
   const coins = useCoins();
-  const heroRef = useRef<HTMLElement | null>(null);
-
-  /* mouse parallax: coins drift in depth as the cursor moves */
-  const onHeroMove = (e: React.MouseEvent) => {
-    const el = heroRef.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    el.style.setProperty("--mx", ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
-    el.style.setProperty("--my", ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
-  };
-  const onHeroLeave = () => {
-    heroRef.current?.style.setProperty("--mx", "0");
-    heroRef.current?.style.setProperty("--my", "0");
-  };
 
   return (
     <SiteLayout>
@@ -123,13 +109,13 @@ export default function Business() {
       <div className="bz-page" data-testid="business-page">
 
         {/* ---------- HERO (photo 5) ---------- */}
-        <section className="bz-hero" ref={heroRef} onMouseMove={onHeroMove} onMouseLeave={onHeroLeave}>
+        <section className="bz-hero">
           {HERO_SLOTS.map((s, i) => {
-            const { coin, size, d, rz, depth, ...pos } = s as any;
+            const { coin, size, d, rz, depth, anim, ...pos } = s as any;
             return (
-              <div key={coin} className="bz-coin-par" style={{ ...pos, "--depth": depth } as any}>
+              <div key={coin} className="bz-coin-par" style={{ ...pos } as any}>
                 <div className="bz-coin-tilt" style={{ width: size, height: size, "--rz": `${rz}deg` } as any}>
-                  <div className="bz-coin-spin" style={{ animationDelay: `${d}s`, animationDuration: `${7 + i * 0.7}s` }}>
+                  <div className="bz-coin-spin" style={{ animationName: `bz-drift-${anim}`, animationDelay: `${d}s`, animationDuration: `${7 + i * 0.7}s` }}>
                     <img src={COIN_PHOTOS[coin]} alt={coin} className="bz-coin-photo" loading="lazy" />
                   </div>
                 </div>
@@ -137,9 +123,9 @@ export default function Business() {
             );
           })}
           {/* big euro coin render, flat on the surface */}
-          <div className="bz-coin-par bz-euro-par" style={{ bottom: "-6%", right: "20%", "--depth": 1.3 } as any}>
-            <div className="bz-coin-tilt" style={{ width: 390, height: 390, "--rz": "3deg" } as any}>
-              <div className="bz-coin-spin" style={{ animationDelay: "1.7s", animationDuration: "8.5s" }}>
+          <div className="bz-coin-par bz-euro-par" style={{ bottom: "-10%", right: "17%" } as any}>
+            <div className="bz-coin-tilt" style={{ width: 340, height: 340, "--rz": "3deg" } as any}>
+              <div className="bz-coin-spin" style={{ animationName: "bz-drift-d", animationDelay: "1.7s", animationDuration: "8.5s" }}>
                 <img src={coinEur} alt="Euro" className="bz-coin-photo" loading="lazy" />
               </div>
             </div>
