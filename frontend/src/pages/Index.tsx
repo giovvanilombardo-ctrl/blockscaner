@@ -1,4 +1,4 @@
-import { t as _t, lang, setLang, LANGS } from "@/i18n";
+import { t as _t, lang } from "@/i18n";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck } from "lucide-react";
@@ -16,21 +16,6 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
     {/* HERO (kept) */}
     <section className="relative overflow-hidden bg-deep text-deep-foreground min-h-[calc(100vh-6rem)] flex items-center">
       <BloomField />
-      <div className="absolute top-5 right-6 lg:right-10 z-10 flex items-center rounded-full border border-deep-foreground/30 bg-deep-foreground/10 backdrop-blur-sm overflow-hidden text-[11px] font-mono uppercase tracking-widest">
-        {LANGS.map((l, i) => (
-          <span key={l.code} className="flex items-center">
-            {i > 0 && <span className="opacity-40 px-1">·</span>}
-            <button
-              onClick={() => setLang(l.code)}
-              aria-pressed={lang === l.code}
-              data-testid={`hero-lang-${l.code}`}
-              className={`px-2.5 py-1.5 transition-colors ${lang === l.code ? "bg-background text-foreground font-semibold" : "text-deep-foreground/80 hover:text-deep-foreground"}`}
-            >
-              {l.label}
-            </button>
-          </span>
-        ))}
-      </div>
       <div className="relative mx-auto w-full max-w-5xl px-6 lg:px-10 py-24 grid gap-10 md:grid-cols-2 items-center">
         <h1 className="font-display text-4xl md:text-5xl font-light leading-[1.1]">{_t("The most valuable currency is the freedom to choose.")}</h1>
         <div className="md:ml-auto md:max-w-xs border-t border-deep-foreground/50 pt-3">
