@@ -201,6 +201,12 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   (XRP + big USDC + USDT top-left; DOT-slot + big EUR plate + ETH + BTC bottom-right), green hero accent
   (#00dc82) and green Contact pill, Trustpilot-style badge with green stars (score numbers omitted —
   would be fabricated; caption "Rated by our users" until the user supplies real Trustpilot data).
+  Coins then upgraded to AI-generated photorealistic macro renders (Gemini image gen — gpt-image-1 is
+  NOT available on the proxy): 7 studio-shot silver coins with reeded edges + embossed brand logos in
+  `frontend/src/assets/coins/*.png` (script: `backend/scripts/gen_coins.py`, model
+  gemini-3-pro-image-preview). Black backdrop removed via border flood-fill alpha cutout (numpy BFS,
+  per-image threshold; euro needed 78 vs 52), CSS drop-shadow re-grounds each coin. Hero keeps drift +
+  mouse parallax; photos carry their own baked perspective so CSS tilt is disabled for hero coins.
 
 - **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
   and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.

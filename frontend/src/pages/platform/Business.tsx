@@ -7,7 +7,19 @@ import {
   Play, GraduationCap, Users, ArrowDownUp, Landmark, Code2, Scale,
   ArrowUpRight, Flame, BadgePercent, Star,
 } from "lucide-react";
+import coinBtc from "@/assets/coins/bitcoin.png";
+import coinEth from "@/assets/coins/ethereum.png";
+import coinUsdt from "@/assets/coins/tether.png";
+import coinUsdc from "@/assets/coins/usd-coin.png";
+import coinXrp from "@/assets/coins/ripple.png";
+import coinDot from "@/assets/coins/polkadot.png";
+import coinEur from "@/assets/coins/euro.png";
 import "@/platform.css";
+
+const COIN_PHOTOS: Record<string, string> = {
+  bitcoin: coinBtc, ethereum: coinEth, tether: coinUsdt,
+  "usd-coin": coinUsdc, ripple: coinXrp, polkadot: coinDot, euro: coinEur,
+};
 
 type Coin = { id: string; name: string; symbol: string; image: string };
 
@@ -67,14 +79,14 @@ function CountUp({ to, suffix }: { to: number; suffix: string }) {
   return <span ref={ref}>{val}{suffix}</span>;
 }
 
-/* exact reference layout: flat plates lying on the surface, fixed slots per coin */
+/* exact reference layout: photorealistic coin renders lying on the black surface */
 const HERO_SLOTS = [
-  { coin: "ripple", top: "15%", left: "3.5%", size: 92, rx: 62, ry: 6, rz: -8, depth: 1.0, d: 1.2 },
-  { coin: "usd-coin", top: "4%", left: "9%", size: 290, rx: 70, ry: -6, rz: 4, depth: 1.8, d: 0 },
-  { coin: "tether", top: "28%", left: "7.5%", size: 122, rx: 60, ry: 10, rz: -5, depth: 1.2, d: 2.1 },
-  { coin: "polkadot", top: "55%", right: "12.5%", size: 84, rx: 58, ry: 8, rz: 6, depth: 0.9, d: 0.6 },
-  { coin: "ethereum", bottom: "15%", right: "7%", size: 105, rx: 58, ry: -10, rz: 5, depth: 1.1, d: 1.5 },
-  { coin: "bitcoin", bottom: "-2%", right: "6%", size: 210, rx: 52, ry: 8, rz: -4, depth: 1.5, d: 0.9 },
+  { coin: "ripple", top: "15%", left: "3.5%", size: 150, rz: -8, depth: 1.0, d: 1.2 },
+  { coin: "usd-coin", top: "3%", left: "7%", size: 400, rz: 4, depth: 1.8, d: 0 },
+  { coin: "tether", top: "29%", left: "7.5%", size: 190, rz: -5, depth: 1.2, d: 2.1 },
+  { coin: "polkadot", top: "55%", right: "12.5%", size: 135, rz: 6, depth: 0.9, d: 0.6 },
+  { coin: "ethereum", bottom: "15%", right: "6%", size: 165, rz: 5, depth: 1.1, d: 1.5 },
+  { coin: "bitcoin", bottom: "-3%", right: "6%", size: 310, rz: -4, depth: 1.5, d: 0.9 },
 ];
 
 function ReportBtn({ id }: { id: string }) {
@@ -113,32 +125,22 @@ export default function Business() {
         {/* ---------- HERO (photo 5) ---------- */}
         <section className="bz-hero" ref={heroRef} onMouseMove={onHeroMove} onMouseLeave={onHeroLeave}>
           {HERO_SLOTS.map((s, i) => {
-            const c = coins.find((x) => x.id === s.coin) || coins[i];
-            if (!c) return null;
-            const { coin, size, d, rx, ry, rz, depth, ...pos } = s as any;
+            const { coin, size, d, rz, depth, ...pos } = s as any;
             return (
-              <div key={c.id} className="bz-coin-par" style={{ ...pos, "--depth": depth } as any}>
-                <div className="bz-coin-tilt" style={{ width: size, height: size, "--rx": `${rx}deg`, "--ry": `${ry}deg`, "--rz": `${rz}deg` } as any}>
+              <div key={coin} className="bz-coin-par" style={{ ...pos, "--depth": depth } as any}>
+                <div className="bz-coin-tilt" style={{ width: size, height: size, "--rz": `${rz}deg` } as any}>
                   <div className="bz-coin-spin" style={{ animationDelay: `${d}s`, animationDuration: `${7 + i * 0.7}s` }}>
-                    <div className="bz-plate">
-                      <img src={c.image} alt={c.name} loading="lazy" />
-                      <span className="bz-glare" />
-                    </div>
-                    <span className="bz-coin-shadow" />
+                    <img src={COIN_PHOTOS[coin]} alt={coin} className="bz-coin-photo" loading="lazy" />
                   </div>
                 </div>
               </div>
             );
           })}
-          {/* big euro plate, flat on the surface */}
-          <div className="bz-coin-par bz-euro-par" style={{ bottom: "-4%", right: "20%", "--depth": 1.3 } as any}>
-            <div className="bz-coin-tilt" style={{ width: 280, height: 280, "--rx": "66deg", "--ry": "-8deg", "--rz": "3deg" } as any}>
+          {/* big euro coin render, flat on the surface */}
+          <div className="bz-coin-par bz-euro-par" style={{ bottom: "-6%", right: "20%", "--depth": 1.3 } as any}>
+            <div className="bz-coin-tilt" style={{ width: 390, height: 390, "--rz": "3deg" } as any}>
               <div className="bz-coin-spin" style={{ animationDelay: "1.7s", animationDuration: "8.5s" }}>
-                <div className="bz-plate">
-                  <span className="bz-eur-sign">€</span>
-                  <span className="bz-glare" />
-                </div>
-                <span className="bz-coin-shadow" />
+                <img src={coinEur} alt="Euro" className="bz-coin-photo" loading="lazy" />
               </div>
             </div>
           </div>
