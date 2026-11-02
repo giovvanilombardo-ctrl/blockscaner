@@ -150,8 +150,9 @@
 .rv.in{ opacity:1; transform:none; }
 
 /* hero */
-.bz-hero{ position:relative; max-width:1200px; margin:0 auto; min-height:560px; display:grid; place-items:center; text-align:center;
-  background:#030405; border:1px solid #101318; border-radius:28px; overflow:hidden; }
+.bz-page{ overflow-x:hidden; }
+.bz-hero{ position:relative; width:100%; min-height:82vh; display:grid; place-items:center; text-align:center;
+  background:transparent; overflow:visible; }
 .bz-hero-in{ position:relative; z-index:2; padding:4rem 1.5rem; }
 .bz-coin{ position:absolute; border-radius:50%;
   background:radial-gradient(circle at 34% 28%, #ffffff 0%, #e8ebef 34%, #c3c9d2 62%, #8f97a3 100%);
