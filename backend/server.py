@@ -23,7 +23,7 @@ load_dotenv(Path(__file__).parent / ".env")
 from email_templates import (
     send_email, otp_email, abandoned_chat_html, lead_notification_html,
     lead_confirmation_html, visitor_reminder_html, welcome_email,
-    deposit_email, withdrawal_email, reset_password_html,
+    deposit_email, withdrawal_email, reset_password_html, email_wrapper,
 )
 from chat_prompt import SYSTEM_PROMPT
 
@@ -482,6 +482,48 @@ async def sign_download_token(bucket: str, path: str, days: int = 7) -> str:
         "exp": datetime.now(timezone.utc) + timedelta(days=days),
     })
     return f"{FRONTEND_URL}/api/storage/file?token={raw}"
+
+
+class BizEnquiry(BaseModel):
+    name: str
+    company: str
+    email: str
+    phone: str = ""
+    topic: str = "general"
+    message: str = ""
+
+
+@api_router.post("/business-enquiry")
+async def business_enquiry(body: BizEnquiry):
+    from html import escape as esc
+    name = body.name.strip()[:120]
+    company = body.company.strip()[:120]
+    email = body.email.strip()[:160]
+    message = body.message.strip()[:3000]
+    topic = body.topic.strip()[:60]
+    phone = body.phone.strip()[:40]
+    if not name or not company or not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
+        raise HTTPException(status_code=400, detail="invalid input")
+    doc = {
+        "id": str(uuid.uuid4()), "name": name, "company": company, "email": email,
+        "phone": phone, "topic": topic, "message": message, "status": "new",
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    await db.business_leads.insert_one(doc)
+    content = (
+        f"<h2>New business enquiry</h2>"
+        f"<p><b>{esc(name)}</b> - {esc(company)}<br>"
+        f"Email: {esc(email)}<br>Phone: {esc(phone) or '-'}<br>Interest: {esc(topic)}</p>"
+        f"<p>{esc(message).replace(chr(10), '<br>') or '-'}</p>"
+    )
+    try:
+        await send_email(to=NOTIFY_EMAIL,
+                         subject=f"Business enquiry: {company} ({topic})",
+                         html=email_wrapper(content, NOTIFY_EMAIL))
+    except Exception as e:
+        logger.warning("business enquiry email failed: %s", e)
+    return {"ok": True}
+
 
 
 @api_router.post("/functions/notify-lead")

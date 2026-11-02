@@ -229,6 +229,7 @@
 @keyframes bz-shadow{ 0%,100%{ transform:scaleX(1); opacity:.9;} 50%{ transform:scaleX(.8); opacity:.5;} }
 @media (max-width:820px){
   .bz-hero{ min-height:460px; }
+  .bz-hero .bz-h1{ font-size:1.85rem; hyphens:none; word-break:keep-all; overflow-wrap:normal; }
   .bz-hero .bz-coin-tilt{ width:62px !important; height:62px !important; }
   .bz-hero .bz-coin-par:nth-child(1), .bz-hero .bz-coin-par:nth-child(2),
   .bz-hero .bz-coin-par:nth-child(4), .bz-hero .bz-coin-par:nth-child(6),
@@ -377,3 +378,21 @@
 /* final cta */
 .bz-final{ max-width:1200px; margin:5.5rem auto 0; text-align:center; background:radial-gradient(700px 300px at 50% 0%, rgba(59,130,246,.16), transparent 70%), #0a0d13;
   border:1px solid #151a23; border-radius:28px; padding:3.5rem 1.5rem; }
+
+/* business enquiry form */
+.bz-form{ max-width:640px; margin:1.2rem auto 0; display:grid; gap:.7rem; text-align:left; }
+.bz-form-row{ display:grid; grid-template-columns:1fr 1fr; gap:.7rem; }
+@media (max-width:640px){ .bz-form-row{ grid-template-columns:1fr; } }
+.bz-form input, .bz-form select, .bz-form textarea{ background:#0d1117; border:1px solid #263043; border-radius:12px;
+  padding:.8rem 1rem; color:#fff; font-size:.95rem; font-family:inherit; width:100%; }
+.bz-form input:focus, .bz-form select:focus, .bz-form textarea:focus{ outline:none; border-color:#3b82f6; }
+.bz-form textarea{ resize:vertical; }
+.bz-form-err{ color:#f87171; font-size:.86rem; margin:0; }
+.bz-form .bz-cta{ border:0; cursor:pointer; font-size:.95rem; justify-self:center; }
+.bz-form-done{ max-width:640px; margin:1.2rem auto 0; background:#0d1117; border:1px solid #14532d; border-radius:18px;
+  padding:2rem; text-align:center; }
+.bz-form-done h3{ color:#34d399; margin:0 0 .5rem; }
+.bz-form-done p{ color:#94a3b8; margin:0; }
+
+/* whole Business page at +15% */
+.bz-page{ zoom:1.15; }

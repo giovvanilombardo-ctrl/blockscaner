@@ -219,6 +219,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   (n.dellavalle@young.business, f.manuzzi@young.business) untouched — personal addresses, user must
   decide replacements. DONE (2026-11-02): emails replaced with Fabiomantovani@blockscaner.com and
   Giusymora@blockscaner.com (names/roles/phones left as-is per user). No @young.business strings remain.
+  Business contact form (2026-11-02): POST /api/business-enquiry (server.py; validates, stores in
+  business_leads, emails NOTIFY_EMAIL via email_wrapper — confirmed sending, Resend 202). Form lives in
+  the final CTA block (#business-contact) on /business; hero "Contact us", settle "Talk to us" and
+  workshop "Request info" buttons scroll to it and preselect the topic. Whole Business page zoomed
+  1.15x per user (CSS zoom on .bz-page); hero coins re-spaced and mobile h1 fixed to avoid hyphen split.
 
 - **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
   and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.

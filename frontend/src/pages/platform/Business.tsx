@@ -81,9 +81,9 @@ function CountUp({ to, suffix }: { to: number; suffix: string }) {
 
 /* exact reference layout: photorealistic coin renders lying on the black surface */
 const HERO_SLOTS = [
-  { coin: "ripple", top: "13%", left: "3%", size: 185, rz: -8, depth: 1.0, d: 1.2, anim: "b" },
-  { coin: "usd-coin", top: "1.5%", left: "3.5%", size: 440, rz: 4, depth: 1.8, d: 0, anim: "a" },
-  { coin: "tether", top: "32%", left: "4.5%", size: 210, rz: -5, depth: 1.2, d: 2.1, anim: "c" },
+  { coin: "ripple", top: "11%", left: "2%", size: 185, rz: -8, depth: 1.0, d: 1.2, anim: "b" },
+  { coin: "usd-coin", top: "-3%", left: "-3%", size: 440, rz: 4, depth: 1.8, d: 0, anim: "a" },
+  { coin: "tether", top: "35%", left: "1.5%", size: 210, rz: -5, depth: 1.2, d: 2.1, anim: "c" },
   { coin: "polkadot", top: "44%", right: "16%", size: 165, rz: 6, depth: 0.9, d: 0.6, anim: "d" },
   { coin: "ethereum", bottom: "30%", right: "8%", size: 205, rz: 5, depth: 1.1, d: 1.5, anim: "b" },
   { coin: "bitcoin", bottom: "-4%", right: "5%", size: 390, rz: -4, depth: 1.5, d: 0.9, anim: "c" },
@@ -96,6 +96,87 @@ function ReportBtn({ id }: { id: string }) {
     <a href={REPORT_URL} download="Blockscaner-Tesoreria-Aziendale.pdf" className="bz-pill" data-testid={id}>
       {_t("Download the Report")}
     </a>
+  );
+}
+
+/* scrolls to the enquiry form, optionally preselecting a topic */
+function scrollToForm(topic?: string) {
+  const el = document.getElementById("business-contact");
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  if (topic) window.dispatchEvent(new CustomEvent("bz-topic", { detail: topic }));
+}
+
+function BizContactForm() {
+  const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [topic, setTopic] = useState("Treasury & OTC");
+  const [message, setMessage] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [done, setDone] = useState(false);
+  const [err, setErr] = useState("");
+
+  useEffect(() => {
+    const h = (e: any) => setTopic(e.detail);
+    window.addEventListener("bz-topic", h);
+    return () => window.removeEventListener("bz-topic", h);
+  }, []);
+
+  const submit = async () => {
+    if (!name.trim() || !company.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      setErr(_t("Please fill in name, company and a valid email."));
+      return;
+    }
+    setBusy(true); setErr("");
+    try {
+      const r = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/business-enquiry`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, company, email, phone, topic, message }),
+      });
+      if (!r.ok) throw new Error();
+      setDone(true);
+    } catch {
+      setErr(_t("Could not send. Please try again."));
+    }
+    setBusy(false);
+  };
+
+  if (done) {
+    return (
+      <div className="bz-form-done" data-testid="business-form-success">
+        <h3>{_t("Thank you!")}</h3>
+        <p>{_t("Your enquiry has been sent. Our Account Manager will get back to you within one business day.")}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bz-form" data-testid="business-contact-form">
+      <div className="bz-form-row">
+        <input value={name} onChange={(e) => setName(e.target.value)} placeholder={_t("Your name")} data-testid="biz-form-name" />
+        <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder={_t("Company")} data-testid="biz-form-company" />
+      </div>
+      <div className="bz-form-row">
+        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder={_t("Work email")} type="email" data-testid="biz-form-email" />
+        <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder={_t("Phone (optional)")} data-testid="biz-form-phone" />
+      </div>
+      <select value={topic} onChange={(e) => setTopic(e.target.value)} data-testid="biz-form-topic">
+        <option>Treasury &amp; OTC</option>
+        <option>{_t("Crypto payments")}</option>
+        <option>{_t("Team training")}</option>
+        <option>{_t("Workshops")}</option>
+        <option>Staking</option>
+        <option>{_t("Other")}</option>
+      </select>
+      <textarea value={message} onChange={(e) => setMessage(e.target.value)} rows={4}
+        placeholder={_t("Tell us about your goals (optional)")} data-testid="biz-form-message" />
+      {err && <p className="bz-form-err" data-testid="biz-form-error">{err}</p>}
+      <button onClick={submit} disabled={busy} className="bz-cta" data-testid="biz-form-submit">
+        {busy ? _t("Sending…") : _t("Send enquiry")}
+      </button>
+    </div>
   );
 }
 
@@ -140,7 +221,7 @@ export default function Business() {
             <p className="bz-sub">
               {_t("Book a meeting with our Account Manager and discover tailored solutions for your business.")}
             </p>
-            <Link to="/contact" className="bz-cta" data-testid="business-contact-btn">{_t("Contact us")}</Link>
+            <button className="bz-cta" onClick={() => scrollToForm()} data-testid="business-contact-btn">{_t("Contact us")}</button>
           </Reveal>
           <div className="bz-tp" data-testid="business-trustpilot">
             <p className="bz-tp-head"><Star className="h-3.5 w-3.5" fill="#00b67a" strokeWidth={0} /> Trustpilot</p>
@@ -273,7 +354,7 @@ export default function Business() {
               <p className="bz-card-kicker">{_t("Only Euro")}</p>
               <h3>{_t("Receive crypto, settle in Euro")}</h3>
               <p>{_t("Automatically convert cryptocurrency payments into Euros to eliminate market fluctuation risks. Ensure revenue stability and predictability with a system immune to volatility.")}</p>
-              <Link to="/contact" className="bz-link" data-testid="business-settle-contact">{_t("Talk to us")} <ArrowUpRight className="h-4 w-4" /></Link>
+              <button className="bz-link" style={{ background: "none", border: 0, padding: 0, cursor: "pointer" }} onClick={() => scrollToForm(_t("Crypto payments"))} data-testid="business-settle-contact">{_t("Talk to us")} <ArrowUpRight className="h-4 w-4" /></button>
             </div>
             <div className="bz-settle-art">
               <div className="bz-flow bz-flow-a">
@@ -341,17 +422,17 @@ export default function Business() {
                 <div className="bz-workshop-ico"><I className="h-5 w-5" /></div>
                 <h3>{_t(wk.title)}</h3>
                 <p>{_t(wk.desc)}</p>
-                <Link to="/contact?topic=workshop" className="bz-link" data-testid={wk.id}>{_t("Request info")} <ArrowUpRight className="h-4 w-4" /></Link>
+                <button className="bz-link" style={{ background: "none", border: 0, padding: 0, cursor: "pointer" }} onClick={() => scrollToForm(_t("Workshops"))} data-testid={wk.id}>{_t("Request info")} <ArrowUpRight className="h-4 w-4" /></button>
               </Reveal>
             );})}
           </div>
         </section>
 
-        {/* ---------- FINAL CTA ---------- */}
-        <Reveal className="bz-final">
+        {/* ---------- FINAL CTA + ENQUIRY FORM ---------- */}
+        <Reveal className="bz-final" id="business-contact">
           <h2 className="bz-h2">{_t("Ready to make crypto work for your business?")}</h2>
           <p className="bz-sub">{_t("Book a meeting with our Account Manager and discover tailored solutions for your company.")}</p>
-          <Link to="/contact" className="bz-cta" data-testid="business-final-cta">{_t("Contact us")}</Link>
+          <BizContactForm />
         </Reveal>
       </div>
     </SiteLayout>
