@@ -1,7 +1,7 @@
 import { t as _t, lang, setLang, LANGS } from "@/i18n";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound, LayoutDashboard, LogOut, Globe } from "lucide-react";
+import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound, LayoutDashboard, LogOut, Globe, ArrowLeftRight, LineChart, Zap, GraduationCap } from "lucide-react";
 import SearchDialog from "./SearchDialog";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -17,6 +17,18 @@ const NAV_LINKS = [
   { label: "Support", path: "/support" },
 ];
 
+/* Products mega-menu content — "To trade" / "To learn" */
+const PRODUCTS_MENU = {
+  trade: [
+    { icon: ArrowLeftRight, color: "text-white bg-emerald-500", title: "Blockscaner", desc: "Buy and sell crypto assets on a simple, intuitive platform.", to: "/products" },
+    { icon: LineChart, color: "text-white bg-slate-800", title: "Blockscaner Pro", desc: "Advanced platform for buying and selling crypto, with charting tools and conditional orders.", to: "/products" },
+  ],
+  learn: [
+    { icon: Zap, color: "text-white bg-fuchsia-500", title: "Blockscaner Step", desc: "Walk, take crypto quizzes, complete challenges and earn rewards.", to: "/products" },
+    { icon: GraduationCap, color: "text-white bg-violet-500", title: "Academy", desc: "Learn the basics of crypto assets and blockchain with simple guides and free access.", to: "/blog" },
+  ],
+};
+
 export const BrandMark = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
     <rect x="1" y="1" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.2" />
@@ -25,8 +37,23 @@ export const BrandMark = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
-const SiteHeader = () => {
-  const [open, setOpen] = useState<string | null>(null);
+/* Mega-menu item — icon + title + description */
+const MenuItem = ({ item }: { item: { icon: any; color: string; title: string; desc: string; to: string } }) => {
+  const Icon = item.icon;
+  return (
+    <Link to={item.to} className="group flex items-start gap-4">
+      <span className={`mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${item.color}`}>
+        <Icon className="h-5 w-5" />
+      </span>
+      <span>
+        <span className="block text-[15px] font-bold text-foreground group-hover:text-primary transition-colors">{_t(item.title)}</span>
+        <span className="mt-1 block text-[13px] leading-snug text-muted-foreground">{_t(item.desc)}</span>
+      </span>
+    </Link>
+  );
+};
+
+const SiteHeader = () => {  const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -59,16 +86,51 @@ const SiteHeader = () => {
 
         <nav aria-label={_t("Main navigation")} className="hidden lg:block">
           <ul className="flex items-center gap-8">
-            {NAV_LINKS.map((n) => (
-              <li key={n.path}>
-                <Link
-                  to={n.path}
-                  className={`whitespace-nowrap text-[15px] font-semibold tracking-tight transition-colors ${loc.pathname === n.path ? "text-foreground" : "text-foreground/90 hover:text-foreground"}`}
-                >
-                  {_t(n.label)}
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.map((n) => {
+              if (n.label === "Products") {
+                return (
+                  <li key={n.path} className="relative" onMouseEnter={() => setOpen("products")} onMouseLeave={() => setOpen(null)}>
+                    <Link
+                      to={n.path}
+                      onClick={() => setOpen(null)}
+                      className={`whitespace-nowrap text-[15px] font-semibold tracking-tight transition-colors ${loc.pathname === n.path || open === "products" ? "text-foreground" : "text-foreground/90 hover:text-foreground"}`}
+                    >
+                      {_t(n.label)}
+                    </Link>
+                    {open === "products" && (
+                      <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4">
+                        <div className="w-[640px] rounded-2xl border border-border bg-background p-8 shadow-2xl">
+                          <div className="grid grid-cols-2 gap-10">
+                            <div>
+                              <p className="mb-5 text-lg font-bold text-foreground">{_t("To trade")}</p>
+                              <div className="space-y-6">
+                                {PRODUCTS_MENU.trade.map((item) => <MenuItem key={item.title} item={item} />)}
+                              </div>
+                            </div>
+                            <div>
+                              <p className="mb-5 text-lg font-bold text-foreground">{_t("To learn")}</p>
+                              <div className="space-y-6">
+                                {PRODUCTS_MENU.learn.map((item) => <MenuItem key={item.title} item={item} />)}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </li>
+                );
+              }
+              return (
+                <li key={n.path}>
+                  <Link
+                    to={n.path}
+                    className={`whitespace-nowrap text-[15px] font-semibold tracking-tight transition-colors ${loc.pathname === n.path ? "text-foreground" : "text-foreground/90 hover:text-foreground"}`}
+                  >
+                    {_t(n.label)}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 

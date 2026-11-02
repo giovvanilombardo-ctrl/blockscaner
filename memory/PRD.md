@@ -150,6 +150,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   rounded "Sign up" pill (Blockscaner blue). Removed the top utility bar. Logged-in users get a rounded blue
   "My account" pill.
 
+- **Products mega-dropdown (2026-11-02)**: hovering "Products" in the header opens a two-column popup
+  modeled on youngplatform — "To trade" (Blockscaner, Blockscaner Pro) and "To learn" (Blockscaner Step,
+  Academy), each with a colored icon tile + bold title + short description, in a white rounded card.
+
 ## Backlog / next tasks
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
 - P1: Decide production from-domain (verify a real sending domain in Resend for delivery to
