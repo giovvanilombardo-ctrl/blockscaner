@@ -103,7 +103,7 @@ const COINGECKO_IDS: Record<string, string> = {
 const fetchLiveRates = async (): Promise<Record<string, number>> => {
   try {
     const ids = Object.values(COINGECKO_IDS).join(",");
-    const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=eur`);
+    const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/market/simple-price?ids=${ids}`);
     if (!res.ok) throw new Error("API error");
     const data = await res.json();
     const rates: Record<string, number> = { EUR: 1 };

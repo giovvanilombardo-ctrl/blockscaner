@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { t as _t } from "@/i18n";
 import SiteLayout from "@/components/site/SiteLayout";
 import { ChevronRight, ArrowUpRight, ExternalLink } from "lucide-react";
-import { COINS, CoinContent } from "@/content/coins";
+import { COINS, CoinContent, genericCoin } from "@/content/coins";
 import btcHero from "@/assets/btc-hero.png";
 import "@/platform.css";
 
@@ -20,7 +20,7 @@ function CoinChart({ coinId, sym, current }: { coinId: string; sym: string; curr
     let alive = true;
     const days = range === "1D" ? 1 : range === "1W" ? 7 : range === "1M" ? 30 : range === "6M" ? 180 : 730;
     const load = (attempt = 0) => {
-      fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=eur&days=${days}`)
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/market/chart/${coinId}?days=${days}`)
         .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
         .then((j) => { if (alive) setPoints((j.prices || []).map((p: any[]) => p[1])); })
         .catch(() => { if (alive && attempt < 3) setTimeout(() => load(attempt + 1), 1500 * (attempt + 1)); });
@@ -63,20 +63,22 @@ function CoinChart({ coinId, sym, current }: { coinId: string; sym: string; curr
 
 export default function CoinDetail() {
   const { coinId = "bitcoin" } = useParams();
-  const coin: CoinContent | undefined = COINS[coinId];
+  const coin: CoinContent | undefined = COINS[coinId] || genericCoin(coinId);
   const [market, setMarket] = useState<any>(null);
   const [topMovers, setTopMovers] = useState<any[]>([]);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     if (!coin) return;
     let alive = true;
+    const API = process.env.REACT_APP_BACKEND_URL;
     const getJSON = (url: string, attempt = 0): Promise<any> =>
       fetch(url)
         .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
         .catch(() => (attempt < 3 ? new Promise((res) => setTimeout(() => res(getJSON(url, attempt + 1)), 1600 * (attempt + 1))) : []));
-    getJSON(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=${coin.id}&price_change_percentage=24h&sparkline=true`)
-      .then((j) => { if (alive) setMarket(Array.isArray(j) ? j[0] : null); });
-    getJSON(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=40&page=1&price_change_percentage=24h`)
+    getJSON(`${API}/api/market/coin/${coin.id}`)
+      .then((j) => { if (alive) setMarket(j && j.id ? j : null); });
+    getJSON(`${API}/api/market/coins?per_page=40&page=1`)
       .then((j) => {
         if (!alive) return;
         const arr = (Array.isArray(j) ? j : []).filter((c: any) => c.id !== coin.id)
@@ -84,6 +86,22 @@ export default function CoinDetail() {
         setTopMovers(arr.slice(0, 7));
       });
     return () => { alive = false; };
+  }, [coin]);
+
+  /* scrollspy: highlight the TOC entry of the section currently being read */
+  useEffect(() => {
+    if (!coin) return;
+    const ids = [...coin.sections.map((s) => s.id), "market-data", "academy", "buy-steps", "about", "top-movers"];
+    const visible = new Set<string>();
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) visible.add(e.target.id); else visible.delete(e.target.id);
+      });
+      const first = ids.find((id) => visible.has(id));
+      if (first) setActiveSection(first);
+    }, { rootMargin: "-90px 0px -60% 0px", threshold: 0 });
+    ids.forEach((id) => { const el = document.getElementById(id); if (el) obs.observe(el); });
+    return () => obs.disconnect();
   }, [coin]);
 
   if (!coin) {
@@ -206,7 +224,7 @@ export default function CoinDetail() {
           <aside className="cd-toc">
             <nav>
               {toc.map((t) => (
-                <a key={t.id} href={`#${t.id}`} className="cd-toc-link">{t.label}</a>
+                <a key={t.id} href={`#${t.id}`} className={`cd-toc-link ${activeSection === t.id ? "on" : ""}`}>{t.label}</a>
               ))}
             </nav>
           </aside>

@@ -36,8 +36,8 @@ export default function Markets() {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=120&page=1&price_change_percentage=24h&sparkline=true`)
-      .then((r) => r.json())
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/market/coins?per_page=120&page=1`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then((j) => {
         const arr = Array.isArray(j) ? j : [];
         setCoins(arr);

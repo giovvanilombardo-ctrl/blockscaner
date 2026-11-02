@@ -34,15 +34,12 @@ async def live_rates() -> dict:
     tasas = dict(TASAS_EUR)
     ids = {"bitcoin": "BTC", "ethereum": "ETH", "tether": "USDT", "solana": "SOL", "binancecoin": "BNB", "tron": "TRX"}
     try:
-        async with httpx.AsyncClient(timeout=6) as c:
-            r = await c.get("https://api.coingecko.com/api/v3/simple/price",
-                            params={"ids": ",".join(ids), "vs_currencies": "eur"})
-            if r.status_code == 200:
-                j = r.json()
-                for cid, a in ids.items():
-                    v = j.get(cid, {}).get("eur")
-                    if isinstance(v, (int, float)) and v > 0:
-                        tasas[a] = float(v)
+        from market_data import eur_prices_for
+        prices = await eur_prices_for(list(ids))
+        for cid, a in ids.items():
+            v = prices.get(cid)
+            if isinstance(v, (int, float)) and v > 0:
+                tasas[a] = float(v)
     except Exception as e:
         logger.info("coingecko rates failed: %s", e)
     try:
