@@ -68,12 +68,12 @@ function CountUp({ to, suffix }: { to: number; suffix: string }) {
 }
 
 const COIN_POSITIONS = [
-  { top: "0%", left: "4%", size: 240, d: 0 },
-  { top: "20%", left: "13%", size: 100, d: 1.2 },
-  { top: "48%", left: "15%", size: 130, d: 2.1 },
-  { bottom: "28%", right: "15%", size: 115, d: 0.6 },
-  { bottom: "14%", right: "11%", size: 150, d: 1.5 },
-  { bottom: "-3%", right: "3%", size: 250, d: 0.9 },
+  { top: "0%", left: "4%", size: 240, d: 0, rx: 9, ry: -18, depth: 1.7 },
+  { top: "20%", left: "13%", size: 100, d: 1.2, rx: -7, ry: 15, depth: 1.0 },
+  { top: "48%", left: "15%", size: 130, d: 2.1, rx: 11, ry: -25, depth: 1.3 },
+  { bottom: "28%", right: "15%", size: 115, d: 0.6, rx: -9, ry: 21, depth: 0.9 },
+  { bottom: "14%", right: "11%", size: 150, d: 1.5, rx: 7, ry: -17, depth: 1.2 },
+  { bottom: "-3%", right: "3%", size: 250, d: 0.9, rx: 13, ry: 19, depth: 1.9 },
 ];
 
 function ReportBtn({ id }: { id: string }) {
@@ -87,6 +87,20 @@ function ReportBtn({ id }: { id: string }) {
 export default function Business() {
   const coins = useCoins();
   const heroCoins = coins.slice(0, 6);
+  const heroRef = useRef<HTMLElement | null>(null);
+
+  /* mouse parallax: coins drift in depth as the cursor moves */
+  const onHeroMove = (e: React.MouseEvent) => {
+    const el = heroRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
+    el.style.setProperty("--my", ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
+  };
+  const onHeroLeave = () => {
+    heroRef.current?.style.setProperty("--mx", "0");
+    heroRef.current?.style.setProperty("--my", "0");
+  };
 
   return (
     <SiteLayout>
@@ -97,19 +111,35 @@ export default function Business() {
       <div className="bz-page" data-testid="business-page">
 
         {/* ---------- HERO (photo 5) ---------- */}
-        <section className="bz-hero">
+        <section className="bz-hero" ref={heroRef} onMouseMove={onHeroMove} onMouseLeave={onHeroLeave}>
           {heroCoins.map((c, i) => {
             const p = COIN_POSITIONS[i % COIN_POSITIONS.length] as any;
-            const { size, d, ...pos } = p;
+            const { size, d, rx, ry, depth, ...pos } = p;
             return (
-              <div key={c.id} className="bz-coin" style={{ ...pos, width: size, height: size, animationDelay: `${d}s` }}>
-                <img src={c.image} alt={c.name} loading="lazy" />
+              <div key={c.id} className="bz-coin-par" style={{ ...pos, "--depth": depth } as any}>
+                <div className="bz-coin-tilt" style={{ width: size, height: size, "--rx": `${rx}deg`, "--ry": `${ry}deg` } as any}>
+                  <div className="bz-coin-spin" style={{ animationDelay: `${d}s`, animationDuration: `${6.5 + i * 0.6}s` }}>
+                    <div className="bz-coin-face">
+                      <img src={c.image} alt={c.name} loading="lazy" />
+                      <span className="bz-glare" />
+                    </div>
+                    <span className="bz-coin-shadow" />
+                  </div>
+                </div>
               </div>
             );
           })}
           {/* big euro coin, seen from a tilted angle */}
-          <div className="bz-euro-wrap">
-            <div className="bz-coin-euro-big"><span>€</span></div>
+          <div className="bz-coin-par bz-euro-par" style={{ bottom: "-5%", left: "16%", "--depth": 1.4 } as any}>
+            <div className="bz-coin-tilt" style={{ width: 300, height: 300, "--rx": "10deg", "--ry": "-34deg" } as any}>
+              <div className="bz-coin-spin" style={{ animationDelay: "1.7s", animationDuration: "8s" }}>
+                <div className="bz-coin-face bz-face-eur">
+                  <span className="bz-eur-sign">€</span>
+                  <span className="bz-glare" />
+                </div>
+                <span className="bz-coin-shadow" />
+              </div>
+            </div>
           </div>
           <Reveal className="bz-hero-in">
             <h1 className="bz-h1">
@@ -248,12 +278,12 @@ export default function Business() {
             <div className="bz-settle-art">
               <div className="bz-flow bz-flow-a">
                 <span className="bz-flow-tag">{_t("Send Bitcoin")}</span>
-                <div className="bz-coin bz-coin-static">{coins[0] && <img src={coins[0].image} alt="Bitcoin" />}</div>
+                <div className="bz-coin-static"><div className="bz-coin-face">{coins[0] && <img src={coins[0].image} alt="Bitcoin" />}<span className="bz-glare" /></div></div>
               </div>
               <div className="bz-flow-arrow" />
               <div className="bz-flow bz-flow-b">
                 <span className="bz-flow-tag">{_t("Receive Euro")}</span>
-                <div className="bz-coin bz-coin-static bz-coin-eur">€</div>
+                <div className="bz-coin-static"><div className="bz-coin-face bz-face-eur"><span className="bz-eur-sign-sm">€</span><span className="bz-glare" /></div></div>
               </div>
             </div>
           </Reveal>
