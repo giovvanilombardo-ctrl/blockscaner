@@ -4,6 +4,8 @@ import { t as _t } from "@/i18n";
 import SiteLayout from "@/components/site/SiteLayout";
 import { ChevronRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import { COINS, CoinContent, genericCoin, coinFromInfo, coinFromMarket } from "@/content/coins";
+import Seo from "@/components/Seo";
+import PriceAlert from "@/components/PriceAlert";
 import btcHero from "@/assets/btc-hero.png";
 import "@/platform.css";
 
@@ -69,7 +71,11 @@ export default function CoinDetail() {
   const coin: CoinContent | undefined = staticCoin || dynCoin || undefined;
   const [market, setMarket] = useState<any>(null);
   const [topMovers, setTopMovers] = useState<any[]>([]);
+  const [allCoins, setAllCoins] = useState<any[]>([]);
   const [activeSection, setActiveSection] = useState("");
+
+  /* start each coin page at the top (related-coins navigation keeps SPA state) */
+  useEffect(() => { window.scrollTo(0, 0); }, [coinId]);
 
   /* Dynamic page: for coins without hand-written content, build the page from
      the backend profile (description, facts, links). Falls back to a minimal
@@ -113,9 +119,11 @@ export default function CoinDetail() {
     getJSON(`${API}/api/market/coins?per_page=40&page=1`)
       .then((j) => {
         if (!alive) return;
-        const arr = (Array.isArray(j) ? j : []).filter((c: any) => c.id !== coin.id)
+        const arr = Array.isArray(j) ? j : [];
+        setAllCoins(arr);
+        const movers = arr.filter((c: any) => c.id !== coin.id)
           .sort((a: any, b: any) => Math.abs(b.price_change_percentage_24h || 0) - Math.abs(a.price_change_percentage_24h || 0));
-        setTopMovers(arr.slice(0, 7));
+        setTopMovers(movers.slice(0, 7));
       });
     return () => { alive = false; };
   }, [coin]);
@@ -171,8 +179,21 @@ export default function CoinDetail() {
     { id: "top-movers", label: _t("Check out the Top movers") },
   ];
 
+  /* "People also view": market-cap neighbours of this coin within the top-40 list */
+  const related: any[] = (() => {
+    if (!allCoins.length) return [];
+    const idx = allCoins.findIndex((c) => c.id === coin.id);
+    const out: any[] = [];
+    if (idx >= 0) {
+      for (const d of [1, -1, 2, -2, 3, -3]) { const c = allCoins[idx + d]; if (c) out.push(c); }
+    }
+    const fill = allCoins.filter((c) => c.id !== coin.id && !out.includes(c));
+    return [...out, ...fill].slice(0, 5);
+  })();
+
   return (
     <SiteLayout>
+      <Seo title={`${coin.title} | Blockscaner`} description={coin.lead} />
       <div className="cd-page">
         <nav className="mk-crumb">
           <Link to="/">{_t("Home")}</Link> <ChevronRight className="h-3 w-3" /> <Link to="/markets">{_t("Market")}</Link> <ChevronRight className="h-3 w-3" /> <span>{coin.name}</span>
@@ -192,6 +213,8 @@ export default function CoinDetail() {
           {/* main column */}
           <div className="cd-main">
             <CoinChart coinId={coin.id} sym={coin.sym} current={market} />
+
+            <PriceAlert coinId={coin.id} sym={coin.sym} name={coin.name} current={market?.current_price} />
 
             {coin.sections.map((s) => (
               <section key={s.id} id={s.id} className="cd-section">
@@ -258,6 +281,19 @@ export default function CoinDetail() {
                 ))}
               </div>
             </section>
+
+            {related.length > 0 && (
+              <section id="related" className="cd-section">
+                <h2>{_t("People also view")}</h2>
+                <div className="cd-movers">
+                  {related.map((c) => (
+                    <Link key={c.id} to={`/markets/${c.id}`} className="cd-mover">
+                      <img src={c.image} alt="" /><b>{c.name}</b><span>{c.symbol.toUpperCase()}</span>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section className="cd-section cd-disclaimer">
               <p>{_t("This content constitutes a marketing communication and does not constitute investment advice or a personalised recommendation. Crypto-assets are highly volatile and involve a significant risk of losing up to the entirety of the capital invested. Users are invited to conduct independent and informed assessments, consulting the Terms and Conditions and, where appropriate, seeking advice from a qualified professional advisor before making any economic or financial decision.")}</p>

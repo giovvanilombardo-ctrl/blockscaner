@@ -74,6 +74,21 @@
 .cd-toc-link.on{ color:#0b3b8c; background:#e4eefe; border-radius:8px; padding-left:.65rem; border-bottom-color:transparent; }
 .cd-links{ display:grid; gap:.5rem; justify-items:start; }
 
+/* price alert */
+.pa-box{ background:#f6f9fc; border:1px solid #eef2f7; border-radius:18px; padding:1.4rem 1.5rem; }
+.pa-box h2{ margin-top:0; }
+.pa-form{ display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; }
+.pa-when{ font-size:.9rem; font-weight:600; color:#334155; }
+.pa-select, .pa-input{ border:1px solid #d7e0ec; border-radius:10px; padding:.55rem .7rem; font-size:.92rem; background:#fff; }
+.pa-input{ width:130px; }
+.pa-btn{ padding:.55rem 1.1rem !important; }
+.pa-current{ font-size:.82rem; color:#64748b; margin:.5rem 0 0; }
+.pa-msg{ font-size:.86rem; color:#1663d9; margin:.6rem 0 0; }
+.pa-list{ list-style:none; padding:0; margin:.9rem 0 0; display:grid; gap:.4rem; }
+.pa-item{ display:flex; align-items:center; gap:.55rem; background:#fff; border:1px solid #eef2f7; border-radius:10px; padding:.5rem .8rem; font-size:.88rem; }
+.pa-del{ margin-left:auto; background:none; border:0; color:#94a3b8; cursor:pointer; }
+.pa-del:hover{ color:#dc2626; }
+
 .cd-chart{ border:1px solid #eef2f7; border-radius:20px; padding:1.6rem; margin-bottom:2.5rem; background:#fff; }
 .cd-chart-head{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; }
 .cd-chart-name{ font-size:.8rem; color:#64748b; font-weight:600; }

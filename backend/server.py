@@ -867,6 +867,10 @@ app.include_router(create_wallet_router(db, require_user, is_admin))
 from market_data import router as market_router
 app.include_router(market_router)
 
+from price_alerts import create_alerts_router, create_cron_router
+app.include_router(create_alerts_router(db, require_user))
+app.include_router(create_cron_router(db))
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,

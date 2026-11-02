@@ -1,0 +1,8 @@
+crons:
+  - name: price-alerts
+    description: "Checks active crypto price alerts every 15 minutes and emails users whose target is reached"
+    cron: "*/15 * * * *"
+    endpoint: "{{BASE_URL}}/api/cron/price-alerts"
+    method: POST
+    # Cron endpoints must ack 2xx immediately; enqueue/background the actual work.
+    enabled: true

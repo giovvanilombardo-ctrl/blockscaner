@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { t as _t } from "@/i18n";
 import SiteLayout from "@/components/site/SiteLayout";
+import Seo from "@/components/Seo";
 import { Globe, Search, ChevronDown, ChevronRight, TrendingUp, TrendingDown } from "lucide-react";
 import "@/platform.css";
 
@@ -61,6 +62,10 @@ export default function Markets() {
 
   return (
     <SiteLayout>
+      <Seo
+        title={`${_t("Crypto Markets")}: ${_t("live prices, trends and market capitalisation")} | Blockscaner`}
+        description={_t("Live EUR prices, 7-day trends, market cap and 24h volume for the top crypto-assets. Buy Bitcoin, Ethereum and more on Blockscaner.")}
+      />
       <div className="mk-page">
         <nav className="mk-crumb">
           <Link to="/">{_t("Home")}</Link> <ChevronRight className="h-3 w-3" /> <span>{_t("Market")}</span>

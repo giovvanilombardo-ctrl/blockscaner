@@ -168,14 +168,35 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   to the detail page. Blockscaner blue throughout.
 
 ## Backlog / next tasks
-- P1: Add full custom long-form content for more coins (Solana, XRP, etc.) — they currently use the
-  generic template in `coins.ts` (`genericCoin()`); Bitcoin and Ethereum have full custom content.
-- P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
+- P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset — and price-alert
+  notifications) actually send to real inboxes. Alert pipeline itself is built and tested.
 - P1: Decide production from-domain (verify a real sending domain in Resend for delivery to
   arbitrary inboxes, not just the Resend test inbox).
+- P1: Attach/confirm a production domain, then re-add canonical/og:url/og:image tags and
+  sitemap.xml (currently omitted by design — see SEO note below).
+- P1: Full long-form content for the remaining curated coins (USDC, TRX, LTC, BCH, LINK, DOT, AVAX
+  still use the shorter generic template).
 - P1: Run the full scheduled-recurring-task for `send-visitor-reminder` follow-ups (cron).
 - P2: Re-add the Spanish `/cd` international section if ever wanted (files still available).
 - P2: Wallet report PDF polish.
+
+- **Richer pages + SEO + price alerts + related coins (2026-11-02)**:
+  (1) Full hand-written 8-section pages for SOL, XRP, USDT, BNB, ADA, DOGE (`coins.ts`, registered in
+  COINS; their old KNOWN template entries removed). (2) Per-coin SEO via new `src/components/Seo.tsx`
+  (unique title/description/OG/Twitter per coin page and /markets); static `public/index.html` head
+  rewritten for the trading platform (was stale German forensics SEO), lang=en, JSON-LD Organization +
+  WebSite, real noscript fallback; robots.txt + llms.txt rewritten; sitemap.xml DELETED — no confirmed
+  production domain, so all absolute-URL tags (canonical, og:url, og:image, sitemap) are intentionally
+  omitted until a domain is attached. (3) Price alerts: `backend/price_alerts.py` (CRUD
+  `/api/alerts`, max 20 active/user) + platform cron `*/15 * * * *` -> `/api/cron/price-alerts`
+  (WEBHOOK_CRON_SECRET bearer auth, constant-time compare, run_id dedup, background check via
+  market_data.eur_prices_for, one-shot trigger + email via email_wrapper/send_email);
+  `.emergent/crons.yml` created. Frontend `src/components/PriceAlert.tsx` on every coin page
+  (logged-out -> login prompt; logged-in -> direction+target form, list, delete). Tested end-to-end:
+  create -> cron fire -> trigger recorded -> email attempted (blocked only because the test address is
+  fake — Resend "undeliverable recipient"; real addresses will send once credits are topped up).
+  (4) "People also view" row on coin pages (market-cap neighbours from the top-40 list) + scroll-to-top
+  on coin change.
 
 - **Backend market-data proxy + coin pages + scrollspy (2026-11-02)**: P0 rate-limit fix done — all
   CoinGecko calls moved behind FastAPI (`/app/backend/market_data.py`, prefix `/api/market`: `coins`,
