@@ -133,6 +133,17 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Konto erstellen (Soforthilfe moved to mobile menu + "Kundenportal" top-bar link); logged in → Search +
   one "Mein Konto" dropdown containing Privater Bereich / Mein Konto / Abmelden. Mobile menu mirrors both.
 
+- **PLATFORM PIVOT (2026-11-02)**: repositioned from a recovery service to a crypto trading/investing
+  platform (Blockscaner). Header nav now: Products / Markets / Business / About us / Blog / Support + a
+  5-language switcher (EN·DE·FR·ES·IT), English as the default/primary language. New pages in
+  `src/pages/platform/` (Products, Markets [live CoinGecko prices], Business, About, Blog, Support) built on
+  `src/pages/platform/_shell.tsx` + `src/platform.css`, modeled on youngplatform.com. Homepage (Index.tsx)
+  keeps the hero but the body is now trading sections (Products / Markets teaser / Business / CTAs). Footer
+  rebuilt to platform links + 5-language switcher. i18n/index.ts now supports en/de/fr/es/it (English primary,
+  others fall back to English until translated). Login button label is now "Go to my area". My account
+  (AccountPortal wallet/exchange/withdraw/KYC) and the case tracker are UNCHANGED and fully working.
+  Kept-but-legacy: recovery help topics, legal pages, ChatAssistant (German forensic prompt) — pending rebrand.
+
 ## Backlog / next tasks
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
 - P1: Decide production from-domain (verify a real sending domain in Resend for delivery to

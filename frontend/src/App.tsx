@@ -19,6 +19,12 @@ import Contact from "./pages/Contact";
 import SectionPage from "./pages/SectionPage";
 import Legal from "./pages/Legal";
 import Sitemap from "./pages/Sitemap";
+import Products from "./pages/platform/Products";
+import Markets from "./pages/platform/Markets";
+import Business from "./pages/platform/Business";
+import About from "./pages/platform/About";
+import Blog from "./pages/platform/Blog";
+import Support from "./pages/platform/Support";
 import Kundenservice from "./pages/Kundenservice";
 import Ermittlungsplattform from "./pages/Ermittlungsplattform";
 import VektorFaehigkeiten from "./pages/VektorFaehigkeiten";
@@ -61,6 +67,12 @@ const AppContent = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index onResetCookies={reset} />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/markets" element={<Markets />} />
+          <Route path="/business" element={<Business />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/support" element={<Support />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/hilfe" element={<SectionPage key="hilfe" sectionKey="hilfe" onResetCookies={reset} />} />
           <Route path="/hilfe/:slug" element={<HelpTopicPage key="hilfe" sectionKey="hilfe" onResetCookies={reset} />} />

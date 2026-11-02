@@ -1,174 +1,131 @@
-import { t as _t, lang, setLang } from "@/i18n";
+import { t as _t, lang, setLang, LANGS } from "@/i18n";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck } from "lucide-react";
 import SiteLayout from "@/components/site/SiteLayout";
-import { methodAnims } from "@/components/site/MethodAnim";
-import StoryFeatures from "@/components/site/StoryFeatures";
-import trustBg from "@/assets/trust-bg.jpg";
-import { TechTicker } from "@/components/site/TechTicker";
-import Environment from "@/components/site/Environment";
 import BloomField from "@/components/site/BloomField";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import HeroCaseForm from "@/components/site/HeroCaseForm";
-import FraudLab from "@/components/site/FraudLab";
-import { sections } from "@/content/site";
-
-const firstHours = [
-  { t: _t("0–15 Min"), h: _t("Schaden stoppen"), d: _t("Keine weiteren Zahlungen. Kommunikation mit Tätern einstellen."), p: [_t("Keine weiteren Überweisungen oder Krypto-Transfers ausführen – auch nicht für angebliche Gebühren oder Steuern."), _t("Chat, Telefon und E-Mail mit den Tätern sofort beenden; nicht auf Drohungen reagieren."), _t("Fernwartungs-Apps (z. B. AnyDesk, TeamViewer) deinstallieren und das Gerät vom Internet trennen.")], tip: _t("Täter erhöhen oft den Druck, sobald Sie zögern. Jede weitere Zahlung erhöht nur den Schaden.") },
-  { t: _t("15–60 Min"), h: _t("Institute informieren"), d: _t("Bank, Zahlungsdienstleister oder Kryptobörse kontaktieren. Sperr-Notruf 116 116."), p: [_t("Bank oder Zahlungsdienstleister anrufen und eine Rückbuchung bzw. Sperrung verlangen."), _t("Kryptobörse über den offiziellen Support informieren und die Ziel-Wallet melden."), _t("Karten und Online-Banking über den Sperr-Notruf 116 116 sperren lassen.")], tip: _t("Notieren Sie Datum, Uhrzeit und Namen Ihrer Ansprechpartner bei jedem Anruf.") },
-  { t: _t("1–6 Std"), h: _t("Zugänge sichern"), d: _t("Passwörter ändern, Mehr-Faktor-Authentifizierung aktivieren, Sitzungen beenden."), p: [_t("Passwörter von E-Mail, Bank und Börsen von einem sauberen Gerät aus ändern."), _t("Mehr-Faktor-Authentifizierung per App aktivieren – nicht per SMS."), _t("Alle aktiven Sitzungen und verbundenen Geräte abmelden.")], tip: _t("Ändern Sie zuerst das Passwort Ihres E-Mail-Kontos – darüber lassen sich alle anderen zurücksetzen.") },
-  { t: _t("6–24 Std"), h: _t("Beweise sichern"), d: _t("Screenshots, Transaktions-Hashes, E-Mails und eine Chronologie anlegen."), p: [_t("Screenshots von Chats, Webseiten und Kontoständen mit sichtbarem Datum anfertigen."), _t("Transaktions-Hashes, Wallet-Adressen und Kontoauszüge sammeln."), _t("Eine Chronologie anlegen: wann, wer, welcher Betrag, über welchen Kanal.")], tip: _t("Löschen Sie nichts – auch keine Nachrichten der Täter. Alles kann später als Beweis dienen.") },
-  { t: _t("24–72 Std"), h: _t("Anzeige erstatten"), d: _t("Online-Anzeige bei der Polizei Ihres Bundeslandes."), p: [_t("Online-Anzeige bei der Polizei Ihres Bundeslandes oder persönlich auf der Wache stellen."), _t("Gesammelte Beweise und die Chronologie beifügen."), _t("Aktenzeichen notieren und an Bank, Börse und Versicherung weitergeben.")], tip: _t("Vorsicht vor „Recovery“-Angeboten nach der Anzeige: Seriöse Stellen verlangen keine Vorauszahlung.") },
-];
-
-const method = [_t("Erfassen"), _t("Sichern"), _t("Abfragen"), _t("Verknüpfen"), _t("Bewerten"), _t("Dokumentieren"), _t("Prüfen")];
-
-const principles = [
-  [_t("Opferzentriert"), _t("Wir erklären ohne Schuldzuweisung und in verständlicher Sprache.")],
-  [_t("Nachvollziehbar"), _t("Jede Aussage ist mit Quelle, Zeitstempel und Konfidenzstufe versehen.")],
-  [_t("Ehrlich über Grenzen"), _t("Wir garantieren keine Rückholung und sind keine Strafverfolgungsbehörde.")],
-  [_t("Datensparsam"), _t("Wir erheben nur, was für Ihr Anliegen erforderlich ist.")],
-];
 
 const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
   <SiteLayout onResetCookies={onResetCookies}>
     <Helmet>
-      <title>{_t("Blockscaner – Cybercrime-Opferhilfe & Blockchain-Analyse")}</title>
-      <meta name="description" content="Unabhängige Aufklärung, strukturierte Orientierung und nachvollziehbare Blockchain-Analyse für Menschen, die von digitaler Kriminalität betroffen sind." />
+      <title>Blockscaner — Crypto Trading & Investing</title>
+      <meta name="description" content="Buy, sell, swap and grow crypto on one secure platform. Live markets, a self-contained wallet and simple investing — built for everyone." />
       <link rel="canonical" href="https://blockchain-24.com/" />
     </Helmet>
 
-    {/* HERO */}
+    {/* HERO (kept) */}
     <section className="relative overflow-hidden bg-deep text-deep-foreground min-h-[calc(100vh-6rem)] flex items-center">
       <BloomField />
       <div className="absolute top-5 right-6 lg:right-10 z-10 flex items-center rounded-full border border-deep-foreground/30 bg-deep-foreground/10 backdrop-blur-sm overflow-hidden text-[11px] font-mono uppercase tracking-widest">
-        <button
-          onClick={() => setLang("de")}
-          aria-pressed={lang === "de"}
-          data-testid="hero-lang-de"
-          className={`px-3.5 py-1.5 transition-colors ${lang === "de" ? "bg-background text-foreground font-semibold" : "text-deep-foreground/80 hover:text-deep-foreground"}`}
-        >
-          DE
-        </button>
-        <button
-          onClick={() => setLang("en")}
-          aria-pressed={lang === "en"}
-          data-testid="hero-lang-en"
-          className={`px-3.5 py-1.5 transition-colors ${lang === "en" ? "bg-background text-foreground font-semibold" : "text-deep-foreground/80 hover:text-deep-foreground"}`}
-        >
-          EN
-        </button>
+        {LANGS.map((l, i) => (
+          <span key={l.code} className="flex items-center">
+            {i > 0 && <span className="opacity-40 px-1">·</span>}
+            <button
+              onClick={() => setLang(l.code)}
+              aria-pressed={lang === l.code}
+              data-testid={`hero-lang-${l.code}`}
+              className={`px-2.5 py-1.5 transition-colors ${lang === l.code ? "bg-background text-foreground font-semibold" : "text-deep-foreground/80 hover:text-deep-foreground"}`}
+            >
+              {l.label}
+            </button>
+          </span>
+        ))}
       </div>
       <div className="relative mx-auto w-full max-w-5xl px-6 lg:px-10 py-24 grid gap-10 md:grid-cols-2 items-center">
-        <h1 className="font-display text-4xl md:text-5xl font-light leading-[1.1]">{_t("Kriminelle skalieren mit KI. Verbrechensbekämpfer skalieren mit Blockscaner.")}</h1>
+        <h1 className="font-display text-4xl md:text-5xl font-light leading-[1.1]">{_t("The most valuable currency is the freedom to choose.")}</h1>
         <div className="md:ml-auto md:max-w-xs border-t border-deep-foreground/50 pt-3">
-          <p className="text-sm leading-snug">{_t("KI macht Kriminalität schneller, günstiger und leichter skalierbar. Blockscaner gibt Verbrechensbekämpfern die Ermittlungskapazitäten, um darauf zu reagieren, und hilft Teams, kriminelle Netzwerke aufzudecken und Maßnahmen zu ergreifen, um sie zu zerschlagen.")}</p>
-          <Link to="/contact" className="mt-5 inline-block rounded bg-background px-3 py-2 font-mono text-xs uppercase text-foreground">{_t("So funktioniert's")}</Link>
+          <p className="text-sm leading-snug">{_t("Crypto to build value. One account to trade, hold and invest — simply, securely and on your own terms.")}</p>
+          <Link to="/login?modo=registro" className="mt-5 inline-block rounded bg-background px-3 py-2 font-mono text-xs uppercase text-foreground">{_t("Get started")}</Link>
         </div>
       </div>
     </section>
 
-    <StoryFeatures />
-
-    {/* 02 BLOCKCHAIN INTELLIGENCE — split, ledger env */}
-    <section className="relative overflow-hidden border-b border-border">
-      <div className="grid lg:grid-cols-2 min-h-[560px]">
-        <div className="px-6 lg:px-10 py-20 lg:py-28 flex flex-col justify-center">
-          <p className="eyebrow mb-5">{_t("02 — Blockchain Intelligence")}</p>
-          <h2 className="font-display text-4xl lg:text-5xl leading-tight max-w-lg">{_t("Jede Transaktion hinterlässt eine öffentliche Spur.")}</h2>
-          <p className="mt-6 text-muted-foreground max-w-lg leading-relaxed">{_t("Unser Explorer ruft echte Ledger-Daten ab und stellt Geldflüsse als Graph und Zeitachse dar – mit Quelle, Netzwerk und Abrufzeitpunkt.")}</p>
-          <div className="mt-10 grid grid-cols-3 max-w-lg border-t border-border">
-            {[[_t("Beobachtet"), _t("Ledger-Fakt")], [_t("Interpretiert"), _t("Analyse")], [_t("Hypothese"), _t("Unbestätigt")]].map(([a, b], i) => (
-              <div key={a} className="pt-4 pr-4">
-                <span className={`block h-1 w-8 mb-3 ${["bg-success", "bg-warning", "bg-signal"][i]}`} />
-                <p className="text-sm">{a}</p><p className="text-xs text-muted-foreground">{b}</p>
-              </div>
-            ))}
-          </div>
-          <Link to="/blockchain-intelligence#explorer" className="mt-10 inline-flex w-fit items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-sm font-medium">{_t("Explorer öffnen")} <ArrowUpRight className="h-4 w-4" /></Link>
-        </div>
-        <div className="relative min-h-[360px] border-t lg:border-t-0 lg:border-l border-border bg-card">
-          <Environment variant="ledger" />
-        </div>
-      </div>
-    </section>
-
-    {/* 03 FRAUD PATTERNS */}
+    {/* 02 — PRODUCTS */}
     <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-border">
-      <div className="grid lg:grid-cols-12 gap-10 mb-12">
-        <div className="lg:col-span-5"><p className="eyebrow mb-5">{_t("03 — Betrugsmechanismen")}</p><h2 className="font-display text-4xl lg:text-5xl leading-tight">{_t("Muster erkennen, bevor sie wirken.")}</h2></div>
-        <p className="lg:col-span-5 lg:col-start-8 self-end text-muted-foreground leading-relaxed">{_t("Betrug folgt wiederkehrenden Abläufen. Diese synthetischen Lehrbeispiele zeigen die Phasen – und den Moment, an dem man aussteigen sollte.")}</p>
+      <p className="eyebrow mb-5">{_t("02 — Products")}</p>
+      <h2 className="font-display text-4xl lg:text-5xl leading-tight max-w-2xl">{_t("One platform for everything crypto.")}</h2>
+      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
+        {[
+          { I: ArrowLeftRight, t: "Trade", d: "Buy, sell and swap crypto instantly at live market rates." },
+          { I: Wallet, t: "Wallet", d: "Hold Bitcoin, Ethereum, stablecoins and more — securely in one place." },
+          { I: TrendingUp, t: "Invest", d: "Build long-term wealth with recurring buys and yield on your holdings." },
+          { I: ShieldCheck, t: "Security", d: "Institutional-grade custody and account protection by default." },
+        ].map(({ I, t, d }) => (
+          <Link key={t} to="/products" className="group bg-background p-8 hover:bg-card transition-colors">
+            <I className="h-6 w-6 text-primary" />
+            <h3 className="mt-5 font-display text-xl">{_t(t)}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{_t(d)}</p>
+            <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-primary">{_t("Learn more")} <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></span>
+          </Link>
+        ))}
       </div>
-      <FraudLab />
     </section>
 
-    {/* 04 — info banner */}
+    {/* 03 — MARKETS teaser */}
+    <section className="relative overflow-hidden border-b border-border">
+      <div className="grid lg:grid-cols-2 min-h-[480px]">
+        <div className="px-6 lg:px-10 py-20 lg:py-28 flex flex-col justify-center">
+          <p className="eyebrow mb-5">{_t("03 — Markets")}</p>
+          <h2 className="font-display text-4xl lg:text-5xl leading-tight max-w-lg">{_t("Live prices. Real opportunity.")}</h2>
+          <p className="mt-6 text-muted-foreground max-w-lg leading-relaxed">{_t("Follow the markets in real time and act when it matters — with transparent pricing and no hidden fees.")}</p>
+          <Link to="/markets" className="mt-10 inline-flex w-fit items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-sm font-medium">{_t("View live markets")} <ArrowUpRight className="h-4 w-4" /></Link>
+        </div>
+        <div className="relative min-h-[320px] border-t lg:border-t-0 lg:border-l border-border bg-card flex items-center justify-center p-10">
+          <MarketTicker />
+        </div>
+      </div>
+    </section>
+
+    {/* 04 — CTA banner */}
     <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-border">
       <div className="cta-navy relative overflow-hidden rounded-[2rem] max-w-6xl mx-auto px-6 py-24 lg:py-28 text-center">
-        <svg className="absolute inset-0 h-full w-full pointer-events-none" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
-          <g stroke="hsl(0 0% 100% / 0.12)" strokeWidth="1">
-            <path d="M0 220 H120 L260 320 H330" /><path d="M0 360 H110 L150 330 H300" />
-            <path d="M560 65 H700 L770 0" /><path d="M1200 115 H1140 L1020 225 H960" />
-            <path d="M1200 230 H1100" /><path d="M1200 420 H1150 L1060 325 H900" />
-          </g>
-          <g stroke="hsl(0 0% 100% / 0.22)" fill="hsl(0 0% 100% / 0.03)">
-            <circle cx="350" cy="320" r="16" /><circle cx="590" cy="65" r="16" /><circle cx="955" cy="225" r="16" /><circle cx="880" cy="325" r="16" />
-          </g>
-          <g fill="hsl(0 0% 100% / 0.25)" fontFamily="IBM Plex Mono, monospace" fontSize="8">
-            <text x="50" y="223">SCAM</text><text x="185" y="333">DIRTY MONEY</text><text x="1110" y="233">DANGER</text><text x="990" y="328">DANGER</text>
-          </g>
-        </svg>
         <div className="relative max-w-3xl mx-auto">
-          <h2 className="font-display text-3xl md:text-5xl leading-tight cta-navy-title">{_t("Klarheit nach einem Krypto-Betrug – ohne Komplexität")}</h2>
-          <p className="mt-6 cta-navy-text">{_t("Öffentliche Blockchain-Daten prüfen, Wallets analysieren und Ihren Fall vertraulich schildern – auf einer Plattform.")}</p>
-          <Link to="/contact" className="mt-10 inline-block rounded-full bg-primary text-primary-foreground px-16 py-4 text-sm font-medium hover:bg-primary/90 transition">{_t("Mit einem Experten sprechen")}</Link>
+          <h2 className="font-display text-3xl md:text-5xl leading-tight cta-navy-title">{_t("Start building your crypto future today")}</h2>
+          <p className="mt-6 cta-navy-text">{_t("Open your free account in minutes and buy your first crypto with the payment method you already use.")}</p>
+          <Link to="/login?modo=registro" className="mt-10 inline-block rounded-full bg-primary text-primary-foreground px-16 py-4 text-sm font-medium hover:bg-primary/90 transition">{_t("Create your account")}</Link>
         </div>
       </div>
     </section>
 
-    {/* 05 EXPLORE THE INSTITUTION — asymmetric index */}
+    {/* 05 — Business */}
     <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-border">
-      <p className="eyebrow mb-10">{_t("05 — Bereiche")}</p>
-      <ul>
-        {sections.map((s) => (
-          <li key={s.key}>
-            <Link to={s.path} className="group grid grid-cols-[48px_1fr_auto] md:grid-cols-[80px_1fr_1.2fr_auto] items-baseline gap-6 border-t border-border py-7 hover:bg-card transition-colors px-2">
-              <span className="font-mono text-xs text-muted-foreground">{s.index}</span>
-              <span className="font-display text-2xl md:text-3xl  transition-colors">{s.label}</span>
-              <span className="hidden md:block text-sm text-muted-foreground">{s.lead}</span>
-              <ArrowUpRight className="h-5 w-5 text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </section>
-
-    {/* 06 PRINCIPLES & LIMITS */}
-    <section className="relative overflow-hidden border-b border-border bg-cover bg-center" style={{ backgroundImage: `url(${trustBg})` }}>
-      <div className="relative px-6 lg:px-10 py-32 lg:py-48 min-h-[85vh] flex items-center">
-        <div className="w-full max-w-5xl mx-auto bg-background/90 border border-border shadow-xl grid lg:grid-cols-12">
-          <div className="lg:col-span-4 p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border"><p className="eyebrow mb-5">{_t("06 — Grundsätze & Grenzen")}</p><h2 className="font-display text-4xl leading-tight text-primary">{_t("Vertrauen entsteht durch Klarheit.")}</h2></div>
-          <dl className="lg:col-span-8 grid sm:grid-cols-2">
-            {principles.map(([t, d]) => (
-              <div key={t} className="p-7 border-b border-border sm:[&:nth-last-child(-n+2)]:border-b-0 sm:odd:border-r"><dt className="font-display text-xl mb-2 text-primary">{t}</dt><dd className="text-sm text-muted-foreground leading-relaxed">{d}</dd></div>
-            ))}
-          </dl>
+      <div className="grid lg:grid-cols-12 gap-10 items-center">
+        <div className="lg:col-span-6">
+          <p className="eyebrow mb-5">{_t("04 — Business")}</p>
+          <h2 className="font-display text-4xl lg:text-5xl leading-tight">{_t("Crypto for forward-thinking businesses.")}</h2>
+        </div>
+        <div className="lg:col-span-6">
+          <p className="text-muted-foreground leading-relaxed">{_t("Treasury, international payments and institutional-grade custody — digital-asset services built for companies that move first.")}</p>
+          <Link to="/business" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">{_t("Discover Blockscaner for Business")} <ArrowUpRight className="h-4 w-4" /></Link>
         </div>
       </div>
     </section>
 
-    {/* 07 CTA */}
+    {/* 07 — CTA */}
     <section className="px-6 lg:px-10 py-24 lg:py-32 text-center">
-      <p className="eyebrow mb-6">{_t("Vertraulich · Kostenlos für die Ersteinschätzung")}</p>
-      <h2 className="font-display text-4xl md:text-6xl leading-tight max-w-4xl mx-auto">{_t("Schildern Sie uns, was passiert ist.")}</h2>
-      <p className="mt-6 text-muted-foreground max-w-xl mx-auto">{_t("Wir ordnen Ihren Fall ein, prüfen öffentliche Daten und erklären Ihnen ehrlich, welche Wege offenstehen.")}</p>
+      <p className="eyebrow mb-6">{_t("Free account · No hidden fees")}</p>
+      <h2 className="font-display text-4xl md:text-6xl leading-tight max-w-4xl mx-auto">{_t("Your money, your crypto, your choice.")}</h2>
+      <p className="mt-6 text-muted-foreground max-w-xl mx-auto">{_t("Join Blockscaner and take control of your financial future — simply and securely.")}</p>
       <div className="mt-10 flex flex-wrap justify-center gap-3">
-        <Link to="/contact" className="bg-primary text-primary-foreground px-7 py-4 text-sm font-medium hover:bg-primary/90 transition">{_t("Fall vertraulich schildern")}</Link>
-        <Link to="/chat" className="border border-border px-7 py-4 text-sm hover:border-primary transition">{_t("KI-Assistent starten")}</Link>
+        <Link to="/login?modo=registro" className="bg-primary text-primary-foreground px-7 py-4 text-sm font-medium hover:bg-primary/90 transition">{_t("Get started")}</Link>
+        <Link to="/products" className="border border-border px-7 py-4 text-sm hover:border-primary transition">{_t("Explore products")}</Link>
       </div>
     </section>
   </SiteLayout>
 );
+
+function MarketTicker(){
+  const items = [["BTC","Bitcoin"],["ETH","Ethereum"],["USDT","Tether"],["SOL","Solana"],["BNB","BNB"]];
+  return (
+    <div className="w-full max-w-md space-y-3">
+      {items.map(([sym, name]) => (
+        <div key={sym} className="flex items-center justify-between rounded-xl border border-border bg-background px-5 py-3.5">
+          <span className="flex items-center gap-3"><span className="font-mono text-xs font-bold text-primary">{sym}</span><span className="text-sm">{name}</span></span>
+          <span className="font-mono text-xs text-muted-foreground">{_t("Live on Markets →")}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default Index;
