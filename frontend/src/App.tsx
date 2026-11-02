@@ -25,6 +25,7 @@ import Business from "./pages/platform/Business";
 import About from "./pages/platform/About";
 import Blog from "./pages/platform/Blog";
 import Support from "./pages/platform/Support";
+import CoinDetail from "./pages/platform/CoinDetail";
 import Kundenservice from "./pages/Kundenservice";
 import Ermittlungsplattform from "./pages/Ermittlungsplattform";
 import VektorFaehigkeiten from "./pages/VektorFaehigkeiten";
@@ -69,6 +70,7 @@ const AppContent = () => {
           <Route path="/" element={<Index onResetCookies={reset} />} />
           <Route path="/products" element={<Products />} />
           <Route path="/markets" element={<Markets />} />
+          <Route path="/markets/:coinId" element={<CoinDetail />} />
           <Route path="/business" element={<Business />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />

@@ -159,6 +159,14 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   table (Name+icon, Price, 7-day sparkline Graph, Trend 24h, Market Cap, 24H Volume, Buy) with pagination.
   Data from CoinGecko markets endpoint (120 assets, sparkline_in_7d). Blockscaner blue Buy buttons → sign-up.
 
+- **Coin detail page (2026-11-02)**: `/markets/:coinId` — full Bitcoin page modeled on youngplatform. Hero
+  image header (user's "BTC Screen 1.PNG" → `src/assets/btc-hero.png`), breadcrumb, "Buy Bitcoin (BTC): value
+  and price trends" title + lead, Buy now / Converter CTAs, a live price chart (CoinGecko market_chart with
+  1D/1W/1M/6M/2Y tabs, retry on rate-limit), all long-form content sections, a sticky right sidebar TOC,
+  Market Data grid, Whitepaper link, Academy card, "Buy in 3 steps", About, Top movers chips, disclaimer,
+  final CTA. Content in `src/content/coins.ts` (extensible to more coins). Market rows on `/markets` now link
+  to the detail page. Blockscaner blue throughout.
+
 ## Backlog / next tasks
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
 - P1: Decide production from-domain (verify a real sending domain in Resend for delivery to

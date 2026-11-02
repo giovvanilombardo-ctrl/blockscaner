@@ -91,10 +91,10 @@ export default function Markets() {
           {loading && <div className="mk-empty">{_t("Loading live markets…")}</div>}
           {!loading && pageCoins.map((c) => (
             <div key={c.id} className="mk-row">
-              <span className="mk-name">
+              <Link to={`/markets/${c.id}`} className="mk-name mk-name-link">
                 <img src={c.image} alt="" />
                 <span><b>{c.name}</b><i>{c.symbol.toUpperCase()}</i></span>
-              </span>
+              </Link>
               <span className="mk-r mk-price">{eur(c.current_price)}</span>
               <span className="mk-c"><Spark data={sparks[c.id]} up={up(c)} /></span>
               <span className={`mk-r mk-trend ${up(c) ? "up" : "down"}`}>
