@@ -89,11 +89,13 @@ const HERO_SLOTS = [
   { coin: "bitcoin", bottom: "-4%", right: "5%", size: 390, rz: -4, depth: 1.5, d: 0.9, anim: "c" },
 ];
 
+const REPORT_URL = "/docs/blockscaner-tesoreria-aziendale.pdf";
+
 function ReportBtn({ id }: { id: string }) {
   return (
-    <Link to="/contact?topic=report" className="bz-pill" data-testid={id}>
+    <a href={REPORT_URL} download="Blockscaner-Tesoreria-Aziendale.pdf" className="bz-pill" data-testid={id}>
       {_t("Download the Report")}
-    </Link>
+    </a>
   );
 }
 
@@ -226,7 +228,7 @@ export default function Business() {
             <Reveal className="bz-card">
               <h3>{_t("Staking: up to 18% APY")}</h3>
               <p>{_t("Turn a passive resource into a productive asset, maximising returns on your crypto reserves. Staking allows you to support network security and earn rewards.")}</p>
-              <Link to="/contact?topic=report" className="bz-link" data-testid="business-staking-report">{_t("Download the Report")} <ArrowUpRight className="h-4 w-4" /></Link>
+              <a href={REPORT_URL} download="Blockscaner-Tesoreria-Aziendale.pdf" className="bz-link" data-testid="business-staking-report">{_t("Download the Report")} <ArrowUpRight className="h-4 w-4" /></a>
               <div className="bz-phone">
                 <div className="bz-phone-head"><BadgePercent className="h-4 w-4" /> {_t("Staking")}</div>
                 <div className="bz-phone-row">

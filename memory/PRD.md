@@ -208,6 +208,16 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   per-image threshold; euro needed 78 vs 52), CSS drop-shadow re-grounds each coin. Mouse parallax was
   REMOVED per user request: each of the 7 hero coins drifts autonomously on its own keyframe path
   (bz-drift-a/b/c/d, per-coin duration/delay), sizes enlarged. Trusted-by marquee is full-bleed (100vw).
+  Report PDF: user uploaded Young Platform's "Tesoreria aziendale" (22 pages, Italian) and asked to
+  change ONLY the brand name. `backend/scripts/rebrand_pdf.py` (redact+reinsert 45 brand mentions:
+  footers "BLOCKSCANER", "© 2025 BLOCKSCANER ALL RIGHTS RESERVED", body "Blockscaner"; dedupes
+  case-insensitive overlapping hits; samples bg/fg colors per rect) + `backend/scripts/fix_logo.py`
+  (repaints the vector wordmark on pages 1/20/22 keeping the checkmark, local bg strip sampling).
+  Saved to `frontend/public/docs/blockscaner-tesoreria-aziendale.pdf` (~61MB after qpdf recompress;
+  original 38MB — pymupdf inflates image streams, gs broke a type-3 glyph so qpdf was used).
+  All 4 "Download the Report" buttons serve it with download attr. REMAINING: page 22 contact emails
+  (n.dellavalle@young.business, f.manuzzi@young.business) untouched — personal addresses, user must
+  decide replacements.
 
 - **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
   and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.
