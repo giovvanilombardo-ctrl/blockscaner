@@ -284,16 +284,10 @@ export default function Business() {
               <p>{_t("Reduce trading costs and minimise volatility risks. The OTC service enables efficient and secure management of significant capital.")}</p>
               <div className="bz-otc-art">
                 <svg viewBox="0 0 400 230" className="bz-otc-svg" aria-hidden="true">
-                  <defs>
-                    <marker id="bz-arr-g" markerWidth="28" markerHeight="28" refX="19" refY="14" orient="auto" markerUnits="userSpaceOnUse">
-                      <path d="M2,4 L26,14 L2,24 z" fill="#22c55e" />
-                    </marker>
-                    <marker id="bz-arr-b" markerWidth="28" markerHeight="28" refX="19" refY="14" orient="auto" markerUnits="userSpaceOnUse">
-                      <path d="M2,4 L26,14 L2,24 z" fill="#2f9cf0" />
-                    </marker>
-                  </defs>
-                  <path d="M 205 22 C 120 22, 82 80, 58 192" stroke="#22c55e" strokeWidth="13" fill="none" strokeLinecap="round" markerEnd="url(#bz-arr-g)" />
-                  <path d="M 235 208 C 305 192, 335 140, 352 40" stroke="#2f9cf0" strokeWidth="13" fill="none" strokeLinecap="round" markerEnd="url(#bz-arr-b)" />
+                  <path d="M 205 22 C 120 22, 82 80, 62 168" stroke="#22c55e" strokeWidth="13" fill="none" strokeLinecap="round" />
+                  <path d="M 38 158 L 88 158 L 60 210 Z" fill="#22c55e" transform="rotate(-9 63 184)" />
+                  <path d="M 235 208 C 305 192, 335 140, 348 74" stroke="#2f9cf0" strokeWidth="13" fill="none" strokeLinecap="round" />
+                  <path d="M 322 76 L 372 76 L 350 22 Z" fill="#2f9cf0" transform="rotate(9 347 52)" />
                 </svg>
                 <div className="bz-otc-coin2">
                   {coins[0] && <img src={coins[0].image} alt={coins[0].name} />}
