@@ -5,7 +5,7 @@ import SiteLayout from "@/components/site/SiteLayout";
 import Seo from "@/components/Seo";
 import {
   Play, GraduationCap, Users, ArrowDownUp, Landmark, Code2, Scale,
-  ArrowUpRight, Flame, BadgePercent,
+  ArrowUpRight, Flame, BadgePercent, Star,
 } from "lucide-react";
 import "@/platform.css";
 
@@ -17,7 +17,7 @@ function useCoins(): Coin[] {
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/market/coins?per_page=40&page=1`)
       .then((r) => (r.ok ? r.json() : []))
-      .then((j) => { if (Array.isArray(j)) setCoins(j.slice(0, 12)); })
+      .then((j) => { if (Array.isArray(j)) setCoins(j.slice(0, 20)); })
       .catch(() => {});
   }, []);
   return coins;
@@ -67,13 +67,14 @@ function CountUp({ to, suffix }: { to: number; suffix: string }) {
   return <span ref={ref}>{val}{suffix}</span>;
 }
 
-const COIN_POSITIONS = [
-  { top: "0%", left: "4%", size: 240, d: 0, rx: 9, ry: -18, depth: 1.7 },
-  { top: "20%", left: "13%", size: 100, d: 1.2, rx: -7, ry: 15, depth: 1.0 },
-  { top: "48%", left: "15%", size: 130, d: 2.1, rx: 11, ry: -25, depth: 1.3 },
-  { bottom: "28%", right: "15%", size: 115, d: 0.6, rx: -9, ry: 21, depth: 0.9 },
-  { bottom: "14%", right: "11%", size: 150, d: 1.5, rx: 7, ry: -17, depth: 1.2 },
-  { bottom: "-3%", right: "3%", size: 250, d: 0.9, rx: 13, ry: 19, depth: 1.9 },
+/* exact reference layout: flat plates lying on the surface, fixed slots per coin */
+const HERO_SLOTS = [
+  { coin: "ripple", top: "15%", left: "3.5%", size: 92, rx: 62, ry: 6, rz: -8, depth: 1.0, d: 1.2 },
+  { coin: "usd-coin", top: "4%", left: "9%", size: 290, rx: 70, ry: -6, rz: 4, depth: 1.8, d: 0 },
+  { coin: "tether", top: "28%", left: "7.5%", size: 122, rx: 60, ry: 10, rz: -5, depth: 1.2, d: 2.1 },
+  { coin: "polkadot", top: "55%", right: "12.5%", size: 84, rx: 58, ry: 8, rz: 6, depth: 0.9, d: 0.6 },
+  { coin: "ethereum", bottom: "15%", right: "7%", size: 105, rx: 58, ry: -10, rz: 5, depth: 1.1, d: 1.5 },
+  { coin: "bitcoin", bottom: "-2%", right: "6%", size: 210, rx: 52, ry: 8, rz: -4, depth: 1.5, d: 0.9 },
 ];
 
 function ReportBtn({ id }: { id: string }) {
@@ -86,7 +87,6 @@ function ReportBtn({ id }: { id: string }) {
 
 export default function Business() {
   const coins = useCoins();
-  const heroCoins = coins.slice(0, 6);
   const heroRef = useRef<HTMLElement | null>(null);
 
   /* mouse parallax: coins drift in depth as the cursor moves */
@@ -112,14 +112,15 @@ export default function Business() {
 
         {/* ---------- HERO (photo 5) ---------- */}
         <section className="bz-hero" ref={heroRef} onMouseMove={onHeroMove} onMouseLeave={onHeroLeave}>
-          {heroCoins.map((c, i) => {
-            const p = COIN_POSITIONS[i % COIN_POSITIONS.length] as any;
-            const { size, d, rx, ry, depth, ...pos } = p;
+          {HERO_SLOTS.map((s, i) => {
+            const c = coins.find((x) => x.id === s.coin) || coins[i];
+            if (!c) return null;
+            const { coin, size, d, rx, ry, rz, depth, ...pos } = s as any;
             return (
               <div key={c.id} className="bz-coin-par" style={{ ...pos, "--depth": depth } as any}>
-                <div className="bz-coin-tilt" style={{ width: size, height: size, "--rx": `${rx}deg`, "--ry": `${ry}deg` } as any}>
-                  <div className="bz-coin-spin" style={{ animationDelay: `${d}s`, animationDuration: `${6.5 + i * 0.6}s` }}>
-                    <div className="bz-coin-face">
+                <div className="bz-coin-tilt" style={{ width: size, height: size, "--rx": `${rx}deg`, "--ry": `${ry}deg`, "--rz": `${rz}deg` } as any}>
+                  <div className="bz-coin-spin" style={{ animationDelay: `${d}s`, animationDuration: `${7 + i * 0.7}s` }}>
+                    <div className="bz-plate">
                       <img src={c.image} alt={c.name} loading="lazy" />
                       <span className="bz-glare" />
                     </div>
@@ -129,11 +130,11 @@ export default function Business() {
               </div>
             );
           })}
-          {/* big euro coin, seen from a tilted angle */}
-          <div className="bz-coin-par bz-euro-par" style={{ bottom: "-5%", left: "16%", "--depth": 1.4 } as any}>
-            <div className="bz-coin-tilt" style={{ width: 300, height: 300, "--rx": "10deg", "--ry": "-34deg" } as any}>
-              <div className="bz-coin-spin" style={{ animationDelay: "1.7s", animationDuration: "8s" }}>
-                <div className="bz-coin-face bz-face-eur">
+          {/* big euro plate, flat on the surface */}
+          <div className="bz-coin-par bz-euro-par" style={{ bottom: "-4%", right: "20%", "--depth": 1.3 } as any}>
+            <div className="bz-coin-tilt" style={{ width: 280, height: 280, "--rx": "66deg", "--ry": "-8deg", "--rz": "3deg" } as any}>
+              <div className="bz-coin-spin" style={{ animationDelay: "1.7s", animationDuration: "8.5s" }}>
+                <div className="bz-plate">
                   <span className="bz-eur-sign">€</span>
                   <span className="bz-glare" />
                 </div>
@@ -151,6 +152,15 @@ export default function Business() {
             </p>
             <Link to="/contact" className="bz-cta" data-testid="business-contact-btn">{_t("Contact us")}</Link>
           </Reveal>
+          <div className="bz-tp" data-testid="business-trustpilot">
+            <p className="bz-tp-head"><Star className="h-3.5 w-3.5" fill="#00b67a" strokeWidth={0} /> Trustpilot</p>
+            <div className="bz-tp-stars">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <span key={i} className="bz-tp-star"><Star className="h-3 w-3" fill="#fff" strokeWidth={0} /></span>
+              ))}
+            </div>
+            <p className="bz-tp-sub">{_t("Rated by our users")}</p>
+          </div>
         </section>
 
         {/* ---------- TRUSTED BY (photo 4) ---------- */}

@@ -195,7 +195,12 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   keeps two small coins flanking the CTA. Coins then rebuilt as crafted 3D metal: per-coin perspective
   tilt, stepped milled edges (layered box-shadow rim), brushed-metal conic texture, embossed inner ring
   and logo, animated specular glare sweep, breathing ground shadows, and mouse parallax with per-coin
-  depth (JS sets --mx/--my on the hero; three nested transform layers avoid animation conflicts).
+  depth (JS sets --mx/--my on the hero; three nested transform layers avoid animation conflicts). Final
+  pass matched the user's full-width reference exactly: coins are near-flat white plates lying on the
+  black surface (steep rotateX 52-70deg) with flat brand-color logos, in the photo's fixed arrangement
+  (XRP + big USDC + USDT top-left; DOT-slot + big EUR plate + ETH + BTC bottom-right), green hero accent
+  (#00dc82) and green Contact pill, Trustpilot-style badge with green stars (score numbers omitted —
+  would be fabricated; caption "Rated by our users" until the user supplies real Trustpilot data).
 
 - **Markets speed + interactive chart (2026-11-02)**: user reported slow /markets, broken range buttons
   and a non-interactive chart. Root cause: cold-cache requests waited through 12s+ of 429 retries.
