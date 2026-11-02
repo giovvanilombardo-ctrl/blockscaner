@@ -4,7 +4,7 @@ import { t as _t } from "@/i18n";
 import SiteLayout from "@/components/site/SiteLayout";
 import Seo from "@/components/Seo";
 import {
-  Play, GraduationCap, Users, ArrowDownUp, Landmark, Code2, Scale,
+  Play, GraduationCap, ArrowDownUp, Landmark, Code2, Scale,
   ArrowUpRight, Flame, BadgePercent, Star,
 } from "lucide-react";
 import coinBtc from "@/assets/coins/bitcoin.png";
@@ -91,8 +91,17 @@ const HERO_SLOTS = [
 
 const REPORT_URL = "/docs/blockscaner-tesoreria-aziendale.pdf";
 
-function ReportBtn({ id }: { id: string }) {
+/* white person glyph used inside the green sub-account circles (reference design) */
+function PersonGlyph() {
   return (
+    <svg viewBox="0 0 100 100" aria-hidden="true" style={{ width: "68%", height: "68%" }}>
+      <circle cx="50" cy="35" r="19" fill="#fff" />
+      <path d="M21 92 C21 62 79 62 79 92 Z" fill="#fff" />
+    </svg>
+  );
+}
+
+function ReportBtn({ id }: { id: string }) {  return (
     <a href={REPORT_URL} download="Blockscaner-Tesoreria-Aziendale.pdf" className="bz-pill" data-testid={id}>
       {_t("Download the Report")}
     </a>
@@ -297,14 +306,14 @@ export default function Business() {
               </div>
             </Reveal>
             <Reveal className="bz-card" delay={120}>
-              <p className="bz-accent bz-card-kicker">{_t("Sub-account")}</p>
+              <p className="bz-accent-green bz-card-kicker">{_t("Sub-account")}</p>
               <h3>{_t("Maximum control and flexibility")}</h3>
               <p>{_t("Manage access and functionalities for each company team with Sub-accounts. Organise operations across multiple accounts and optimise reporting while maintaining complete control.")}</p>
               <div className="bz-people-art">
-                <div className="bz-person bz-person-1"><Users className="h-6 w-6" /></div>
-                <div className="bz-person bz-person-2"><Users className="h-5 w-5" /></div>
-                <div className="bz-person bz-person-3"><Users className="h-4 w-4" /></div>
-                <div className="bz-podium" />
+                <div className="bz-person3 bz-p3-big"><PersonGlyph /></div>
+                <div className="bz-person3 bz-p3-sm"><PersonGlyph /></div>
+                <div className="bz-person3 bz-p3-md"><PersonGlyph /></div>
+                <div className="bz-podium3" />
               </div>
             </Reveal>
           </div>
