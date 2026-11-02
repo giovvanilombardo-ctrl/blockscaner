@@ -42,9 +42,9 @@ function CoinChart({ coinId, sym, current }: { coinId: string; sym: string; curr
       <div className="cd-chart-head">
         <div>
           <p className="cd-chart-name">{sym === "BTC" ? "Bitcoin" : sym}</p>
-          <p className="cd-chart-price">{eur(current?.current_price)}</p>
+          <p className="cd-chart-price">{current ? eur(current.current_price) : "—"}</p>
           <p className={`cd-chart-change ${(current?.price_change_percentage_24h || 0) >= 0 ? "up" : "down"}`}>
-            {(current?.price_change_percentage_24h || 0).toFixed(2)} %
+            {current ? `${(current.price_change_percentage_24h || 0).toFixed(2)} %` : "—"}
           </p>
         </div>
         {current?.image && <img src={current.image} alt={sym} className="cd-chart-icon" />}
@@ -97,8 +97,8 @@ export default function CoinDetail() {
       entries.forEach((e) => {
         if (e.isIntersecting) visible.add(e.target.id); else visible.delete(e.target.id);
       });
-      const first = ids.find((id) => visible.has(id));
-      if (first) setActiveSection(first);
+      const last = [...ids].reverse().find((id) => visible.has(id));
+      if (last) setActiveSection(last);
     }, { rootMargin: "-90px 0px -60% 0px", threshold: 0 });
     ids.forEach((id) => { const el = document.getElementById(id); if (el) obs.observe(el); });
     return () => obs.disconnect();

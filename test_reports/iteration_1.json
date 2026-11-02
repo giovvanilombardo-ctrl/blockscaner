@@ -1,0 +1,36 @@
+{
+  "summary": "Tested the new /api/market/* CoinGecko backend proxy + CoinDetail scrollspy + ETH/SOL/LTC coin pages + Markets page + UserDashboard rates. All 6 backend proxy tests pass. Frontend features largely work: BTC/ETH/SOL/LTC render with correct titles, sections, whitepaper, and live EUR prices once backend cache is warm. Markets page shows 0 occurrences of '0,00'. Mobile scrollspy works correctly (TOC order=-1 above article, active section transitions #what -> #governance -> #cycle). Found 2 notable issues: desktop scrollspy can stick on an earlier section because .find() picks the first visible id in document order; and CoinChart header shows '0,00 €' instead of a dash fallback while market data is still loading / failing.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "/api/market/chart/{coin} (non-bitcoin)", "issue": "Frequently 503 due to CoinGecko free-tier rate limits. Cache only helps once one request succeeds. ETH & SOL chart polylines were missing in UI until a request lands."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "CoinChart (CoinDetail.tsx)", "issue": "When market data has not loaded yet, header renders eur(undefined) -> '0,00 €'. Should fall back to '—' like the Market Data grid. Spec explicitly says prices must never render as 0,00 EUR.", "selector": ".cd-chart-price", "priority": "HIGH"},
+      {"component": "Scrollspy TOC (CoinDetail.tsx L96-104)", "issue": "ids.find(id => visible.has(id)) always picks the first-in-doc-order visible section, so active TOC entry gets 'stuck' on an earlier heading on desktop (observed #holders remained active at scroll y=2000, 4000, 7000 on /markets/bitcoin). Should pick the LAST visible section (reading position) or the closest to top. Mobile is unaffected because viewport is small.", "selector": ".cd-toc-link.on", "priority": "HIGH"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/backend/tests/test_market_proxy.py", "/app/test_reports/pytest/market_proxy.xml"],
+  "action_items": [
+    "In CoinChart: render '—' (or hide the price node) when current is null/undefined instead of eur(0).",
+    "Fix scrollspy selection in CoinDetail.tsx: replace ids.find(... visible.has) with picking the LAST visible id (e.g. ids.filter(i=>visible.has(i)).pop()) OR compute active via smallest positive top offset relative to a header line.",
+    "Optional: add a user-friendly placeholder when /api/market/chart/{coin} is 503 (small 'Chart temporarily unavailable, retrying…' hint)."
+  ],
+  "critical_code_review_comments": [
+    "market_data._cached locks dict grows unbounded (locks never evicted) - low risk but worth noting.",
+    "CoinDetail.tsx getJSON fallback resolves to [] on failure, then setMarket(j && j.id ? j : null). Good - but CoinChart does not check for null before computing eur(). This is the root cause of the 0,00 bug.",
+    "scrollspy uses ids.find() with doc-order precedence; UX convention is to highlight the LAST section whose top crossed the header, not the first intersecting."
+  ],
+  "updated_files": ["/app/backend/tests/test_market_proxy.py"],
+  "success_rate": {"backend": "100% (6/6)", "frontend": "~85% (all content/pages verified; 2 UX bugs)"},
+  "test_credentials": "testuser1@example.com / Test1234 (login OK, dashboard loaded with no 0,00)",
+  "seed_data_creation": "none",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend proxy is solid - all 4 endpoints (coins, coin/{id}, chart/{id}, simple-price) return correct JSON. Primary remaining work is 2 frontend bugs listed above. CoinGecko rate-limits the preview egress IP aggressively; warm cache for ~60s before judging prices.",
+  "rca of the issue": "0,00 price RCA: CoinDetail's useEffect sets market=null when market fetch fails or until it resolves. CoinChart renders eur(current?.current_price). The eur() helper does `v || 0` so undefined becomes 0 and formatter outputs '0,00 €'. Fix: guard the JSX with `{current ? eur(current.current_price) : '—'}`. Scrollspy RCA: IntersectionObserver callback stores all currently intersecting ids in a Set, then `ids.find(id => visible.has(id))` returns the first in document order. When two sections are simultaneously intersecting (common on tall desktop viewports) the earlier one wins forever. Fix: `const last=[...ids].reverse().find(i=>visible.has(i))` OR track entries and pick the one with greatest boundingClientRect.top <= header offset."
+}

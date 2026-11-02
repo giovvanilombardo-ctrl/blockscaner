@@ -168,15 +168,27 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   to the detail page. Blockscaner blue throughout.
 
 ## Backlog / next tasks
-- P0: Move CoinGecko price fetching to the FastAPI backend with caching — client-side calls still hit
-  intermittent 429 rate limits (price occasionally shows 0,00 € / "—" on coin detail and markets pages).
-- P1: Create individual detail pages for the other cryptocurrencies (only Bitcoin has full custom content).
+- P1: Add full custom long-form content for more coins (Solana, XRP, etc.) — they currently use the
+  generic template in `coins.ts` (`genericCoin()`); Bitcoin and Ethereum have full custom content.
 - P0: Top up Emergent credits so transactional emails (OTP, lead notify, reset) actually send.
 - P1: Decide production from-domain (verify a real sending domain in Resend for delivery to
   arbitrary inboxes, not just the Resend test inbox).
 - P1: Run the full scheduled-recurring-task for `send-visitor-reminder` follow-ups (cron).
 - P2: Re-add the Spanish `/cd` international section if ever wanted (files still available).
-- P2: Wallet report PDF polish + live price feed caching.
+- P2: Wallet report PDF polish.
+
+- **Backend market-data proxy + coin pages + scrollspy (2026-11-02)**: P0 rate-limit fix done — all
+  CoinGecko calls moved behind FastAPI (`/app/backend/market_data.py`, prefix `/api/market`: `coins`,
+  `coin/{id}`, `chart/{id}`, `simple-price`) with a shared TTL in-memory cache, stale-on-error fallback
+  and 429 retry; `simple-price` resolves from the warm markets cache first. Wallet `live_rates()` in
+  `portal_wallet.py` reuses the same cache. Frontend `Markets.tsx`, `CoinDetail.tsx`, `UserDashboard.tsx`
+  now call the backend proxy. Ethereum got a full custom detail page (`ETHEREUM` in `coins.ts`, 8
+  sections); 13 other majors (USDT, USDC, SOL, BNB, XRP, ADA, DOGE, TRX, LTC, BCH, LINK, DOT, AVAX) get
+  generated pages via `genericCoin()`. Scrollspy on the coin-page TOC highlights the section being read
+  (IntersectionObserver, last-visible-wins). Test round 1 (`/app/test_reports/iteration_1.json`):
+  backend 6/6 pass; fixed the two HIGH findings (0,00 € chart placeholder -> "—", scrollspy stuck on
+  first visible section). Known soft spot: chart for non-BTC coins can 503 while CoinGecko rate-limits
+  the shared preview egress IP until the cache warms; frontend retries and the cache then serves all.
 
 - **Coin page TOC + hero cleanup (2026-11-02)**: sticky sidebar TOC deleted then re-inserted per user request
   (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the
