@@ -475,54 +475,72 @@
 .bz-list li{ position:relative; padding-left:1.3rem; margin-bottom:.35rem; color:#cbd5e1; font-size:.92rem; }
 .bz-list li::before{ content:"○"; position:absolute; left:0; color:#3b82f6; font-weight:700; }
 
-/* Analytics art: two mini phone mockups */
-.bz-analytics-art{ display:flex; gap:1rem; margin-top:1.2rem; justify-content:center; }
-.bz-analytics-phone{ width:150px; background:#fff; color:#0f172a; border-radius:14px; padding:.7rem .8rem;
-  box-shadow:0 12px 28px rgba(0,0,0,.35); font-size:.68rem; }
-.bz-analytics-phone2{ transform:translateY(14px); }
-.bz-analytics-head{ display:flex; align-items:center; gap:.4rem; margin-bottom:.5rem; }
-.bz-analytics-head span{ width:8px; height:8px; border-radius:50%; background:#e2e8f0; }
-.bz-analytics-head b{ font-size:.7rem; font-weight:800; }
-.bz-analytics-head i{ margin-left:auto; width:10px; height:10px; border:1.5px solid #94a3b8; border-radius:2px; }
-.bz-analytics-row{ display:flex; justify-content:space-between; margin-bottom:.3rem; }
-.bz-green{ color:#16a34a; }
-.bz-analytics-line{ height:1px; background:#e2e8f0; margin:.4rem 0; }
-.bz-analytics-chart{ display:flex; align-items:flex-end; gap:3px; height:28px; margin-top:.4rem; }
-.bz-analytics-chart span{ flex:1; background:linear-gradient(180deg,#3b82f6,#60a5fa); border-radius:2px 2px 0 0; }
-.bz-analytics-chart span:nth-child(1){ height:40%; } .bz-analytics-chart span:nth-child(2){ height:70%; }
-.bz-analytics-chart span:nth-child(3){ height:50%; } .bz-analytics-chart span:nth-child(4){ height:85%; }
-.bz-analytics-chart span:nth-child(5){ height:60%; } .bz-analytics-chart span:nth-child(6){ height:95%; }
-.bz-analytics-chart span:nth-child(7){ height:75%; }
-.bz-donut{ width:52px; height:52px; border-radius:50%; margin:.5rem auto .8rem;
+/* Analytics: realistic phone mockups */
+.bz-analytics-art{ display:flex; gap:1rem; margin-top:1.2rem; justify-content:center; align-items:flex-start; }
+.bz-mock-phone{ width:160px; background:#fff; color:#0f172a; border-radius:22px; padding:.6rem .7rem .9rem;
+  box-shadow:0 16px 34px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.8); font-size:.66rem;
+  position:relative; }
+.bz-mock-notch{ position:absolute; top:6px; left:50%; transform:translateX(-50%); width:46px; height:5px;
+  border-radius:3px; background:#0f172a; }
+.bz-mock-head{ display:flex; align-items:center; justify-content:space-between; margin:.5rem 0 .4rem;
+  font-weight:800; font-size:.7rem; }
+.bz-mock-card{ background:#f1f5f9; border-radius:10px; padding:.45rem .5rem; margin-bottom:.35rem; }
+.bz-mock-card span{ display:block; color:#64748b; font-size:.62rem; margin-bottom:.1rem; }
+.bz-mock-card b{ font-size:.78rem; }
+.bz-mock-bars{ display:flex; align-items:flex-end; gap:2px; height:22px; margin-top:.35rem; }
+.bz-mock-bars i{ flex:1; background:linear-gradient(180deg,#3b82f6,#60a5fa); border-radius:1px 1px 0 0; }
+.bz-mock-bars i:nth-child(1){ height:45%; } .bz-mock-bars i:nth-child(2){ height:75%; }
+.bz-mock-bars i:nth-child(3){ height:55%; } .bz-mock-bars i:nth-child(4){ height:90%; }
+.bz-mock-bars i:nth-child(5){ height:65%; } .bz-mock-bars i:nth-child(6){ height:100%; }
+.bz-mock-bars i:nth-child(7){ height:80%; }
+.bz-mock-line{ height:2px; background:linear-gradient(90deg,#3b82f6,#22c55e); border-radius:2px; margin-top:.3rem; }
+.bz-mock-side{ transform:translateY(12px); }
+.bz-mock-donut{ width:44px; height:44px; border-radius:50%; margin:.3rem auto .5rem;
   background:conic-gradient(#3b82f6 0 52%, #22c55e 52% 80%, #f59e0b 80% 100%);
   -webkit-mask:radial-gradient(circle, transparent 52%, #000 53%); mask:radial-gradient(circle, transparent 52%, #000 53%); }
+.bz-mock-legend{ font-size:.6rem; }
+.bz-mock-legend > span, .bz-mock-legend > b{ display:inline-block; width:50%; }
+.bz-mock-legend span{ color:#475569; }
+.bz-mock-legend b{ text-align:right; font-weight:700; }
+.bz-mock-legend i{ display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:3px; }
 
-/* VIP art: two green stars */
-.bz-vip-art{ display:flex; justify-content:flex-end; gap:.6rem; margin-top:1rem; }
-.bz-star{ width:64px; height:64px; filter:drop-shadow(0 6px 12px rgba(34,197,94,.35)); }
-.bz-star2{ width:42px; height:42px; align-self:flex-end; }
+/* VIP: gradient stars */
+.bz-vip-art{ display:flex; justify-content:flex-end; gap:.5rem; margin-top:1rem; }
+.bz-star{ width:72px; height:72px; filter:drop-shadow(0 8px 16px rgba(34,197,94,.35)); }
+.bz-star2{ width:46px; height:46px; align-self:flex-end; }
 
-/* Custody art: safe + lock */
-.bz-custody-art{ position:relative; height:110px; margin-top:1rem; display:grid; place-items:center; }
-.bz-safe{ width:90px; height:70px; border-radius:10px; background:linear-gradient(145deg,#334155,#1e293b);
-  border:2px solid #475569; position:relative; }
-.bz-safe::after{ content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:22px; height:22px; border-radius:50%; background:#0f172a; border:3px solid #64748b; }
-.bz-lock{ position:absolute; top:-8px; right:24px; width:34px; height:34px; color:#f59e0b; }
-.bz-lock svg{ width:100%; height:100%; }
+/* Custody: shield + floating coins */
+.bz-custody-art{ position:relative; height:130px; margin-top:1rem; display:grid; place-items:center; }
+.bz-shield{ width:120px; height:auto; filter:drop-shadow(0 10px 20px rgba(0,0,0,.4)); }
+.bz-coin-3d{ position:absolute; width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
+  font-weight:800; font-size:16px; color:#fff;
+  background:radial-gradient(circle at 34% 30%, #ffd05a, #f2b12e 55%, #c98d16);
+  box-shadow:0 6px 14px rgba(0,0,0,.4), inset 0 2px 4px rgba(255,255,255,.5); }
+.bz-coin-b{ top:8px; left:22%; animation:bz-float 4s ease-in-out infinite; }
+.bz-coin-e{ bottom:14px; right:20%; background:radial-gradient(circle at 34% 30%, #a5b4fc, #6366f1 55%, #4f46e5);
+  animation:bz-float 4.5s ease-in-out .6s infinite; }
 
-/* Tax art: document + check */
-.bz-tax-art{ position:relative; height:110px; margin-top:1rem; display:grid; place-items:center; }
-.bz-doc{ width:64px; height:80px; background:#fff; border-radius:6px; position:relative;
-  box-shadow:0 8px 20px rgba(0,0,0,.3); transform:rotate(-4deg); }
-.bz-doc::before{ content:""; position:absolute; top:14px; left:12px; right:12px; height:6px; background:#cbd5e1; border-radius:2px; }
-.bz-doc::after{ content:""; position:absolute; top:26px; left:12px; right:20px; height:4px; background:#e2e8f0; border-radius:2px;
-  box-shadow:0 8px 0 #e2e8f0, 0 16px 0 #e2e8f0; }
-.bz-doc-check{ position:absolute; bottom:6px; right:30px; width:26px; height:26px; border-radius:50%;
-  background:#22c55e; display:grid; place-items:center; }
-.bz-doc-check::after{ content:"✓"; color:#fff; font-size:16px; font-weight:800; }
+/* Tax: report card + calculator + check */
+.bz-tax-art{ position:relative; height:130px; margin-top:1rem; display:flex; align-items:center; justify-content:center; gap:.8rem; }
+.bz-tax-doc{ width:92px; background:#fff; color:#0f172a; border-radius:8px; padding:.55rem .6rem;
+  box-shadow:0 10px 24px rgba(0,0,0,.35); font-size:.6rem; transform:rotate(-3deg); }
+.bz-tax-head{ font-weight:800; font-size:.66rem; margin-bottom:.35rem; color:#0f172a; }
+.bz-tax-line{ height:4px; background:#e2e8f0; border-radius:2px; margin-bottom:.3rem; }
+.bz-tax-line.s{ width:70%; }
+.bz-tax-total{ display:flex; justify-content:space-between; margin-top:.4rem; padding-top:.3rem; border-top:1px solid #e2e8f0; }
+.bz-tax-total b{ color:#16a34a; }
+.bz-tax-calc{ width:58px; background:#1e293b; border-radius:8px; padding:.4rem .45rem;
+  box-shadow:0 10px 24px rgba(0,0,0,.4); transform:rotate(3deg); }
+.bz-tax-disp{ background:#0f172a; color:#4ade80; font-size:.62rem; font-weight:700; text-align:right;
+  padding:.2rem .3rem; border-radius:4px; margin-bottom:.35rem; }
+.bz-tax-btns{ display:grid; grid-template-columns:repeat(3, 1fr); gap:2px; }
+.bz-tax-btns i{ height:8px; border-radius:2px; background:#334155; }
+.bz-tax-badge{ position:absolute; bottom:2px; right:26%; width:28px; height:28px; border-radius:50%;
+  background:#22c55e; color:#fff; display:grid; place-items:center;
+  box-shadow:0 6px 14px rgba(34,197,94,.4); }
+.bz-tax-badge svg{ width:14px; height:14px; }
 
 @media (max-width:640px){
   .bz-analytics-art{ flex-direction:column; align-items:center; }
-  .bz-analytics-phone2{ transform:none; }
+  .bz-mock-side{ transform:none; }
 }

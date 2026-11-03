@@ -5,7 +5,7 @@ import SiteLayout from "@/components/site/SiteLayout";
 import Seo from "@/components/Seo";
 import {
   GraduationCap, ArrowDownUp, Landmark, Code2, Scale,
-  ArrowUpRight, Star, Info, Percent,
+  ArrowUpRight, Star, Info, Percent, ChevronLeft, MoreHorizontal, PieChart,
 } from "lucide-react";
 import coinBtc from "@/assets/coins/bitcoin.png";
 import coinEth from "@/assets/coins/ethereum.png";
@@ -582,19 +582,29 @@ export default function Business() {
                 <li>{_t("Risk diversification")}</li>
               </ul>
               <div className="bz-analytics-art" aria-hidden="true">
-                <div className="bz-analytics-phone">
-                  <div className="bz-analytics-head"><span /><b>Analytics</b><i /></div>
-                  <div className="bz-analytics-row"><span>{_t("Trade analysis")}</span><b className="bz-green">+245.84 €</b></div>
-                  <div className="bz-analytics-line" />
-                  <div className="bz-analytics-row"><span>{_t("Total return")}</span><b className="bz-green">+18.36%</b></div>
-                  <div className="bz-analytics-chart"><span /><span /><span /><span /><span /><span /><span /></div>
+                <div className="bz-mock-phone">
+                  <div className="bz-mock-notch" />
+                  <div className="bz-mock-head"><ChevronLeft className="h-3 w-3" /><b>Analytics</b><MoreHorizontal className="h-3 w-3" /></div>
+                  <div className="bz-mock-card">
+                    <span>{_t("Trade analysis")}</span>
+                    <b className="bz-green">+245.84 €</b>
+                    <div className="bz-mock-bars"><i /><i /><i /><i /><i /><i /><i /></div>
+                  </div>
+                  <div className="bz-mock-card bz-mock-card2">
+                    <span>{_t("Total return")}</span>
+                    <b className="bz-green">+18.36%</b>
+                    <div className="bz-mock-line" />
+                  </div>
                 </div>
-                <div className="bz-analytics-phone bz-analytics-phone2">
-                  <div className="bz-analytics-head"><span /><b>Crypto allocation</b><i /></div>
-                  <div className="bz-donut" />
-                  <div className="bz-analytics-row"><span>Bitcoin</span><b>52.3%</b></div>
-                  <div className="bz-analytics-row"><span>Ethereum</span><b>28.1%</b></div>
-                  <div className="bz-analytics-row"><span>Solana</span><b>19.6%</b></div>
+                <div className="bz-mock-phone bz-mock-side">
+                  <div className="bz-mock-notch" />
+                  <div className="bz-mock-head"><b>Crypto allocation</b><PieChart className="h-3 w-3" /></div>
+                  <div className="bz-mock-donut" />
+                  <div className="bz-mock-legend">
+                    <span><i style={{ background: "#3b82f6" }} />Bitcoin</span><b>52.3%</b>
+                    <span><i style={{ background: "#22c55e" }} />Ethereum</span><b>28.1%</b>
+                    <span><i style={{ background: "#f59e0b" }} />Solana</span><b>19.6%</b>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -602,8 +612,16 @@ export default function Business() {
               <p className="bz-card-kicker">{_t("VIP Service")}</p>
               <h3>{_t("Your Account Manager works with you to optimise your strategy and turn your goals into tangible results.")}</h3>
               <div className="bz-vip-art" aria-hidden="true">
-                <svg viewBox="0 0 100 100" className="bz-star"><path d="M50 8 L61 38 L92 39 L67 58 L75 89 L50 71 L25 89 L33 58 L8 39 L39 38 Z" fill="#22c55e" /></svg>
-                <svg viewBox="0 0 100 100" className="bz-star bz-star2"><path d="M50 8 L61 38 L92 39 L67 58 L75 89 L50 71 L25 89 L33 58 L8 39 L39 38 Z" fill="#86efac" /></svg>
+                <svg viewBox="0 0 120 120" className="bz-star">
+                  <defs><linearGradient id="st1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#4ade80"/><stop offset="1" stopColor="#16a34a"/></linearGradient></defs>
+                  <path d="M60 14 L74 46 L108 48 L82 68 L91 103 L60 83 L29 103 L38 68 L12 48 L46 46 Z" fill="url(#st1)" stroke="#052e16" strokeWidth="2" />
+                  <circle cx="60" cy="60" r="10" fill="#052e16" />
+                </svg>
+                <svg viewBox="0 0 120 120" className="bz-star bz-star2">
+                  <defs><linearGradient id="st2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#bbf7d0"/><stop offset="1" stopColor="#4ade80"/></linearGradient></defs>
+                  <path d="M60 14 L74 46 L108 48 L82 68 L91 103 L60 83 L29 103 L38 68 L12 48 L46 46 Z" fill="url(#st2)" stroke="#052e16" strokeWidth="2" />
+                  <circle cx="60" cy="60" r="10" fill="#052e16" />
+                </svg>
               </div>
             </Reveal>
           </div>
@@ -612,16 +630,34 @@ export default function Business() {
               <h3>{_t("No.1 custody and security worldwide")}</h3>
               <p>{_t("All client cryptocurrencies are held in full 1:1 reserve. We use advanced security with Fireblocks and multisig cold storage protection for maximum peace of mind.")}</p>
               <div className="bz-custody-art" aria-hidden="true">
-                <div className="bz-safe" />
-                <div className="bz-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11 V7 a4 4 0 0 1 8 0 v4"/></svg></div>
+                <svg viewBox="0 0 200 140" className="bz-shield">
+                  <defs>
+                    <linearGradient id="sh1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#fbbf24"/><stop offset="1" stopColor="#d97706"/></linearGradient>
+                    <linearGradient id="sh2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#f8fafc"/><stop offset="1" stopColor="#94a3b8"/></linearGradient>
+                  </defs>
+                  <path d="M100 8 L172 34 V76 C172 108 140 132 100 140 C60 132 28 108 28 76 V34 Z" fill="url(#sh2)" stroke="#475569" strokeWidth="3" />
+                  <path d="M100 22 L158 43 V76 C158 100 132 120 100 127 C68 120 42 100 42 76 V43 Z" fill="url(#sh1)" />
+                  <circle cx="100" cy="76" r="18" fill="#0f172a" />
+                  <path d="M94 76 L98 80 L107 70" stroke="#4ade80" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <div className="bz-coin-3d bz-coin-b">B</div>
+                <div className="bz-coin-3d bz-coin-e">Ξ</div>
               </div>
             </Reveal>
             <Reveal className="bz-card bz-card-dark bz-feature-tax" delay={120}>
               <h3>{_t("Connect, calculate and declare")}</h3>
               <p>{_t("Connect exchanges and wallets to automatically calculate gains and losses from trading, staking, NFTs, and DeFi. Receive pre-filled tax reports ready for filing with support from our accountants.")}</p>
               <div className="bz-tax-art" aria-hidden="true">
-                <div className="bz-doc" />
-                <div className="bz-doc-check" />
+                <div className="bz-tax-doc">
+                  <div className="bz-tax-head">Tax Report</div>
+                  <div className="bz-tax-line" /><div className="bz-tax-line s" /><div className="bz-tax-line" /><div className="bz-tax-line s" />
+                  <div className="bz-tax-total"><span>{_t("Total gains")}</span><b>+4,281.00 €</b></div>
+                </div>
+                <div className="bz-tax-calc">
+                  <div className="bz-tax-disp">245.84</div>
+                  <div className="bz-tax-btns"><i /><i /><i /><i /><i /><i /></div>
+                </div>
+                <div className="bz-tax-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 13 l4 4 L19 7" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
               </div>
             </Reveal>
           </div>
