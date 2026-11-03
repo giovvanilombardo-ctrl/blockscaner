@@ -298,6 +298,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   blockscaner-pagamenti-internazionali.pdf` (~10MB). The Business page "Download the Report" button in the
   Payments banner now serves it. Note: the first treasury PDF remains unchanged.
 
+- **Training HUB PDF (2026-11-03)**: uploaded "Third PDF.pdf" rebranded the same way (logo on cover +
+  contact page, contact roles/emails, footer strip). Output: `frontend/public/docs/
+  blockscaner-training-hub.pdf` (~14 pages). The Training banner "Download the Report" button now serves
+  it. Both PDFs are image-only, so the rebrand is a pixel repaint of logo/contacts/footer.
+
 - **Coin page TOC + hero cleanup (2026-11-02)**: sticky sidebar TOC deleted then re-inserted per user request
   (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the
   Bitcoin page because it was a full screenshot of youngplatform.com that visually duplicated the page

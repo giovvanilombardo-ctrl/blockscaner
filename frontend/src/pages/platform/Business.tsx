@@ -91,6 +91,7 @@ const HERO_SLOTS = [
 
 const REPORT_URL = "/docs/blockscaner-tesoreria-aziendale.pdf";
 const REPORT_PAYMENTS_URL = "/docs/blockscaner-pagamenti-internazionali.pdf";
+const REPORT_TRAINING_URL = "/docs/blockscaner-training-hub.pdf";
 
 /* white person glyph used inside the green sub-account circles (reference design) */
 function PersonGlyph() {
@@ -475,7 +476,7 @@ export default function Business() {
               </p>
               <p className="bz-banner-sub">{_t("A technology that is revolutionising industries and career opportunities.")}</p>
             </div>
-            <ReportBtn id="business-report-training" />
+            <ReportBtn id="business-report-training" url={REPORT_TRAINING_URL} name="Blockscaner-Training-HUB.pdf" />
           </Reveal>
 
           <div className="bz-grid-2">
