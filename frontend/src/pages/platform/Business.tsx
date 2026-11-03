@@ -498,7 +498,11 @@ export default function Business() {
                   <div className="bz-academy-dots"><i /><i /><i /></div>
                   <p className="bz-academy-h">{_t("Wyckoff Theory: what it is and how it works")}</p>
                   <div className="bz-academy-line" /><div className="bz-academy-line short" />
-                  <div className="bz-academy-thumbs"><span /><span /><span /></div>
+                  <div className="bz-academy-thumbs">
+                    <span><img src={coinBtc} alt="Bitcoin" /></span>
+                    <span><img src={coinEth} alt="Ethereum" /></span>
+                    <span><img src={coinEur} alt="Euro" /></span>
+                  </div>
                 </div>
                 <div className="bz-cap"><GraduationCap className="h-10 w-10" /></div>
               </div>
