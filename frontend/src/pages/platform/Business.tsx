@@ -90,6 +90,7 @@ const HERO_SLOTS = [
 ];
 
 const REPORT_URL = "/docs/blockscaner-tesoreria-aziendale.pdf";
+const REPORT_PAYMENTS_URL = "/docs/blockscaner-pagamenti-internazionali.pdf";
 
 /* white person glyph used inside the green sub-account circles (reference design) */
 function PersonGlyph() {
@@ -159,8 +160,9 @@ function FlameArt({ className = "" }: { className?: string }) {
   );
 }
 
-function ReportBtn({ id }: { id: string }) {  return (
-    <a href={REPORT_URL} download="Blockscaner-Tesoreria-Aziendale.pdf" className="bz-pill" data-testid={id}>
+function ReportBtn({ id, url = REPORT_URL, name = "Blockscaner-Tesoreria-Aziendale.pdf" }: { id: string; url?: string; name?: string }) {
+  return (
+    <a href={url} download={name} className="bz-pill" data-testid={id}>
       {_t("Download the Report")}
     </a>
   );
@@ -436,7 +438,7 @@ export default function Business() {
               </p>
               <p className="bz-banner-sub">{_t("Discover a new standard for financial transactions.")}</p>
             </div>
-            <ReportBtn id="business-report-payments" />
+            <ReportBtn id="business-report-payments" url={REPORT_PAYMENTS_URL} name="Blockscaner-Pagamenti-Internazionali.pdf" />
           </Reveal>
 
           <Reveal className="bz-card bz-settle">

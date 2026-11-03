@@ -286,6 +286,18 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   (x10) while the cache warms. Verified by testing agent (iteration_3): table renders with real prices,
   backend <400ms even right after restart. Note: seeding scripts in /tmp were one-off and ephemeral.
 
+- **Loyalty card redesign (2026-11-03)**: Business page loyalty card rebuilt to match the user's reference
+  photo: white "Loyalty Program" title, green benefit copy, white underlined "Learn more", and a row of
+  3D hexagon blocks (gold/blue/grey/brown) with check-mark coins at the bottom edge. "YNG tokens" wording
+  replaced with "earn rewards on every trade".
+
+- **Payments report PDF (2026-11-03)**: uploaded PDF CRYPTO.pdf rebranded via raster repaint (image-only
+  pages): Blockscaner mark + wordmark replaces the Young Platform logo on pages 1/10/24, contact names/
+  roles/emails repainted on page 24 (Fabiomantovani@blockscaner.com, Giusymora@blockscaner.com), footer
+  strip repainted with BLOCKSCANER on all pages. Output: `frontend/public/docs/
+  blockscaner-pagamenti-internazionali.pdf` (~10MB). The Business page "Download the Report" button in the
+  Payments banner now serves it. Note: the first treasury PDF remains unchanged.
+
 - **Coin page TOC + hero cleanup (2026-11-02)**: sticky sidebar TOC deleted then re-inserted per user request
   (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the
   Bitcoin page because it was a full screenshot of youngplatform.com that visually duplicated the page
