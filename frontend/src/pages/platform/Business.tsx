@@ -101,6 +101,35 @@ function PersonGlyph() {
   );
 }
 
+/* thick tilted check mark used on the loyalty coins (reference design) */
+function LoyalCheck({ color }: { color: string }) {
+  return (
+    <svg viewBox="0 0 100 100" style={{ width: "56%", height: "56%", overflow: "visible" }}>
+      <g transform="rotate(-18 50 50)">
+        <path d="M30 52 L44 66" stroke={color} strokeWidth="17" strokeLinecap="round" fill="none" />
+        <path d="M44 66 L74 36" stroke={color} strokeWidth="17" strokeLinecap="round" fill="none" />
+      </g>
+    </svg>
+  );
+}
+/* 3D hexagon block — flat-topped isometric prism (loyalty art, reference design).
+   Coordinates: top hexagon edge s=25,50 / 75,50 / 100,75 / 75,100 / 25,100 / 0,75,
+   prism depth D added below, bottom face identical shifted down. */
+function HexIcon({ size }: { size: number }) {
+  const D = 42; // prism depth as % of top height
+  return (
+    <svg viewBox={`0 0 100 ${100 + D}`} style={{ width: size, height: "auto", display: "block" }}>
+      <path d={`M0 75 L25 100 L25 ${100 + D} L0 ${75 + D} Z`} fill="var(--left)" />
+      <path d={`M25 100 L75 100 L75 ${100 + D} L25 ${100 + D} Z`} fill="var(--front)" />
+      <path d={`M75 100 L100 75 L100 ${75 + D} L75 ${100 + D} Z`} fill="var(--right)" />
+      <path d={`M25 50 L75 50 L100 75 L75 100 L25 100 L0 75 Z`} fill="var(--top)" />
+    </svg>
+  );
+}
+
+
+
+
 /* green scalloped seal with % (staking card, reference design) */
 function Seal() {
   const pts = Array.from({ length: 96 }, (_, i) => {
@@ -374,10 +403,20 @@ export default function Business() {
                 <FlameArt className="bz-flame-l" />
               </div>
             </Reveal>
-            <Reveal className="bz-card bz-card-green" delay={120}>
-              <p className="bz-card-kicker">{_t("Loyalty Program")}</p>
-              <h3>{_t("Join the clubs to buy and sell crypto with reduced fees, enjoy numerous benefits and earn rewards on every trade.")}</h3>
-              <Link to="/products" className="bz-link" data-testid="business-loyalty-link">{_t("Learn more")} <ArrowUpRight className="h-4 w-4" /></Link>
+            <Reveal className="bz-card bz-card-green bz-loyalty" delay={120}>
+              <h3 className="bz-loyalty-title">{_t("Loyalty Program")}</h3>
+              <p className="bz-loyalty-desc">{_t("Join the clubs to buy and sell crypto with reduced fees, enjoy numerous benefits, and earn rewards on every trade.")}</p>
+              <Link to="/products" className="bz-loyalty-link" data-testid="business-loyalty-link">{_t("Learn more")}</Link>
+              <div className="bz-loyalty-art" aria-hidden="true">
+                <div className="bz-hex4 bz-hex4-gold"><HexIcon size={72} /></div>
+                <div className="bz-hex4 bz-hex4-blue"><HexIcon size={118} /></div>
+                <div className="bz-hex4 bz-hex4-grey"><HexIcon size={66} /></div>
+                <div className="bz-hex4 bz-hex4-brown"><HexIcon size={60} /></div>
+                <div className="bz-lycoin bz-lycoin-gold"><LoyalCheck color="#b45309" /></div>
+                <div className="bz-lycoin bz-lycoin-grey"><LoyalCheck color="#6b7280" /></div>
+                <div className="bz-lycoin bz-lycoin-gold2"><LoyalCheck color="#b45309" /></div>
+                <div className="bz-lycoin bz-lycoin-blue"><LoyalCheck color="#1e40af" /></div>
+              </div>
             </Reveal>
           </div>
         </section>

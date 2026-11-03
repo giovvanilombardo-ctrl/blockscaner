@@ -424,3 +424,42 @@
 
 /* whole Business page at +15% */
 .bz-page{ zoom:1.15; }
+
+/* ---------- Loyalty Program card — reference design ----------
+   dark-green panel: white title, green copy, white link, hexagon blocks + check coins at the bottom */
+.bz-loyalty{ position:relative; overflow:hidden; padding-bottom:0;
+  background:radial-gradient(150% 100% at 50% -10%, #0a3a24 0%, #052e1c 48%, #03180f 100%); }
+.bz-loyalty-title{ color:#fff; font-size:1.9rem; font-weight:800; letter-spacing:-.02em; margin:0 0 .9rem; }
+.bz-loyalty-desc{ color:#22c55e; font-weight:650; font-size:1.12rem; line-height:1.55; margin:0 0 1rem; }
+.bz-loyalty-link{ color:#fff; font-weight:800; font-size:.95rem; text-decoration:underline; text-underline-offset:4px;
+  display:inline-flex; align-items:center; gap:.3rem; }
+.bz-loyalty-link:hover{ color:#b8f1cf; }
+.bz-loyalty-art{ position:relative; height:250px; margin-top:1.4rem; }
+
+/* 3D hexagon blocks — flat-topped isometric prisms (SVG HexIcon) */
+.bz-hex4{ position:absolute; filter:drop-shadow(0 16px 24px rgba(0,0,0,.4)); }
+.bz-hex4-gold{ --top:#f2b12e; --front:#d99a17; --left:#c98d16; --right:#a56f0a; bottom:66px; left:3%; z-index:1; }
+.bz-hex4-blue{ --top:#3d8bef; --front:#2a6fd0; --left:#1f5fc0; --right:#18499a; bottom:56px; left:29%; z-index:2; }
+.bz-hex4-grey{ --top:#9aa3ad; --front:#848d97; --left:#7c858f; --right:#5f6871; bottom:50px; right:19%; z-index:1; }
+.bz-hex4-brown{ --top:#8a5a2b; --front:#75501f; --left:#6f4720; --right:#54351a; bottom:42px; right:-3%; z-index:1; }
+
+/* flat 3D coins with thick tilted check marks */
+.bz-lycoin{ position:absolute; border-radius:50%; display:grid; place-items:center;
+  box-shadow:0 14px 28px rgba(0,0,0,.45), inset 0 3px 6px rgba(255,255,255,.45), inset 0 -10px 18px rgba(0,0,0,.28); }
+.bz-lycoin::before{ content:""; position:absolute; inset:9%; border-radius:50%;
+  box-shadow:inset 0 2px 5px rgba(255,255,255,.5), inset 0 -6px 12px rgba(0,0,0,.22); }
+.bz-lycoin-gold{ width:104px; height:104px; bottom:-24px; left:6%; z-index:3;
+  background:radial-gradient(circle at 34% 30%, #ffd05a 0%, #f2b12e 55%, #c98d16 100%); }
+.bz-lycoin-blue{ width:178px; height:178px; bottom:-34px; left:34%; z-index:4;
+  background:radial-gradient(circle at 34% 30%, #6fb2ff 0%, #2f7fe8 55%, #1f5fc0 100%); }
+.bz-lycoin-grey{ width:98px; height:98px; bottom:-18px; right:14%; z-index:3;
+  background:radial-gradient(circle at 34% 30%, #e5e9ee 0%, #b9c0c8 55%, #8a939c 100%); }
+.bz-lycoin-gold2{ width:92px; height:92px; bottom:-26px; right:-5%; z-index:3;
+  background:radial-gradient(circle at 34% 30%, #ffd05a 0%, #eda826 55%, #b47a10 100%); }
+
+@media (max-width:640px){
+  .bz-loyalty-title{ font-size:1.5rem; }
+  .bz-loyalty-desc{ font-size:1rem; }
+  .bz-loyalty-art{ height:210px; }
+  .bz-hex4-blue{ left:18%; }
+}
