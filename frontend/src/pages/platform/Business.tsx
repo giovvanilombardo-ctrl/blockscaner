@@ -4,7 +4,7 @@ import { t as _t } from "@/i18n";
 import SiteLayout from "@/components/site/SiteLayout";
 import Seo from "@/components/Seo";
 import {
-  Play, GraduationCap, ArrowDownUp, Landmark, Code2, Scale,
+  GraduationCap, ArrowDownUp, Landmark, Code2, Scale,
   ArrowUpRight, Star, Info, Percent,
 } from "lucide-react";
 import coinBtc from "@/assets/coins/bitcoin.png";
@@ -519,11 +519,14 @@ export default function Business() {
           <div className="bz-grid-2">
             <Reveal className="bz-card bz-card-green">
               <h3><span className="bz-accent">{_t("E-learning")}</span> {_t("courses for your employees")}</h3>
-              <div className="bz-video" data-testid="business-video-card">
-                <div className="bz-video-globe" />
-                <div className="bz-video-play"><Play className="h-6 w-6" /></div>
-                <div className="bz-video-bar"><span /></div>
-                <p className="bz-video-title">{_t("The Blockchain")}</p>
+              <div className="bz-video bz-video-yt" data-testid="business-video-card">
+                <iframe
+                  src="https://www.youtube.com/embed/SSo_EIwHSd4?rel=0"
+                  title="What is Blockchain? Blockchain Explained Simply"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  data-testid="business-video-iframe"
+                />
               </div>
             </Reveal>
             <Reveal className="bz-card bz-card-purple" delay={120}>
