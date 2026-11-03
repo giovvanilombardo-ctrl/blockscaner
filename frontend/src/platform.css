@@ -323,15 +323,35 @@
   background:radial-gradient(ellipse at 50% 32%, #ffffff 0%, #eef1f5 55%, #d2d8e0 100%);
   box-shadow:inset 0 -4px 8px rgba(15,23,42,.10), 0 3px 6px rgba(255,255,255,.5); }
 
-/* staking phone mock */
-.bz-phone{ background:#fff; color:#0f172a; border-radius:18px; padding:1rem 1.1rem; max-width:300px; margin-top:1.2rem;
-  box-shadow:0 16px 34px rgba(0,0,0,.4); transform:rotate(-2deg); transition:transform .3s ease; }
-.bz-phone:hover{ transform:rotate(0); }
-.bz-phone-head{ display:flex; align-items:center; gap:.4rem; font-weight:800; font-size:.95rem; border-bottom:1px solid #eef2f7; padding-bottom:.55rem; }
-.bz-phone-row{ display:flex; align-items:center; gap:.5rem; padding:.6rem 0; font-size:.85rem; font-weight:600; border-bottom:1px solid #f1f5f9; }
-.bz-phone-row img{ width:22px; height:22px; margin-left:auto; }
-.bz-flame{ color:#f97316; animation:bz-flick 1.2s ease-in-out infinite; }
-@keyframes bz-flick{ 0%,100%{ transform:scale(1); opacity:.85;} 50%{ transform:scale(1.18); opacity:1;} }
+/* staking card art — reference design: phone mock + seal + flames + ETH plates */
+.bz-card-stake{ overflow:hidden; }
+.bz-btn-ghost{ display:inline-block; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(6px); color:#e8edf4; font-weight:700; font-size:.88rem; padding:.65rem 1.5rem;
+  border-radius:999px; text-decoration:none; transition:background .25s ease; }
+.bz-btn-ghost:hover{ background:rgba(255,255,255,.22); }
+.bz-stake-art{ position:relative; height:420px; margin-top:1.2rem; }
+.bz-plate-img{ position:absolute; z-index:1; filter:drop-shadow(0 16px 24px rgba(0,0,0,.4)); }
+.bz-plate-tr{ top:-28px; right:-24px; width:190px; transform:rotate(16deg); }
+.bz-plate-bl{ bottom:-18px; left:-6px; width:210px; transform:rotate(-13deg); }
+.bz-phone3{ position:absolute; left:50%; top:30px; transform:translateX(-50%); z-index:2;
+  width:290px; height:430px; background:#fff; border-radius:28px 28px 0 0; padding:1.1rem 1.2rem;
+  color:#0f172a; text-align:left; box-shadow:0 24px 50px rgba(0,0,0,.5); }
+.bz-phone3-back{ font-size:1.05rem; color:#0f172a; }
+.bz-phone3-title{ font-size:1.35rem; font-weight:800; margin:.4rem 0 .2rem; letter-spacing:-.01em; }
+.bz-phone3-sec{ display:flex; align-items:center; gap:.3rem; font-size:.85rem; font-weight:700; color:#0f172a; margin:1rem 0 .45rem; }
+.bz-phone3-sec svg{ color:#94a3b8; }
+.bz-phone3-row{ display:flex; align-items:center; gap:.6rem; background:#f4f7fa; border:1px solid #eef2f6;
+  border-radius:12px; padding:.6rem .75rem; }
+.bz-phone3-row img{ width:26px; height:26px; border-radius:50%; }
+.bz-phone3-row b{ font-size:.88rem; }
+.bz-phone3-bar{ flex:1; height:10px; border-radius:6px; background:#e5eaf0; }
+.bz-seal{ position:absolute; top:-6px; right:17%; width:96px; height:96px; z-index:3; display:grid; place-items:center;
+  animation:bz-float 4.5s ease-in-out infinite; }
+.bz-seal svg{ position:absolute; inset:0; width:100%; height:100%; }
+.bz-flame3{ position:absolute; z-index:3; animation:bz-flick 1.6s ease-in-out infinite; }
+@keyframes bz-flick{ 0%,100%{ transform:scale(1) rotate(-2deg);} 50%{ transform:scale(1.12) rotate(2.5deg);} }
+.bz-flame-r{ width:56px; right:4%; top:52%; }
+.bz-flame-l{ width:42px; left:10%; bottom:16%; animation-delay:.8s; }
 
 /* settle art */
 .bz-settle{ display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; align-items:center; }

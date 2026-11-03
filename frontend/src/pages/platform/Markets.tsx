@@ -37,17 +37,27 @@ export default function Markets() {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/market/coins?per_page=120&page=1`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-      .then((j) => {
-        const arr = Array.isArray(j) ? j : [];
-        setCoins(arr);
-        const sp: Record<string, number[]> = {};
-        arr.forEach((c) => { sp[c.id] = c.sparkline_in_7d?.price || []; });
-        setSparks(sp);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    let alive = true;
+    const load = (attempt = 0) => {
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/market/coins?per_page=120&page=1`)
+        .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+        .then((j) => {
+          if (!alive) return;
+          const arr = Array.isArray(j) ? j : [];
+          setCoins(arr);
+          const sp: Record<string, number[]> = {};
+          arr.forEach((c) => { sp[c.id] = c.sparkline_in_7d?.price || []; });
+          setSparks(sp);
+          setLoading(false);
+        })
+        .catch(() => {
+          /* backend cache may be warming during a rate-limit window: keep retrying */
+          if (alive && attempt < 10) setTimeout(() => load(attempt + 1), 4000);
+          else if (alive) setLoading(false);
+        });
+    };
+    load();
+    return () => { alive = false; };
   }, []);
 
   const filtered = useMemo(() => {

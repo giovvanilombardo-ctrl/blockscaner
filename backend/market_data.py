@@ -5,9 +5,11 @@ showing as 0,00 / dashes). Now all clients share one backend cache, so
 CoinGecko sees at most one request per TTL window per endpoint.
 """
 import asyncio
+import json
 import logging
 import re
 import time
+from pathlib import Path
 
 import httpx
 from fastapi import APIRouter, HTTPException, Query
@@ -21,6 +23,40 @@ router = APIRouter(prefix="/api/market", tags=["market"])
 
 _cache: dict = {}
 _locks: dict = {}
+
+# Disk persistence: survives backend restarts, so a restart during a CoinGecko
+# 429 storm still serves data (SWR refreshes it in the background).
+CACHE_FILE = Path(__file__).parent / ".cache" / "market_cache.json"
+_dirty = False
+_last_flush = 0.0
+
+
+def _load_disk():
+    try:
+        if CACHE_FILE.exists():
+            data = json.loads(CACHE_FILE.read_text())
+            if isinstance(data, dict):
+                _cache.update(data)
+                logger.info("market cache loaded from disk: %d entries", len(data))
+    except Exception as e:
+        logger.warning("market cache load failed: %s", e)
+
+
+def _store(key: str, data):
+    global _dirty, _last_flush
+    _cache[key] = {"t": time.time(), "data": data}
+    _dirty = True
+    if time.time() - _last_flush > 20:
+        try:
+            _dirty = False
+            _last_flush = time.time()
+            CACHE_FILE.parent.mkdir(exist_ok=True)
+            CACHE_FILE.write_text(json.dumps(_cache))
+        except Exception as e:
+            logger.warning("market cache flush failed: %s", e)
+
+
+_load_disk()
 
 
 async def _fetch(path: str, params: dict):
@@ -52,7 +88,7 @@ async def _refresh(key: str, path: str, params: dict, transform):
         if data is not None:
             if transform:
                 data = transform(data)
-            _cache[key] = {"t": time.time(), "data": data}
+            _store(key, data)
 
 
 async def _cached(key: str, ttl: int, path: str, params: dict, transform=None):
@@ -74,7 +110,7 @@ async def _cached(key: str, ttl: int, path: str, params: dict, transform=None):
         if data is not None:
             if transform:
                 data = transform(data)
-            _cache[key] = {"t": time.time(), "data": data}
+            _store(key, data)
             return data
         raise HTTPException(status_code=503, detail="Market data temporarily unavailable")
 

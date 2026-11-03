@@ -5,7 +5,7 @@ import SiteLayout from "@/components/site/SiteLayout";
 import Seo from "@/components/Seo";
 import {
   Play, GraduationCap, ArrowDownUp, Landmark, Code2, Scale,
-  ArrowUpRight, Flame, BadgePercent, Star,
+  ArrowUpRight, Star, Info, Percent,
 } from "lucide-react";
 import coinBtc from "@/assets/coins/bitcoin.png";
 import coinEth from "@/assets/coins/ethereum.png";
@@ -97,6 +97,35 @@ function PersonGlyph() {
     <svg viewBox="0 0 100 100" aria-hidden="true" style={{ width: "68%", height: "68%" }}>
       <circle cx="50" cy="35" r="19" fill="#fff" />
       <path d="M21 92 C21 62 79 62 79 92 Z" fill="#fff" />
+    </svg>
+  );
+}
+
+/* green scalloped seal with % (staking card, reference design) */
+function Seal() {
+  const pts = Array.from({ length: 96 }, (_, i) => {
+    const t = (i / 96) * Math.PI * 2;
+    const r = 44 + 6 * Math.sin(14 * t);
+    return `${(50 + r * Math.cos(t)).toFixed(1)},${(50 + r * Math.sin(t)).toFixed(1)}`;
+  }).join(" L");
+  return (
+    <div className="bz-seal">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d={`M${pts} Z`} fill="#b8f1cf" />
+        <circle cx="50" cy="50" r="30" fill="#16a34a" />
+      </svg>
+      <Percent className="h-8 w-8" color="#fff" strokeWidth={3.2} />
+    </div>
+  );
+}
+
+/* small filled flame graphic (staking card, reference design) */
+function FlameArt({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 60 72" className={`bz-flame3 ${className}`} aria-hidden="true">
+      <path d="M30 2 C36 14 48 20 48 38 C48 54 40 70 30 70 C20 70 12 54 12 38 C12 26 20 20 22 10 C26 18 28 20 30 22 C28 12 28 6 30 2 Z" fill="#f97316" />
+      <path d="M30 30 C35 40 39 45 39 54 C39 62 35 68 30 68 C25 68 21 62 21 54 C21 45 25 40 30 30 Z" fill="#fbbf24" />
+      <path d="M30 46 C33 51 35 53 35 59 C35 64 32.5 67 30 67 C27.5 67 25 64 25 59 C25 53 27 51 30 46 Z" fill="#fef3c7" />
     </svg>
   );
 }
@@ -319,21 +348,30 @@ export default function Business() {
           </div>
 
           <div className="bz-grid-2">
-            <Reveal className="bz-card">
+            <Reveal className="bz-card bz-card-stake">
               <h3>{_t("Staking: up to 18% APY")}</h3>
               <p>{_t("Turn a passive resource into a productive asset, maximising returns on your crypto reserves. Staking allows you to support network security and earn rewards.")}</p>
-              <a href={REPORT_URL} download="Blockscaner-Tesoreria-Aziendale.pdf" className="bz-link" data-testid="business-staking-report">{_t("Download the Report")} <ArrowUpRight className="h-4 w-4" /></a>
-              <div className="bz-phone">
-                <div className="bz-phone-head"><BadgePercent className="h-4 w-4" /> {_t("Staking")}</div>
-                <div className="bz-phone-row">
-                  <span>{_t("Proof of Stake")}</span>
-                  {coins.find((c) => c.id === "solana") && <img src={coins.find((c) => c.id === "solana")!.image} alt="Solana" />}
-                  <Flame className="h-4 w-4 bz-flame" />
+              <a href={REPORT_URL} download="Blockscaner-Tesoreria-Aziendale.pdf" className="bz-btn-ghost" data-testid="business-staking-report">{_t("Download the Report")}</a>
+              <div className="bz-stake-art">
+                <img src={coinEth} alt="" className="bz-plate-img bz-plate-tr" />
+                <img src={coinEth} alt="" className="bz-plate-img bz-plate-bl" />
+                <div className="bz-phone3">
+                  <span className="bz-phone3-back">←</span>
+                  <p className="bz-phone3-title">{_t("Staking")}</p>
+                  <p className="bz-phone3-sec">{_t("Proof of Stake")} <Info className="h-3.5 w-3.5" /></p>
+                  <div className="bz-phone3-row">
+                    {coins.find((c) => c.id === "solana") && <img src={coins.find((c) => c.id === "solana")!.image} alt="Solana" />}
+                    <b>Solana</b><span className="bz-phone3-bar" />
+                  </div>
+                  <p className="bz-phone3-sec">{_t("Liquid Staking")} <Info className="h-3.5 w-3.5" /></p>
+                  <div className="bz-phone3-row">
+                    {coins.find((c) => c.id === "ethereum") && <img src={coins.find((c) => c.id === "ethereum")!.image} alt="Ethereum" />}
+                    <b>Ethereum</b><span className="bz-phone3-bar" />
+                  </div>
                 </div>
-                <div className="bz-phone-row">
-                  <span>{_t("Liquid Staking")}</span>
-                  {coins.find((c) => c.id === "ethereum") && <img src={coins.find((c) => c.id === "ethereum")!.image} alt="Ethereum" />}
-                </div>
+                <Seal />
+                <FlameArt className="bz-flame-r" />
+                <FlameArt className="bz-flame-l" />
               </div>
             </Reveal>
             <Reveal className="bz-card bz-card-green" delay={120}>
