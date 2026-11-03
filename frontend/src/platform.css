@@ -576,3 +576,5 @@
 .bz-white-band{ background:#fff; width:100%; margin:4rem 0; padding:3rem 0 4rem; }
 .bz-white-band .bz-section{ max-width:1200px; margin:0 auto; padding:0 1.5rem; }
 .bz-white-band .bz-section + .bz-section{ margin-top:4rem; }
+.bz-white-band .bz-partners{ max-width:none; padding:0; }
+.bz-white-band .bz-partners .bz-sub-dark{ max-width:720px; margin-left:auto; margin-right:auto; padding:0 1.5rem; }
