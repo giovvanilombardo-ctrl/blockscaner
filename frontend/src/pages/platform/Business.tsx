@@ -664,10 +664,10 @@ export default function Business() {
         </section>
 
         {/* ---------- CERTIFICATIONS ---------- */}
-        <section className="bz-section bz-certs">
+        <section className="bz-section bz-certs bz-section-white">
           <Reveal>
-            <h2 className="bz-h2">{_t("Our certifications")}</h2>
-            <p className="bz-sub">{_t("Our operations are recognized by regulatory authorities and comply with European regulations.")}</p>
+            <h2 className="bz-h2 bz-h2-dark">{_t("Our certifications")}</h2>
+            <p className="bz-sub bz-sub-dark">{_t("Our operations are recognized by regulatory authorities and comply with European regulations.")}</p>
           </Reveal>
           <div className="bz-grid-3">
             <Reveal className="bz-card bz-card-light">
@@ -689,14 +689,21 @@ export default function Business() {
         </section>
 
         {/* ---------- PARTNERS ---------- */}
-        <section className="bz-section bz-partners">
+        <section className="bz-section bz-partners bz-section-white">
           <Reveal>
-            <h2 className="bz-h2">{_t("Meet our partners")}</h2>
-            <p className="bz-sub">{_t("Blockscaner has formed solid partnerships with banks, leading global providers, and institutional investors in the cap table, ensuring the highest level of reliability and security for you.")}</p>
+            <h2 className="bz-h2 bz-h2-dark">{_t("Meet our partners")}</h2>
+            <p className="bz-sub bz-sub-dark">{_t("Blockscaner has formed solid partnerships with banks, leading global providers, and institutional investors in the cap table, ensuring the highest level of reliability and security for you.")}</p>
           </Reveal>
           <div className="bz-partners-wrap">
             <div className="bz-partners-row" data-testid="business-partners-row">
-              {["United Ventures", "Arkes", "Azimut", "Chainalysis", "checkout.com", "Fireblocks", "Ithaca", "Onfido", "Sella", "Digitech", "United Ventures", "Arkes", "Azimut", "Chainalysis", "checkout.com", "Fireblocks", "Ithaca", "Onfido", "Sella", "Digitech"].map((name, i) => (
+              {["United Ventures", "Arkes", "Azimut", "Chainalysis", "checkout.com", "United Ventures", "Arkes", "Azimut", "Chainalysis", "checkout.com"].map((name, i) => (
+                <span key={i} className="bz-partner">{name}</span>
+              ))}
+            </div>
+          </div>
+          <div className="bz-partners-wrap">
+            <div className="bz-partners-row bz-partners-rev">
+              {["Fireblocks", "Ithaca", "Onfido", "Sella", "Digitech", "Fireblocks", "Ithaca", "Onfido", "Sella", "Digitech"].map((name, i) => (
                 <span key={i} className="bz-partner">{name}</span>
               ))}
             </div>
