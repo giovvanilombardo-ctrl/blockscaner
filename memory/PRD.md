@@ -308,6 +308,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   donut), VIP Service (green stars), Custody (safe + lock graphic), Tax (document + check). All dark cards
   with CSS-built art, responsive stacked on mobile.
 
+- **Certifications + Partners sections (2026-11-03)**: Business page gained two new sections after the
+  features cards, matching the user's reference: "Our certifications" (3 light cards: Registro Operatori
+  Valute Virtuali, Prestataire de Services sur Actifs Numériques, MiCA) and "Meet our partners" (auto-
+  scrolling marquee of 10 partner names with edge fade).
+
 - **Coin page TOC + hero cleanup (2026-11-02)**: sticky sidebar TOC deleted then re-inserted per user request
   (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the
   Bitcoin page because it was a full screenshot of youngplatform.com that visually duplicated the page

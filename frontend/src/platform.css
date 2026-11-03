@@ -544,3 +544,26 @@
   .bz-analytics-art{ flex-direction:column; align-items:center; }
   .bz-mock-side{ transform:none; }
 }
+
+/* ---------- Certifications (light cards) ---------- */
+.bz-certs .bz-grid-3{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem; margin-top:2rem; }
+.bz-card-light{ background:#fff; color:#0f172a; border:1px solid #e2e8f0; padding:1.6rem; border-radius:16px;
+  box-shadow:0 4px 14px rgba(0,0,0,.06); }
+.bz-card-light h3{ font-size:1.15rem; font-weight:800; line-height:1.25; margin:.6rem 0 .8rem; color:#0f172a; }
+.bz-badge{ display:inline-block; font-size:.62rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
+  padding:.2rem .55rem; border-radius:99px; }
+.bz-badge-green{ background:#dcfce7; color:#15803d; }
+.bz-cert-meta{ font-size:.8rem; color:#64748b; line-height:1.5; }
+.bz-cert-meta a{ color:#64748b; text-decoration:underline; }
+.bz-cert-meta a:hover{ color:#0f172a; }
+
+/* ---------- Partners marquee ---------- */
+.bz-partners{ overflow:hidden; }
+.bz-partners-wrap{ overflow:hidden; margin-top:2rem; -webkit-mask:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.bz-partners-row{ display:flex; gap:3.5rem; align-items:center; padding:1.2rem 0;
+  animation:bz-marquee 32s linear infinite; width:max-content; }
+.bz-partner{ font-size:1.5rem; font-weight:800; color:#94a3b8; white-space:nowrap;
+  letter-spacing:-.02em; transition:color .25s; }
+.bz-partner:hover{ color:#e2e8f0; }
+@keyframes bz-marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }

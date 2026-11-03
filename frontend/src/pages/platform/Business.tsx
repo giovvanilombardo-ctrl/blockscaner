@@ -663,6 +663,46 @@ export default function Business() {
           </div>
         </section>
 
+        {/* ---------- CERTIFICATIONS ---------- */}
+        <section className="bz-section bz-certs">
+          <Reveal>
+            <h2 className="bz-h2">{_t("Our certifications")}</h2>
+            <p className="bz-sub">{_t("Our operations are recognized by regulatory authorities and comply with European regulations.")}</p>
+          </Reveal>
+          <div className="bz-grid-3">
+            <Reveal className="bz-card bz-card-light">
+              <span className="bz-badge bz-badge-green">{_t("Certified")}</span>
+              <h3>Registro Operatori<br />Valute Virtuali (PSV1)</h3>
+              <p className="bz-cert-meta">Organismo Agenti e Mediatori<br /><a href="https://www.organismo-am.it" target="_blank" rel="noreferrer">www.organismo-am.it</a></p>
+            </Reveal>
+            <Reveal className="bz-card bz-card-light" delay={80}>
+              <span className="bz-badge bz-badge-green">{_t("Authorised")}</span>
+              <h3>Prestataire de<br />Services sur Actifs Numériques</h3>
+              <p className="bz-cert-meta">Autorité des Marchés Financiers<br /><a href="https://www.amf-france.org" target="_blank" rel="noreferrer">www.amf-france.org</a></p>
+            </Reveal>
+            <Reveal className="bz-card bz-card-light" delay={160}>
+              <span className="bz-badge bz-badge-green">{_t("Authorized CASPs")}</span>
+              <h3>Markets in Crypto-<br />Assets Regulation</h3>
+              <p className="bz-cert-meta">MiCA - Regulation (UE) 2023/1114<br /><a href="https://eur-lex.europa.eu" target="_blank" rel="noreferrer">www.eur-lex.europa.eu</a></p>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ---------- PARTNERS ---------- */}
+        <section className="bz-section bz-partners">
+          <Reveal>
+            <h2 className="bz-h2">{_t("Meet our partners")}</h2>
+            <p className="bz-sub">{_t("Blockscaner has formed solid partnerships with banks, leading global providers, and institutional investors in the cap table, ensuring the highest level of reliability and security for you.")}</p>
+          </Reveal>
+          <div className="bz-partners-wrap">
+            <div className="bz-partners-row" data-testid="business-partners-row">
+              {["United Ventures", "Arkes", "Azimut", "Chainalysis", "checkout.com", "Fireblocks", "Ithaca", "Onfido", "Sella", "Digitech", "United Ventures", "Arkes", "Azimut", "Chainalysis", "checkout.com", "Fireblocks", "Ithaca", "Onfido", "Sella", "Digitech"].map((name, i) => (
+                <span key={i} className="bz-partner">{name}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ---------- FINAL CTA + ENQUIRY FORM ---------- */}
         <Reveal className="bz-final" id="business-contact">
           <h2 className="bz-h2">{_t("Ready to make crypto work for your business?")}</h2>
