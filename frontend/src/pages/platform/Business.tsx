@@ -662,8 +662,10 @@ export default function Business() {
             </Reveal>
           </div>
         </section>
+      </div>
 
-        {/* ---------- CERTIFICATIONS ---------- */}
+      {/* ---------- CERTIFICATIONS + PARTNERS (full-width white band) ---------- */}
+      <div className="bz-white-band" data-testid="business-white-band">
         <section className="bz-section bz-certs bz-section-white">
           <Reveal>
             <h2 className="bz-h2 bz-h2-dark">{_t("Our certifications")}</h2>
@@ -688,7 +690,6 @@ export default function Business() {
           </div>
         </section>
 
-        {/* ---------- PARTNERS ---------- */}
         <section className="bz-section bz-partners bz-section-white">
           <Reveal>
             <h2 className="bz-h2 bz-h2-dark">{_t("Meet our partners")}</h2>
@@ -709,7 +710,9 @@ export default function Business() {
             </div>
           </div>
         </section>
+      </div>
 
+      <div className="bz-page">
         {/* ---------- FINAL CTA + ENQUIRY FORM ---------- */}
         <Reveal className="bz-final" id="business-contact">
           <h2 className="bz-h2">{_t("Ready to make crypto work for your business?")}</h2>

@@ -571,3 +571,8 @@
   letter-spacing:-.02em; transition:color .25s; }
 .bz-partner:hover{ color:#0f172a; }
 @keyframes bz-marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+/* ---------- Full-width white band (certs + partners) ---------- */
+.bz-white-band{ background:#fff; width:100%; margin:4rem 0; padding:3rem 0 4rem; }
+.bz-white-band .bz-section{ max-width:1200px; margin:0 auto; padding:0 1.5rem; }
+.bz-white-band .bz-section + .bz-section{ margin-top:4rem; }
