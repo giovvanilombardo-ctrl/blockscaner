@@ -279,6 +279,13 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   CoinGecko 429 storms); invalid ids return fast 404 -> "Asset not found". Self-tested via curl +
   screenshots (sui, near, litecoin, notacoin123).
 
+- **Markets empty-table bug (2026-11-03)**: user report "check markets as nothing appears". Root cause:
+  backend restart wiped the in-memory price cache during a CoinGecko 429 storm -> /api/market/coins 503
+  -> empty table. Fixed: market_data.py now persists the cache to disk (`/app/backend/.cache/
+  market_cache.json`, loaded at startup, flushed every >20s on writes) and Markets.tsx retries every 4s
+  (x10) while the cache warms. Verified by testing agent (iteration_3): table renders with real prices,
+  backend <400ms even right after restart. Note: seeding scripts in /tmp were one-off and ephemeral.
+
 - **Coin page TOC + hero cleanup (2026-11-02)**: sticky sidebar TOC deleted then re-inserted per user request
   (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the
   Bitcoin page because it was a full screenshot of youngplatform.com that visually duplicated the page
