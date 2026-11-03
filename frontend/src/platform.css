@@ -392,9 +392,11 @@
 .bz-academy-line{ height:7px; border-radius:4px; background:#e8eef5; margin-bottom:.45rem; }
 .bz-academy-line.short{ width:65%; }
 .bz-academy-thumbs{ display:flex; gap:.5rem; margin-top:.7rem; }
-.bz-academy-thumbs span{ flex:1; height:44px; border-radius:8px; background:linear-gradient(140deg, #dbeafe, #ede9fe);
+.bz-academy-thumbs .bz-th{ flex:1; height:44px; border-radius:8px; background:linear-gradient(140deg, #dbeafe, #ede9fe);
   display:grid; place-items:center; overflow:hidden; }
-.bz-academy-thumbs img{ width:32px; height:32px; object-fit:contain; filter:drop-shadow(0 2px 3px rgba(0,0,0,.2)); }
+.bz-th-video{ background:linear-gradient(140deg, #0f172a, #1e293b) !important; }
+.bz-th-laptop{ background:linear-gradient(140deg, #e0e7ff, #c7d2fe) !important; }
+.bz-th-cert{ background:linear-gradient(140deg, #fef3c7, #fde68a) !important; }
 .bz-cap{ position:absolute; right:-6px; top:-26px; width:64px; height:64px; border-radius:50%; color:#fff;
   background:linear-gradient(160deg, #7c3aed, #5b21b6); display:grid; place-items:center; transform:rotate(-10deg);
   animation:bz-float 5s ease-in-out infinite; box-shadow:0 14px 30px rgba(124,58,237,.45); }

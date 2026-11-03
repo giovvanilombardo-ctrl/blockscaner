@@ -161,6 +161,43 @@ function FlameArt({ className = "" }: { className?: string }) {
   );
 }
 
+/* cartoon e-learning thumbnails for the Academy card (hand-drawn style) */
+function VideoThumb() {
+  return (
+    <svg viewBox="0 0 120 72" aria-hidden="true" style={{ width: "100%", height: "100%" }}>
+      <rect x="4" y="8" width="112" height="56" rx="8" fill="#1e293b" />
+      <circle cx="60" cy="36" r="16" fill="#3b82f6" />
+      <path d="M56 28 L70 36 L56 44 Z" fill="#fff" />
+      <rect x="16" y="52" width="60" height="4" rx="2" fill="#475569" />
+      <rect x="16" y="52" width="28" height="4" rx="2" fill="#93c5fd" />
+    </svg>
+  );
+}
+function LaptopThumb() {
+  return (
+    <svg viewBox="0 0 120 72" aria-hidden="true" style={{ width: "100%", height: "100%" }}>
+      <rect x="20" y="12" width="80" height="46" rx="5" fill="#f8fafc" stroke="#334155" strokeWidth="2.5" />
+      <rect x="30" y="22" width="36" height="26" rx="3" fill="#e0e7ff" />
+      <path d="M40 48 L40 30 M48 44 L48 26 M56 40 L56 34" stroke="#6366f1" strokeWidth="3" strokeLinecap="round" fill="none" />
+      <rect x="70" y="26" width="20" height="16" rx="2" fill="#fde68a" />
+      <path d="M74 30 h12 M74 34 h12" stroke="#92400e" strokeWidth="1.5" />
+      <path d="M20 58 h80 l-6 6 H26 Z" fill="#94a3b8" />
+    </svg>
+  );
+}
+function CertThumb() {
+  return (
+    <svg viewBox="0 0 120 72" aria-hidden="true" style={{ width: "100%", height: "100%" }}>
+      <rect x="30" y="10" width="60" height="44" rx="4" fill="#fffbeb" stroke="#d97706" strokeWidth="2.5" />
+      <circle cx="60" cy="26" r="9" fill="none" stroke="#d97706" strokeWidth="2.5" />
+      <path d="M56 26 L59 29 L64 23" stroke="#d97706" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      <path d="M40 42 h40 M40 48 h28" stroke="#d97706" strokeWidth="2" strokeLinecap="round" />
+      <path d="M30 54 L26 66 L32 62 L38 68 L34 56" fill="#f87171" />
+      <path d="M90 54 L94 66 L88 62 L82 68 L86 56" fill="#f87171" />
+    </svg>
+  );
+}
+
 function ReportBtn({ id, url = REPORT_URL, name = "Blockscaner-Tesoreria-Aziendale.pdf" }: { id: string; url?: string; name?: string }) {
   return (
     <a href={url} download={name} className="bz-pill" data-testid={id}>
@@ -499,9 +536,9 @@ export default function Business() {
                   <p className="bz-academy-h">{_t("Wyckoff Theory: what it is and how it works")}</p>
                   <div className="bz-academy-line" /><div className="bz-academy-line short" />
                   <div className="bz-academy-thumbs">
-                    <span><img src={coinBtc} alt="Bitcoin" /></span>
-                    <span><img src={coinEth} alt="Ethereum" /></span>
-                    <span><img src={coinEur} alt="Euro" /></span>
+                    <span className="bz-th bz-th-video" aria-label="Video course"><VideoThumb /></span>
+                    <span className="bz-th bz-th-laptop" aria-label="E-learning"><LaptopThumb /></span>
+                    <span className="bz-th bz-th-cert" aria-label="Certificate"><CertThumb /></span>
                   </div>
                 </div>
                 <div className="bz-cap"><GraduationCap className="h-10 w-10" /></div>
