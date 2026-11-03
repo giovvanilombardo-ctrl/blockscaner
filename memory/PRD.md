@@ -303,6 +303,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   blockscaner-training-hub.pdf` (~14 pages). The Training banner "Download the Report" button now serves
   it. Both PDFs are image-only, so the rebrand is a pixel repaint of logo/contacts/footer.
 
+- **Features / Why-us section (2026-11-03)**: Business page gained a 4-card continuation below the workshops
+  row, matching the user's reference: Analytics (two mini phone mockups: trade analysis + crypto allocation
+  donut), VIP Service (green stars), Custody (safe + lock graphic), Tax (document + check). All dark cards
+  with CSS-built art, responsive stacked on mobile.
+
 - **Coin page TOC + hero cleanup (2026-11-02)**: sticky sidebar TOC deleted then re-inserted per user request
   (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the
   Bitcoin page because it was a full screenshot of youngplatform.com that visually duplicated the page

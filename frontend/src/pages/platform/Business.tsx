@@ -565,6 +565,68 @@ export default function Business() {
           </div>
         </section>
 
+        {/* ---------- FEATURES / WHY US ---------- */}
+        <section className="bz-section">
+          <Reveal>
+            <h2 className="bz-h2">{_t("For over six years, we've crafted advanced solutions for your business")}</h2>
+            <p className="bz-sub">{_t("With over two million clients in Europe, we are the leading exchange in Italy.")}</p>
+          </Reveal>
+          <div className="bz-grid-2">
+            <Reveal className="bz-card bz-card-dark bz-feature-analytics">
+              <p className="bz-card-kicker">{_t("Analytics")}</p>
+              <h3>{_t("Monitor your performance")}</h3>
+              <p>{_t("Stay on track with performance management and detailed reporting.")}</p>
+              <ul className="bz-list">
+                <li>{_t("Yield monitoring")}</li>
+                <li>{_t("Tax reporting documents")}</li>
+                <li>{_t("Risk diversification")}</li>
+              </ul>
+              <div className="bz-analytics-art" aria-hidden="true">
+                <div className="bz-analytics-phone">
+                  <div className="bz-analytics-head"><span /><b>Analytics</b><i /></div>
+                  <div className="bz-analytics-row"><span>{_t("Trade analysis")}</span><b className="bz-green">+245.84 €</b></div>
+                  <div className="bz-analytics-line" />
+                  <div className="bz-analytics-row"><span>{_t("Total return")}</span><b className="bz-green">+18.36%</b></div>
+                  <div className="bz-analytics-chart"><span /><span /><span /><span /><span /><span /><span /></div>
+                </div>
+                <div className="bz-analytics-phone bz-analytics-phone2">
+                  <div className="bz-analytics-head"><span /><b>Crypto allocation</b><i /></div>
+                  <div className="bz-donut" />
+                  <div className="bz-analytics-row"><span>Bitcoin</span><b>52.3%</b></div>
+                  <div className="bz-analytics-row"><span>Ethereum</span><b>28.1%</b></div>
+                  <div className="bz-analytics-row"><span>Solana</span><b>19.6%</b></div>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal className="bz-card bz-card-dark bz-feature-vip" delay={120}>
+              <p className="bz-card-kicker">{_t("VIP Service")}</p>
+              <h3>{_t("Your Account Manager works with you to optimise your strategy and turn your goals into tangible results.")}</h3>
+              <div className="bz-vip-art" aria-hidden="true">
+                <svg viewBox="0 0 100 100" className="bz-star"><path d="M50 8 L61 38 L92 39 L67 58 L75 89 L50 71 L25 89 L33 58 L8 39 L39 38 Z" fill="#22c55e" /></svg>
+                <svg viewBox="0 0 100 100" className="bz-star bz-star2"><path d="M50 8 L61 38 L92 39 L67 58 L75 89 L50 71 L25 89 L33 58 L8 39 L39 38 Z" fill="#86efac" /></svg>
+              </div>
+            </Reveal>
+          </div>
+          <div className="bz-grid-2">
+            <Reveal className="bz-card bz-card-dark bz-feature-custody">
+              <h3>{_t("No.1 custody and security worldwide")}</h3>
+              <p>{_t("All client cryptocurrencies are held in full 1:1 reserve. We use advanced security with Fireblocks and multisig cold storage protection for maximum peace of mind.")}</p>
+              <div className="bz-custody-art" aria-hidden="true">
+                <div className="bz-safe" />
+                <div className="bz-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11 V7 a4 4 0 0 1 8 0 v4"/></svg></div>
+              </div>
+            </Reveal>
+            <Reveal className="bz-card bz-card-dark bz-feature-tax" delay={120}>
+              <h3>{_t("Connect, calculate and declare")}</h3>
+              <p>{_t("Connect exchanges and wallets to automatically calculate gains and losses from trading, staking, NFTs, and DeFi. Receive pre-filled tax reports ready for filing with support from our accountants.")}</p>
+              <div className="bz-tax-art" aria-hidden="true">
+                <div className="bz-doc" />
+                <div className="bz-doc-check" />
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ---------- FINAL CTA + ENQUIRY FORM ---------- */}
         <Reveal className="bz-final" id="business-contact">
           <h2 className="bz-h2">{_t("Ready to make crypto work for your business?")}</h2>
