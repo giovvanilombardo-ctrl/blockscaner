@@ -199,10 +199,9 @@ html {
 
 /* ---------- DeFi 3D glass flower (home) ---------- */
 @keyframes flower-live{
-  0%, 100%{ transform:translate(-50%, -50%) rotate(-6deg) scale(1); }
-  33%{ transform:translate(-50%, -53%) rotate(3deg) scale(1.04); }
-  66%{ transform:translate(-50%, -47%) rotate(6deg) scale(.98); }
+  from{ transform:translate(-50%, -50%) rotate(0deg); }
+  to{ transform:translate(-50%, -50%) rotate(360deg); }
 }
-.flower-hero{ animation:flower-live 9s ease-in-out infinite; will-change:transform; }
+.flower-hero{ animation:flower-live 18s linear infinite; will-change:transform; }
 @media (prefers-reduced-motion: reduce){ .flower-hero{ animation:none; } }
 
