@@ -21,7 +21,7 @@ const SiteFooter = ({ onResetCookies }: { onResetCookies?: () => void }) => (
       <Col title={_t("Products")}>
         <Link to="/products" className={linkCls}>Blockscaner</Link>
         <Link to="/products" className={linkCls}>Blockscaner Pro</Link>
-        <Link to="/products" className={linkCls}>Blockscaner Step</Link>
+        <Link to="/products/step" className={linkCls}>Blockscaner Step</Link>
         <Link to="/academy" className={linkCls}>Blockscaner Academy</Link>
         <Link to="/products" className={linkCls}>{_t("Clubs")}</Link>
       </Col>

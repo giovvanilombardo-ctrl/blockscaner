@@ -378,3 +378,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   payment account, risk warning — rebranded to Blockscaner, YNG token paragraph dropped), and bottom
   line "© 2026 Blockscaner. All rights reserved" + working "Update cookie settings" button.
 
+- **Blockscaner Step page (2026-11-12)**: new route /products/step (frontend/src/pages/platform/Step.tsx)
+  with the reference hero: AI-generated pink 3D maze background (src/assets/step-maze.png), title "Take
+  your first Step into the crypto world", pink Download Step pill + store buttons, and a tilted floating
+  phone mockup rendering the Step Hub app UI (reward pill, mission card, St-Claps badge, BTC/ETH rows,
+  menu, bottom nav). Footer "Blockscaner Step" link now points to /products/step.
+
