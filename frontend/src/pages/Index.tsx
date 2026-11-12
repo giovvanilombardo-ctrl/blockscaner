@@ -254,7 +254,7 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
     </section>
 
     {/* FROM YOUR ACCOUNT TO CRYPTO AND BACK (reference) */}
-    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" style={{ zoom: 1.15 }} data-testid="home-card-section">
+    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" style={{ zoom: 1.2 }} data-testid="home-card-section">
       <Reveal className="mx-auto max-w-4xl text-center">
         <h2 className="font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-foreground">
           {_t("From your account to crypto")}<br />{_t("and back.")}
