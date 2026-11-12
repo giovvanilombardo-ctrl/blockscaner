@@ -344,7 +344,7 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
     </section>
 
     {/* BUILDING MEANS PLANNING (reference) */}
-    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" style={{ zoom: 1.2 }} data-testid="home-planning-section">
+    <section className="px-6 lg:px-10 pt-20 lg:pt-28 pb-6 bg-white" style={{ zoom: 1.2 }} data-testid="home-planning-section">
       <Reveal className="mx-auto max-w-4xl text-center">
         <h2 className="font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-foreground">
           {_t("Building means planning.")}
@@ -443,7 +443,7 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
     </section>
 
     {/* CUT DEAD BRANCHES — analytics dashboard banner (reference) */}
-    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" style={{ zoom: 1.2 }} data-testid="home-bloom-section">
+    <section className="px-6 lg:px-10 pt-6 pb-20 lg:pb-28 bg-white" style={{ zoom: 1.2 }} data-testid="home-bloom-section">
       <Reveal>
         <div className="mx-auto grid max-w-6xl overflow-hidden rounded-3xl lg:grid-cols-2" data-testid="home-bloom-banner">
           {/* left: phone dashboard art */}
