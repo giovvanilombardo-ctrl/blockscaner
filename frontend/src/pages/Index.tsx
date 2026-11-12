@@ -528,6 +528,54 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
           {_t("Discover more about Clubs")} <ArrowUpRight className="h-3.5 w-3.5" />
         </Link>
       </Reveal>
+
+      {/* club tiers */}
+      <Reveal delay={260}>
+        <div className="mx-auto mt-14 grid max-w-3xl gap-5 sm:grid-cols-3" data-testid="home-club-tiers-top">
+          {[
+            { name: "ESSENTIAL", tag: "THE WAY IN", color: "#00c867", filled: 1,
+              desc: "From around €130. 5% off fees, +1% APY on staking and 0.1% cashback with the Card." },
+            { name: "BRONZE", tag: "MAKE IT A HABIT", color: "#e8862d", filled: 2,
+              desc: "From around €1,100. 30% off fees, one free card deposit a month and partner brand discounts." },
+            { name: "SILVER", tag: "STAY IN THE KNOW", color: "#9aa3ad", filled: 3,
+              desc: "From around €3,600. Half-price fees, +15% APY on staking and a monthly Market Report." },
+          ].map((c) => (
+            <div key={c.name} className="rounded-3xl bg-[#15181e] p-6 text-center text-white transition-transform duration-500 hover:-translate-y-1.5" data-testid={`club-tier-${c.name.toLowerCase()}`}>
+              <div className="flex justify-center -space-x-2.5">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <span key={i} className="h-7 w-7 rounded-full" style={i < c.filled ? { background: c.color, boxShadow: "0 2px 8px rgba(0,0,0,.4)" } : { border: "1.5px solid #3f4652", background: "transparent" }} />
+                ))}
+              </div>
+              <p className="mt-4 text-[11px] text-slate-400">Club</p>
+              <p className="text-2xl font-extrabold tracking-tight">{c.name}</p>
+              <p className="mt-1 text-[9px] font-bold tracking-wider text-slate-400">{c.tag}</p>
+              <p className="mt-2.5 text-[10px] leading-relaxed text-slate-400">{_t(c.desc)}</p>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+      <Reveal delay={340}>
+        <div className="mx-auto mt-5 grid max-w-xl gap-5 sm:grid-cols-2" data-testid="home-club-tiers-bottom">
+          {[
+            { name: "GOLD", tag: "PAY LESS, DO MORE", color: "#d4af37", filled: 4,
+              desc: "From around €7,200. 75% off fees, two free deposits a month and 1.8% cashback." },
+            { name: "PLATINUM", tag: "EVERYTHING, UNLOCKED", color: "#2f7fe8", filled: 5,
+              desc: "From around €18,000. 90% off fees, 3.6% cashback, three free deposits and a dedicated Account Manager." },
+          ].map((c) => (
+            <div key={c.name} className="rounded-3xl bg-[#15181e] p-6 text-center text-white transition-transform duration-500 hover:-translate-y-1.5" data-testid={`club-tier-${c.name.toLowerCase()}`}>
+              <div className="flex justify-center -space-x-2.5">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <span key={i} className="h-7 w-7 rounded-full" style={i < c.filled ? { background: c.color, boxShadow: "0 2px 8px rgba(0,0,0,.4)" } : { border: "1.5px solid #3f4652", background: "transparent" }} />
+                ))}
+              </div>
+              <p className="mt-4 text-[11px] text-slate-400">Club</p>
+              <p className="text-2xl font-extrabold tracking-tight">{c.name}</p>
+              <p className="mt-1 text-[9px] font-bold tracking-wider text-slate-400">{c.tag}</p>
+              <p className="mt-2.5 text-[10px] leading-relaxed text-slate-400">{_t(c.desc)}</p>
+            </div>
+          ))}
+        </div>
+      </Reveal>
     </section>
 
     {/* 02 — PRODUCTS */}

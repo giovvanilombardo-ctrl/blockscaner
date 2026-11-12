@@ -358,3 +358,7 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   multiply your benefits." + white "Discover more about Clubs" pill. Rebranded: Club membership instead
   of YNG token.
 
+- **Home Club tier cards (2026-11-12)**: five tier cards inside the dark Clubs section (Essential/Bronze/
+  Silver top row, Gold/Platinum bottom row), each with a coin stack showing the level fill (1-5 of 5),
+  tagline and benefits. Rebranded from YNG amounts to EUR equivalents.
+
