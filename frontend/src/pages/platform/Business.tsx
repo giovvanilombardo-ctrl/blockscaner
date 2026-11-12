@@ -697,14 +697,14 @@ export default function Business() {
           </Reveal>
           <div className="bz-partners-wrap">
             <div className="bz-partners-row" data-testid="business-partners-row">
-              {["United Ventures", "Arkes", "Azimut", "Chainalysis", "checkout.com", "United Ventures", "Arkes", "Azimut", "Chainalysis", "checkout.com"].map((name, i) => (
+              {Array(4).fill(["United Ventures", "Arkes", "Azimut", "Chainalysis", "checkout.com"]).flat().map((name, i) => (
                 <span key={i} className="bz-partner">{name}</span>
               ))}
             </div>
           </div>
           <div className="bz-partners-wrap">
             <div className="bz-partners-row bz-partners-rev">
-              {["Fireblocks", "Ithaca", "Onfido", "Sella", "Digitech", "Fireblocks", "Ithaca", "Onfido", "Sella", "Digitech"].map((name, i) => (
+              {Array(4).fill(["Fireblocks", "Ithaca", "Onfido", "Sella", "Digitech"]).flat().map((name, i) => (
                 <span key={i} className="bz-partner">{name}</span>
               ))}
             </div>

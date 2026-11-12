@@ -583,10 +583,9 @@
 
 /* ---------- Partners marquee (two rows, opposite directions) ---------- */
 .bz-partners{ overflow:hidden; }
-.bz-partners-wrap{ overflow:hidden; margin-top:1.2rem; -webkit-mask:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.bz-partners-row{ display:flex; gap:3.5rem; align-items:center; padding:1rem 0;
-  animation:bz-marquee 30s linear infinite; width:max-content; }
+.bz-partners-wrap{ overflow:hidden; margin-top:1.2rem; }
+.bz-partners-row{ display:flex; gap:3.5rem; align-items:center; padding:1rem 0; width:max-content;
+  animation:bz-marquee 30s linear infinite; }
 .bz-partners-rev{ animation-direction:reverse; }
 .bz-partner{ font-size:1.5rem; font-weight:800; color:#64748b; white-space:nowrap;
   letter-spacing:-.02em; transition:color .25s; }
