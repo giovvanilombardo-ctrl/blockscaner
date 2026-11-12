@@ -4,11 +4,6 @@ import { Helmet } from "react-helmet-async";
 import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck, Plus, RefreshCcw, ArrowDownUp as MoveIcon, MoreHorizontal, Check } from "lucide-react";
 import SiteLayout from "@/components/site/SiteLayout";
 import BloomField from "@/components/site/BloomField";
-import coinBtc from "@/assets/coins/bitcoin.png";
-import coinEth from "@/assets/coins/ethereum.png";
-import coinXrp from "@/assets/coins/ripple.png";
-import coinDot from "@/assets/coins/polkadot.png";
-import coinUsdc from "@/assets/coins/usd-coin.png";
 
 const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
   <SiteLayout onResetCookies={onResetCookies}>
@@ -53,24 +48,39 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
           <Link to="/login?modo=registro" className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-[#00c867] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#00b35b] transition" data-testid="home-crypto-cta">
             {_t("Start now")} <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
-          {/* portfolio mini-card + floating coins */}
-          <div className="relative mt-8 flex-1 min-h-[220px]">
-            <img src={coinUsdc} alt="" className="absolute -left-3 top-2 w-16 h-16 object-contain drop-shadow-lg" loading="lazy" />
-            <img src={coinDot} alt="" className="absolute right-4 top-0 w-14 h-14 object-contain drop-shadow-lg" loading="lazy" />
-            <img src={coinXrp} alt="" className="absolute right-10 top-20 w-16 h-16 object-contain drop-shadow-lg" loading="lazy" />
-            <img src={coinBtc} alt="" className="absolute right-24 bottom-2 w-14 h-14 object-contain drop-shadow-lg" loading="lazy" />
-            <img src={coinEth} alt="" className="absolute right-0 bottom-10 w-12 h-12 object-contain drop-shadow-lg" loading="lazy" />
-            <div className="absolute left-8 top-6 w-52 rounded-2xl bg-white p-4 shadow-xl shadow-slate-900/10 text-left">
-              <p className="text-sm font-bold text-foreground">3.85 ETH</p>
-              <p className="text-[10px] text-muted-foreground mb-3">{_t("Total value")} · €8,174</p>
+          {/* portfolio mini-card + floating flat coins (reference style) */}
+          <div className="relative mt-8 flex-1 min-h-[240px]">
+            {/* flat coins scattered around the card */}
+            <span className="absolute -left-2 top-0 grid h-20 w-20 place-items-center rounded-full bg-white shadow-lg shadow-slate-900/10">
+              <span className="grid h-12 w-12 place-items-center rounded-full bg-[#00c867]"><Check className="h-6 w-6 text-white" strokeWidth={3.5} /></span>
+            </span>
+            <span className="absolute right-6 -top-4 grid h-16 w-16 place-items-center rounded-full bg-[#e6007a] shadow-lg shadow-slate-900/10">
+              <span className="grid grid-cols-2 gap-1">{[0,1,2,3,4,5].map(i => <i key={i} className="h-1.5 w-1.5 rounded-full bg-white/90" />)}</span>
+            </span>
+            <span className="absolute right-24 top-24 grid h-20 w-20 place-items-center rounded-full bg-white shadow-lg shadow-slate-900/10">
+              <svg viewBox="0 0 32 32" className="h-9 w-9"><path d="M9 8 L16 16 L23 8 M9 24 L16 16 L23 24" stroke="#1e293b" strokeWidth="3.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </span>
+            <span className="absolute right-2 top-20 grid h-12 w-12 place-items-center rounded-full bg-[#2775ca] shadow-lg shadow-slate-900/10">
+              <span className="text-white text-sm font-black">$</span>
+            </span>
+            <span className="absolute bottom-0 right-14 grid h-16 w-16 place-items-center rounded-full bg-[#f7931a] shadow-lg shadow-slate-900/10">
+              <span className="text-white text-2xl font-black">₿</span>
+            </span>
+            <span className="absolute bottom-6 right-40 grid h-11 w-11 place-items-center rounded-full bg-[#3453e0] shadow-lg shadow-slate-900/10">
+              <span className="text-white text-lg font-black">Ξ</span>
+            </span>
+            {/* white portfolio card */}
+            <div className="absolute left-10 top-10 w-56 rounded-2xl bg-white p-5 shadow-2xl shadow-slate-900/15 text-left">
+              <p className="text-base font-bold text-foreground">3.85 ETH</p>
+              <p className="text-[10px] text-muted-foreground mb-3">{_t("Total value")} - €8,174</p>
               {[
-                ["Available", "1.77 ETH", "+1.10%", "€3,758"],
+                ["Available", "1.77 ETH", "+1.10% (-€0.11)", "€3,758"],
                 ["Staking", "1.04 ETH", "3.87% APY", "€2,208"],
-                ["Pockets", "1.04 ETH", "+1.10%", "€2,208"],
+                ["Pockets", "1.04 ETH", "+1.10% (-€0.11)", "€2,208"],
               ].map(([label, amt, chip, val]) => (
-                <div key={label} className="flex items-center justify-between border-t border-border/60 py-2 first:border-0">
+                <div key={label} className="flex items-center justify-between border-t border-border/60 py-2.5 first:border-0">
                   <span className="flex items-center gap-1.5 text-[10px] font-semibold text-foreground">
-                    <span className="grid h-3.5 w-3.5 place-items-center rounded-full bg-[#00c867]/15"><Check className="h-2.5 w-2.5 text-[#00c867]" /></span>
+                    <span className="grid h-4 w-4 place-items-center rounded-full bg-[#00c867]/15"><Check className="h-2.5 w-2.5 text-[#00c867]" /></span>
                     {label}
                   </span>
                   <span className="text-right">
@@ -118,16 +128,22 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
       </div>
 
       {/* Precision trading banner */}
-      <div className="mx-auto mt-6 flex max-w-5xl flex-col items-start justify-between gap-5 rounded-3xl bg-[#15181e] p-8 text-white sm:flex-row sm:items-center" data-testid="home-pro-banner">
-        <div className="max-w-md">
-          <h3 className="text-xl font-bold">{_t("Precision trading with")} <span className="text-[#00c867]">Blockscaner Pro</span></h3>
-          <p className="mt-2 text-xs leading-relaxed text-slate-400">
-            {_t("Rock-bottom fees, advanced charts and tools designed for those who live and breathe the markets.")}
-          </p>
+      <div className="mx-auto mt-6 flex max-w-5xl items-center gap-4" data-testid="home-pro-banner">
+        <div className="relative flex flex-1 flex-col items-start justify-between gap-5 rounded-3xl bg-[#15181e] p-8 text-white sm:flex-row sm:items-center">
+          <div className="max-w-md">
+            <h3 className="text-xl font-bold">{_t("Precision trading with")} <span className="text-[#00c867]">Blockscaner Pro</span></h3>
+            <p className="mt-2 text-xs leading-relaxed text-slate-400">
+              {_t("Rock-bottom fees, advanced charts and tools designed for those who live and breathe the markets.")}
+            </p>
+          </div>
+          <Link to="/markets" className="inline-flex items-center gap-1.5 rounded-full bg-[#00c867] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#00b35b] transition" data-testid="home-pro-cta">
+            {_t("Discover more")} <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+          <span className="absolute -right-2 top-1/2 hidden h-5 w-5 -translate-y-1/2 rotate-45 bg-[#15181e] sm:block" />
         </div>
-        <Link to="/markets" className="inline-flex items-center gap-1.5 rounded-full bg-[#00c867] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#00b35b] transition" data-testid="home-pro-cta">
-          {_t("Discover more")} <ArrowUpRight className="h-3.5 w-3.5" />
-        </Link>
+        <span className="hidden h-14 w-14 shrink-0 place-items-center rounded-full bg-black sm:grid">
+          <Check className="h-7 w-7 text-white" strokeWidth={3.5} />
+        </span>
       </div>
     </section>
 
