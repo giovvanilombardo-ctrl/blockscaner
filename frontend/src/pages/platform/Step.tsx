@@ -381,6 +381,7 @@ export default function StepPage() {
       <StepAcademy />
       <StepPractice />
       <StepCommunity />
+      <StepCTA />
     </SiteLayout>
   );
 }
@@ -441,4 +442,26 @@ export function StepCommunity() {
   );
 }
 
+
+/* Start your adventure — final CTA (reference design) */
+export function StepCTA() {
+  return (
+    <section className="st-cta-wrap" data-testid="step-cta">
+      <div className="st-cta">
+        <img src={stepMaze} alt="" className="st-cta-bg" aria-hidden="true" />
+        <div className="st-cta-copy">
+          <h3>{_t("Start your adventure on")} <span>Step!</span></h3>
+          <div className="st-cta-actions">
+            <span className="st-store" title="App Store">
+              <svg viewBox="0 0 24 24" style={{ width: 16, height: 16 }}><path d="M17.05 20.28c-.98.95-2.05.86-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8.98-.2 1.92-.86 3.24-.77 1.58.13 2.77.75 3.55 1.92-3.26 1.95-2.47 6.27.46 7.47-.6 1.57-1.37 3.13-2.33 3.55M12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25" fill="#0f172a" /></svg>
+            </span>
+            <span className="st-store" title="Google Play">
+              <svg viewBox="0 0 24 24" style={{ width: 14, height: 14 }}><path d="M5 3.5v17l14-8.5z" fill="#0f172a" /></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
