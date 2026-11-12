@@ -367,3 +367,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   started pill + white App Store/Google Play round buttons). Zoom 1.2. The footer's 4-column link area
   in the photo maps to the existing SiteFooter (already present on all pages).
 
+- **Home cleanup (2026-11-12)**: user removed the original template sections from the Home page:
+  "02 — Products" grid, "03 — Markets" teaser (with MarketTicker), "04 — CTA banner" and "05 — Business"
+  strip. Home page now: hero -> everyday -> card -> planning -> bloom -> clubs (+tiers) -> final CTA ->
+  footer.
+

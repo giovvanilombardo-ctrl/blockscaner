@@ -2,7 +2,7 @@ import { t as _t, lang } from "@/i18n";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck, Plus, RefreshCcw, ArrowDownUp as MoveIcon, MoreHorizontal, Check, Info } from "lucide-react";
+import { ArrowUpRight, Plus, RefreshCcw, ArrowDownUp as MoveIcon, MoreHorizontal, Check, Info } from "lucide-react";
 import SiteLayout from "@/components/site/SiteLayout";
 import BloomField from "@/components/site/BloomField";
 import defiFlower from "@/assets/defi-flower.png";
@@ -578,67 +578,6 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
       </Reveal>
     </section>
 
-    {/* 02 — PRODUCTS */}
-    <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-border">
-      <p className="eyebrow mb-5">{_t("02 — Products")}</p>
-      <h2 className="font-display text-4xl lg:text-5xl leading-tight max-w-2xl">{_t("One platform for everything crypto.")}</h2>
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
-        {[
-          { I: ArrowLeftRight, t: "Trade", d: "Buy, sell and swap crypto instantly at live market rates." },
-          { I: Wallet, t: "Wallet", d: "Hold Bitcoin, Ethereum, stablecoins and more — securely in one place." },
-          { I: TrendingUp, t: "Invest", d: "Build long-term wealth with recurring buys and yield on your holdings." },
-          { I: ShieldCheck, t: "Security", d: "Institutional-grade custody and account protection by default." },
-        ].map(({ I, t, d }) => (
-          <Link key={t} to="/products" className="group bg-background p-8 hover:bg-card transition-colors">
-            <I className="h-6 w-6 text-primary" />
-            <h3 className="mt-5 font-display text-xl">{_t(t)}</h3>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{_t(d)}</p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-primary">{_t("Learn more")} <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></span>
-          </Link>
-        ))}
-      </div>
-    </section>
-
-    {/* 03 — MARKETS teaser */}
-    <section className="relative overflow-hidden border-b border-border">
-      <div className="grid lg:grid-cols-2 min-h-[480px]">
-        <div className="px-6 lg:px-10 py-20 lg:py-28 flex flex-col justify-center">
-          <p className="eyebrow mb-5">{_t("03 — Markets")}</p>
-          <h2 className="font-display text-4xl lg:text-5xl leading-tight max-w-lg">{_t("Live prices. Real opportunity.")}</h2>
-          <p className="mt-6 text-muted-foreground max-w-lg leading-relaxed">{_t("Follow the markets in real time and act when it matters — with transparent pricing and no hidden fees.")}</p>
-          <Link to="/markets" className="mt-10 inline-flex w-fit items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-sm font-medium">{_t("View live markets")} <ArrowUpRight className="h-4 w-4" /></Link>
-        </div>
-        <div className="relative min-h-[320px] border-t lg:border-t-0 lg:border-l border-border bg-card flex items-center justify-center p-10">
-          <MarketTicker />
-        </div>
-      </div>
-    </section>
-
-    {/* 04 — CTA banner */}
-    <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-border">
-      <div className="cta-navy relative overflow-hidden rounded-[2rem] max-w-6xl mx-auto px-6 py-24 lg:py-28 text-center">
-        <div className="relative max-w-3xl mx-auto">
-          <h2 className="font-display text-3xl md:text-5xl leading-tight cta-navy-title">{_t("Start building your crypto future today")}</h2>
-          <p className="mt-6 cta-navy-text">{_t("Open your free account in minutes and buy your first crypto with the payment method you already use.")}</p>
-          <Link to="/login?modo=registro" className="mt-10 inline-block rounded-full bg-primary text-primary-foreground px-16 py-4 text-sm font-medium hover:bg-primary/90 transition">{_t("Create your account")}</Link>
-        </div>
-      </div>
-    </section>
-
-    {/* 05 — Business */}
-    <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-border">
-      <div className="grid lg:grid-cols-12 gap-10 items-center">
-        <div className="lg:col-span-6">
-          <p className="eyebrow mb-5">{_t("04 — Business")}</p>
-          <h2 className="font-display text-4xl lg:text-5xl leading-tight">{_t("Crypto for forward-thinking businesses.")}</h2>
-        </div>
-        <div className="lg:col-span-6">
-          <p className="text-muted-foreground leading-relaxed">{_t("Treasury, international payments and institutional-grade custody — digital-asset services built for companies that move first.")}</p>
-          <Link to="/business" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">{_t("Discover Blockscaner for Business")} <ArrowUpRight className="h-4 w-4" /></Link>
-        </div>
-      </div>
-    </section>
-
     {/* 07 — FINAL CTA ("Build your own way to manage money." reference) */}
     <section className="px-6 lg:px-10 py-24 lg:py-32 text-center" style={{ zoom: 1.2, background: "radial-gradient(120% 160% at 50% 0%, #0d3b4f 0%, #0a2a3d 45%, #081e2e 100%)" }} data-testid="home-final-cta">
       <Reveal className="mx-auto max-w-3xl">
@@ -810,19 +749,6 @@ function AccountPhone(){
           </button>
         ))}
       </div>
-    </div>
-  );
-}
-
-function MarketTicker(){  const items = [["BTC","Bitcoin"],["ETH","Ethereum"],["USDT","Tether"],["SOL","Solana"],["BNB","BNB"]];
-  return (
-    <div className="w-full max-w-md space-y-3">
-      {items.map(([sym, name]) => (
-        <div key={sym} className="flex items-center justify-between rounded-xl border border-border bg-background px-5 py-3.5">
-          <span className="flex items-center gap-3"><span className="font-mono text-xs font-bold text-primary">{sym}</span><span className="text-sm">{name}</span></span>
-          <span className="font-mono text-xs text-muted-foreground">{_t("Live on Markets →")}</span>
-        </div>
-      ))}
     </div>
   );
 }
