@@ -334,3 +334,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   banner (green Discover more + green check circle). All wrapped in scroll Reveal animations; flower
   rotates (flower-spin), tooltip/card float (coin-bob).
 
+- **Home "From your account to crypto and back" section (2026-11-12)**: under the business banner,
+  added the reference section: dark "Move funds from Account to Crypto at record speed" card with two
+  floating white mock account cards (Crypto Account / Payment Account), animated dashed green loop
+  arrows, floating BTC/EUR coins; and the photo card "THE CARD YOU'LL LOVE TO SWIPE. 3.6% CASHBACK"
+  (AI-generated lifestyle photo src/assets/card-swipe.png, hover zoom). Rebranded: Blockscaner Card,
+  no YNG token mention. Section zoomed 1.15 like the one above.
+

@@ -6,6 +6,9 @@ import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck, Plus, Re
 import SiteLayout from "@/components/site/SiteLayout";
 import BloomField from "@/components/site/BloomField";
 import defiFlower from "@/assets/defi-flower.png";
+import cardSwipe from "@/assets/card-swipe.png";
+import coinBtc from "@/assets/coins/bitcoin.png";
+import coinEur from "@/assets/coins/euro.png";
 
 /* Scroll-into-view reveal wrapper (fade + slide up) */
 function Reveal({ children, className = "", delay = 0, ...rest }: any) {
@@ -248,6 +251,95 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
           </span>
         </div>
       </Reveal>
+    </section>
+
+    {/* FROM YOUR ACCOUNT TO CRYPTO AND BACK (reference) */}
+    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" style={{ zoom: 1.15 }} data-testid="home-card-section">
+      <Reveal className="mx-auto max-w-4xl text-center">
+        <h2 className="font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-foreground">
+          {_t("From your account to crypto")}<br />{_t("and back.")}
+        </h2>
+        <p className="mt-5 text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed">
+          {_t("Manage your money with total flexibility and get more from everyday spending: with the Blockscaner Card, pay anywhere and earn cashback with every purchase.")}
+        </p>
+      </Reveal>
+
+      <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
+        {/* Move funds card (dark) */}
+        <Reveal className="h-full" delay={0}>
+          <div className="relative h-full min-h-[440px] overflow-hidden rounded-3xl bg-[#0a1a2f] p-8 text-white" data-testid="home-move-funds-card">
+            <h3 className="max-w-[240px] text-xl font-bold leading-snug">
+              {_t("Move funds from")} <span className="text-[#00c867]">{_t("Account")}</span> {_t("to")} <span className="text-[#00c867]">Crypto</span> {_t("at record speed.")}
+            </h3>
+
+            {/* mock accounts + dashed flow arrows */}
+            <div className="relative mt-10 h-[280px]">
+              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 280" fill="none" aria-hidden="true">
+                <path d="M320 90 C 360 130 360 170 300 190" stroke="#00c867" strokeWidth="1.8" strokeDasharray="6 6" className="dash-flow" />
+                <path d="M300 190 l 8 -1 m -8 1 l 3 -8" stroke="#00c867" strokeWidth="1.8" strokeLinecap="round" />
+                <path d="M110 210 C 60 180 60 140 130 118" stroke="#00c867" strokeWidth="1.8" strokeDasharray="6 6" className="dash-flow dash-flow-rev" />
+                <path d="M130 118 l -8 2 m 8 -2 l -4 8" stroke="#00c867" strokeWidth="1.8" strokeLinecap="round" />
+              </svg>
+              <img src={coinBtc} alt="" className="coin-bob absolute left-0 top-2 w-16 object-contain drop-shadow-xl" style={{ "--cd": "4.8s" } as any} aria-hidden="true" />
+
+              {/* crypto account mock */}
+              <div className="coin-bob absolute left-16 top-4 w-56 rounded-2xl bg-white p-4 text-foreground shadow-2xl" style={{ "--cd": "5.4s", animationDelay: ".5s" } as any}>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="text-xs font-bold">{_t("Crypto Account")}</p>
+                    <p className="text-[10px] text-muted-foreground">€3,388.84 · <span className="text-[#00a05a]">+13.60%</span></p>
+                  </div>
+                  <span className="flex -space-x-1.5">
+                    <i className="h-4 w-4 rounded-full bg-[#f7931a] ring-2 ring-white" />
+                    <i className="h-4 w-4 rounded-full bg-[#3453e0] ring-2 ring-white" />
+                    <i className="h-4 w-4 rounded-full bg-[#e6007a] ring-2 ring-white" />
+                  </span>
+                </div>
+                <div className="mt-3 flex gap-1.5 text-[9px] font-bold">
+                  <span className="rounded-full bg-[#00c867] px-3 py-1 text-white">{_t("Buy")}</span>
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-600">{_t("Sell")}</span>
+                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-slate-600">···</span>
+                </div>
+              </div>
+
+              {/* payment account mock */}
+              <div className="coin-bob absolute bottom-2 right-2 w-56 rounded-2xl bg-white p-4 text-foreground shadow-2xl" style={{ "--cd": "4.6s", animationDelay: "1.1s" } as any}>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="text-xs font-bold">{_t("Payment Account")}</p>
+                    <p className="text-[10px] text-muted-foreground">{_t("Account no.")} * 8992</p>
+                  </div>
+                  <span className="grid h-5 w-5 place-items-center rounded-full bg-[#2563eb] text-[9px] font-black text-white">€</span>
+                </div>
+                <div className="mt-3 flex gap-1.5 text-[9px] font-bold">
+                  <span className="rounded-full bg-[#00c867] px-3 py-1 text-white">{_t("Payments")}</span>
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-600">{_t("Top up")}</span>
+                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-slate-600">···</span>
+                </div>
+              </div>
+              <img src={coinEur} alt="" className="coin-bob absolute -bottom-4 -right-4 w-14 object-contain drop-shadow-xl" style={{ "--cd": "5.8s", animationDelay: "1.7s" } as any} aria-hidden="true" />
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Card you'll love to swipe (photo) */}
+        <Reveal className="h-full" delay={150}>
+          <div className="relative h-full min-h-[440px] overflow-hidden rounded-3xl text-white" data-testid="home-swipe-card">
+            <img src={cardSwipe} alt={_t("Hand holding the Blockscaner Card")} className="absolute inset-0 h-full w-full object-cover transition-transform duration-[2000ms] hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/70" />
+            <h3 className="absolute left-6 top-6 max-w-[280px] text-2xl font-extrabold uppercase leading-tight tracking-tight">
+              {_t("The")} <span className="text-[#00c867]">{_t("card")}</span> {_t("you'll love to swipe.")}
+            </h3>
+            <div className="absolute inset-x-6 bottom-6">
+              <div className="flex items-center justify-between text-[11px] font-semibold text-white/85">
+                <span>{_t("Up to")}</span>
+                <span>{_t("with Platinum Club")}</span>
+              </div>
+              <p className="mt-1 text-4xl font-extrabold tracking-tight">3.6% CASHBACK</p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
     </section>
 
     {/* 02 — PRODUCTS */}

@@ -205,3 +205,9 @@ html {
 .flower-hero{ animation:flower-live 18s linear infinite; will-change:transform; }
 @media (prefers-reduced-motion: reduce){ .flower-hero{ animation:none; } }
 
+
+/* ---------- dashed flow arrows (home move-funds card) ---------- */
+@keyframes dash-flow{ to{ stroke-dashoffset:-48; } }
+.dash-flow{ animation:dash-flow 2.6s linear infinite; }
+.dash-flow-rev{ animation-direction:reverse; }
+@media (prefers-reduced-motion: reduce){ .dash-flow{ animation:none; } }
