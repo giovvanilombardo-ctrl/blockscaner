@@ -89,11 +89,70 @@ export function StepHero() {
   );
 }
 
+/* Expand your knowledge — guided path section (reference design) */
+export function StepPath() {
+  return (
+    <section className="sp-wrap" data-testid="step-path">
+      <h2 className="sp-title">{_t("Expand your knowledge")}</h2>
+      <p className="sp-lead">{_t("Not just crypto and blockchain: learn the basics of economics and technology to better understand today's world")}</p>
+
+      <div className="sp-card">
+        <div className="sp-copy">
+          <h3>{_t("A guided path from A to Z")}</h3>
+          <p>{_t("With the Step method, you can understand crypto and blockchain even if you're starting from scratch. You'll always be one step ahead!")}</p>
+        </div>
+
+        {/* phone mockup */}
+        <div className="sp-phone-slot">
+          <div className="sp-phone" data-testid="step-path-phone">
+            {/* status bar */}
+            <div className="sp-status">
+              <span className="sp-chip blue"><i className="sp-dot" />15/100</span>
+              <span className="sp-chip green"><i className="sp-dot" />2,64</span>
+              <span className="sp-chip red"><i className="sp-heart" />5</span>
+              <span className="sp-avatar" />
+            </div>
+            {/* crypto master card */}
+            <div className="sp-master">
+              <div>
+                <p className="sp-master-t">Crypto Master</p>
+                <p className="sp-master-s"><i className="sp-dot white" />1 / 10 {_t("CHAPTERS")}</p>
+                <div className="sp-bar"><i /></div>
+              </div>
+              <span className="sp-trophy">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 3h12v2h3v3c0 2.2-1.6 4-3.7 4.4A6 6 0 0 1 13 16.9V19h3v2H8v-2h3v-2.1a6 6 0 0 1-4.3-4.5C4.6 12 3 10.2 3 8V5h3V3zm-1 4c0 1 .7 2 1.7 2.3A9 9 0 0 1 6 7V5zm12 0v-.3c.3.7.4 1.5.4 2.3C18.3 9 19 8 19 7h-2z" fill="#fff"/></svg>
+              </span>
+            </div>
+            {/* chapter card */}
+            <div className="sp-chapter">
+              <p className="sp-ch-kicker">{_t("CHAPTER 1")}</p>
+              <p className="sp-ch-title">{_t("Understanding the technology and innovation in finance")}</p>
+            </div>
+            {/* lesson nodes */}
+            <div className="sp-nodes">
+              <div className="sp-node done"><i className="sp-check" /><span>STEP</span><em>10 ⚡</em></div>
+              <div className="sp-link" />
+              <div className="sp-node done purple"><i className="sp-check" /><span>EDUCATION</span><em>1 / 4</em></div>
+              <div className="sp-link" />
+              <div className="sp-node todo"><i className="sp-dot green" /><span>UP &amp; DOWN</span><em>3 / 4</em></div>
+            </div>
+          </div>
+          {/* floating coins */}
+          <span className="sp-coin check"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M5 13l4 4L19 7" stroke="#3ddc84" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+          <span className="sp-coin eth"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2l6 10-6 4-6-4 6-10zm0 20l6-8-6 4-6-4 6 8z" fill="#627eea"/></svg></span>
+          <span className="sp-coin btc"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M14.5 12.5c1.6-.4 2.6-1.6 2.6-3.3 0-2-1.5-3.2-3.6-3.4V3h-2v2.6H9.5V3h-2v2.6H5v2h1.6v10.8H5v2h2.5V23h2v-2.6h2V23h2v-2.5c2.2-.2 3.8-1.5 3.8-3.6 0-1.7-.9-2.9-2.8-3.4zM9.5 7.5h3.2c1.2 0 2 .7 2 1.8s-.8 1.8-2 1.8H9.5V7.5zm0 9.4v-3.8h3.8c1.3 0 2.1.8 2.1 1.9s-.8 1.9-2.1 1.9H9.5z" fill="#f7931a"/></svg></span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function StepPage() {
   return (
     <SiteLayout>
       <Seo title="Blockscaner Step — Learn crypto by playing" description="The free, fun and effective way to learn how to make crypto work for you." />
       <StepHero />
+      <StepPath />
     </SiteLayout>
   );
 }
