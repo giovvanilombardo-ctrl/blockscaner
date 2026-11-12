@@ -579,9 +579,9 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
     </section>
 
     {/* 07 — FINAL CTA ("Build your own way to manage money." reference) */}
-    <section className="px-6 lg:px-10 py-24 lg:py-32 text-center" style={{ zoom: 1.2, background: "radial-gradient(120% 160% at 50% 0%, #0d3b4f 0%, #0a2a3d 45%, #081e2e 100%)" }} data-testid="home-final-cta">
+    <section className="px-6 lg:px-10 py-14 lg:py-20 text-center" style={{ background: "radial-gradient(120% 160% at 50% 0%, #0d3b4f 0%, #0a2a3d 45%, #081e2e 100%)" }} data-testid="home-final-cta">
       <Reveal className="mx-auto max-w-3xl">
-        <h2 className="font-display text-4xl md:text-6xl font-semibold leading-[1.1] tracking-tight text-white hyphens-none [overflow-wrap:normal] [word-break:keep-all]">
+        <h2 className="font-display text-3xl md:text-4xl font-semibold leading-[1.1] tracking-tight text-white hyphens-none [overflow-wrap:normal] [word-break:keep-all]">
           {_t("Build your own way to")} <span className="text-[#00c867]">{_t("manage money.")}</span>
         </h2>
         <p className="mt-5 text-xs text-slate-300">
