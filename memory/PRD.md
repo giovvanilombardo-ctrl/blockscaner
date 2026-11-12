@@ -329,7 +329,7 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 
 - **Home regulatory/DeFi/business blocks (2026-11-12)**: under the Pro banner on the Home page, added
   the three blocks from the user's reference: MiCAR regulation banner (Authorised Europe badge,
-  eur-lex link), DeFi Wallet split card (animated CSS glass-flower, floating "Deposit completed in
+  eur-lex link), DeFi Wallet split card (real AI-generated 3D glass flower image (src/assets/defi-flower.png, Gemini), floating "Deposit completed in
   minutes" tooltip, USDC/Aave yield card, disclaimer), and the "Got a business? Let's help it thrive."
   banner (green Discover more + green check circle). All wrapped in scroll Reveal animations; flower
   rotates (flower-spin), tooltip/card float (coin-bob).

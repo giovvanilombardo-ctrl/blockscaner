@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck, Plus, RefreshCcw, ArrowDownUp as MoveIcon, MoreHorizontal, Check } from "lucide-react";
 import SiteLayout from "@/components/site/SiteLayout";
 import BloomField from "@/components/site/BloomField";
+import defiFlower from "@/assets/defi-flower.png";
 
 /* Scroll-into-view reveal wrapper (fade + slide up) */
 function Reveal({ children, className = "", delay = 0, ...rest }: any) {
@@ -181,14 +182,9 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
       {/* DEFI WALLET split card */}
       <Reveal delay={120}>
         <div className="mx-auto mt-6 grid max-w-5xl overflow-hidden rounded-3xl md:grid-cols-2" data-testid="home-defi-card">
-          {/* left: glass flower art */}
-          <div className="relative min-h-[320px] bg-[#eef1f5]">
-            <div className="glass-flower" aria-hidden="true">
-              {[0, 60, 120, 180, 240, 300].map((deg, i) => (
-                <span key={deg} className="glass-petal" style={{ transform: `rotate(${deg}deg) translateY(-56px)`, animationDelay: `${i * 0.4}s` }} />
-              ))}
-              <span className="glass-core" />
-            </div>
+          {/* left: 3D glass flower art */}
+          <div className="relative min-h-[360px] overflow-hidden bg-[#eef1f5]">
+            <img src={defiFlower} alt="" className="flower-hero absolute left-1/2 top-1/2 w-[320px] max-w-none -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl" aria-hidden="true" />
             {/* floating tooltip */}
             <div className="absolute left-1/2 top-[26%] z-10 -translate-x-1/2">
               <div className="coin-bob rounded-xl bg-[#2563eb]/85 px-4 py-2.5 text-center text-[11px] font-semibold text-white shadow-lg backdrop-blur-md" style={{ "--cd": "4.6s" } as any}>
