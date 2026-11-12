@@ -341,3 +341,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   (AI-generated lifestyle photo src/assets/card-swipe.png, hover zoom). Rebranded: Blockscaner Card,
   no YNG token mention. Section zoomed 1.15 like the one above.
 
+- **Home "Building means planning" section (2026-11-12)**: added under the card section, zoom 1.2.
+  Moneyboxes card (AI-generated interior photo src/assets/moneybox-home.png + "New home" overlay with
+  composition bar) and Staking card (Average APY / Rewards chips, Ethereum card with Add funds, animated
+  green chart line). Buttons blue per user's standing preference.
+

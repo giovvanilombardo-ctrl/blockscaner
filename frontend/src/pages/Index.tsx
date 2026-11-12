@@ -7,6 +7,7 @@ import SiteLayout from "@/components/site/SiteLayout";
 import BloomField from "@/components/site/BloomField";
 import defiFlower from "@/assets/defi-flower.png";
 import cardSwipe from "@/assets/card-swipe.png";
+import moneyboxHome from "@/assets/moneybox-home.png";
 import coinBtc from "@/assets/coins/bitcoin.png";
 import coinEur from "@/assets/coins/euro.png";
 
@@ -336,6 +337,105 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
                 <span>{_t("with Platinum Club")}</span>
               </div>
               <p className="mt-1 text-4xl font-extrabold tracking-tight">3.6% CASHBACK</p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* BUILDING MEANS PLANNING (reference) */}
+    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" style={{ zoom: 1.2 }} data-testid="home-planning-section">
+      <Reveal className="mx-auto max-w-4xl text-center">
+        <h2 className="font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-foreground">
+          {_t("Building means planning.")}
+        </h2>
+        <p className="mt-5 text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed">
+          {_t("Choose, set up, automate. Simple tools to grow your balance over time, without needing to pinpoint the right moment in the market.")}
+        </p>
+      </Reveal>
+
+      <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
+        {/* Moneyboxes card */}
+        <Reveal className="h-full" delay={0}>
+          <div className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-[#f4f6f9] p-8 pb-0" data-testid="home-moneybox-card">
+            <h3 className="max-w-[280px] text-xl font-bold leading-snug text-foreground">
+              <span className="text-[#00c867]">Moneyboxes.</span> {_t("Big goals, small habits.")}
+            </h3>
+            <p className="mt-3 max-w-[300px] text-xs leading-relaxed text-muted-foreground">
+              {_t("Discipline beats timing. Make time your best ally with recurring purchases.")}
+            </p>
+            <Link to="/products" className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-xs font-bold text-primary-foreground hover:bg-primary/90 transition" data-testid="home-moneybox-cta">
+              {_t("Open a Moneybox")} <ArrowUpRight className="h-3.5 w-3.5" />
+            </Link>
+            {/* interior photo + overlay card */}
+            <div className="relative mt-8 flex-1 min-h-[260px]">
+              <img src={moneyboxHome} alt={_t("New home interior")} className="absolute inset-0 h-full w-full rounded-t-3xl object-cover" />
+              <div className="coin-bob absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 p-4 shadow-xl backdrop-blur" style={{ "--cd": "5s" } as any}>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="text-sm font-bold text-foreground">{_t("New home")}</p>
+                    <p className="text-[11px] font-semibold text-foreground">€28,640.20</p>
+                    <p className="text-[10px] text-muted-foreground">€50 {_t("per month")}</p>
+                  </div>
+                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[9px] font-bold text-[#00a05a]">+1.82% · +€10.20</span>
+                </div>
+                <div className="mt-3">
+                  <p className="text-[9px] font-semibold uppercase tracking-wide text-muted-foreground">{_t("Composition")}</p>
+                  <div className="mt-1.5 flex h-1.5 w-full overflow-hidden rounded-full">
+                    <span className="h-full w-[62%] bg-[#f7931a]" />
+                    <span className="h-full w-[26%] bg-[#627eea]" />
+                    <span className="h-full w-[12%] bg-[#2775ca]" />
+                  </div>
+                  <div className="mt-1.5 flex gap-3 text-[9px] text-muted-foreground">
+                    <span className="flex items-center gap-1"><i className="h-2 w-2 rounded-full bg-[#f7931a]" />Bitcoin</span>
+                    <span className="flex items-center gap-1"><i className="h-2 w-2 rounded-full bg-[#627eea]" />Ethereum</span>
+                    <span className="flex items-center gap-1"><i className="h-2 w-2 rounded-full bg-[#2775ca]" />USDC</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Staking card */}
+        <Reveal className="h-full" delay={150}>
+          <div className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-[#f4f6f9] p-8 pb-0" data-testid="home-staking-card">
+            <h3 className="max-w-[300px] text-xl font-bold leading-snug text-foreground">
+              <span className="text-[#00c867]">Staking.</span> {_t("Make what you already have work for you.")}
+            </h3>
+            <p className="mt-3 max-w-[300px] text-xs leading-relaxed text-muted-foreground">
+              {_t("Lock your crypto to help networks and earn rewards every day. If you change your mind, you can exit whenever you like.")}
+            </p>
+            <Link to="/products" className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-xs font-bold text-primary-foreground hover:bg-primary/90 transition" data-testid="home-staking-cta">
+              {_t("Start staking")} <ArrowUpRight className="h-3.5 w-3.5" />
+            </Link>
+            {/* staking art */}
+            <div className="relative mt-8 flex-1 min-h-[260px]">
+              <svg className="absolute inset-x-0 bottom-0 h-[70%] w-full" viewBox="0 0 400 180" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 150 C 60 140 90 110 140 118 C 190 126 220 80 270 86 C 320 92 350 40 400 30" fill="none" stroke="#00c867" strokeWidth="2.5" strokeLinecap="round" className="dash-flow" />
+              </svg>
+              <div className="coin-bob absolute left-0 top-0 rounded-xl bg-white px-3.5 py-2.5 shadow-lg" style={{ "--cd": "4.6s", animationDelay: ".4s" } as any}>
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-muted-foreground">{_t("Average APY")}</p>
+                <p className="text-sm font-bold text-foreground">2.21%</p>
+              </div>
+              <div className="coin-bob absolute right-0 top-6 rounded-xl bg-white px-3.5 py-2.5 shadow-lg" style={{ "--cd": "5.3s", animationDelay: "1s" } as any}>
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-muted-foreground">{_t("Rewards")}</p>
+                <p className="text-sm font-bold text-[#00a05a]">+€265.27</p>
+              </div>
+              <div className="coin-bob absolute bottom-2 left-1/2 w-60 -translate-x-1/2 rounded-2xl bg-white p-4 shadow-2xl" style={{ "--cd": "5.8s", animationDelay: "1.6s" } as any}>
+                <div className="flex items-center gap-2.5">
+                  <span className="grid h-8 w-8 place-items-center rounded-full bg-[#627eea] text-sm font-black text-white">Ξ</span>
+                  <div>
+                    <p className="text-xs font-bold text-foreground">Ethereum</p>
+                    <p className="text-[9px] text-muted-foreground">APY 1.34% · <span className="text-[#00a05a]">+€0.01</span></p>
+                  </div>
+                </div>
+                <div className="mt-3 flex items-center justify-between text-[11px]">
+                  <span className="font-bold text-foreground">1 ETH</span>
+                  <span className="text-muted-foreground">€2,207.67</span>
+                </div>
+                <span className="mt-3 block rounded-full bg-primary py-1.5 text-center text-[10px] font-bold text-primary-foreground">{_t("Add funds")}</span>
+              </div>
             </div>
           </div>
         </Reveal>
