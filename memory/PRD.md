@@ -384,3 +384,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   phone mockup rendering the Step Hub app UI (reward pill, mission card, St-Claps badge, BTC/ETH rows,
   menu, bottom nav). Footer "Blockscaner Step" link now points to /products/step.
 
+- **Products page cleanup (2026-11-12)**: user deleted the 6-card products grid from /products; the page
+  now shows heading + Step hero + Get started/Talk to us CTAs. PageShell gained a zoom prop; Products
+  passes zoom=1.2 (Step hero additionally 1.25). Verified by testing agent (iteration_5): grid gone,
+  hero + CTAs render, no overflow at 1366/1920.
+
