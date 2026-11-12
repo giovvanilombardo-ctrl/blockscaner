@@ -277,6 +277,101 @@ export function StepAcademy() {
   );
 }
 
+/* Put what you've learned into practice — two-column section (reference design) */
+export function StepPractice() {
+  return (
+    <section className="spr-wrap" data-testid="step-practice">
+      <h2 className="spr-title">{_t("Put what you've learned")}<br />{_t("into practice")}</h2>
+      <p className="spr-lead">{_t("Step motivates you to build healthy habits like walking, keeping up with the market and learning something new every day")}</p>
+
+      <div className="spr-grid">
+        {/* Left — Level up and earn rewards */}
+        <div className="spr-card spr-card--grey">
+          <h3>{_t("Level up and earn rewards")}</h3>
+          <p>{_t("Take part in missions and challenge the community to test yourself and strengthen your knowledge.")}</p>
+
+          <div className="spr-phones">
+            {/* left mini screen */}
+            <div className="spr-mini left">
+              <p className="spr-mini-t">Step</p>
+              <p className="spr-mini-s">Claim</p>
+              <div className="spr-lines"><i style={{width:"70%"}}/><i style={{width:"45%"}}/><i style={{width:"55%"}}/></div>
+              <p className="spr-mini-s2">In progress</p>
+              <div className="spr-lines"><i style={{width:"60%"}}/></div>
+            </div>
+
+            {/* centre phone */}
+            <div className="spr-phone">
+              <div className="spr-status"><span>9:41</span><span className="spr-x">×</span></div>
+              <div className="spr-confetti">
+                <svg viewBox="0 0 120 90" width="100%" height="90">
+                  <circle cx="20" cy="18" r="3" fill="#ff2e88"/><circle cx="44" cy="10" r="2.4" fill="#7c5cff"/><circle cx="70" cy="16" r="3" fill="#00c867"/>
+                  <circle cx="96" cy="24" r="2.4" fill="#ffb020"/><circle cx="30" cy="40" r="2" fill="#2f7fe8"/><circle cx="88" cy="46" r="2" fill="#ff2e88"/>
+                  <path d="M14 62 q6 -8 12 0" stroke="#ff2e88" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+                  <path d="M92 60 q6 -8 12 0" stroke="#7c5cff" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+                </svg>
+                <span className="spr-gift">
+                  <svg viewBox="0 0 48 48" width="44" height="44"><rect x="8" y="16" width="32" height="26" rx="4" fill="#ff2e88"/><rect x="22" y="16" width="4" height="26" fill="#ff7ab8"/><path d="M24 16c-4-8-14-4-10 2h10zm0 0c4-8 14-4 10 2H24z" fill="#ff5fa2"/><rect x="6" y="12" width="36" height="6" rx="2" fill="#e51d77"/></svg>
+                </span>
+              </div>
+              <p className="spr-done">{_t("Mission completed!")}</p>
+              <p className="spr-sub">{_t("You did great! Tap Continue to redeem your reward.")}</p>
+              <div className="spr-rank">
+                <span className="spr-rank-chip gold"><i/>{_t("Rank")} #12</span>
+                <span className="spr-rank-chip blue"><i/>{_t("Completed in")} 12d 2h 3m 4s</span>
+              </div>
+            </div>
+
+            {/* right mini screen */}
+            <div className="spr-mini right">
+              <div className="spr-row"><span className="spr-coin-s" /> <div><b>ETH</b><em>3,298.23 €</em></div><span className="spr-chip">+2.0%</span></div>
+              <div className="spr-lines"><i style={{width:"55%"}}/></div>
+              <div className="spr-row"><span className="spr-coin-s" /> <div><b>Ethereum</b><em>1,120.50 €</em></div><span className="spr-chip">+0.3%</span></div>
+            </div>
+
+            {/* star */}
+            <span className="spr-star" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="38" height="38"><path d="M20 4l4.5 9.5 10 1.2-7.4 6.9 2 10L20 26.3l-9.1 5.3 2-10L5.5 14.7l10-1.2L20 4z" fill="#ff2e88"/></svg>
+              <svg viewBox="0 0 40 40" width="38" height="38" style={{position:"absolute",inset:0,margin:"auto",opacity:".5",transform:"scale(1.5)"}}><path d="M20 4l4.5 9.5 10 1.2-7.4 6.9 2 10L20 26.3l-9.1 5.3 2-10L5.5 14.7l10-1.2L20 4z" fill="none" stroke="#ff9ec7" strokeWidth="2"/></svg>
+            </span>
+          </div>
+        </div>
+
+        {/* Right — Price predictions */}
+        <div className="spr-card spr-card--pink">
+          <h3>{_t("Put yourself to the")}<br />{_t("test with price")}<br />{_t("predictions!")}</h3>
+
+          <div className="spr-pred">
+            <div className="spr-pred-card">
+              <div className="spr-pred-top">
+                <span className="spr-eth"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2l6 10-6 4-6-4 6-10zm0 20l6-8-6 4-6-4 6 8z" fill="#627eea"/></svg></span>
+                <div>
+                  <b>Ethereum</b>
+                  <em className="spr-green">{_t("You're winning")}</em>
+                </div>
+                <div className="spr-pred-vals">
+                  <b>1,234.56€</b>
+                  <span>+EUR 1,324.19€</span>
+                </div>
+              </div>
+              <div className="spr-pred-foot">
+                <span>▲ {_t("BOOST ACTIVE")}</span>
+                <span>×1.25</span>
+              </div>
+            </div>
+            <span className="spr-pred-coin">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M14.5 12.5c1.6-.4 2.6-1.6 2.6-3.3 0-2-1.5-3.2-3.6-3.4V3h-2v2.6H9.5V3h-2v2.6H5v2h1.6v10.8H5v2h2.5V23h2v-2.6h2V23h2v-2.5c2.2-.2 3.8-1.5 3.8-3.6 0-1.7-.9-2.9-2.8-3.4zM9.5 7.5h3.2c1.2 0 2 .7 2 1.8s-.8 1.8-2 1.8H9.5V7.5zm0 9.4v-3.8h3.8c1.3 0 2.1.8 2.1 1.9s-.8 1.9-2.1 1.9H9.5z" fill="#f7931a"/></svg>
+            </span>
+            <span className="spr-pred-coin small">
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l6 10-6 4-6-4 6-10zm0 20l6-8-6 4-6-4 6 8z" fill="#7c5cff"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function StepPage() {
   return (
     <SiteLayout>
@@ -284,6 +379,7 @@ export default function StepPage() {
       <StepHero />
       <StepPath />
       <StepAcademy />
+      <StepPractice />
     </SiteLayout>
   );
 }

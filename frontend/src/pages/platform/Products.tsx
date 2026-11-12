@@ -1,5 +1,5 @@
 import { PageShell, CTAButtons } from "./_shell";
-import { StepHero, StepPath, StepAcademy } from "./Step";
+import { StepHero, StepPath, StepAcademy, StepPractice } from "./Step";
 
 export default function Products(){
   return (
@@ -7,6 +7,7 @@ export default function Products(){
       <StepHero />
       <StepPath />
       <StepAcademy />
+      <StepPractice />
       <CTAButtons/>
     </PageShell>
   );

@@ -366,3 +366,67 @@ html {
   .sa-card{ min-height:auto; }
   .sa-market{ grid-template-columns:1fr 1.3fr 1fr; }
 }
+
+/* ---------- Step "Put what you've learned into practice" section ---------- */
+.spr-wrap{ padding:1rem 1.5rem 4.5rem; background:#fff; text-align:center; }
+.spr-title{ font-size:clamp(2rem,4vw,3rem); font-weight:800; letter-spacing:-.03em; color:#0f0f12; margin:0; line-height:1.08; }
+.spr-lead{ margin:1rem auto 0; max-width:480px; color:#57575c; font-size:.88rem; line-height:1.55; }
+.spr-grid{ max-width:1100px; margin:2.5rem auto 0; display:grid; grid-template-columns:1.15fr .85fr; gap:1.5rem; }
+.spr-card{ position:relative; border-radius:32px; padding:2.6rem 2.4rem 3rem; overflow:hidden; min-height:480px; text-align:left; }
+.spr-card h3{ font-size:clamp(1.4rem,2.2vw,1.9rem); font-weight:800; letter-spacing:-.02em; color:#0f0f12; margin:0; line-height:1.15; }
+.spr-card p{ margin-top:.9rem; max-width:340px; color:#57575c; font-size:.88rem; line-height:1.6; }
+.spr-card--grey{ background:#f7f7f8; }
+.spr-card--pink{ background:#ff2e88; color:#fff; }
+.spr-card--pink h3{ color:#fff; }
+
+/* left phones */
+.spr-phones{ position:relative; margin-top:2.2rem; display:flex; align-items:center; gap:.8rem; }
+.spr-mini{ width:120px; background:#fff; border-radius:18px; padding:.9rem .9rem 1rem; box-shadow:0 14px 30px rgba(15,15,18,.10);
+  display:flex; flex-direction:column; gap:.5rem; flex:none; }
+.spr-mini-t{ font-size:.8rem; font-weight:800; color:#0f0f12; margin:0; }
+.spr-mini-s{ font-size:.6rem; font-weight:800; color:#ff2e88; margin:0; }
+.spr-mini-s2{ font-size:.6rem; font-weight:800; color:#9a9aa0; margin:0; }
+.spr-lines{ display:flex; flex-direction:column; gap:.35rem; }
+.spr-lines i{ display:block; height:6px; border-radius:99px; background:#f1f1f4; }
+.spr-phone{ width:200px; background:#fff; border-radius:22px; padding:.9rem .9rem 1rem; box-shadow:0 18px 40px rgba(15,15,18,.14);
+  border:1px solid #efeff1; flex:none; }
+.spr-status{ display:flex; justify-content:space-between; align-items:center; font-size:.65rem; font-weight:800; color:#0f0f12; }
+.spr-x{ font-size:.9rem; font-weight:400; color:#0f0f12; }
+.spr-confetti{ position:relative; margin-top:.6rem; }
+.spr-confetti svg{ display:block; width:100%; height:90px; }
+.spr-gift{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:44px; height:44px; }
+.spr-done{ margin:.6rem 0 0; font-size:.85rem; font-weight:800; color:#0f0f12; text-align:center; }
+.spr-sub{ margin:.3rem 0 0; font-size:.6rem; color:#9a9aa0; text-align:center; line-height:1.45; }
+.spr-rank{ margin-top:.7rem; display:flex; justify-content:center; gap:.5rem; flex-wrap:wrap; }
+.spr-rank-chip{ display:inline-flex; align-items:center; gap:.3rem; background:#f7f7f8; border-radius:99px; padding:.25rem .55rem; font-size:.55rem; font-weight:800; color:#0f0f12; }
+.spr-rank-chip i{ width:8px; height:8px; border-radius:50%; display:inline-block; }
+.spr-rank-chip.gold i{ background:#ffb020; } .spr-rank-chip.blue i{ background:#2f7fe8; }
+.spr-row{ display:flex; align-items:center; gap:.5rem; }
+.spr-coin-s{ width:14px; height:14px; border-radius:50%; background:#e3efff; flex:none; }
+.spr-row b{ display:block; font-size:.6rem; font-weight:800; color:#0f0f12; }
+.spr-row em{ display:block; font-size:.55rem; color:#9a9aa0; font-style:normal; }
+.spr-chip{ margin-left:auto; background:#d9f7e7; color:#00a05a; border-radius:99px; padding:.12rem .4rem; font-size:.5rem; font-weight:800; }
+.spr-star{ position:absolute; right:26px; top:-6px; width:38px; height:38px; }
+
+/* right prediction card */
+.spr-pred{ position:relative; margin-top:2.4rem; display:grid; place-items:center; }
+.spr-pred-card{ width:230px; background:#fff; border-radius:18px; padding:1rem 1rem .9rem; box-shadow:0 18px 40px rgba(0,0,0,.18); }
+.spr-pred-top{ display:flex; align-items:center; gap:.6rem; }
+.spr-eth{ width:30px; height:30px; border-radius:50%; background:#e3efff; display:grid; place-items:center; flex:none; }
+.spr-pred-top b{ display:block; font-size:.7rem; font-weight:800; color:#0f0f12; }
+.spr-pred-top em{ display:block; font-size:.6rem; font-style:normal; font-weight:700; }
+.spr-green{ color:#00a05a; }
+.spr-pred-vals{ margin-left:auto; text-align:right; }
+.spr-pred-vals b{ display:block; font-size:.7rem; font-weight:800; color:#0f0f12; }
+.spr-pred-vals span{ font-size:.55rem; font-weight:800; color:#00a05a; }
+.spr-pred-foot{ margin-top:.7rem; padding-top:.6rem; border-top:1px dashed #f1f1f4; display:flex; justify-content:space-between; font-size:.55rem; font-weight:800; color:#9a9aa0; }
+.spr-pred-coin{ position:absolute; top:-12px; right:16%; width:34px; height:34px; border-radius:50%; background:#fff; display:grid; place-items:center; box-shadow:0 10px 22px rgba(0,0,0,.14); }
+.spr-pred-coin.small{ top:34%; left:12%; width:26px; height:26px; }
+
+@media (max-width:900px){
+  .spr-grid{ grid-template-columns:1fr; }
+  .spr-card{ min-height:auto; }
+  .spr-phones{ justify-content:center; }
+  .spr-mini{ width:96px; } .spr-phone{ width:180px; }
+}
+
