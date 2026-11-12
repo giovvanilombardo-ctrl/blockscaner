@@ -313,10 +313,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Valute Virtuali, Prestataire de Services sur Actifs Numériques, MiCA) and "Meet our partners" (two
   auto-scrolling marquee rows moving in opposite directions, spanning full width, on a white band).
 
-- **Home stats strip (2026-11-03)**: dark rounded stats bar added directly under the Home page hero (NOT
-  Business, per user correction): "+2 million people have chosen us", "+300 businesses and professionals",
-  "Average rating Excellent 4.4 out of 5", "Since 2018 in crypto" with icons, matching the user's photo.
-
+- **Home stats strip (2026-11-12)**: user rejected the stats bar under the Home hero; removed entirely
+  from Index.tsx along with its glass CSS. Home hero is back to its original clean state.
 - **Coin page TOC + hero cleanup (2026-11-02)**: sticky sidebar TOC deleted then re-inserted per user request
   (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the
   Bitcoin page because it was a full screenshot of youngplatform.com that visually duplicated the page
