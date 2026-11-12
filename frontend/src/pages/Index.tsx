@@ -25,28 +25,28 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
       </div>
     </section>
 
-    {/* STATS STRIP (reference: dark bar below hero) */}
-    <section className="px-6 lg:px-10 pb-14 -mt-14 relative z-10" data-testid="home-stats-strip">
-      <div className="mx-auto max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-6 rounded-2xl bg-[#0d1117] border border-[#1c2230] px-8 py-7 text-center shadow-xl">
+    {/* STATS STRIP (reference: translucent full-width bar bridging hero and next section) */}
+    <section className="relative z-10 -mt-24" data-testid="home-stats-strip">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 px-10 py-9 text-center bg-[#0a0f2e]/55 backdrop-blur-md border-y border-white/15">
         <div>
-          <Users className="mx-auto mb-2 h-5 w-5 text-slate-400" />
-          <p className="text-sm font-bold text-slate-100">+2 {_t("million people")}</p>
-          <p className="text-xs text-slate-400">{_t("have chosen us")}</p>
+          <Users className="mx-auto mb-2 h-5 w-5 text-slate-300" />
+          <p className="text-sm font-bold text-white">+2 {_t("million people")}</p>
+          <p className="text-xs text-slate-300">{_t("have chosen us")}</p>
         </div>
         <div>
-          <Briefcase className="mx-auto mb-2 h-5 w-5 text-slate-400" />
-          <p className="text-sm font-bold text-slate-100">+300 {_t("businesses")}</p>
-          <p className="text-xs text-slate-400">{_t("and professionals")}</p>
+          <Briefcase className="mx-auto mb-2 h-5 w-5 text-slate-300" />
+          <p className="text-sm font-bold text-white">+300 {_t("businesses")}</p>
+          <p className="text-xs text-slate-300">{_t("and professionals")}</p>
         </div>
         <div>
-          <Star className="mx-auto mb-2 h-5 w-5 text-slate-400" />
-          <p className="text-sm font-bold text-slate-100">{_t("Average rating")}</p>
-          <p className="text-xs text-slate-400">Excellent 4.4 {_t("out of")} 5</p>
+          <Star className="mx-auto mb-2 h-5 w-5 text-slate-300" />
+          <p className="text-sm font-bold text-white">{_t("Average rating")}</p>
+          <p className="text-xs text-slate-300">Excellent 4.4 {_t("out of")} 5</p>
         </div>
         <div>
-          <Award className="mx-auto mb-2 h-5 w-5 text-slate-400" />
-          <p className="text-sm font-bold text-slate-100">Since 2018</p>
-          <p className="text-xs text-slate-400">{_t("in crypto")}</p>
+          <Award className="mx-auto mb-2 h-5 w-5 text-slate-300" />
+          <p className="text-sm font-bold text-white">Since 2018</p>
+          <p className="text-xs text-slate-300">{_t("in crypto")}</p>
         </div>
       </div>
     </section>
