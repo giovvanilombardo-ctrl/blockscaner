@@ -176,3 +176,34 @@ html {
 .fill-vk-pink { fill: hsl(var(--vk-pink)); }
 :root { --vk-amber: 38 92% 90%; --vk-amber-foreground: 30 80% 30%; }
 .bg-vk-amber { background-color: hsl(var(--vk-amber)); } .text-vk-amber { color: hsl(var(--vk-amber-foreground)); }
+
+/* ---------- Liquid-glass stats strip (home hero) ---------- */
+.glass-strip{
+  position:relative;
+  background:linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,.045) 45%, rgba(255,255,255,.02) 100%);
+  -webkit-backdrop-filter:blur(28px) saturate(170%);
+  backdrop-filter:blur(28px) saturate(170%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 -1px 0 rgba(255,255,255,.06),
+    0 24px 70px rgba(6,10,40,.28);
+  overflow:hidden;
+}
+.glass-strip::before{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(120% 220% at 50% -80%, rgba(255,255,255,.16), transparent 55%);
+  pointer-events:none;
+}
+.glass-strip::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(105deg, transparent 30%, rgba(255,255,255,.10) 46%, transparent 62%);
+  transform:translateX(-120%);
+  animation:glass-sheen 7s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes glass-sheen{
+  0%, 55%{ transform:translateX(-120%); }
+  80%, 100%{ transform:translateX(120%); }
+}

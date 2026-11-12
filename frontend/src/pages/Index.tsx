@@ -25,28 +25,28 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
       </div>
     </section>
 
-    {/* STATS STRIP (reference: translucent full-width bar bridging hero and next section) */}
-    <section className="relative z-10 -mt-24" data-testid="home-stats-strip">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 px-10 py-9 text-center bg-[#0a0f2e]/55 backdrop-blur-md border-y border-white/15">
+    {/* STATS STRIP (liquid-glass bar bridging hero and next section) */}
+    <section className="relative z-10 -mt-28" data-testid="home-stats-strip">
+      <div className="glass-strip grid grid-cols-2 md:grid-cols-4 gap-8 px-10 py-10 text-center">
         <div>
-          <Users className="mx-auto mb-2 h-5 w-5 text-slate-300" />
-          <p className="text-sm font-bold text-white">+2 {_t("million people")}</p>
-          <p className="text-xs text-slate-300">{_t("have chosen us")}</p>
+          <Users className="mx-auto mb-2.5 h-5 w-5 text-white/70" />
+          <p className="text-[15px] font-semibold tracking-tight text-white">+2 {_t("million people")}</p>
+          <p className="mt-0.5 text-xs text-white/60">{_t("have chosen us")}</p>
         </div>
         <div>
-          <Briefcase className="mx-auto mb-2 h-5 w-5 text-slate-300" />
-          <p className="text-sm font-bold text-white">+300 {_t("businesses")}</p>
-          <p className="text-xs text-slate-300">{_t("and professionals")}</p>
+          <Briefcase className="mx-auto mb-2.5 h-5 w-5 text-white/70" />
+          <p className="text-[15px] font-semibold tracking-tight text-white">+300 {_t("businesses")}</p>
+          <p className="mt-0.5 text-xs text-white/60">{_t("and professionals")}</p>
         </div>
         <div>
-          <Star className="mx-auto mb-2 h-5 w-5 text-slate-300" />
-          <p className="text-sm font-bold text-white">{_t("Average rating")}</p>
-          <p className="text-xs text-slate-300">Excellent 4.4 {_t("out of")} 5</p>
+          <Star className="mx-auto mb-2.5 h-5 w-5 text-white/70" />
+          <p className="text-[15px] font-semibold tracking-tight text-white">{_t("Average rating")}</p>
+          <p className="mt-0.5 text-xs text-white/60">Excellent 4.4 {_t("out of")} 5</p>
         </div>
         <div>
-          <Award className="mx-auto mb-2 h-5 w-5 text-slate-300" />
-          <p className="text-sm font-bold text-white">Since 2018</p>
-          <p className="text-xs text-slate-300">{_t("in crypto")}</p>
+          <Award className="mx-auto mb-2.5 h-5 w-5 text-white/70" />
+          <p className="text-[15px] font-semibold tracking-tight text-white">Since 2018</p>
+          <p className="mt-0.5 text-xs text-white/60">{_t("in crypto")}</p>
         </div>
       </div>
     </section>
