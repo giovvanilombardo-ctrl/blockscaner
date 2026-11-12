@@ -414,27 +414,28 @@ export function StepCommunity() {
       <h2 className="sc-title sc-title2">{_t("Join a Community of 2M+")}<br />{_t("people")}</h2>
       <p className="sc-lead">{_t("Blockscaner is the largest community in Italy, bringing together thousands of people who believe in the crypto mission, sharing ideas and supporting each other!")}</p>
 
-      <div className="sc-grid">
-        <div className="sc-card" data-testid="community-telegram">
-          <span className="sc-ic tg"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M9.04 15.6l-.38 5.3c.54 0 .78-.23 1.06-.5l2.55-2.44 5.28 3.87c.97.53 1.66.25 1.92-.9L22.9 3.9c.31-1.43-.52-1.99-1.46-1.64L2.4 9.6c-1.4.54-1.38 1.32-.24 1.67l4.9 1.53L18.3 5.4c.53-.35 1.02-.16.62.19l-9.88 9z" fill="#229ED9"/></svg></span>
-          <p>Telegram</p>
-          <span className="sc-arrow"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" stroke="#0f0f12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+      <div className="sc-social" data-testid="step-social">
+        {/* centre chat bubble */}
+        <div className="sc-bubble">
+          <svg viewBox="0 0 64 64" width="44" height="44">
+            <path d="M10 18a10 10 0 0 1 10-10h24a10 10 0 0 1 10 10v14a10 10 0 0 1-10 10H30l-8 8v-8h-2a10 10 0 0 1-10-10V18z" fill="#ff2e88"/>
+            <circle cx="24" cy="25" r="3" fill="#fff"/><circle cx="40" cy="25" r="3" fill="#fff"/>
+            <path d="M26 32c3 2.6 9 2.6 12 0" stroke="#fff" strokeWidth="2.6" fill="none" strokeLinecap="round"/>
+          </svg>
+          <p>2M+ {_t("online now")}</p>
         </div>
-        <div className="sc-card" data-testid="community-discord">
-          <span className="sc-ic dc"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.23.46a13.3 13.3 0 0 1 3.3 1.66 12.9 12.9 0 0 0-11 0A13.3 13.3 0 0 1 10.8 3.4L10.6 3a19.8 19.8 0 0 0-4.9 1.5C2.6 8.7 2 12.9 2.3 17a19.9 19.9 0 0 0 6 3l.5-.7a12.7 12.7 0 0 1-2-.95l.5-.36a14.2 14.2 0 0 0 12.2 0l.5.7a19.9 19.9 0 0 0 6-3c.34-4.73-.58-8.84-3.2-12.6zM8.7 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4-1 2.4-2.2 2.4z" fill="#5865F2"/></svg></span>
-          <p>Discord</p>
-          <span className="sc-arrow"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" stroke="#0f0f12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
-        </div>
-        <div className="sc-card" data-testid="community-instagram">
-          <span className="sc-ic ig"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="#E1306C" strokeWidth="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="#E1306C" strokeWidth="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="#E1306C"/></svg></span>
-          <p>Instagram</p>
-          <span className="sc-arrow"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" stroke="#0f0f12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
-        </div>
-        <div className="sc-card" data-testid="community-youtube">
-          <span className="sc-ic yt"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M23 7.2s-.22-1.6-.9-2.3c-.86-.9-1.82-.9-2.26-.96C16.7 3.7 12 3.7 12 3.7s-4.7 0-7.84.24c-.44.06-1.4.06-2.26.96-.68.7-.9 2.3-.9 2.3S.78 9.1.78 11v1.8c0 1.9.22 3.8.22 3.8s.22-1.6.9 2.3c.86.9 2 .87 2.5.96 1.8.18 7.6.24 7.6.24s4.7 0 7.84-.24c.44-.06 1.4-.06 2.26-.96.68-.7.9-2.3.9-2.3s.22-1.9.22-3.8V11c0-1.9-.22-3.8-.22-3.8zM9.7 15.2V8.4l6.1 3.4-6.1 3.4z" fill="#FF0000"/></svg></span>
-          <p>Youtube</p>
-          <span className="sc-arrow"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" stroke="#0f0f12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
-        </div>
+
+        {/* orbiting avatars */}
+        <span className="sc-orbit o1"><svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="4" fill="#2f7fe8"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" fill="#2f7fe8"/></svg></span>
+        <span className="sc-orbit o2"><svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="4" fill="#ff2e88"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" fill="#ff2e88"/></svg></span>
+        <span className="sc-orbit o3"><svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="4" fill="#00c867"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" fill="#00c867"/></svg></span>
+        <span className="sc-orbit o4"><svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="4" fill="#ffb020"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" fill="#ffb020"/></svg></span>
+        <span className="sc-orbit o5"><svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="4" fill="#7c5cff"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" fill="#7c5cff"/></svg></span>
+
+        {/* mini chat cards */}
+        <div className="sc-chat c1"><i/>{_t("What's your favourite coin?")}</div>
+        <div className="sc-chat c2"><i/>{_t("Just joined!")}</div>
+        <div className="sc-chat c3"><i/>{_t("Anyone up for a mission?")}</div>
       </div>
     </section>
   );
