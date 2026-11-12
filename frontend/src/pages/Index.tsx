@@ -45,7 +45,7 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground max-w-xs">
             {_t("Over 80 assets held in regulated custody. Choose Bitcoin and leading alternatives, with all the protections of MiCAR.")}
           </p>
-          <Link to="/login?modo=registro" className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-[#00c867] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#00b35b] transition" data-testid="home-crypto-cta">
+          <Link to="/login?modo=registro" className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-xs font-bold text-primary-foreground hover:bg-primary/90 transition" data-testid="home-crypto-cta">
             {_t("Start now")} <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
           {/* portfolio mini-card + floating flat coins (reference style) */}
@@ -101,7 +101,7 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
           <p className="mt-3 text-xs leading-relaxed text-slate-300 max-w-xs">
             {_t("Salary payments, bank transfers, spending alerts and the Blockscaner Card for everyday spending.")}
           </p>
-          <Link to="/products" className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-[#00c867] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#00b35b] transition" data-testid="home-account-cta">
+          <Link to="/products" className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-xs font-bold text-primary-foreground hover:bg-primary/90 transition" data-testid="home-account-cta">
             {_t("Find out more")} <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
           {/* phone mockup */}
@@ -136,7 +136,7 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
               {_t("Rock-bottom fees, advanced charts and tools designed for those who live and breathe the markets.")}
             </p>
           </div>
-          <Link to="/markets" className="inline-flex items-center gap-1.5 rounded-full bg-[#00c867] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#00b35b] transition" data-testid="home-pro-cta">
+          <Link to="/markets" className="inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-xs font-bold text-primary-foreground hover:bg-primary/90 transition" data-testid="home-pro-cta">
             {_t("Discover more")} <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
           <span className="absolute -right-2 top-1/2 hidden h-5 w-5 -translate-y-1/2 rotate-45 bg-[#15181e] sm:block" />
