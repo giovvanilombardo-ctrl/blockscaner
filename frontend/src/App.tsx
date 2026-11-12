@@ -20,6 +20,7 @@ import Legal from "./pages/Legal";
 import Sitemap from "./pages/Sitemap";
 import Products from "./pages/platform/Products";
 import StepPage from "./pages/platform/Step";
+import Academy from "./pages/platform/Academy";
 import Markets from "./pages/platform/Markets";
 import Business from "./pages/platform/Business";
 import About from "./pages/platform/About";
@@ -46,6 +47,8 @@ const AppContent = () => {
           <Route path="/" element={<Index onResetCookies={reset} />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/step" element={<StepPage />} />
+          <Route path="/products/academy" element={<Academy />} />
+          <Route path="/academy" element={<Academy />} />
           <Route path="/markets" element={<Markets />} />
           <Route path="/markets/:coinId" element={<CoinDetail />} />
           <Route path="/business" element={<Business />} />
