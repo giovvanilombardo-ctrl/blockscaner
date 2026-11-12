@@ -176,3 +176,23 @@ html {
 .fill-vk-pink { fill: hsl(var(--vk-pink)); }
 :root { --vk-amber: 38 92% 90%; --vk-amber-foreground: 30 80% 30%; }
 .bg-vk-amber { background-color: hsl(var(--vk-amber)); } .text-vk-amber { color: hsl(var(--vk-amber-foreground)); }
+
+/* ---------- Home "everyday" section motion ---------- */
+@keyframes coin-bob{
+  0%, 100%{ transform:translateY(0) rotate(var(--cr, 0deg)); }
+  50%{ transform:translateY(-12px) rotate(var(--cr, 0deg)); }
+}
+.coin-bob{ animation:coin-bob var(--cd, 4.5s) ease-in-out infinite; will-change:transform; }
+@keyframes phone-float{
+  0%, 100%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+}
+.phone-float{ animation:phone-float 5.5s ease-in-out infinite; will-change:transform; }
+@keyframes soft-pulse{
+  0%, 100%{ box-shadow:0 0 0 0 rgba(0,200,103,.35); }
+  50%{ box-shadow:0 0 0 8px rgba(0,200,103,0); }
+}
+.deposit-pulse{ animation:soft-pulse 2.4s ease-out infinite; }
+@media (prefers-reduced-motion: reduce){
+  .coin-bob, .phone-float, .deposit-pulse{ animation:none; }
+}

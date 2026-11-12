@@ -1,10 +1,34 @@
 import { t as _t, lang } from "@/i18n";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck, Plus, RefreshCcw, ArrowDownUp as MoveIcon, MoreHorizontal, Check } from "lucide-react";
 import SiteLayout from "@/components/site/SiteLayout";
 import BloomField from "@/components/site/BloomField";
+
+/* Scroll-into-view reveal wrapper (fade + slide up) */
+function Reveal({ children, className = "", delay = 0, ...rest }: any) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { threshold: 0.15 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className={className} {...rest}
+      style={{ opacity: inView ? 1 : 0, transform: inView ? "none" : "translateY(30px)",
+               transition: "opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)",
+               transitionDelay: `${delay}ms` }}>
+      {children}
+    </div>
+  );
+}
 
 const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
   <SiteLayout onResetCookies={onResetCookies}>
@@ -30,18 +54,19 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
 
     {/* EVERYDAY — "From today's shopping to tomorrow's plans." (reference) */}
     <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" style={{ zoom: 1.1 }} data-testid="home-everyday">
-      <div className="mx-auto max-w-4xl text-center">
+      <Reveal className="mx-auto max-w-4xl text-center">
         <h2 className="font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-foreground">
           {_t("From today's shopping")}<br />{_t("to tomorrow's plans.")}
         </h2>
         <p className="mt-5 text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed">
           {_t("We simplify everyday payments, bills and spending, removing the little hassles so you can focus on your ambitions.")}
         </p>
-      </div>
+      </Reveal>
 
       <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
         {/* CRYPTO card (light) */}
-        <div className="relative overflow-hidden rounded-3xl bg-[#f4f6f9] p-8 pb-0 flex flex-col" data-testid="home-crypto-card">
+        <Reveal className="h-full" delay={0}>
+        <div className="relative h-full overflow-hidden rounded-3xl bg-[#f4f6f9] p-8 pb-0 flex flex-col transition-transform duration-500 hover:-translate-y-1.5" data-testid="home-crypto-card">
           <h3 className="text-xl font-bold leading-snug text-foreground">
             <span className="text-[#00c867]">CRYPTO.</span> {_t("Buy crypto for what you want to build.")}
           </h3>
@@ -54,22 +79,22 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
           {/* portfolio mini-card + floating flat coins (reference style) */}
           <div className="relative mt-8 flex-1 min-h-[240px]">
             {/* flat coins scattered around the card */}
-            <span className="absolute -left-2 top-0 grid h-20 w-20 place-items-center rounded-full bg-white shadow-lg shadow-slate-900/10">
+            <span className="coin-bob absolute -left-2 top-0 grid h-20 w-20 place-items-center rounded-full bg-white shadow-lg shadow-slate-900/10" style={{ "--cd": "4.2s", animationDelay: "0s" } as any}>
               <span className="grid h-12 w-12 place-items-center rounded-full bg-[#00c867]"><Check className="h-6 w-6 text-white" strokeWidth={3.5} /></span>
             </span>
-            <span className="absolute right-6 -top-4 grid h-16 w-16 place-items-center rounded-full bg-[#e6007a] shadow-lg shadow-slate-900/10">
+            <span className="coin-bob absolute right-6 -top-4 grid h-16 w-16 place-items-center rounded-full bg-[#e6007a] shadow-lg shadow-slate-900/10" style={{ "--cd": "5.1s", animationDelay: ".6s" } as any}>
               <span className="grid grid-cols-2 gap-1">{[0,1,2,3,4,5].map(i => <i key={i} className="h-1.5 w-1.5 rounded-full bg-white/90" />)}</span>
             </span>
-            <span className="absolute right-24 top-24 grid h-20 w-20 place-items-center rounded-full bg-white shadow-lg shadow-slate-900/10">
+            <span className="coin-bob absolute right-24 top-24 grid h-20 w-20 place-items-center rounded-full bg-white shadow-lg shadow-slate-900/10" style={{ "--cd": "4.7s", animationDelay: "1.1s" } as any}>
               <svg viewBox="0 0 32 32" className="h-9 w-9"><path d="M9 8 L16 16 L23 8 M9 24 L16 16 L23 24" stroke="#1e293b" strokeWidth="3.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </span>
-            <span className="absolute right-2 top-20 grid h-12 w-12 place-items-center rounded-full bg-[#2775ca] shadow-lg shadow-slate-900/10">
+            <span className="coin-bob absolute right-2 top-20 grid h-12 w-12 place-items-center rounded-full bg-[#2775ca] shadow-lg shadow-slate-900/10" style={{ "--cd": "3.9s", animationDelay: "1.6s" } as any}>
               <span className="text-white text-sm font-black">$</span>
             </span>
-            <span className="absolute bottom-0 right-14 grid h-16 w-16 place-items-center rounded-full bg-[#f7931a] shadow-lg shadow-slate-900/10">
+            <span className="coin-bob absolute bottom-0 right-14 grid h-16 w-16 place-items-center rounded-full bg-[#f7931a] shadow-lg shadow-slate-900/10" style={{ "--cd": "5.4s", animationDelay: ".3s" } as any}>
               <span className="text-white text-2xl font-black">₿</span>
             </span>
-            <span className="absolute bottom-6 right-40 grid h-11 w-11 place-items-center rounded-full bg-[#3453e0] shadow-lg shadow-slate-900/10">
+            <span className="coin-bob absolute bottom-6 right-40 grid h-11 w-11 place-items-center rounded-full bg-[#3453e0] shadow-lg shadow-slate-900/10" style={{ "--cd": "4.4s", animationDelay: "2s" } as any}>
               <span className="text-white text-lg font-black">Ξ</span>
             </span>
             {/* white portfolio card */}
@@ -95,9 +120,11 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
             </div>
           </div>
         </div>
+        </Reveal>
 
         {/* ACCOUNT card (dark) */}
-        <div className="relative overflow-hidden rounded-3xl bg-[#0a1a2f] p-8 pb-0 flex flex-col text-white" data-testid="home-account-card">
+        <Reveal className="h-full" delay={150}>
+        <div className="relative h-full overflow-hidden rounded-3xl bg-[#0a1a2f] p-8 pb-0 flex flex-col text-white transition-transform duration-500 hover:-translate-y-1.5" data-testid="home-account-card">
           <h3 className="text-xl font-bold leading-snug">
             <span className="text-[#00c867]">ACCOUNT.</span> {_t("Save on what you do every day.")}
           </h3>
@@ -110,9 +137,11 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
           {/* phone mockup — bigger, detailed, interactive */}
           <AccountPhone />
         </div>
+        </Reveal>
       </div>
 
       {/* Precision trading banner */}
+      <Reveal delay={250}>
       <div className="mx-auto mt-6 flex max-w-5xl items-center gap-4" data-testid="home-pro-banner">
         <div className="relative flex flex-1 flex-col items-start justify-between gap-5 rounded-3xl bg-[#15181e] p-8 text-white sm:flex-row sm:items-center">
           <div className="max-w-md">
@@ -126,10 +155,11 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
           </Link>
           <span className="absolute -right-2 top-1/2 hidden h-5 w-5 -translate-y-1/2 rotate-45 bg-[#15181e] sm:block" />
         </div>
-        <span className="hidden h-14 w-14 shrink-0 place-items-center rounded-full bg-black sm:grid">
+        <span className="coin-bob hidden h-14 w-14 shrink-0 place-items-center rounded-full bg-black sm:grid" style={{ "--cd": "5s" } as any}>
           <Check className="h-7 w-7 text-white" strokeWidth={3.5} />
         </span>
       </div>
+      </Reveal>
     </section>
 
     {/* 02 — PRODUCTS */}
@@ -229,7 +259,7 @@ function AccountPhone(){
   };
 
   return (
-    <div className="relative mx-auto mt-8 w-72 rounded-t-[2.4rem] border-x-[7px] border-t-[7px] border-black bg-[#060d18] px-5 pt-4 pb-0 shadow-2xl" data-testid="home-account-phone">
+    <div className="phone-float relative mx-auto mt-8 w-72 rounded-t-[2.4rem] border-x-[7px] border-t-[7px] border-black bg-[#060d18] px-5 pt-4 pb-0 shadow-2xl" data-testid="home-account-phone">
       {/* status bar */}
       <div className="flex items-center justify-between text-[9px] text-slate-400">
         <span className="font-semibold">9:41</span>
@@ -282,7 +312,7 @@ function AccountPhone(){
           { I: MoreHorizontal, label: "More", hot: false },
         ].map(({ I, label, hot }) => (
           <button key={label} className="group" data-testid={`phone-action-${label.toLowerCase()}`}>
-            <span className={`mx-auto mb-1 grid h-9 w-9 place-items-center rounded-full transition group-hover:scale-110 ${hot ? "bg-[#00c867] group-hover:bg-[#00b35b]" : "bg-slate-800 group-hover:bg-slate-700"}`}>
+            <span className={`mx-auto mb-1 grid h-9 w-9 place-items-center rounded-full transition group-hover:scale-110 ${hot ? "deposit-pulse bg-[#00c867] group-hover:bg-[#00b35b]" : "bg-slate-800 group-hover:bg-slate-700"}`}>
               <I className="h-4 w-4 text-white" />
             </span>
             {_t(label)}
