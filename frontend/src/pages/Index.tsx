@@ -493,7 +493,7 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
     </section>
 
     {/* CLUBS — "For those who want more" (reference, dark) */}
-    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-[#0a0c10]" style={{ zoom: 1.2 }} data-testid="home-clubs-section">
+    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-[#0a0c10]" style={{ zoom: 1.44 }} data-testid="home-clubs-section">
       <Reveal className="mx-auto max-w-2xl text-center">
         <h2 className="font-display text-4xl md:text-5xl font-light leading-[1.15] tracking-tight text-white">
           {_t("For those who want more from their")} <span className="font-semibold">{_t("financial routine.")}</span>
