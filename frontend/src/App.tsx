@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/AdminLogin";
@@ -32,35 +31,11 @@ import Ermittlungsplattform from "./pages/Ermittlungsplattform";
 import VektorFaehigkeiten from "./pages/VektorFaehigkeiten";
 import HelpTopicPage from "./pages/HelpTopicPage";
 import CookieConsent, { useCookieConsent } from "./components/CookieConsent";
-import EmailCollectionPopup from "./components/EmailCollectionPopup";
 
 const queryClient = new QueryClient();
 
-// Render the visitor email popup only on public-facing routes.
-const EmailPopupGate = ({ showEmailPopup, onClose }: { showEmailPopup: boolean; onClose: () => void }) => {
-  const { pathname } = useLocation();
-  const hidden = ["/admin", "/dashboard", "/konto", "/account", "/login", "/chat", "/reset-password"].some((p) =>
-    pathname.startsWith(p)
-  );
-  if (hidden) return null;
-  return <EmailCollectionPopup open={showEmailPopup} onClose={onClose} />;
-};
-
 const AppContent = () => {
   const { consent, accept, reject, reset } = useCookieConsent();
-  const [showEmailPopup, setShowEmailPopup] = useState(false);
-
-  useEffect(() => {
-    // Show email popup after cookie acceptance, if not already collected
-    if (consent === "accepted") {
-      const alreadyCollected = localStorage.getItem("visitor_email_collected");
-      if (!alreadyCollected) {
-        // Small delay so cookie banner animates out first
-        const timer = setTimeout(() => setShowEmailPopup(true), 800);
-        return () => clearTimeout(timer);
-      }
-    }
-  }, [consent]);
 
   return (
     <>
@@ -107,7 +82,6 @@ const AppContent = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
 
-        <EmailPopupGate showEmailPopup={showEmailPopup} onClose={() => setShowEmailPopup(false)} />
       </BrowserRouter>
 
       <CookieConsent
