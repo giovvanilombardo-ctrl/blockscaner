@@ -100,8 +100,8 @@ export function StepPath() {
           transition:transform .3s ease; }
         .sp-card:hover{ transform:scale(1.015); }
         .sp-phone-slot{ position:relative; display:grid; place-items:center; min-height:380px; }
-        .sp-phone{ width:200px; transform:scale(.92); transition:transform .35s ease; }
-        .sp-card:hover .sp-phone{ transform:scale(1); }
+        .sp-phone{ width:200px; transform:scale(1.196); transition:transform .35s ease; }
+        .sp-card:hover .sp-phone{ transform:scale(1.3); }
       `}</style>
       <section className="sp-wrap" data-testid="step-path">
         <h2 className="sp-title">{_t("Expand your knowledge")}</h2>
