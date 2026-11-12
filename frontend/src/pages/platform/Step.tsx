@@ -380,6 +380,64 @@ export default function StepPage() {
       <StepPath />
       <StepAcademy />
       <StepPractice />
+      <StepCommunity />
     </SiteLayout>
   );
 }
+/* Get your first cryptocurrency + Join a Community — reference design */
+export function StepCommunity() {
+  return (
+    <section className="sc-wrap" data-testid="step-community">
+      <h2 className="sc-title">{_t("Get your first")}<br />{_t("cryptocurrency")}</h2>
+      <p className="sc-lead">{_t("Try a new type of asset and its opportunities, with no fees and no risk")}</p>
+
+      <div className="sc-earn">
+        <div className="sc-earn-card">
+          <h3>{_t("Complete levels to earn Young (YNG)")}</h3>
+          <p>{_t("YNG is the token of the Young Platform ecosystem, the key to joining its community of crypto enthusiasts")}</p>
+        </div>
+        <div className="sc-earn-avatar" aria-hidden="true">
+          <svg viewBox="0 0 72 72" width="56" height="56">
+            <circle cx="36" cy="36" r="34" fill="#0f0f12"/>
+            <path d="M22 40c0-8 6-16 14-16s14 8 14 16c0 4-2 8-5 10v6H27v-6c-3-2-5-6-5-10z" fill="#00d68f"/>
+            <path d="M24 30c2-4 6-7 12-7s10 3 12 7c1 2 1 4 0 6-1-2-3-3-5-3s-4 1-5 3c-1-2-3-3-5-3s-4 1-5 3c-1-2-2-4-4-6z" fill="#0f0f12"/>
+            <path d="M16 34c-2 0-4 2-4 5v4c0 3 2 5 4 5h4v-14h-4zm40 0c2 0 4 2 4 5v4c0 3-2 5-4 5h-4v-14h4z" fill="#2f7fe8"/>
+            <rect x="14" y="30" width="6" height="20" rx="3" fill="#1d5fd0"/>
+            <rect x="52" y="30" width="6" height="20" rx="3" fill="#1d5fd0"/>
+            <path d="M52 30c0-9-7-16-16-16s-16 7-16 16" stroke="#1d5fd0" strokeWidth="4" fill="none" strokeLinecap="round"/>
+            <circle cx="30" cy="40" r="2.4" fill="#0f0f12"/><circle cx="42" cy="40" r="2.4" fill="#0f0f12"/>
+            <path d="M32 48c2 2 6 2 8 0" stroke="#0f0f12" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <h2 className="sc-title sc-title2">{_t("Join a Community of 2M+")}<br />{_t("people")}</h2>
+      <p className="sc-lead">{_t("Young Platform is the largest community in Italy, bringing together thousands of people who believe in the crypto mission, sharing ideas and supporting each other!")}</p>
+
+      <div className="sc-grid">
+        <div className="sc-card" data-testid="community-telegram">
+          <span className="sc-ic tg"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M9.04 15.6l-.38 5.3c.54 0 .78-.23 1.06-.5l2.55-2.44 5.28 3.87c.97.53 1.66.25 1.92-.9L22.9 3.9c.31-1.43-.52-1.99-1.46-1.64L2.4 9.6c-1.4.54-1.38 1.32-.24 1.67l4.9 1.53L18.3 5.4c.53-.35 1.02-.16.62.19l-9.88 9z" fill="#229ED9"/></svg></span>
+          <p>Telegram</p>
+          <span className="sc-arrow"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" stroke="#0f0f12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+        </div>
+        <div className="sc-card" data-testid="community-discord">
+          <span className="sc-ic dc"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.23.46a13.3 13.3 0 0 1 3.3 1.66 12.9 12.9 0 0 0-11 0A13.3 13.3 0 0 1 10.8 3.4L10.6 3a19.8 19.8 0 0 0-4.9 1.5C2.6 8.7 2 12.9 2.3 17a19.9 19.9 0 0 0 6 3l.5-.7a12.7 12.7 0 0 1-2-.95l.5-.36a14.2 14.2 0 0 0 12.2 0l.5.7a19.9 19.9 0 0 0 6-3c.34-4.73-.58-8.84-3.2-12.6zM8.7 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4-1 2.4-2.2 2.4z" fill="#5865F2"/></svg></span>
+          <p>Discord</p>
+          <span className="sc-arrow"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" stroke="#0f0f12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+        </div>
+        <div className="sc-card" data-testid="community-instagram">
+          <span className="sc-ic ig"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="#E1306C" strokeWidth="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="#E1306C" strokeWidth="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="#E1306C"/></svg></span>
+          <p>Instagram</p>
+          <span className="sc-arrow"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" stroke="#0f0f12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+        </div>
+        <div className="sc-card" data-testid="community-youtube">
+          <span className="sc-ic yt"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M23 7.2s-.22-1.6-.9-2.3c-.86-.9-1.82-.9-2.26-.96C16.7 3.7 12 3.7 12 3.7s-4.7 0-7.84.24c-.44.06-1.4.06-2.26.96-.68.7-.9 2.3-.9 2.3S.78 9.1.78 11v1.8c0 1.9.22 3.8.22 3.8s.22-1.6.9 2.3c.86.9 2 .87 2.5.96 1.8.18 7.6.24 7.6.24s4.7 0 7.84-.24c.44-.06 1.4-.06 2.26-.96.68-.7.9-2.3.9-2.3s.22-1.9.22-3.8V11c0-1.9-.22-3.8-.22-3.8zM9.7 15.2V8.4l6.1 3.4-6.1 3.4z" fill="#FF0000"/></svg></span>
+          <p>Youtube</p>
+          <span className="sc-arrow"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" stroke="#0f0f12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+

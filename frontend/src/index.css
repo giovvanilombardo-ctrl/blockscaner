@@ -430,3 +430,34 @@ html {
   .spr-mini{ width:96px; } .spr-phone{ width:180px; }
 }
 
+
+/* ---------- Step "Get your first cryptocurrency + Community" section ---------- */
+.sc-wrap{ padding:1rem 1.5rem 4.5rem; background:#fff; text-align:center; }
+.sc-title{ font-size:clamp(2rem,4vw,3rem); font-weight:800; letter-spacing:-.03em; color:#0f0f12; margin:0; line-height:1.08; }
+.sc-title2{ margin-top:3.5rem; }
+.sc-lead{ margin:1rem auto 0; max-width:460px; color:#57575c; font-size:.88rem; line-height:1.55; }
+
+/* earn strip */
+.sc-earn{ max-width:640px; margin:2rem auto 0; display:flex; gap:1rem; align-items:stretch; }
+.sc-earn-card{ flex:1; background:#e9fbf1; border-radius:24px; padding:1.4rem 1.6rem; text-align:left;
+  border-bottom-right-radius:6px; }
+.sc-earn-card h3{ font-size:1rem; font-weight:800; color:#0f0f12; margin:0; }
+.sc-earn-card p{ margin:.5rem 0 0; font-size:.72rem; color:#57575c; line-height:1.5; }
+.sc-earn-avatar{ width:76px; flex:none; background:#f7f7f8; border-radius:20px; display:grid; place-items:center; }
+
+/* community cards */
+.sc-grid{ max-width:760px; margin:2.2rem auto 0; display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.sc-card{ position:relative; background:#fff; border:1px solid #f1f1f4; border-radius:20px; padding:1.2rem .9rem 1.1rem;
+  box-shadow:0 8px 20px rgba(15,15,18,.05); display:flex; flex-direction:column; align-items:center; gap:.5rem; }
+.sc-ic{ width:44px; height:44px; border-radius:50%; display:grid; place-items:center; }
+.sc-ic.tg{ background:#e7f5fd; } .sc-ic.dc{ background:#eef0fe; } .sc-ic.ig{ background:#fdeef3; } .sc-ic.yt{ background:#ffecec; }
+.sc-card p{ margin:0; font-size:.85rem; font-weight:800; color:#0f0f12; }
+.sc-arrow{ position:absolute; bottom:12px; left:50%; transform:translateX(-50%); width:22px; height:22px; border-radius:50%;
+  background:#f1f1f4; display:grid; place-items:center; }
+
+@media (max-width:700px){
+  .sc-grid{ grid-template-columns:repeat(2,1fr); }
+  .sc-earn{ flex-direction:column; }
+  .sc-earn-avatar{ width:100%; height:84px; }
+}
+
