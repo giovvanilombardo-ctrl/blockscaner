@@ -639,15 +639,27 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
       </div>
     </section>
 
-    {/* 07 — CTA */}
-    <section className="px-6 lg:px-10 py-24 lg:py-32 text-center">
-      <p className="eyebrow mb-6">{_t("Free account · No hidden fees")}</p>
-      <h2 className="font-display text-4xl md:text-6xl leading-tight max-w-4xl mx-auto">{_t("Your money, your crypto, your choice.")}</h2>
-      <p className="mt-6 text-muted-foreground max-w-xl mx-auto">{_t("Join Blockscaner and take control of your financial future — simply and securely.")}</p>
-      <div className="mt-10 flex flex-wrap justify-center gap-3">
-        <Link to="/login?modo=registro" className="bg-primary text-primary-foreground px-7 py-4 text-sm font-medium hover:bg-primary/90 transition">{_t("Get started")}</Link>
-        <Link to="/products" className="border border-border px-7 py-4 text-sm hover:border-primary transition">{_t("Explore products")}</Link>
-      </div>
+    {/* 07 — FINAL CTA ("Build your own way to manage money." reference) */}
+    <section className="px-6 lg:px-10 py-24 lg:py-32 text-center" style={{ zoom: 1.2, background: "radial-gradient(120% 160% at 50% 0%, #0d3b4f 0%, #0a2a3d 45%, #081e2e 100%)" }} data-testid="home-final-cta">
+      <Reveal className="mx-auto max-w-3xl">
+        <h2 className="font-display text-4xl md:text-6xl font-semibold leading-[1.1] tracking-tight text-white hyphens-none [overflow-wrap:normal] [word-break:keep-all]">
+          {_t("Build your own way to")} <span className="text-[#00c867]">{_t("manage money.")}</span>
+        </h2>
+        <p className="mt-5 text-xs text-slate-300">
+          {_t("Crypto, trading, payments and DeFi: choose where to start.")}
+        </p>
+        <div className="mt-7 flex items-center justify-center gap-3">
+          <Link to="/login?modo=registro" className="inline-flex items-center gap-1.5 rounded-full bg-[#00c867] px-6 py-2.5 text-xs font-bold text-white hover:bg-[#00b35b] transition" data-testid="home-final-cta-btn">
+            {_t("Get started")}
+          </Link>
+          <span className="grid h-10 w-10 place-items-center rounded-full bg-white transition hover:scale-110" title="App Store" data-testid="home-app-store">
+            <svg viewBox="0 0 24 24" style={{ width: 18, height: 18 }}><path d="M17.05 20.28c-.98.95-2.05.86-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8.98-.2 1.92-.86 3.24-.77 1.58.13 2.77.75 3.55 1.92-3.26 1.95-2.47 6.27.46 7.47-.6 1.57-1.37 3.13-2.33 3.55M12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25" fill="#0f172a"/></svg>
+          </span>
+          <span className="grid h-10 w-10 place-items-center rounded-full bg-white transition hover:scale-110" title="Google Play" data-testid="home-google-play">
+            <svg viewBox="0 0 24 24" style={{ width: 16, height: 16 }}><path d="M5 3.5v17l14-8.5z" fill="#0f172a" /></svg>
+          </span>
+        </div>
+      </Reveal>
     </section>
   </SiteLayout>
 );

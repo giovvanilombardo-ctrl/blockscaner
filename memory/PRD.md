@@ -362,3 +362,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Silver top row, Gold/Platinum bottom row), each with a coin stack showing the level fill (1-5 of 5),
   tagline and benefits. Rebranded from YNG amounts to EUR equivalents.
 
+- **Home final CTA (2026-11-12)**: replaced the old "Your money, your crypto" closing CTA with the
+  reference banner "Build your own way to manage money." (teal radial gradient, green accent, Get
+  started pill + white App Store/Google Play round buttons). Zoom 1.2. The footer's 4-column link area
+  in the photo maps to the existing SiteFooter (already present on all pages).
+
