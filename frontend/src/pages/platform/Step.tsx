@@ -393,8 +393,8 @@ export function StepCommunity() {
 
       <div className="sc-earn">
         <div className="sc-earn-card">
-          <h3>{_t("Complete levels to earn Young (YNG)")}</h3>
-          <p>{_t("YNG is the token of the Young Platform ecosystem, the key to joining its community of crypto enthusiasts")}</p>
+          <h3>{_t("Complete levels to earn PUMP")}</h3>
+          <p>{_t("PUMP is the token of the Blockscaner ecosystem, the key to joining its community of crypto enthusiasts")}</p>
         </div>
         <div className="sc-earn-avatar" aria-hidden="true">
           <svg viewBox="0 0 72 72" width="56" height="56">
