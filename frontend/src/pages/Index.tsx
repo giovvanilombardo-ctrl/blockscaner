@@ -1,4 +1,5 @@
 import { t as _t, lang } from "@/i18n";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck, Plus, RefreshCcw, ArrowDownUp as MoveIcon, MoreHorizontal, Check } from "lucide-react";
@@ -106,26 +107,8 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
           <Link to="/products" className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-xs font-bold text-primary-foreground hover:bg-primary/90 transition" data-testid="home-account-cta">
             {_t("Find out more")} <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
-          {/* phone mockup */}
-          <div className="relative mx-auto mt-8 w-56 rounded-t-[2rem] border-x-[6px] border-t-[6px] border-black bg-[#060d18] px-4 pt-5 pb-0 shadow-2xl">
-            <div className="flex items-center justify-between">
-              <span className="grid h-6 w-6 place-items-center rounded-full bg-slate-700/70"><span className="h-2.5 w-2.5 rounded-full bg-slate-400" /></span>
-              <span className="flex gap-1.5"><span className="h-4 w-4 rounded-full bg-slate-700/70" /><span className="h-4 w-4 rounded-full bg-slate-700/70" /></span>
-            </div>
-            <p className="mt-3 text-center text-[9px] text-slate-400">{_t("Account")}</p>
-            <p className="text-center text-xl font-bold">€6,840.20</p>
-            <p className="text-center text-[9px] text-[#00c867]">+6% 30d · <span className="text-slate-400">+13.62%</span></p>
-            <svg viewBox="0 0 180 60" className="mt-2 w-full">
-              <polyline points="0,42 20,38 34,44 52,30 66,34 84,22 100,28 118,16 136,24 154,12 180,18" fill="none" stroke="#00c867" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <div className="flex justify-center gap-3 text-[8px] text-slate-500"><span>1Y</span><span>1M</span><span className="text-white font-bold">1W</span><span>1D</span></div>
-            <div className="mt-3 grid grid-cols-4 gap-1 pb-1 text-center text-[8px] text-slate-300">
-              <span><span className="mx-auto mb-1 grid h-7 w-7 place-items-center rounded-full bg-[#00c867]"><Plus className="h-3.5 w-3.5 text-white" /></span>{_t("Deposit")}</span>
-              <span><span className="mx-auto mb-1 grid h-7 w-7 place-items-center rounded-full bg-slate-800"><RefreshCcw className="h-3 w-3" /></span>{_t("Pay")}</span>
-              <span><span className="mx-auto mb-1 grid h-7 w-7 place-items-center rounded-full bg-slate-800"><MoveIcon className="h-3 w-3" /></span>{_t("Move")}</span>
-              <span><span className="mx-auto mb-1 grid h-7 w-7 place-items-center rounded-full bg-slate-800"><MoreHorizontal className="h-3 w-3" /></span>{_t("More")}</span>
-            </div>
-          </div>
+          {/* phone mockup — bigger, detailed, interactive */}
+          <AccountPhone />
         </div>
       </div>
 
@@ -223,8 +206,94 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
   </SiteLayout>
 );
 
-function MarketTicker(){
-  const items = [["BTC","Bitcoin"],["ETH","Ethereum"],["USDT","Tether"],["SOL","Solana"],["BNB","BNB"]];
+/* Interactive account phone mockup (home ACCOUNT card) */
+const PHONE_RANGES = {
+  "1Y": { pts: [[0,50],[18,44],[36,47],[54,38],[72,41],[90,30],[108,35],[126,24],[144,29],[162,18],[180,22]], vals: [4180, 4520, 4460, 4930, 4810, 5480, 5320, 5960, 5780, 6540, 6840], change: "+63.5%", note: "last 12 months" },
+  "1M": { pts: [[0,40],[20,34],[40,38],[60,28],[80,32],[100,24],[120,28],[140,18],[160,22],[180,14]], vals: [6020, 6280, 6180, 6540, 6440, 6720, 6610, 6940, 6880, 6840], change: "+13.62%", note: "last 30 days" },
+  "1W": { pts: [[0,42],[20,38],[34,44],[52,30],[66,34],[84,22],[100,28],[118,16],[136,24],[154,12],[180,18]], vals: [6450, 6580, 6490, 6720, 6640, 6860, 6780, 6980, 6900, 7060, 6840], change: "+6.00%", note: "last 7 days" },
+  "1D": { pts: [[0,26],[22,30],[45,27],[68,33],[90,29],[112,35],[134,31],[156,36],[180,33]], vals: [6790, 6760, 6780, 6710, 6740, 6680, 6720, 6660, 6840], change: "+0.84%", note: "today" },
+} as const;
+
+function AccountPhone(){
+  const [range, setRange] = useState<keyof typeof PHONE_RANGES>("1W");
+  const [cursor, setCursor] = useState<number | null>(null);
+  const d = PHONE_RANGES[range];
+  const n = d.pts.length;
+  const active = cursor ?? n - 1;
+  const value = d.vals[Math.min(active, d.vals.length - 1)];
+
+  const onMove = (e: React.MouseEvent<SVGSVGElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 180;
+    setCursor(Math.max(0, Math.min(n - 1, Math.round((x / 180) * (n - 1)))));
+  };
+
+  return (
+    <div className="relative mx-auto mt-8 w-72 rounded-t-[2.4rem] border-x-[7px] border-t-[7px] border-black bg-[#060d18] px-5 pt-4 pb-0 shadow-2xl" data-testid="home-account-phone">
+      {/* status bar */}
+      <div className="flex items-center justify-between text-[9px] text-slate-400">
+        <span className="font-semibold">9:41</span>
+        <span className="flex items-center gap-1">
+          <span className="flex gap-0.5">{[3,5,7,8].map(h => <i key={h} className="w-0.5 rounded-sm bg-slate-400" style={{ height: h }} />)}</span>
+          <span className="ml-1 h-2.5 w-5 rounded-sm border border-slate-400"><i className="block h-full w-3/4 rounded-sm bg-slate-400" /></span>
+        </span>
+      </div>
+      {/* header */}
+      <div className="mt-3 flex items-center justify-between">
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-slate-700/70"><span className="h-3 w-3 rounded-full bg-slate-400" /></span>
+        <span className="flex gap-1.5"><span className="h-5 w-5 rounded-full bg-slate-700/70" /><span className="h-5 w-5 rounded-full bg-slate-700/70" /></span>
+      </div>
+      {/* balance — updates with hover position */}
+      <p className="mt-4 text-center text-[10px] uppercase tracking-wider text-slate-400">{_t("Account")}</p>
+      <p className="text-center text-2xl font-bold tabular-nums transition-all" data-testid="phone-balance">
+        €{value.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+      </p>
+      <p className="text-center text-[10px] text-[#00c867] font-semibold">{d.change} <span className="text-slate-500 font-normal">· {d.note}</span></p>
+      {/* interactive chart */}
+      <div className="relative mt-2">
+        <svg viewBox="0 0 180 60" className="w-full cursor-crosshair" onMouseMove={onMove} onMouseLeave={() => setCursor(null)} data-testid="phone-chart">
+          <defs>
+            <linearGradient id="phFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#00c867" stopOpacity=".25" />
+              <stop offset="1" stopColor="#00c867" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <polygon points={`0,60 ${d.pts.map(p => p.join(",")).join(" ")} 180,60`} fill="url(#phFill)" />
+          <polyline points={d.pts.map(p => p.join(",")).join(" ")} fill="none" stroke="#00c867" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <line x1={d.pts[active][0]} y1="4" x2={d.pts[active][0]} y2="60" stroke="#334155" strokeWidth="1" strokeDasharray="3 3" />
+          <circle cx={d.pts[active][0]} cy={d.pts[active][1]} r="4" fill="#00c867" stroke="#060d18" strokeWidth="2" />
+        </svg>
+      </div>
+      {/* range selector — clickable */}
+      <div className="mt-1 flex justify-center gap-2">
+        {(Object.keys(PHONE_RANGES) as (keyof typeof PHONE_RANGES)[]).map((r) => (
+          <button key={r} onClick={() => setRange(r)} data-testid={`phone-range-${r}`}
+            className={`rounded-full px-2.5 py-1 text-[9px] font-bold transition ${range === r ? "bg-[#00c867] text-white" : "text-slate-500 hover:text-slate-300"}`}>
+            {r}
+          </button>
+        ))}
+      </div>
+      {/* actions */}
+      <div className="mt-3 grid grid-cols-4 gap-1 pb-1 text-center text-[9px] text-slate-300">
+        {[
+          { I: Plus, label: "Deposit", hot: true },
+          { I: RefreshCcw, label: "Pay", hot: false },
+          { I: MoveIcon, label: "Move", hot: false },
+          { I: MoreHorizontal, label: "More", hot: false },
+        ].map(({ I, label, hot }) => (
+          <button key={label} className="group" data-testid={`phone-action-${label.toLowerCase()}`}>
+            <span className={`mx-auto mb-1 grid h-9 w-9 place-items-center rounded-full transition group-hover:scale-110 ${hot ? "bg-[#00c867] group-hover:bg-[#00b35b]" : "bg-slate-800 group-hover:bg-slate-700"}`}>
+              <I className="h-4 w-4 text-white" />
+            </span>
+            {_t(label)}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MarketTicker(){  const items = [["BTC","Bitcoin"],["ETH","Ethereum"],["USDT","Tether"],["SOL","Solana"],["BNB","BNB"]];
   return (
     <div className="w-full max-w-md space-y-3">
       {items.map(([sym, name]) => (
