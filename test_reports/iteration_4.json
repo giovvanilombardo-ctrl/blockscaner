@@ -1,0 +1,21 @@
+{
+  "summary": "Frontend-only verification of the Step hero on /products and /products/step. All 5 requested checks pass. Hero visible with pink maze bg, tilted phone mockup, Download Step button; zoom 1.25 applied; no horizontal overflow; footer link navigates to /products/step and renders the same hero; Get started / Talk to us buttons still present below.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "/products Step hero", "issues": ["Subheading text 'The free, fun and effective way to learn how to make crypto work for you.' is partially occluded by the phone mockup in the embedded (zoom 1.25) layout at 1920 width — the words 'learn how to make' overlap the phone. On the standalone /products/step page the same overlap occurs. Low priority cosmetic."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": ["(Optional cosmetic) Add right padding/max-width to the hero copy so it doesn't visually overlap the phone mockup at desktop widths."],
+  "critical_code_review_comments": ["Using CSS `zoom: 1.25` is non-standard (Firefox support is partial/newer); consider `transform: scale(1.25)` with `transform-origin` for broader cross-browser parity. Not blocking on Chromium."],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Step hero (data-testid=step-hero) and Download button (data-testid=step-download-btn) render on both /products and /products/step. Footer 'Blockscaner Step' link works. Minor cosmetic: hero paragraph overlaps phone mockup at 1920 width.",
+  "rca of the issue": "N/A - verification only"
+}
