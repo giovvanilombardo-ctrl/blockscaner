@@ -17,7 +17,9 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
     <section className="relative overflow-hidden bg-deep text-deep-foreground min-h-[calc(100vh-6rem)] flex items-center">
       <BloomField />
       <div className="relative mx-auto w-full max-w-5xl px-6 lg:px-10 py-24 grid gap-10 md:grid-cols-2 items-center">
-        <h1 className="font-display text-4xl md:text-5xl font-light leading-[1.1]">{_t("The most valuable currency is the freedom to choose.")}</h1>
+        <h1 className="font-display text-4xl md:text-5xl font-light leading-[1.1] hyphens-none [overflow-wrap:normal] [word-break:keep-all]">
+          {_t("The most valuable currency is the freedom to choose.")}
+        </h1>
         <div className="md:ml-auto md:max-w-xs border-t border-deep-foreground/50 pt-3">
           <p className="text-sm leading-snug">{_t("Crypto to build value. One account to trade, hold and invest — simply, securely and on your own terms.")}</p>
           <Link to="/login?modo=registro" className="mt-5 inline-block rounded bg-background px-3 py-2 font-mono text-xs uppercase text-foreground">{_t("Get started")}</Link>
