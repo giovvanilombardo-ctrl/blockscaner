@@ -310,8 +310,12 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 
 - **Certifications + Partners sections (2026-11-03)**: Business page gained two new sections after the
   features cards, matching the user's reference: "Our certifications" (3 light cards: Registro Operatori
-  Valute Virtuali, Prestataire de Services sur Actifs Numériques, MiCA) and "Meet our partners" (auto-
-  scrolling marquee of 10 partner names with edge fade).
+  Valute Virtuali, Prestataire de Services sur Actifs Numériques, MiCA) and "Meet our partners" (two
+  auto-scrolling marquee rows moving in opposite directions, spanning full width, on a white band).
+
+- **Home stats strip (2026-11-03)**: dark rounded stats bar added directly under the Home page hero (NOT
+  Business, per user correction): "+2 million people have chosen us", "+300 businesses and professionals",
+  "Average rating Excellent 4.4 out of 5", "Since 2018 in crypto" with icons, matching the user's photo.
 
 - **Coin page TOC + hero cleanup (2026-11-02)**: sticky sidebar TOC deleted then re-inserted per user request
   (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the

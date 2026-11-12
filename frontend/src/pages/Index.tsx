@@ -1,7 +1,7 @@
 import { t as _t, lang } from "@/i18n";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck, Users, Briefcase, Star, Award } from "lucide-react";
 import SiteLayout from "@/components/site/SiteLayout";
 import BloomField from "@/components/site/BloomField";
 
@@ -21,6 +21,32 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
         <div className="md:ml-auto md:max-w-xs border-t border-deep-foreground/50 pt-3">
           <p className="text-sm leading-snug">{_t("Crypto to build value. One account to trade, hold and invest — simply, securely and on your own terms.")}</p>
           <Link to="/login?modo=registro" className="mt-5 inline-block rounded bg-background px-3 py-2 font-mono text-xs uppercase text-foreground">{_t("Get started")}</Link>
+        </div>
+      </div>
+    </section>
+
+    {/* STATS STRIP (reference: dark bar below hero) */}
+    <section className="px-6 lg:px-10 pb-14 -mt-14 relative z-10" data-testid="home-stats-strip">
+      <div className="mx-auto max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-6 rounded-2xl bg-[#0d1117] border border-[#1c2230] px-8 py-7 text-center shadow-xl">
+        <div>
+          <Users className="mx-auto mb-2 h-5 w-5 text-slate-400" />
+          <p className="text-sm font-bold text-slate-100">+2 {_t("million people")}</p>
+          <p className="text-xs text-slate-400">{_t("have chosen us")}</p>
+        </div>
+        <div>
+          <Briefcase className="mx-auto mb-2 h-5 w-5 text-slate-400" />
+          <p className="text-sm font-bold text-slate-100">+300 {_t("businesses")}</p>
+          <p className="text-xs text-slate-400">{_t("and professionals")}</p>
+        </div>
+        <div>
+          <Star className="mx-auto mb-2 h-5 w-5 text-slate-400" />
+          <p className="text-sm font-bold text-slate-100">{_t("Average rating")}</p>
+          <p className="text-xs text-slate-400">Excellent 4.4 {_t("out of")} 5</p>
+        </div>
+        <div>
+          <Award className="mx-auto mb-2 h-5 w-5 text-slate-400" />
+          <p className="text-sm font-bold text-slate-100">Since 2018</p>
+          <p className="text-xs text-slate-400">{_t("in crypto")}</p>
         </div>
       </div>
     </section>

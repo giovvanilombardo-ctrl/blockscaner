@@ -6,7 +6,6 @@ import Seo from "@/components/Seo";
 import {
   GraduationCap, ArrowDownUp, Landmark, Code2, Scale,
   ArrowUpRight, Star, Info, Percent, ChevronLeft, MoreHorizontal, PieChart,
-  Users, Briefcase, Award,
 } from "lucide-react";
 import coinBtc from "@/assets/coins/bitcoin.png";
 import coinEth from "@/assets/coins/ethereum.png";
@@ -340,30 +339,6 @@ export default function Business() {
             </div>
             <p className="bz-tp-sub">{_t("Rated by our users")}</p>
           </div>
-        </section>
-
-        {/* ---------- STATS STRIP (photo) ---------- */}
-        <section className="bz-stats-strip" data-testid="business-stats-strip">
-          <Reveal className="bz-ss">
-            <Users className="bz-ss-icon" />
-            <p className="bz-ss-num">+2 {_t("million people")}</p>
-            <p className="bz-ss-sub">{_t("have chosen us")}</p>
-          </Reveal>
-          <Reveal className="bz-ss" delay={80}>
-            <Briefcase className="bz-ss-icon" />
-            <p className="bz-ss-num">+300 {_t("businesses")}</p>
-            <p className="bz-ss-sub">{_t("and professionals")}</p>
-          </Reveal>
-          <Reveal className="bz-ss" delay={160}>
-            <Star className="bz-ss-icon" />
-            <p className="bz-ss-num">{_t("Average rating")}</p>
-            <p className="bz-ss-sub">Excellent 4.4 {_t("out of")} 5</p>
-          </Reveal>
-          <Reveal className="bz-ss" delay={240}>
-            <Award className="bz-ss-icon" />
-            <p className="bz-ss-num">Since 2018</p>
-            <p className="bz-ss-sub">{_t("in crypto")}</p>
-          </Reveal>
         </section>
 
         {/* ---------- TRUSTED BY (photo 4) ---------- */}
