@@ -149,6 +149,27 @@
 .rv{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1); }
 .rv.in{ opacity:1; transform:none; }
 
+/* ---------- hero entrance: swift + smooth ---------- */
+.bz-hero-in.rv{ transform:translateY(14px); transition:opacity .5s ease, transform .55s cubic-bezier(.22,1,.36,1); }
+@keyframes bz-rise{ from{ opacity:0; transform:translateY(14px); } to{ opacity:1; transform:none; } }
+.bz-hero-in .bz-h1, .bz-hero-in .bz-sub, .bz-hero-in .bz-cta{ opacity:0; }
+.bz-hero-in.in .bz-h1{ animation:bz-rise .5s .05s cubic-bezier(.22,1,.36,1) forwards; }
+.bz-hero-in.in .bz-sub{ animation:bz-rise .5s .18s cubic-bezier(.22,1,.36,1) forwards; }
+.bz-hero-in.in .bz-cta{ animation:bz-rise .5s .3s cubic-bezier(.22,1,.36,1) forwards; }
+.bz-hero .bz-tp{ opacity:0; animation:bz-rise .5s .45s cubic-bezier(.22,1,.36,1) forwards; }
+@keyframes bz-coin-in{ from{ opacity:0; transform:scale(.55) translateY(34px); } to{ opacity:1; transform:scale(1) translateY(0); } }
+.bz-hero .bz-coin-par{ animation:bz-coin-in .75s cubic-bezier(.22,1,.36,1) both; }
+.bz-hero .bz-coin-par:nth-child(1){ animation-delay:.05s; }
+.bz-hero .bz-coin-par:nth-child(2){ animation-delay:.14s; }
+.bz-hero .bz-coin-par:nth-child(3){ animation-delay:.23s; }
+.bz-hero .bz-coin-par:nth-child(4){ animation-delay:.32s; }
+.bz-hero .bz-coin-par:nth-child(5){ animation-delay:.41s; }
+.bz-hero .bz-coin-par:nth-child(6){ animation-delay:.5s; }
+.bz-hero .bz-euro-par{ animation-delay:.58s; }
+@media (prefers-reduced-motion: reduce){
+  .bz-hero .bz-coin-par, .bz-hero-in.in .bz-h1, .bz-hero-in.in .bz-sub, .bz-hero-in.in .bz-cta, .bz-hero .bz-tp{ animation:none; opacity:1; }
+}
+
 /* hero */
 .bz-page{ overflow-x:hidden; }
 .bz-hero{ position:relative; width:100%; min-height:82vh; display:grid; place-items:center; text-align:center;

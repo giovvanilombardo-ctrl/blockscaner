@@ -306,7 +306,7 @@ export default function Business() {
               <div key={coin} className="bz-coin-par" style={{ ...pos } as any}>
                 <div className="bz-coin-tilt" style={{ width: size, height: size, "--rz": `${rz}deg` } as any}>
                   <div className="bz-coin-spin" style={{ animationName: `bz-drift-${anim}`, animationDelay: `${d}s`, animationDuration: `${7 + i * 0.7}s` }}>
-                    <img src={COIN_PHOTOS[coin]} alt={coin} className="bz-coin-photo" loading="lazy" />
+                    <img src={COIN_PHOTOS[coin]} alt={coin} className="bz-coin-photo" loading="eager" fetchPriority={i < 3 ? "high" : "auto"} />
                   </div>
                 </div>
               </div>
@@ -316,7 +316,7 @@ export default function Business() {
           <div className="bz-coin-par bz-euro-par" style={{ bottom: "-10%", right: "17%" } as any}>
             <div className="bz-coin-tilt" style={{ width: 340, height: 340, "--rz": "3deg" } as any}>
               <div className="bz-coin-spin" style={{ animationName: "bz-drift-d", animationDelay: "1.7s", animationDuration: "8.5s" }}>
-                <img src={coinEur} alt="Euro" className="bz-coin-photo" loading="lazy" />
+                <img src={coinEur} alt="Euro" className="bz-coin-photo" loading="eager" fetchPriority="high" />
               </div>
             </div>
           </div>
