@@ -413,7 +413,7 @@ export function StepCommunity() {
       </div>
 
       <h2 className="sc-title sc-title2">{_t("Join a Community of 2M+")}<br />{_t("people")}</h2>
-      <p className="sc-lead">{_t("Blockscaner is the largest community in Italy, bringing together thousands of people who believe in the crypto mission, sharing ideas and supporting each other!")}</p>
+      <p className="sc-lead">{_t("Blockscaner is the largest community in Europe, bringing together thousands of people who believe in the crypto mission, sharing ideas and supporting each other!")}</p>
 
       <div className="sc-social" data-testid="step-social">
         {/* centre chat bubble */}
