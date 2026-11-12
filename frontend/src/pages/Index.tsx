@@ -8,6 +8,7 @@ import BloomField from "@/components/site/BloomField";
 import defiFlower from "@/assets/defi-flower.png";
 import cardSwipe from "@/assets/card-swipe.png";
 import moneyboxHome from "@/assets/moneybox-home.png";
+import clubSphere from "@/assets/club-sphere.png";
 import coinBtc from "@/assets/coins/bitcoin.png";
 import coinEur from "@/assets/coins/euro.png";
 
@@ -488,6 +489,44 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
             </Link>
           </div>
         </div>
+      </Reveal>
+    </section>
+
+    {/* CLUBS — "For those who want more" (reference, dark) */}
+    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-[#0a0c10]" style={{ zoom: 1.2 }} data-testid="home-clubs-section">
+      <Reveal className="mx-auto max-w-2xl text-center">
+        <h2 className="font-display text-4xl md:text-5xl font-light leading-[1.15] tracking-tight text-white">
+          {_t("For those who want more from their")} <span className="font-semibold">{_t("financial routine.")}</span>
+        </h2>
+        <Link to="/products" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2 text-xs font-bold text-slate-900 hover:bg-slate-200 transition" data-testid="home-clubs-cta">
+          {_t("Discover more")} <ArrowUpRight className="h-3.5 w-3.5" />
+        </Link>
+      </Reveal>
+
+      <Reveal delay={120}>
+        <div className="mx-auto mt-12 grid max-w-3xl overflow-hidden rounded-3xl sm:grid-cols-2" data-testid="home-clubs-card">
+          <div className="flex flex-col justify-center bg-[#15181e] p-8 text-white">
+            <h3 className="text-lg font-bold leading-snug">{_t("Buy and hold")}<br />{_t("your")} <span className="text-[#00c867]">{_t("Club membership")}</span>.</h3>
+            <p className="mt-3 text-[10px] leading-relaxed text-slate-400">
+              {_t("Get great benefits with your Club level: higher APY on staking and")} <span className="text-[#00c867]">{_t("up to 90% off fees")}</span>.
+            </p>
+          </div>
+          <div className="relative min-h-[220px] bg-black">
+            <img src={clubSphere} alt="" className="coin-bob absolute inset-0 h-full w-full object-cover" style={{ "--cd": "6s" } as any} />
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal className="mx-auto mt-16 max-w-xl text-center" delay={200}>
+        <h3 className="font-display text-3xl md:text-4xl font-light leading-[1.15] tracking-tight text-white">
+          {_t("Climb the levels,")}<br /><span className="font-semibold">{_t("multiply your benefits.")}</span>
+        </h3>
+        <p className="mt-4 text-[11px] leading-relaxed text-slate-400 max-w-md mx-auto">
+          {_t("Five Clubs, five levels of benefits. The higher your level, the more benefits you can unlock: from fees to staking and exclusive offers.")}
+        </p>
+        <Link to="/products" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2 text-xs font-bold text-slate-900 hover:bg-slate-200 transition" data-testid="home-clubs-cta-2">
+          {_t("Discover more about Clubs")} <ArrowUpRight className="h-3.5 w-3.5" />
+        </Link>
       </Reveal>
     </section>
 

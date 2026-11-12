@@ -352,3 +352,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   legends, animated sweeping green line with pulsing glow dot. Right: copy + blue "Create your account"
   CTA -> signup.
 
+- **Home Clubs section (2026-11-12)**: dark section under the bloom banner, zoom 1.2. "For those who
+  want more from their financial routine." + white Discover more pill, split card (copy + AI-generated
+  glass sphere with glowing green check, src/assets/club-sphere.png, floats), then "Climb the levels,
+  multiply your benefits." + white "Discover more about Clubs" pill. Rebranded: Club membership instead
+  of YNG token.
+
