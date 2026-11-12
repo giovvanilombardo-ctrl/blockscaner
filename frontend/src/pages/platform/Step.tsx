@@ -92,55 +92,185 @@ export function StepHero() {
 /* Expand your knowledge — guided path section (reference design) */
 export function StepPath() {
   return (
-    <section className="sp-wrap" data-testid="step-path">
-      <h2 className="sp-title">{_t("Expand your knowledge")}</h2>
-      <p className="sp-lead">{_t("Not just crypto and blockchain: learn the basics of economics and technology to better understand today's world")}</p>
+    <>
+      <style>{`
+        .sp-wrap{ padding:3rem 1.5rem 1.5rem; background:#fff; text-align:center; }
+        .sp-card{ margin:2.5rem auto 0; max-width:1100px; border-radius:32px; background:#f7f7f8;
+          padding:3rem 3rem 3.5rem; display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; overflow:visible; text-align:left;
+          transition:transform .3s ease; }
+        .sp-card:hover{ transform:scale(1.015); }
+        .sp-phone-slot{ position:relative; display:grid; place-items:center; min-height:380px; }
+        .sp-phone{ width:200px; transform:scale(.92); transition:transform .35s ease; }
+        .sp-card:hover .sp-phone{ transform:scale(1); }
+      `}</style>
+      <section className="sp-wrap" data-testid="step-path">
+        <h2 className="sp-title">{_t("Expand your knowledge")}</h2>
+        <p className="sp-lead">{_t("Not just crypto and blockchain: learn the basics of economics and technology to better understand today's world")}</p>
 
-      <div className="sp-card">
-        <div className="sp-copy">
-          <h3>{_t("A guided path from A to Z")}</h3>
-          <p>{_t("With the Step method, you can understand crypto and blockchain even if you're starting from scratch. You'll always be one step ahead!")}</p>
-        </div>
+        <div className="sp-card">
+          <div className="sp-copy">
+            <h3>{_t("A guided path from A to Z")}</h3>
+            <p>{_t("With the Step method, you can understand crypto and blockchain even if you're starting from scratch. You'll always be one step ahead!")}</p>
+          </div>
 
-        {/* phone mockup */}
-        <div className="sp-phone-slot">
-          <div className="sp-phone" data-testid="step-path-phone">
-            {/* status bar */}
-            <div className="sp-status">
-              <span className="sp-chip blue"><i className="sp-dot" />15/100</span>
-              <span className="sp-chip green"><i className="sp-dot" />2,64</span>
-              <span className="sp-chip red"><i className="sp-heart" />5</span>
-              <span className="sp-avatar" />
-            </div>
-            {/* crypto master card */}
-            <div className="sp-master">
-              <div>
-                <p className="sp-master-t">Crypto Master</p>
-                <p className="sp-master-s"><i className="sp-dot white" />1 / 10 {_t("CHAPTERS")}</p>
-                <div className="sp-bar"><i /></div>
+          {/* phone mockup */}
+          <div className="sp-phone-slot">
+            <div className="sp-phone" data-testid="step-path-phone">
+              {/* status bar */}
+              <div className="sp-status">
+                <span className="sp-chip blue"><i className="sp-dot" />15/100</span>
+                <span className="sp-chip green"><i className="sp-dot" />2,64</span>
+                <span className="sp-chip red"><i className="sp-heart" />5</span>
+                <span className="sp-avatar" />
               </div>
-              <span className="sp-trophy">
-                <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 3h12v2h3v3c0 2.2-1.6 4-3.7 4.4A6 6 0 0 1 13 16.9V19h3v2H8v-2h3v-2.1a6 6 0 0 1-4.3-4.5C4.6 12 3 10.2 3 8V5h3V3zm-1 4c0 1 .7 2 1.7 2.3A9 9 0 0 1 6 7V5zm12 0v-.3c.3.7.4 1.5.4 2.3C18.3 9 19 8 19 7h-2z" fill="#fff"/></svg>
+              {/* crypto master card */}
+              <div className="sp-master">
+                <div>
+                  <p className="sp-master-t">Crypto Master</p>
+                  <p className="sp-master-s"><i className="sp-dot white" />1 / 10 {_t("CHAPTERS")}</p>
+                  <div className="sp-bar"><i /></div>
+                </div>
+                <span className="sp-trophy">
+                  <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 3h12v2h3v3c0 2.2-1.6 4-3.7 4.4A6 6 0 0 1 13 16.9V19h3v2H8v-2h3v-2.1a6 6 0 0 1-4.3-4.5C4.6 12 3 10.2 3 8V5h3V3zm-1 4c0 1 .7 2 1.7 2.3A9 9 0 0 1 6 7V5zm12 0v-.3c.3.7.4 1.5.4 2.3C18.3 9 19 8 19 7h-2z" fill="#fff"/></svg>
+                </span>
+              </div>
+              {/* chapter card */}
+              <div className="sp-chapter">
+                <p className="sp-ch-kicker">{_t("CHAPTER 1")}</p>
+                <p className="sp-ch-title">{_t("Understanding the technology and innovation in finance")}</p>
+              </div>
+              {/* lesson nodes */}
+              <div className="sp-nodes">
+                <div className="sp-node done"><i className="sp-check" /><span>STEP</span><em>10 ⚡</em></div>
+                <div className="sp-link" />
+                <div className="sp-node done purple"><i className="sp-check" /><span>EDUCATION</span><em>1 / 4</em></div>
+                <div className="sp-link" />
+                <div className="sp-node todo"><i className="sp-dot green" /><span>UP &amp; DOWN</span><em>3 / 4</em></div>
+              </div>
+            </div>
+            {/* floating coins */}
+            <span className="sp-coin check"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M5 13l4 4L19 7" stroke="#3ddc84" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span className="sp-coin eth"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2l6 10-6 4-6-4 6-10zm0 20l6-8-6 4-6-4 6 8z" fill="#627eea"/></svg></span>
+            <span className="sp-coin btc"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M14.5 12.5c1.6-.4 2.6-1.6 2.6-3.3 0-2-1.5-3.2-3.6-3.4V3h-2v2.6H9.5V3h-2v2.6H5v2h1.6v10.8H5v2h2.5V23h2v-2.6h2V23h2v-2.5c2.2-.2 3.8-1.5 3.8-3.6 0-1.7-.9-2.9-2.8-3.4zM9.5 7.5h3.2c1.2 0 2 .7 2 1.8s-.8 1.8-2 1.8H9.5V7.5zm0 9.4v-3.8h3.8c1.3 0 2.1.8 2.1 1.9s-.8 1.9-2.1 1.9H9.5z" fill="#f7931a"/></svg></span>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+/* Academy + Market news — two-column section (reference design) */
+export function StepAcademy() {
+  return (
+    <section className="sa-wrap" data-testid="step-academy">
+      <div className="sa-grid">
+
+        {/* Academy lessons card */}
+        <div className="sa-card sa-card--pink">
+          <h3>{_t("Dive deeper into the theory")}<br />{_t("with")} <em>lessons</em> {_t("and")} <em>videos</em> {_t("in")}<br />{_t("the Academy section")}</h3>
+
+          <div className="sa-lessons">
+            {/* Crypto Heroes */}
+            <div className="sa-lesson">
+              <span className="sa-thumb pink">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2l2.5 5.3 5.5.6-4.1 3.8 1.1 5.6-4.5-2.8L7.5 16l1.1-5.6L4.5 7.9l5.5-.6L12 2z" fill="#ff2e88"/></svg>
+              </span>
+              <div className="sa-lesson-body">
+                <div className="sa-lesson-top"><span>56 {_t("QUIZ")}</span><span className="sa-pts">+500 ⚡</span></div>
+                <p className="sa-lesson-t">Crypto Heroes</p>
+                <div className="sa-prog"><i style={{ width: "5%" }} /><span>5%</span></div>
+              </div>
+              <span className="sa-cert">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2l2.4 4.9 5.6.8-4 4 1 5.6-5-2.7-5 2.7 1-5.6-4-4 5.6-.8L12 2z" fill="#ff2e88"/><path d="M9 14l-2 8 5-3 5 3-2-8" fill="#ff2e88" opacity=".7"/></svg>
               </span>
             </div>
-            {/* chapter card */}
-            <div className="sp-chapter">
-              <p className="sp-ch-kicker">{_t("CHAPTER 1")}</p>
-              <p className="sp-ch-title">{_t("Understanding the technology and innovation in finance")}</p>
+
+            {/* Cryptocurrencies */}
+            <div className="sa-lesson">
+              <span className="sa-thumb lilac">
+                <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="8" cy="10" r="4" fill="#7c5cff"/><circle cx="15" cy="14" r="4" fill="#b9a7ff"/><text x="8" y="13" fontSize="7" fontWeight="800" textAnchor="middle" fill="#fff">B</text></svg>
+              </span>
+              <div className="sa-lesson-body">
+                <div className="sa-lesson-top"><span>56 {_t("QUIZ")}</span><span className="sa-pts">+500 ⚡</span></div>
+                <p className="sa-lesson-t">Cryptocurrencies</p>
+                <div className="sa-prog"><i style={{ width: "2%" }} /><span>2%</span></div>
+              </div>
             </div>
-            {/* lesson nodes */}
-            <div className="sp-nodes">
-              <div className="sp-node done"><i className="sp-check" /><span>STEP</span><em>10 ⚡</em></div>
-              <div className="sp-link" />
-              <div className="sp-node done purple"><i className="sp-check" /><span>EDUCATION</span><em>1 / 4</em></div>
-              <div className="sp-link" />
-              <div className="sp-node todo"><i className="sp-dot green" /><span>UP &amp; DOWN</span><em>3 / 4</em></div>
+
+            {/* Blockchain */}
+            <div className="sa-lesson">
+              <span className="sa-thumb blue">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 4h10v6H7z" fill="#2f7fe8" opacity=".35"/><path d="M4 9h10v6H4z" fill="#2f7fe8" opacity=".6"/><path d="M9 14h10v6H9z" fill="#2f7fe8"/></svg>
+              </span>
+              <div className="sa-lesson-body">
+                <div className="sa-lesson-top"><span>56 {_t("QUIZ")}</span><span className="sa-pts">+500 ⚡</span></div>
+                <p className="sa-lesson-t">Blockchain</p>
+                <div className="sa-prog"><i style={{ width: "2%" }} /><span>2%</span></div>
+              </div>
             </div>
           </div>
-          {/* floating coins */}
-          <span className="sp-coin check"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M5 13l4 4L19 7" stroke="#3ddc84" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
-          <span className="sp-coin eth"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2l6 10-6 4-6-4 6-10zm0 20l6-8-6 4-6-4 6 8z" fill="#627eea"/></svg></span>
-          <span className="sp-coin btc"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M14.5 12.5c1.6-.4 2.6-1.6 2.6-3.3 0-2-1.5-3.2-3.6-3.4V3h-2v2.6H9.5V3h-2v2.6H5v2h1.6v10.8H5v2h2.5V23h2v-2.6h2V23h2v-2.5c2.2-.2 3.8-1.5 3.8-3.6 0-1.7-.9-2.9-2.8-3.4zM9.5 7.5h3.2c1.2 0 2 .7 2 1.8s-.8 1.8-2 1.8H9.5V7.5zm0 9.4v-3.8h3.8c1.3 0 2.1.8 2.1 1.9s-.8 1.9-2.1 1.9H9.5z" fill="#f7931a"/></svg></span>
+
+          {/* pie decoration */}
+          <span className="sa-pie" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="72" height="72">
+              <circle cx="20" cy="20" r="18" fill="#fff" opacity=".95"/>
+              <path d="M20 20 L20 2 A18 18 0 0 1 35.6 27 Z" fill="#ff2e88"/>
+              <circle cx="20" cy="20" r="18" fill="none" stroke="#e9e9ee" strokeWidth="2"/>
+            </svg>
+          </span>
+        </div>
+
+        {/* Market news card */}
+        <div className="sa-card sa-card--grey">
+          <h3>{_t("Discover economics and technology news")}<br />{_t("explained in the simplest way")}</h3>
+          <p className="sa-dl">{_t("Download the app")} <span>→</span></p>
+
+          <div className="sa-market">
+            {/* left peek card */}
+            <div className="sa-news side left">
+              <span className="sa-news-ic pink">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 3l3 5-3 8-3-8 3-5z" fill="#ff2e88"/><path d="M9 14l-3 5h12l-3-5" fill="#ffc3dd"/></svg>
+              </span>
+              <div className="sa-lines"><i style={{width:"70%"}}/><i style={{width:"50%"}}/><i style={{width:"62%"}}/></div>
+              <span className="sa-explore">Explore</span>
+            </div>
+
+            {/* centre ETH card */}
+            <div className="sa-news main">
+              <div className="sa-news-head">
+                <div>
+                  <p className="sa-news-kicker">ETHEREUM</p>
+                  <p className="sa-news-name">ETH</p>
+                  <p className="sa-news-chg"><span className="sa-badge">+0.72% 1d</span><br />+1.44 <span>EUR</span></p>
+                </div>
+                <div className="sa-news-chart">
+                  <svg viewBox="0 0 120 46" width="100%" height="46" preserveAspectRatio="none">
+                    <path d="M0 34 L14 30 L24 33 L34 22 L44 26 L56 14 L68 18 L80 8 L94 12 L110 4 L120 7 V46 H0 Z" fill="rgba(47,127,232,.14)"/>
+                    <path d="M0 34 L14 30 L24 33 L34 22 L44 26 L56 14 L68 18 L80 8 L94 12 L110 4 L120 7" fill="none" stroke="#2f7fe8" strokeWidth="2"/>
+                  </svg>
+                  <p className="sa-news-cur">EUR<br /><strong>11,890.00</strong></p>
+                </div>
+              </div>
+              <div className="sa-lines"><i style={{width:"78%"}}/><i style={{width:"56%"}}/><i style={{width:"64%"}}/></div>
+              <span className="sa-explore dark">Explore</span>
+            </div>
+
+            {/* right peek card */}
+            <div className="sa-news side right">
+              <p className="sa-news-kicker">MARKET</p>
+              <span className="sa-news-ic gears">
+                <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="9" cy="12" r="5" fill="none" stroke="#ff2e88" strokeWidth="2"/><circle cx="17" cy="9" r="3.4" fill="none" stroke="#ff9ec7" strokeWidth="2"/><circle cx="17" cy="16" r="2.4" fill="none" stroke="#ffc3dd" strokeWidth="2"/></svg>
+              </span>
+              <div className="sa-lines"><i style={{width:"72%"}}/><i style={{width:"52%"}}/></div>
+              <span className="sa-explore">Explore</span>
+            </div>
+
+            {/* bell decoration */}
+            <span className="sa-bell" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="30" height="30"><path d="M12 22a2.4 2.4 0 0 0 2.4-2.4H9.6A2.4 2.4 0 0 0 12 22zm7-5.5v-6a7 7 0 0 0-4.8-6.6V3a2.2 2.2 0 1 0-4.4 0v.9A7 7 0 0 0 5 10.5v6L3 18.5v1h18v-1l-2-2z" fill="#ff2e88"/></svg>
+              <svg className="sa-bell-waves" viewBox="0 0 24 24" width="30" height="30"><path d="M4 9a9 9 0 0 1 16 0" fill="none" stroke="#ffb2d3" strokeWidth="2" strokeLinecap="round"/><path d="M6.5 12a6.5 6.5 0 0 1 11 0" fill="none" stroke="#ffd0e4" strokeWidth="2" strokeLinecap="round"/></svg>
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -153,6 +283,7 @@ export default function StepPage() {
       <Seo title="Blockscaner Step — Learn crypto by playing" description="The free, fun and effective way to learn how to make crypto work for you." />
       <StepHero />
       <StepPath />
+      <StepAcademy />
     </SiteLayout>
   );
 }
