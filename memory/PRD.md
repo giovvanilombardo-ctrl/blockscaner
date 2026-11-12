@@ -319,3 +319,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   (exactly one instance, applies to all coin detail pages). Removed the `btc-hero` hero image from the
   Bitcoin page because it was a full screenshot of youngplatform.com that visually duplicated the page
   title and TOC (asset file kept at `src/assets/btc-hero.png`, just no longer rendered).
+
+- **Home "Everyday" section (2026-11-12)**: under the Home hero, added the reference section
+  "From today's shopping to tomorrow's plans." — CRYPTO light card (ETH portfolio mini-card + floating
+  coin images), ACCOUNT dark card (phone mockup with balance €6,840.20, green chart, Deposit/Pay/Move/
+  More), and the dark "Precision trading with Blockscaner Pro" banner. Rebranded: "Young Platform Pro" ->
+  "Blockscaner Pro", "Young Card" -> "Blockscaner Card". CTAs: Start now -> signup, Find out more ->
+  /products, Discover more -> /markets.
+

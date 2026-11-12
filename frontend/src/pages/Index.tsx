@@ -1,9 +1,14 @@
 import { t as _t, lang } from "@/i18n";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck, Plus, RefreshCcw, ArrowDownUp as MoveIcon, MoreHorizontal, Check } from "lucide-react";
 import SiteLayout from "@/components/site/SiteLayout";
 import BloomField from "@/components/site/BloomField";
+import coinBtc from "@/assets/coins/bitcoin.png";
+import coinEth from "@/assets/coins/ethereum.png";
+import coinXrp from "@/assets/coins/ripple.png";
+import coinDot from "@/assets/coins/polkadot.png";
+import coinUsdc from "@/assets/coins/usd-coin.png";
 
 const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
   <SiteLayout onResetCookies={onResetCookies}>
@@ -22,6 +27,107 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
           <p className="text-sm leading-snug">{_t("Crypto to build value. One account to trade, hold and invest — simply, securely and on your own terms.")}</p>
           <Link to="/login?modo=registro" className="mt-5 inline-block rounded bg-background px-3 py-2 font-mono text-xs uppercase text-foreground">{_t("Get started")}</Link>
         </div>
+      </div>
+    </section>
+
+    {/* EVERYDAY — "From today's shopping to tomorrow's plans." (reference) */}
+    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" data-testid="home-everyday">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-foreground">
+          {_t("From today's shopping")}<br />{_t("to tomorrow's plans.")}
+        </h2>
+        <p className="mt-5 text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed">
+          {_t("We simplify everyday payments, bills and spending, removing the little hassles so you can focus on your ambitions.")}
+        </p>
+      </div>
+
+      <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
+        {/* CRYPTO card (light) */}
+        <div className="relative overflow-hidden rounded-3xl bg-[#f4f6f9] p-8 pb-0 flex flex-col" data-testid="home-crypto-card">
+          <h3 className="text-xl font-bold leading-snug text-foreground">
+            <span className="text-[#00c867]">CRYPTO.</span> {_t("Buy crypto for what you want to build.")}
+          </h3>
+          <p className="mt-3 text-xs leading-relaxed text-muted-foreground max-w-xs">
+            {_t("Over 80 assets held in regulated custody. Choose Bitcoin and leading alternatives, with all the protections of MiCAR.")}
+          </p>
+          <Link to="/login?modo=registro" className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-[#00c867] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#00b35b] transition" data-testid="home-crypto-cta">
+            {_t("Start now")} <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+          {/* portfolio mini-card + floating coins */}
+          <div className="relative mt-8 flex-1 min-h-[220px]">
+            <img src={coinUsdc} alt="" className="absolute -left-3 top-2 w-16 h-16 object-contain drop-shadow-lg" loading="lazy" />
+            <img src={coinDot} alt="" className="absolute right-4 top-0 w-14 h-14 object-contain drop-shadow-lg" loading="lazy" />
+            <img src={coinXrp} alt="" className="absolute right-10 top-20 w-16 h-16 object-contain drop-shadow-lg" loading="lazy" />
+            <img src={coinBtc} alt="" className="absolute right-24 bottom-2 w-14 h-14 object-contain drop-shadow-lg" loading="lazy" />
+            <img src={coinEth} alt="" className="absolute right-0 bottom-10 w-12 h-12 object-contain drop-shadow-lg" loading="lazy" />
+            <div className="absolute left-8 top-6 w-52 rounded-2xl bg-white p-4 shadow-xl shadow-slate-900/10 text-left">
+              <p className="text-sm font-bold text-foreground">3.85 ETH</p>
+              <p className="text-[10px] text-muted-foreground mb-3">{_t("Total value")} · €8,174</p>
+              {[
+                ["Available", "1.77 ETH", "+1.10%", "€3,758"],
+                ["Staking", "1.04 ETH", "3.87% APY", "€2,208"],
+                ["Pockets", "1.04 ETH", "+1.10%", "€2,208"],
+              ].map(([label, amt, chip, val]) => (
+                <div key={label} className="flex items-center justify-between border-t border-border/60 py-2 first:border-0">
+                  <span className="flex items-center gap-1.5 text-[10px] font-semibold text-foreground">
+                    <span className="grid h-3.5 w-3.5 place-items-center rounded-full bg-[#00c867]/15"><Check className="h-2.5 w-2.5 text-[#00c867]" /></span>
+                    {label}
+                  </span>
+                  <span className="text-right">
+                    <span className="block text-[10px] font-semibold text-foreground">{amt}</span>
+                    <span className="block text-[9px] text-[#00a05a]">{chip} <span className="text-muted-foreground">{val}</span></span>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ACCOUNT card (dark) */}
+        <div className="relative overflow-hidden rounded-3xl bg-[#0a1a2f] p-8 pb-0 flex flex-col text-white" data-testid="home-account-card">
+          <h3 className="text-xl font-bold leading-snug">
+            <span className="text-[#00c867]">ACCOUNT.</span> {_t("Save on what you do every day.")}
+          </h3>
+          <p className="mt-3 text-xs leading-relaxed text-slate-300 max-w-xs">
+            {_t("Salary payments, bank transfers, spending alerts and the Blockscaner Card for everyday spending.")}
+          </p>
+          <Link to="/products" className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-[#00c867] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#00b35b] transition" data-testid="home-account-cta">
+            {_t("Find out more")} <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+          {/* phone mockup */}
+          <div className="relative mx-auto mt-8 w-56 rounded-t-[2rem] border-x-[6px] border-t-[6px] border-black bg-[#060d18] px-4 pt-5 pb-0 shadow-2xl">
+            <div className="flex items-center justify-between">
+              <span className="grid h-6 w-6 place-items-center rounded-full bg-slate-700/70"><span className="h-2.5 w-2.5 rounded-full bg-slate-400" /></span>
+              <span className="flex gap-1.5"><span className="h-4 w-4 rounded-full bg-slate-700/70" /><span className="h-4 w-4 rounded-full bg-slate-700/70" /></span>
+            </div>
+            <p className="mt-3 text-center text-[9px] text-slate-400">{_t("Account")}</p>
+            <p className="text-center text-xl font-bold">€6,840.20</p>
+            <p className="text-center text-[9px] text-[#00c867]">+6% 30d · <span className="text-slate-400">+13.62%</span></p>
+            <svg viewBox="0 0 180 60" className="mt-2 w-full">
+              <polyline points="0,42 20,38 34,44 52,30 66,34 84,22 100,28 118,16 136,24 154,12 180,18" fill="none" stroke="#00c867" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <div className="flex justify-center gap-3 text-[8px] text-slate-500"><span>1Y</span><span>1M</span><span className="text-white font-bold">1W</span><span>1D</span></div>
+            <div className="mt-3 grid grid-cols-4 gap-1 pb-1 text-center text-[8px] text-slate-300">
+              <span><span className="mx-auto mb-1 grid h-7 w-7 place-items-center rounded-full bg-[#00c867]"><Plus className="h-3.5 w-3.5 text-white" /></span>{_t("Deposit")}</span>
+              <span><span className="mx-auto mb-1 grid h-7 w-7 place-items-center rounded-full bg-slate-800"><RefreshCcw className="h-3 w-3" /></span>{_t("Pay")}</span>
+              <span><span className="mx-auto mb-1 grid h-7 w-7 place-items-center rounded-full bg-slate-800"><MoveIcon className="h-3 w-3" /></span>{_t("Move")}</span>
+              <span><span className="mx-auto mb-1 grid h-7 w-7 place-items-center rounded-full bg-slate-800"><MoreHorizontal className="h-3 w-3" /></span>{_t("More")}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Precision trading banner */}
+      <div className="mx-auto mt-6 flex max-w-5xl flex-col items-start justify-between gap-5 rounded-3xl bg-[#15181e] p-8 text-white sm:flex-row sm:items-center" data-testid="home-pro-banner">
+        <div className="max-w-md">
+          <h3 className="text-xl font-bold">{_t("Precision trading with")} <span className="text-[#00c867]">Blockscaner Pro</span></h3>
+          <p className="mt-2 text-xs leading-relaxed text-slate-400">
+            {_t("Rock-bottom fees, advanced charts and tools designed for those who live and breathe the markets.")}
+          </p>
+        </div>
+        <Link to="/markets" className="inline-flex items-center gap-1.5 rounded-full bg-[#00c867] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#00b35b] transition" data-testid="home-pro-cta">
+          {_t("Discover more")} <ArrowUpRight className="h-3.5 w-3.5" />
+        </Link>
       </div>
     </section>
 
