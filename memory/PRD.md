@@ -346,3 +346,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   composition bar) and Staking card (Average APY / Rewards chips, Ethereum card with Add funds, animated
   green chart line). Buttons blue per user's standing preference.
 
+- **Home "Cut dead branches. Let the rest bloom." banner (2026-11-12)**: dark analytics banner under the
+  planning section, zoom 1.2. Left: floating dashboard phone with Overall card (interactive 1Y/6M/1M/1W
+  range pills switching values + chart) and By category card (3 colored lines), Spot/Staking/Pockets
+  legends, animated sweeping green line with pulsing glow dot. Right: copy + blue "Create your account"
+  CTA -> signup.
+

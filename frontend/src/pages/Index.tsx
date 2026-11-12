@@ -2,7 +2,7 @@ import { t as _t, lang } from "@/i18n";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck, Plus, RefreshCcw, ArrowDownUp as MoveIcon, MoreHorizontal, Check } from "lucide-react";
+import { ArrowUpRight, ArrowLeftRight, TrendingUp, Wallet, ShieldCheck, Plus, RefreshCcw, ArrowDownUp as MoveIcon, MoreHorizontal, Check, Info } from "lucide-react";
 import SiteLayout from "@/components/site/SiteLayout";
 import BloomField from "@/components/site/BloomField";
 import defiFlower from "@/assets/defi-flower.png";
@@ -442,6 +442,55 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
       </div>
     </section>
 
+    {/* CUT DEAD BRANCHES — analytics dashboard banner (reference) */}
+    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" style={{ zoom: 1.2 }} data-testid="home-bloom-section">
+      <Reveal>
+        <div className="mx-auto grid max-w-6xl overflow-hidden rounded-3xl lg:grid-cols-2" data-testid="home-bloom-banner">
+          {/* left: phone dashboard art */}
+          <div className="relative min-h-[460px] overflow-hidden bg-[#07090d] p-8">
+            {/* sweeping green line with glow */}
+            <svg className="absolute inset-0 h-full w-full" viewBox="0 0 600 460" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="6" result="b" />
+                  <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
+              </defs>
+              <path d="M-20 330 C 60 320 90 250 150 260 C 210 270 250 300 320 240 C 380 190 420 210 470 180 C 520 150 560 170 620 140"
+                fill="none" stroke="#00c867" strokeWidth="2.5" filter="url(#glowGreen)" className="dash-flow" />
+              <circle cx="470" cy="180" r="9" fill="#00c867" filter="url(#glowGreen)" className="bloom-pulse" />
+            </svg>
+            {/* legend labels */}
+            <div className="absolute bottom-10 left-8 text-white">
+              <p className="text-[10px] text-[#f5d90a]">—</p>
+              <p className="text-xs font-bold">Spot</p>
+              <p className="text-[11px] text-slate-300">+€242.00</p>
+              <p className="mt-4 text-[10px] text-[#2775ca]">—</p>
+              <p className="text-xs font-bold">Staking</p>
+              <p className="text-[11px] text-slate-300">+€26.80</p>
+            </div>
+            <div className="absolute bottom-10 right-8 text-white">
+              <p className="text-[10px] text-[#e6007a]">—</p>
+              <p className="text-xs font-bold">Pockets</p>
+              <p className="text-[11px] text-slate-300">+€68.84</p>
+            </div>
+            {/* phone */}
+            <BloomPhone />
+          </div>
+          {/* right: copy */}
+          <div className="flex flex-col justify-center bg-[#15181e] p-8 text-white sm:p-12">
+            <h3 className="text-3xl font-bold tracking-tight">{_t("Cut dead branches.")}<br /><span className="text-[#00c867]">{_t("Let the rest bloom.")}</span></h3>
+            <p className="mt-4 text-sm leading-relaxed text-slate-300 max-w-sm">
+              {_t("See at a glance what's holding back your growth and what's working. A complete dashboard to keep your portfolio balanced.")}
+            </p>
+            <Link to="/login?modo=registro" className="mt-7 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-6 py-3 text-xs font-bold text-primary-foreground hover:bg-primary/90 transition" data-testid="home-bloom-cta">
+              {_t("Create your account")} <ArrowUpRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+
     {/* 02 — PRODUCTS */}
     <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-border">
       <p className="eyebrow mb-5">{_t("02 — Products")}</p>
@@ -515,6 +564,69 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
     </section>
   </SiteLayout>
 );
+
+/* Interactive dashboard phone (bloom banner) */
+const BLOOM_RANGES = {
+  "1Y": { label: "Last 12 months", gain: "+€612.40", ret: "38.2%", pts: [[0,80],[22,74],[44,78],[66,60],[88,66],[110,48],[132,56],[154,38],[176,44],[200,28],[220,34]], months: ["Jul","Sep","Nov","Jan","Mar","May"] },
+  "6M": { label: "Last 6 months", gain: "+€245.84", ret: "16.74%", pts: [[0,72],[22,66],[44,70],[66,52],[88,60],[110,42],[132,50],[154,34],[176,40],[200,30],[220,36]], months: ["Jan","Feb","Mar","Apr","May","Jun"] },
+  "1M": { label: "Last month", gain: "+€48.20", ret: "3.1%", pts: [[0,60],[28,52],[56,58],[84,44],[112,50],[140,38],[168,44],[220,32]], months: ["W1","W2","W3","W4"] },
+  "1W": { label: "Last week", gain: "+€12.84", ret: "0.8%", pts: [[0,50],[30,46],[60,52],[90,42],[120,48],[150,40],[180,44],[220,36]], months: ["Mon","Wed","Fri","Sun"] },
+} as const;
+
+function BloomPhone(){
+  const [range, setRange] = useState<keyof typeof BLOOM_RANGES>("6M");
+  const d = BLOOM_RANGES[range];
+  return (
+    <div className="phone-float relative mx-auto w-60 rounded-[2rem] border-[6px] border-black bg-[#0c0e12] p-4 shadow-2xl" data-testid="home-bloom-phone">
+      {/* Overall card */}
+      <div className="rounded-2xl bg-[#15181e] p-4">
+        <div className="flex items-center justify-between">
+          <p className="text-xs font-bold text-white">{_t("Overall")}</p>
+          <Info className="h-3 w-3 text-slate-500" />
+        </div>
+        <p className="mt-1.5 text-[9px] text-slate-400">{d.label}</p>
+        <p className="text-base font-bold text-[#00c867]" data-testid="bloom-gain">{d.gain}</p>
+        <p className="text-[9px] text-slate-400">↑ {d.ret} {_t("total return")}</p>
+        <svg viewBox="0 0 220 90" className="mt-2 w-full">
+          <defs>
+            <linearGradient id="bloomFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#00c867" stopOpacity=".35" />
+              <stop offset="1" stopColor="#00c867" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <polygon points={`0,90 ${d.pts.map(p => p.join(",")).join(" ")} 220,90`} fill="url(#bloomFill)" />
+          <polyline points={d.pts.map(p => p.join(",")).join(" ")} fill="none" stroke="#00c867" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <div className="mt-1 flex justify-between text-[7px] text-slate-500">
+          {d.months.map(m => <span key={m}>{m}</span>)}
+        </div>
+        <div className="mt-2 flex justify-center gap-1">
+          {(Object.keys(BLOOM_RANGES) as (keyof typeof BLOOM_RANGES)[]).map((r) => (
+            <button key={r} onClick={() => setRange(r)} data-testid={`bloom-range-${r}`}
+              className={`rounded-full px-2.5 py-1 text-[9px] font-bold transition ${range === r ? "bg-slate-600 text-white" : "text-slate-500 hover:text-slate-300"}`}>
+              {r}
+            </button>
+          ))}
+        </div>
+      </div>
+      {/* By category card */}
+      <div className="mt-3 rounded-2xl bg-[#15181e] p-4">
+        <div className="flex items-center justify-between">
+          <p className="text-xs font-bold text-white">{_t("By category")}</p>
+          <Info className="h-3 w-3 text-slate-500" />
+        </div>
+        <p className="mt-1.5 text-[9px] text-slate-400">{_t("Last month")}</p>
+        <p className="text-base font-bold text-[#00c867]">+€24.84</p>
+        <p className="text-[9px] text-slate-400">↑ 1.82% {_t("total return")}</p>
+        <svg viewBox="0 0 220 60" className="mt-2 w-full">
+          <polyline points="0,40 24,34 48,42 72,30 96,38 120,28 144,36 168,26 192,34 220,24" fill="none" stroke="#f5d90a" strokeWidth="1.8" strokeLinecap="round" />
+          <polyline points="0,46 24,44 48,50 72,40 96,46 120,36 144,44 168,34 192,42 220,32" fill="none" stroke="#e6007a" strokeWidth="1.8" strokeLinecap="round" />
+          <polyline points="0,52 24,48 48,54 72,46 96,52 120,42 144,50 168,40 192,48 220,38" fill="none" stroke="#2775ca" strokeWidth="1.8" strokeLinecap="round" />
+        </svg>
+      </div>
+    </div>
+  );
+}
 
 /* Interactive account phone mockup (home ACCOUNT card) */
 const PHONE_RANGES = {

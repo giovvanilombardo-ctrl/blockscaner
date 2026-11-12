@@ -211,3 +211,11 @@ html {
 .dash-flow{ animation:dash-flow 2.6s linear infinite; }
 .dash-flow-rev{ animation-direction:reverse; }
 @media (prefers-reduced-motion: reduce){ .dash-flow{ animation:none; } }
+
+/* ---------- bloom glow dot pulse ---------- */
+@keyframes bloom-pulse{
+  0%, 100%{ opacity:1; r:9; }
+  50%{ opacity:.55; r:7; }
+}
+.bloom-pulse{ animation:bloom-pulse 2.8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce){ .bloom-pulse{ animation:none; } }
