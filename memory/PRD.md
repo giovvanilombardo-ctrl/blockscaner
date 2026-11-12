@@ -372,3 +372,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   strip. Home page now: hero -> everyday -> card -> planning -> bloom -> clubs (+tiers) -> final CTA ->
   footer.
 
+- **Footer replaced (2026-11-12)**: SiteFooter.tsx rebuilt to match the Young Platform dark footer:
+  near-black bg, 4 link columns (Products/Learn/About us/Support), brand row (logo, language buttons,
+  Download + store icons, social icons), legal small print (MiCAR services, contractual documentation,
+  payment account, risk warning — rebranded to Blockscaner, YNG token paragraph dropped), and bottom
+  line "© 2026 Blockscaner. All rights reserved" + working "Update cookie settings" button.
+
