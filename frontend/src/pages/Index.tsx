@@ -26,7 +26,7 @@ const Index = ({ onResetCookies }: { onResetCookies?: () => void }) => (
     </section>
 
     {/* EVERYDAY — "From today's shopping to tomorrow's plans." (reference) */}
-    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" style={{ zoom: 1.2 }} data-testid="home-everyday">
+    <section className="px-6 lg:px-10 py-20 lg:py-28 bg-white" style={{ zoom: 1.1 }} data-testid="home-everyday">
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-foreground">
           {_t("From today's shopping")}<br />{_t("to tomorrow's plans.")}
