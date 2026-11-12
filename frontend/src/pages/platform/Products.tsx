@@ -1,6 +1,7 @@
 import { PageShell, CTAButtons } from "./_shell";
 import { t as _t } from "@/i18n";
 import { ArrowLeftRight, Wallet, TrendingUp, ShieldCheck, CreditCard, Layers } from "lucide-react";
+import { StepHero } from "./Step";
 
 const PRODUCTS = [
   { icon: ArrowLeftRight, title: "Trade", desc: "Buy, sell and swap crypto instantly at live market rates with transparent, low fees." },
@@ -14,6 +15,7 @@ const PRODUCTS = [
 export default function Products(){
   return (
     <PageShell kicker="Products" title="Everything you need to trade and invest in crypto" lead="One account to buy, hold, swap and grow your crypto — built for clarity, security and control.">
+      <StepHero />
       <div className="pf-grid">
         {PRODUCTS.map((p)=>{ const I=p.icon; return (
           <div key={p.title} className="pf-card">

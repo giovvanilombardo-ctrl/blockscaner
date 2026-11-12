@@ -221,7 +221,7 @@ html {
 @media (prefers-reduced-motion: reduce){ .bloom-pulse{ animation:none; } }
 
 /* ---------- Blockscaner Step hero (reference design) ---------- */
-.st-wrap{ padding:2.5rem 1.5rem 4rem; background:#fff; }
+.st-wrap{ padding:2.5rem 1.5rem 4rem; background:#fff; zoom:1.25; }
 .st-hero{ position:relative; max-width:1200px; margin:0 auto; border-radius:28px; overflow:hidden;
   min-height:560px; background:#e9e9e6; display:grid; grid-template-columns:1.05fr 1fr; align-items:center; }
 .st-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:right bottom; }
