@@ -291,7 +291,7 @@ export default function Academy() {
             <Card tags={["Stocks"]} title="Options: what are they and how do they work?" to="/products/academy/options"
               desc="Options in finance are contracts giving the right, but not the obligation, to buy or sell an asset at a set price by a certain date, with a paid premium."
               date="September 10, 2024" mins={5} art={ArtOptions} />
-            <Card tags={["Stocks"]} title="Stakeholders: who they are and how to identify them"
+            <Card tags={["Stocks"]} title="Stakeholders: who they are and how to identify them" to="/products/academy/stakeholders"
               desc="What is a stakeholder? Discover the meaning of stakeholders, their types, practical examples, and the process of stakeholder mapping."
               date="June 25, 2024" mins={5} art={ArtStake} />
           </div>
