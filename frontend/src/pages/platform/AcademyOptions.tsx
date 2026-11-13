@@ -58,6 +58,44 @@ export default function AcademyOptions() {
           </ul>
         </div>
 
+        {/* Article body */}
+        <div className="ac-body">
+          <p>Options are a type of financial derivative whose value depends on the price of an underlying asset. The underlying asset may be “real,” such as a commodity, or “financial,” like stocks, bonds, or exchange rates. The term “derivative” signifies this dependence on the underlying asset. Options provide flexibility for traders and investors, allowing them to speculate or hedge against market risk.</p>
+
+          <h2 id="options-definition">What is an option in finance? A definition</h2>
+          <p>In finance, an option is a contract granting the holder the right, but not the obligation, to buy (Call) or sell (Put) an asset at a predetermined price (strike price) within a set period (maturity). For this right, the buyer pays a premium. Options function similarly to insurance policies: the buyer pays a premium for protection in the event of a specified market movement.</p>
+          <p>If this movement doesn’t occur, the buyer forfeits the premium. Options also amplify market exposure via leverage since each option contract typically covers multiple assets.</p>
+
+          <h2 id="options-types">Key types of options</h2>
+          <p>Having covered the basic option finance definition, let’s explore the main types of options and their specific characteristics:</p>
+          <ul>
+            <li><b>Call options:</b> These give the holder the right to buy the underlying asset at the strike price before expiration. When the holder expects a price increase, call options are similar to a long position but only yield a profit if the asset reaches the strike price.</li>
+            <li><b>Put options:</b> These are the inverse of Calls, allowing the holder to sell an asset at the strike price if the price falls. They function similarly to short selling, letting investors “bet” on a price decrease.</li>
+            <li><b>American options:</b> These options can be exercised at any point before expiration, offering more flexibility than standard European options.</li>
+            <li><b>Exotic options:</b> These options have complex features beyond standard options, such as barrier or binary options, which are only exercised if they hit a specified price.</li>
+            <li><b>Over-the-counter (OTC) options:</b> OTC options are custom contracts directly negotiated between parties, often used by institutional investors for specific hedging needs.</li>
+          </ul>
+
+          <h2 id="options-practical">How options work: a practical example</h2>
+          <p>Let’s consider a practical example to understand better how options work. Suppose you purchase a Call option on NVIDIA with a strike price of $140, covering 100 shares and expiring in 90 days. You pay a premium of $2 per share. Currently, NVIDIA’s price is about $110.</p>
+          <p>In 90 days, you’ll have the right to buy these shares at $140 each, regardless of their market price. You must also account for the premium cost of $200 (100 shares x $2).</p>
+          <p>If NVIDIA’s price remains at $110, there’s no benefit in exercising the option at $140. The premium cost would be lost. However, if NVIDIA’s price rises to $200, your option allows you to buy 100 shares worth $20,000 for just $14,000. After deducting the $200 premium, your contract value is $5,800, giving you the choice to purchase the shares or sell the option for a profit.</p>
+          <p>Put options operate similarly but with an opposite outlook. Buyers of Put options expect prices to fall.</p>
+
+          <h2 id="options-asymmetry">Asymmetry of risk and reward in options</h2>
+          <p>A key concept in options trading is the asymmetry of risk and reward. For Call options, the potential profit is limitless, as it depends solely on how much the underlying asset rises. Conversely, potential losses are capped at the premium paid.</p>
+          <p>For example, if the option expires below $142, our profit and loss (P&amp;L) is zero. This is because the price increase only offsets the premium cost. Conversely, if prices drop, we’re protected as we can simply choose not to exercise the option, with the premium as our only loss.</p>
+          <div className="ac-note">
+            <h4>Break-even point:</h4>
+            <p>Break-even = strike price * number of shares + premium ÷ number of shares = (140 * 100) + 200 ÷ 100 = <b>$142</b></p>
+          </div>
+
+          <h3 id="options-sellers">Option sellers</h3>
+          <p>Now that you know what options are and how they work, you might wonder why anyone would sell options. Options require two parties: the buyer of a Call or Put and the seller, who plays the role of an “insurer.” For sellers, the risk-reward profile is reversed.</p>
+          <p>Option sellers can earn up to the premium paid (e.g., $200 in our example). Still, their losses are theoretically unlimited if the asset’s price rises sharply, as they must sell it at the strike price of $140 regardless of its market value.</p>
+          <p>In summary, options create a zero-sum scenario: one party gains while the other loses. They’re valuable tools for hedging or leveraging, but they require experience and are not ideal for beginners. Therefore, they are often found only on platforms suited to advanced traders.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );
