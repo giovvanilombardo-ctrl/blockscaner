@@ -650,3 +650,14 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - **Berachain card link fix (2026-11-14)**: added missing to="/products/academy/berachain" to the
   Berachain card in the Academy Technology section (Academy.tsx). Card now navigates to the article
   page.
+
+- **Academy Raydium article (2026-11-14)**: new route /products/academy/raydium
+  (frontend/src/pages/platform/AcademyRaydium.tsx). Full article: header (breadcrumb, Crypto Market
+  tag, H1, Nov 21 2024 / 6 min), blue hexagon R hero, You-will-learn box with 5 anchors, and full
+  body: intro, "Raydium: what is it, and how does it work?" (OpenBook integration), "The structure
+  of Raydium" (Token Swap, Integration with OpenBook, Liquidity pools, Farming and yield
+  optimisation), "How Raydium works: the evolution of the project" (65k TPS, Serum to OpenBook),
+  "Token RAY and Governance" (555M supply, 290M circulation, $200B volume). Closing blocks: purple
+  "Buy SOL on Blockscaner" banner (.ac-buy-sol), legal disclaimer, Related grid (Fetch.ai yellow
+  lens art, Play-to-Earn blue controller art, Yield Farming blue lock art). Route registered in
+  App.tsx; card linked in Academy.tsx. Article complete end to end. Verified by screenshots.

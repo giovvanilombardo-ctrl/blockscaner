@@ -1119,3 +1119,8 @@ html {
 /* ---------- Academy Berachain: brown buy banner ---------- */
 .ac-buy-bera{ background:#7a3b12; }
 .ac-buy-bera h3{ color:#fff; }
+
+/* ---------- Academy Raydium: purple buy banner ---------- */
+.ac-buy-sol{ background:linear-gradient(120deg,#c9b8f5,#a98bff); }
+.ac-buy-sol h3{ color:#0f0f12; }
+.ac-buy-sol .ac-buy-btn{ background:#0d0d12; color:#fff; }
