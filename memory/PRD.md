@@ -757,3 +757,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Ecosystem.tsx to show a real professional trading platform — BTC/EUR pair tabs, price header with
   24h high/low, candlestick chart with moving average line, volume bars, order book with bid/ask
   levels, and Buy/Sell buttons. Verified by screenshot.
+
+- **Ecosystem Easy card art upgraded (2026-11-14)**: rebuilt the Crypto Made Easy phone art in
+  Ecosystem.tsx to show a realistic crypto account profile — phone with notch and status bar, Home
+  header with icons, Total Balance 262.48 € with +2.4% badge, Analytics chart card, Profit & Loss
+  +3.85 €, My holdings with Bitcoin/Ethereum rows, and bottom nav bar. Verified by screenshot.

@@ -17,38 +17,75 @@ function PhoneEasy() {
   return (
     <svg viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice" className="eco-phone">
       <defs>
-        <linearGradient id="ecoEasyBg" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#2ee58a"/><stop offset="1" stopColor="#14c96e"/>
+        <linearGradient id="ecoEasyBg2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#2ee58a"/><stop offset="1" stopColor="#0db85f"/>
+        </linearGradient>
+        <linearGradient id="ecoEasyPhone" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fff"/><stop offset="1" stopColor="#f2f2f5"/>
         </linearGradient>
       </defs>
-      <rect width="320" height="260" fill="url(#ecoEasyBg)"/>
-      {/* phone */}
-      <rect x="96" y="20" width="128" height="240" rx="18" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
-      <text x="108" y="42" fontSize="10" fill="#0f0f12">10:58</text>
-      <g fill="#0f0f12"><rect x="196" y="36" width="8" height="6" rx="1"/><rect x="208" y="34" width="10" height="8" rx="2"/></g>
-      {/* Home */}
-      <text x="108" y="66" fontSize="13" fontWeight="800" fill="#0f0f12">Home</text>
-      <circle cx="196" cy="62" r="5" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
-      <circle cx="210" cy="62" r="5" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
-      {/* balance */}
-      <text x="108" y="90" fontSize="18" fontWeight="800" fill="#0f0f12">262.48 €</text>
-      <text x="108" y="104" fontSize="7.5" fill="#8b8b93">Total Balance</text>
-      <rect x="196" y="84" width="18" height="12" rx="6" fill="#2ee58a"/>
-      <text x="205" y="93" fontSize="6" textAnchor="middle" fill="#0d0d12">+2.4%</text>
-      {/* analytics */}
-      <text x="108" y="128" fontSize="10" fontWeight="800" fill="#0f0f12">Analytics</text>
-      <rect x="108" y="138" width="96" height="1.5" fill="#eeeef3"/>
-      {/* mini chart */}
-      <path d="M110 160 L118 154 L126 158 L134 148 L142 152 L150 144 L158 148 L166 140 L174 144 L182 138 L190 142 L198 136" stroke="#2ee58a" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
-      <text x="108" y="176" fontSize="7.5" fill="#8b8b93">Profit & Loss</text>
-      <text x="108" y="186" fontSize="8.5" fontWeight="800" fill="#16a34a">+3.85 €</text>
-      <text x="108" y="196" fontSize="7" fill="#8b8b93">24h</text>
-      {/* stats */}
-      <text x="150" y="176" fontSize="7.5" fill="#8b8b93">Statistics</text>
-      <text x="150" y="186" fontSize="6.5" fill="#57575c">Manage your crypto wallet better</text>
+      <rect width="320" height="260" fill="url(#ecoEasyBg2)"/>
+      {/* soft glow behind phone */}
+      <ellipse cx="160" cy="140" rx="90" ry="120" fill="#fff" opacity=".12"/>
+      {/* phone body */}
+      <rect x="94" y="14" width="132" height="252" rx="20" fill="#0d0d12"/>
+      <rect x="98" y="18" width="124" height="244" rx="16" fill="url(#ecoEasyPhone)"/>
+      {/* notch */}
+      <rect x="136" y="18" width="48" height="8" rx="4" fill="#0d0d12"/>
+      {/* status bar */}
+      <text x="104" y="36" fontSize="9" fontWeight="700" fill="#0f0f12">10:58</text>
       <g fill="#0f0f12">
-        <circle cx="154" cy="200" r="2.4"/><circle cx="162" cy="200" r="2.4"/><circle cx="170" cy="200" r="2.4"/>
+        <path d="M196 30 h1.6 v5 h-1.6 Z M199 29 h1.6 v6 h-1.6 Z M202 28 h1.6 v7 h-1.6 Z M205 27 h1.6 v8 h-1.6 Z"/>
+        <rect x="210" y="27" width="9" height="7" rx="1.6" fill="none" stroke="#0f0f12" strokeWidth="1"/>
+        <rect x="212" y="29" width="5" height="3" rx=".8" fill="#0f0f12"/>
       </g>
+      {/* header */}
+      <text x="104" y="58" fontSize="13" fontWeight="800" fill="#0f0f12">Home</text>
+      <circle cx="196" cy="54" r="5" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+      <circle cx="196" cy="54" r="1.6" fill="#0f0f12"/>
+      <circle cx="210" cy="54" r="5" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+      <circle cx="210" cy="51" r="1" fill="#e11d48"/>
+      {/* balance */}
+      <text x="104" y="80" fontSize="8" fill="#8b8b93">Total Balance</text>
+      <text x="104" y="96" fontSize="19" fontWeight="800" fill="#0f0f12">262.48 €</text>
+      <rect x="180" y="84" width="34" height="13" rx="6.5" fill="#e6f9ef"/>
+      <text x="197" y="93.5" fontSize="7" textAnchor="middle" fill="#16a34a" fontWeight="800">+2.4%</text>
+      {/* chart card */}
+      <rect x="104" y="106" width="112" height="52" rx="10" fill="#fff" stroke="#eeeef3" strokeWidth="1"/>
+      <text x="110" y="118" fontSize="7" fill="#8b8b93">Analytics</text>
+      <path d="M108 148 L116 142 L124 146 L132 136 L140 140 L148 130 L156 134 L164 126 L172 130 L180 122 L188 126 L196 118 L204 122" stroke="#2ee58a" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
+      <path d="M108 148 L116 142 L124 146 L132 136 L140 140 L148 130 L156 134 L164 126 L172 130 L180 122 L188 126 L196 118 L204 122 L204 154 L108 154 Z" fill="#2ee58a" opacity=".08"/>
+      {/* profit */}
+      <text x="110" y="168" fontSize="6.5" fill="#8b8b93">Profit & Loss</text>
+      <text x="110" y="177" fontSize="8" fontWeight="800" fill="#16a34a">+3.85 €</text>
+      {/* holdings */}
+      <text x="104" y="196" fontSize="9" fontWeight="800" fill="#0f0f12">My holdings</text>
+      <text x="216" y="196" fontSize="6.5" textAnchor="end" fill="#8b8b93">See all</text>
+      {/* coin rows */}
+      <g fontSize="8">
+        <circle cx="112" cy="210" r="8" fill="#f7931a"/>
+        <text x="112" y="213" fontSize="9" fontWeight="800" textAnchor="middle" fill="#fff">₿</text>
+        <text x="124" y="208" fontWeight="800" fill="#0f0f12">Bitcoin</text>
+        <text x="124" y="217" fontSize="6.5" fill="#8b8b93">0.0042 BTC</text>
+        <text x="216" y="208" fontSize="8" fontWeight="800" textAnchor="end" fill="#0f0f12">112.30 €</text>
+        <text x="216" y="217" fontSize="6.5" textAnchor="end" fill="#16a34a">+1.8%</text>
+        <circle cx="112" cy="234" r="8" fill="#627eea"/>
+        <path d="M112 228 l5 7 -5 7 -5 -7 Z" fill="#fff"/>
+        <text x="124" y="232" fontWeight="800" fill="#0f0f12">Ethereum</text>
+        <text x="124" y="241" fontSize="6.5" fill="#8b8b93">0.08 ETH</text>
+        <text x="216" y="232" fontSize="8" fontWeight="800" textAnchor="end" fill="#0f0f12">150.18 €</text>
+        <text x="216" y="241" fontSize="6.5" textAnchor="end" fill="#e11d48">-0.6%</text>
+      </g>
+      {/* bottom nav */}
+      <rect x="98" y="246" width="124" height="16" rx="0" fill="#fff"/>
+      <g fill="#8b8b93">
+        <circle cx="116" cy="254" r="2.6"/>
+        <rect x="140" y="251" width="5" height="5" rx="1"/>
+        <circle cx="164" cy="254" r="2.6"/>
+        <rect x="184" y="251" width="5" height="5" rx="1"/>
+        <circle cx="206" cy="254" r="2.6"/>
+      </g>
+      <circle cx="116" cy="254" r="4" fill="none" stroke="#14c96e" strokeWidth="1.4"/>
     </svg>
   );
 }
