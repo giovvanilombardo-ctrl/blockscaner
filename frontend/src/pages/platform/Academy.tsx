@@ -288,7 +288,7 @@ export default function Academy() {
             <Card tags={["Stocks"]} title="What are bonds and how do they work?" to="/products/academy/bonds"
               desc="What are bonds, and how do they work? The financial instruments that reduce the portfolio risk"
               date="April 17, 2026" mins={14} art={ArtBonds} />
-            <Card tags={["Stocks"]} title="Options: what are they and how do they work?"
+            <Card tags={["Stocks"]} title="Options: what are they and how do they work?" to="/products/academy/options"
               desc="Options in finance are contracts giving the right, but not the obligation, to buy or sell an asset at a set price by a certain date, with a paid premium."
               date="September 10, 2024" mins={5} art={ArtOptions} />
             <Card tags={["Stocks"]} title="Stakeholders: who they are and how to identify them"
