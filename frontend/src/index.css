@@ -608,3 +608,9 @@ html {
   .ac-buy-art{ max-width:260px; }
 }
 
+/* ---------- Academy article: scroll-to-top ---------- */
+.ac-totop{ position:fixed; right:1.6rem; bottom:1.6rem; width:48px; height:48px; border-radius:50%;
+  background:#fff; border:1px solid #f1f1f4; box-shadow:0 8px 24px rgba(15,15,18,.12);
+  display:grid; place-items:center; cursor:pointer; z-index:50; transition:transform .2s ease, box-shadow .2s ease; }
+.ac-totop:hover{ transform:translateY(-3px); box-shadow:0 12px 28px rgba(15,15,18,.16); }
+

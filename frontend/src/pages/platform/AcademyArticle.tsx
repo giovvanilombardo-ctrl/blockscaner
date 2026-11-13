@@ -137,6 +137,15 @@ export default function AcademyArticle() {
           <p>This affected The DAO, a project built on Ethereum, whose token sale the SEC deemed an unregistered offering of securities, as well as the two largest token sales: Block.one, the company behind EOS, was forced to pay a $24M penalty (after a $4B ICO), while Telegram, which had raised $1.7B through two private sales of its TON token in 2018, was sued by the SEC, which argued the tokens were securities. In 2020, Telegram abandoned the project, paid an $18.5M fine and returned $1.2B to investors. TON was later continued independently by the community.</p>
         </div>
 
+        {/* Scroll to top button */}
+        <button
+          className="ac-totop"
+          aria-label="Scroll to top"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 20V6M6 12l6-6 6 6" stroke="#0f0f12" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+
         {/* Buy CTA */}
         <div className="ac-buy">
           <div className="ac-buy-left">
