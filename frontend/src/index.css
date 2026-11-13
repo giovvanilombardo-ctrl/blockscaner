@@ -805,3 +805,11 @@ html {
 .ac-adv-ic{ width:44px; height:44px; flex:none; display:grid; place-items:center; }
 .ac-adv-item p{ margin:0; font-size:.92rem; font-weight:800; color:#0f0f12; }
 
+/* ---------- Academy rate sensitivity diagram ---------- */
+.ac-rate{ margin-top:1.4rem; display:flex; flex-direction:column; gap:1rem; max-width:460px; margin-left:auto; margin-right:auto; }
+.ac-rate-row{ display:flex; align-items:center; justify-content:center; gap:.9rem; }
+.ac-rate-chip{ background:#8b5cf6; color:#fff; font-weight:800; font-size:.82rem; border-radius:10px; padding:.55rem .9rem; }
+.ac-rate-arrow{ width:24px; height:24px; border-radius:50%; display:grid; place-items:center; flex:none; }
+.ac-rate-arrow.up{ background:#22c55e; }
+.ac-rate-arrow.down{ background:#f97316; }
+

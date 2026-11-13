@@ -398,6 +398,58 @@ export default function AcademyBonds() {
           <p>To understand this better, let’s take a simple example: imagine you have a bond that pays 2% interest. If, at a later date, the central bank raises rates and new bonds offering 4% start to be issued, your bond — which pays only 2% — becomes less attractive to other investors. Consequently, its market price falls.</p>
         </div>
 
+        {/* Interest rate sensitivity diagram */}
+        <section className="ac-summary" data-testid="bonds-rate-sensitivity">
+          <h3 className="ac-adv-title" style={{ textAlign: "center" }}>Interest rate sensitivity</h3>
+          <div className="ac-rate">
+            <div className="ac-rate-row">
+              <span className="ac-rate-chip">Interest rates</span>
+              <span className="ac-rate-arrow up"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v12M6 11l6-6 6 6" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span className="ac-rate-chip">Bond price</span>
+              <span className="ac-rate-arrow down"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 19V7M6 13l6 6 6-6" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            </div>
+            <div className="ac-rate-row">
+              <span className="ac-rate-chip">Interest rates</span>
+              <span className="ac-rate-arrow down"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 19V7M6 13l6 6 6-6" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span className="ac-rate-chip">Bond price</span>
+              <span className="ac-rate-arrow up"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v12M6 11l6-6 6 6" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            </div>
+          </div>
+        </section>
+
+        {/* Article body — continued */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <p><b>Although this risk can be mitigated by holding the bond to maturity</b> (thus collecting the agreed face value), it remains a crucial factor for investors to consider.</p>
+          <p>If the investor needs to liquidate the investment before maturity, they may be forced to sell at a price lower than the purchase price, thereby incurring a loss.</p>
+
+          <h3 id="bonds-inflation-risk">Inflation risk</h3>
+          <p>This risk mainly concerns <b>long-term</b> bonds or those issued in <b>foreign currencies that are less stable</b> than the world’s major currencies.</p>
+          <p>Inflation risk arises when, despite the bond’s nominal yield being positive, the general rise in prices erodes, or even cancels out, the real return on the investment. If, for example, we take a bond offering a yield of <b>3%</b> and inflation of <b>4%</b>, the real yield will be negative (<b>-1%</b>), resulting in a loss of purchasing power for the investor.</p>
+        </div>
+
+        {/* Academy image: Risks associated with bonds */}
+        <section className="ac-summary" data-testid="bonds-risks-img">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+          <h2 className="ac-adv-title">Risks associated with bonds</h2>
+          <div className="ac-adv-list">
+            <div className="ac-adv-item">
+              <span className="ac-adv-ic"><svg viewBox="0 0 40 40" width="38" height="38"><circle cx="20" cy="20" r="17" fill="none" stroke="#0d0d12" strokeWidth="1.6"/><rect x="12" y="14" width="16" height="12" rx="2" fill="#0d0d12"/><text x="20" y="23.4" fontSize="9" fontWeight="800" textAnchor="middle" fill="#fff">€</text><path d="M26 16 l3 -3 M28 19 l3 -3" stroke="#0d0d12" strokeWidth="1.6"/></svg></span>
+              <p>Credit risk (issuer default)</p>
+            </div>
+            <div className="ac-adv-item">
+              <span className="ac-adv-ic"><svg viewBox="0 0 40 40" width="38" height="38"><circle cx="20" cy="20" r="17" fill="none" stroke="#0d0d12" strokeWidth="1.6"/><rect x="12" y="16" width="4" height="10" fill="#0d0d12"/><rect x="18" y="12" width="4" height="14" fill="#0d0d12"/><rect x="24" y="18" width="4" height="8" fill="#0d0d12"/></svg></span>
+              <p>Interest rate risk</p>
+            </div>
+            <div className="ac-adv-item">
+              <span className="ac-adv-ic"><svg viewBox="0 0 40 40" width="38" height="38"><circle cx="20" cy="20" r="17" fill="none" stroke="#0d0d12" strokeWidth="1.6"/><rect x="11" y="14" width="8" height="12" rx="1.6" fill="#0d0d12"/><text x="15" y="22" fontSize="7" fontWeight="800" textAnchor="middle" fill="#fff">$</text><rect x="21" y="14" width="8" height="12" rx="1.6" fill="#0d0d12"/><text x="25" y="22" fontSize="7" fontWeight="800" textAnchor="middle" fill="#fff">€</text></svg></span>
+              <p>Risk of inflation</p>
+            </div>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
