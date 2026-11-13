@@ -729,3 +729,11 @@ html {
 .ac-tweet-meta{ margin:.8rem 0 0; font-size:.68rem; color:#9a9aa0; }
 .ac-tweet-meta b{ color:#0f0f12; }
 
+/* ---------- Academy tokenomics table ---------- */
+.ac-table{ margin:1.4rem auto 0; width:100%; max-width:340px; border-collapse:separate; border-spacing:0;
+  border:1.5px solid #0d0d12; border-radius:14px; overflow:hidden; background:#fff; }
+.ac-table th{ background:#efe9ff; text-align:left; font-size:.82rem; font-weight:800; color:#0f0f12; padding:.9rem 1.1rem; }
+.ac-table th + th, .ac-table td + td{ border-left:1.5px solid #0d0d12; }
+.ac-table td{ font-size:.78rem; color:#0f0f12; padding:.85rem 1.1rem; border-top:1.5px solid #0d0d12; }
+.ac-table td:first-child{ font-weight:800; }
+

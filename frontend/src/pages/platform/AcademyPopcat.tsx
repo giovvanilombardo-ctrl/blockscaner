@@ -263,6 +263,107 @@ export default function AcademyPopcat() {
           </ul>
         </div>
 
+        {/* Academy tokenomics table */}
+        <section className="ac-summary" data-testid="popcat-tokenomics-table">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+
+          <table className="ac-table">
+            <thead>
+              <tr><th>Feature</th><th>Detail</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Total Supply</td><td>979.94 million $POPCAT</td></tr>
+              <tr><td>Liquidity pool</td><td>93.1% (Locked)</td></tr>
+              <tr><td>Strategic reserve</td><td>6.9% (Multi-Sig Wallet)</td></tr>
+              <tr><td>Taxes</td><td>0% Buy/ 0% Sell</td></tr>
+              <tr><td>Smart contract</td><td>Immutable</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        {/* Article body — final section */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <p>In simple terms, no hidden mechanisms, no fees, no centralised control. $POPCAT is now a project entirely in the hands of its community.</p>
+
+          <h2 id="popcat-more">Just a meme, or is there more to it?</h2>
+          <p>The question that naturally arises after understanding in detail what Popcat is and retracing its history is always the same one we ask ourselves when faced with Dogecoin or Shiba Inu: beyond the meme, is there any substance?</p>
+          <p>The honest answer is: it depends on what you mean by ‘substance’. From a technical standpoint, $POPCAT offers nothing that other tokens do not already have. No DApps, no DeFi ecosystem, no stated practical use case. But anyone who stops there is missing a fundamental part of the equation: the power of a universally recognised meme and a community that has already proven it can defend its project.</p>
+          <p>As with all meme coins, however, volatility is extreme, and the risk of loss is real. Anyone approaching Popcat crypto must do so with the awareness that it is a highly speculative asset, and that price history teaches us that after every ‘moon’ there can be an equally rapid return to Earth.</p>
+          <p>Stay informed, understand market dynamics, and never invest more than you are prepared to lose: this applies to Dogecoin, it applies to Shiba Inu, and it applies — naturally — to Oatmeal the cat as well.</p>
+          <p>Want to buy POPCAT? You can do so directly on Blockscaner: <span role="img" aria-label="point">👉</span> <a href="/products" onClick={(e) => e.preventDefault()} style={{ color: "#7c5cff", fontWeight: 700, textDecoration: "underline" }}>Buy POPCAT on Blockscaner Platform</a></p>
+        </div>
+
+        {/* Related */}
+        <section className="ac-related">
+          <h2>{_t("Related")}</h2>
+          <div className="ac-grid">
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/ethereum-ico")} style={{ cursor: "pointer" }}>
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#c9f5dd"/>
+                  <rect x="46" y="34" width="248" height="142" rx="14" fill="#3ddc84"/>
+                  <rect x="46" y="34" width="248" height="142" rx="14" fill="none" stroke="#0d0d12" strokeWidth="4"/>
+                  <rect x="58" y="46" width="224" height="118" rx="8" fill="none" stroke="#0d0d12" strokeWidth="2" opacity=".5"/>
+                  <path d="M58 60 q14 0 14 -14 M282 60 q-14 0 -14 -14 M58 150 q14 0 14 14 M282 150 q-14 0 -14 14" stroke="#0d0d12" strokeWidth="2.5" fill="none"/>
+                  <circle cx="120" cy="105" r="44" fill="#fff" stroke="#0d0d12" strokeWidth="4"/>
+                  <path d="M120 74 L138 106 L120 118 L102 106 Z" fill="#0d0d12"/>
+                  <path d="M120 74 L138 106 L120 100 Z" fill="#0d0d12" opacity=".55"/>
+                  <circle cx="214" cy="105" r="44" fill="#fff" stroke="#0d0d12" strokeWidth="4"/>
+                  <g fill="none" stroke="#0d0d12" strokeWidth="2.6">
+                    <path d="M214 84 a21 21 0 0 1 21 21"/><path d="M193 105 a21 21 0 0 1 12 -19"/>
+                    <path d="M214 93 a12 12 0 0 1 12 12"/><path d="M202 105 a12 12 0 0 1 6 -10"/>
+                    <path d="M214 101 a4 4 0 0 1 4 4 a4 4 0 0 1 -4 4"/>
+                    <path d="M226 118 a24 24 0 0 1 -22 10"/><path d="M196 118 a20 20 0 0 1 -6 -13"/>
+                  </g>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Ethereum</span></div>
+              <h3>The genesis of Ethereum: the story of the ICO</h3>
+              <p className="ac-desc">The Ethereum ICO showcased an innovative fundraising model that inspired numerous projects and entrepreneurs.</p>
+              <p className="ac-meta">October 9, 2026&nbsp;&nbsp;•&nbsp;&nbsp;10 min</p>
+            </article>
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/bitcoin")} style={{ cursor: "pointer" }}>
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+                  <rect width="220" height="150" fill="#ffe9a8"/>
+                  <path d="M0 150 L60 70 L120 110 L220 30 V150 Z" fill="#0d0d12" opacity=".9"/>
+                  <circle cx="130" cy="66" r="30" fill="#ffd23f" stroke="#0d0d12" strokeWidth="3"/>
+                  <text x="130" y="78" fontSize="30" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text>
+                  <circle cx="70" cy="104" r="16" fill="#ffd23f" stroke="#0d0d12" strokeWidth="3"/>
+                  <text x="70" y="110" fontSize="16" fontWeight="800" textAnchor="middle" fill="#0d0d12">Ł</text>
+                  <circle cx="48" cy="122" r="10" fill="#ffd23f" stroke="#0d0d12" strokeWidth="3"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Bitcoin</span></div>
+              <h3>What is Bitcoin and how does it work?</h3>
+              <p className="ac-desc">Bitcoin is the first cryptocurrency ever created, the most durable, strong and secure. Find out everything about its story and its functioning.</p>
+              <p className="ac-meta">October 8, 2026&nbsp;&nbsp;•&nbsp;&nbsp;11 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+                  <rect width="220" height="150" fill="#d9ccff"/>
+                  <circle cx="110" cy="76" r="44" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+                  <circle cx="110" cy="76" r="34" fill="#0d0d12"/>
+                  <text x="110" y="88" fontSize="34" fontWeight="800" textAnchor="middle" fill="#fff">T</text>
+                  <g stroke="#8b5cf6" strokeWidth="3" fill="none">
+                    <path d="M40 40 L80 60 M180 36 L142 62 M36 112 L76 94 M184 110 L144 92"/>
+                  </g>
+                  <circle cx="40" cy="40" r="10" fill="#8b5cf6"/><circle cx="180" cy="36" r="10" fill="#8b5cf6"/>
+                  <circle cx="36" cy="112" r="10" fill="#8b5cf6"/><circle cx="184" cy="110" r="10" fill="#8b5cf6"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">DeFi</span></div>
+              <h3>Bittensor: What It Is and How It Works</h3>
+              <p className="ac-desc">Explore Bittensor (TAO), the blockchain protocol decentralising machine learning. Learn about subnets, tokenomics, and the future of open-source AI.</p>
+              <p className="ac-meta">February 11, 2026&nbsp;&nbsp;•&nbsp;&nbsp;12 min</p>
+            </article>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
