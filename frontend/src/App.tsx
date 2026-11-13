@@ -35,6 +35,7 @@ import AcademyWyckoff from "./pages/platform/AcademyWyckoff";
 import AcademySupertrend from "./pages/platform/AcademySupertrend";
 import AcademySonic from "./pages/platform/AcademySonic";
 import AcademyPoison from "./pages/platform/AcademyPoison";
+import AcademyBerachain from "./pages/platform/AcademyBerachain";
 import Markets from "./pages/platform/Markets";
 import Business from "./pages/platform/Business";
 import About from "./pages/platform/About";
@@ -77,6 +78,7 @@ const AppContent = () => {
           <Route path="/products/academy/supertrend" element={<AcademySupertrend />} />
           <Route path="/products/academy/sonic" element={<AcademySonic />} />
           <Route path="/products/academy/address-poisoning" element={<AcademyPoison />} />
+          <Route path="/products/academy/berachain" element={<AcademyBerachain />} />
           <Route path="/markets" element={<Markets />} />
           <Route path="/markets/:coinId" element={<CoinDetail />} />
           <Route path="/business" element={<Business />} />

@@ -1115,3 +1115,7 @@ html {
 .ac-poison-flow .ac-summary-brand{ margin-bottom:.6rem; }
 .ac-poison-flow-art{ max-width:640px; margin:0 auto; }
 .ac-poison-flow-art svg{ display:block; width:100%; height:auto; }
+
+/* ---------- Academy Berachain: brown buy banner ---------- */
+.ac-buy-bera{ background:#7a3b12; }
+.ac-buy-bera h3{ color:#fff; }

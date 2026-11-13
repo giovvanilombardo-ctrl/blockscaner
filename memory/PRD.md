@@ -633,3 +633,16 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   responsibility for security in Web3". Closing blocks: sign-up banner, legal disclaimer, Related
   grid (Sonic, Berachain, Bitcoin Block Explorer cards). CSS for bar chart and flow diagrams added.
   Article complete end to end. Verified by screenshots.
+
+- **Academy Berachain article (2026-11-14)**: new route /products/academy/berachain
+  (frontend/src/pages/platform/AcademyBerachain.tsx). Full article: header (breadcrumb, DeFi +
+  Proof-Of-Stake tags, H1, Sep 24 2025 / 15 min), yellow honeycomb bear hero, You-will-learn box
+  with 8 anchors, and full body: "More than just a carbon copy of Ethereum" (EVM Identical,
+  BeaconKit, CometBFT, single-slot finality), "Proof-of-Liquidity: a new security model" (PoW/PoS,
+  PoL v2, two-token architecture), "Reward vaults: the Liquidity Engine" (incentive loop), "BeraChef:
+  the contract that Cooks Up rewards" (Boost APR), "The two-token architecture: BERA and BGT" (500M
+  supply, BGT governance), "HONEY, the ecosystem's stablecoin" (USDC/USDT/pyUSD, Basket Mode), "The
+  dApp ecosystem and the Flywheel Effect" (BeraHub, Kodiak, Infrared, $3B TVL), "Conclusion" (Fat
+  Bera Thesis). Closing blocks: brown "Buy BERA on Blockscaner" banner (.ac-buy-bera), legal
+  disclaimer, Related grid (Sonic, Address poisoning, Bitcoin Block Explorer cards). Route registered
+  in App.tsx. Article complete end to end. Verified by screenshots.
