@@ -329,7 +329,7 @@ export default function Academy() {
             <Card tags={["Crypto Technical Analysis"]} title="Wyckoff theory: what is it, and how does it work?" to="/products/academy/wyckoff"
               desc="Wyckoff theory is a trading method focused on market cycles, guiding traders in understanding price movements through accumulation and distribution."
               date="November 21, 2024" mins={5} art={ArtWyckoff} />
-            <Card tags={["Crypto Technical Analysis"]} title="Supertrend Indicator: What is it, and how does it work?"
+            <Card tags={["Crypto Technical Analysis"]} title="Supertrend Indicator: What is it, and how does it work?" to="/products/academy/supertrend"
               desc="Learn what the Supertrend indicator is, what it measures and how to use it for your trading strategies for cryptocurrencies."
               date="March 22, 2024" mins={7} art={ArtSupertrend} />
           </div>

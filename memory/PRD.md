@@ -593,3 +593,7 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   advantages and disadvantages (strengths, weaknesses), Conclusions. Closing blocks: "Sign up to
   Blockscaner" banner, legal disclaimer, Related grid (Futures, Wyckoff, Bollinger Bands cards).
   Route registered in App.tsx; Wyckoff Related card links to its article. Article complete.
+
+- **Supertrend card link fix (2026-11-14)**: added missing to="/products/academy/supertrend" to the
+  Supertrend card in the Academy Trading section (Academy.tsx). Verified by clicking the card in the
+  preview — it now navigates to the article page.
