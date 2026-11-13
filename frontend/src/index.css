@@ -591,3 +591,20 @@ html {
 .ac-note h4{ margin:0 0 .4rem; font-size:.95rem; font-weight:800; color:#0f0f12; }
 .ac-note p{ margin:0; font-size:.88rem; color:#57575c; line-height:1.6; }
 
+/* ---------- Academy article: buy CTA, disclaimer, related ---------- */
+.ac-buy{ margin-top:3.5rem; display:grid; grid-template-columns:1fr 260px; gap:2rem; align-items:center;
+  background:#eef0fe; border-radius:24px; padding:2rem 2.2rem; }
+.ac-buy-logo{ display:inline-flex; align-items:center; gap:.5rem; font-weight:800; color:#0f0f12; font-size:1.05rem; }
+.ac-buy h3{ font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; letter-spacing:-.02em; color:#0f0f12; margin:.8rem 0 1.2rem; line-height:1.1; }
+.ac-buy-btn{ display:inline-flex; align-items:center; gap:.5rem; background:#0f0f12; color:#fff; border-radius:99px;
+  padding:.7rem 1.2rem; font-size:.9rem; font-weight:800; text-decoration:none; }
+.ac-buy-art svg{ display:block; width:100%; height:auto; }
+.ac-disclaimer{ margin-top:2.2rem; font-size:.8rem; color:#57575c; line-height:1.55; max-width:640px; }
+.ac-disclaimer a{ color:#7c5cff; font-weight:700; text-decoration:underline; }
+.ac-related{ margin-top:3rem; }
+.ac-related h2{ font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; letter-spacing:-.02em; color:#0f0f12; margin:0 0 1.4rem; }
+@media (max-width:700px){
+  .ac-buy{ grid-template-columns:1fr; }
+  .ac-buy-art{ max-width:260px; }
+}
+

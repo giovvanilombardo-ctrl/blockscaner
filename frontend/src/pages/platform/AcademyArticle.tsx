@@ -137,6 +137,104 @@ export default function AcademyArticle() {
           <p>This affected The DAO, a project built on Ethereum, whose token sale the SEC deemed an unregistered offering of securities, as well as the two largest token sales: Block.one, the company behind EOS, was forced to pay a $24M penalty (after a $4B ICO), while Telegram, which had raised $1.7B through two private sales of its TON token in 2018, was sued by the SEC, which argued the tokens were securities. In 2020, Telegram abandoned the project, paid an $18.5M fine and returned $1.2B to investors. TON was later continued independently by the community.</p>
         </div>
 
+        {/* Buy CTA */}
+        <div className="ac-buy">
+          <div className="ac-buy-left">
+            <span className="ac-buy-logo"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="#0f0f12" strokeWidth="1.6"/><path d="M8 8h6a3 3 0 0 1 0 6H8zM8 14h7a3 3 0 0 1 0 6H8z" fill="none" stroke="#0f0f12" strokeWidth="1.6"/><circle cx="17.5" cy="6.5" r="1.3" fill="#1663d9"/></svg>blockscaner</span>
+            <h3>{_t("Buy ETH")}<br />{_t("on Blockscaner")}</h3>
+            <a className="ac-buy-btn" href="/products" onClick={(e) => e.preventDefault()}>{_t("Buy now")} <span>→</span></a>
+          </div>
+          <div className="ac-buy-art">
+            <svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice">
+              <rect width="200" height="120" fill="none"/>
+              <rect x="20" y="34" width="110" height="70" rx="10" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+              <rect x="20" y="34" width="110" height="70" rx="10" fill="none" stroke="#0d0d12" strokeWidth="3"/>
+              <circle cx="75" cy="69" r="20" fill="#3ddc84" stroke="#0d0d12" strokeWidth="3"/>
+              <path d="M75 56 L84 70 L75 76 L66 70 Z" fill="#0d0d12"/>
+              <rect x="112" y="52" width="66" height="42" rx="10" fill="#1663d9"/>
+              <circle cx="130" cy="73" r="11" fill="#fff"/>
+              <text x="152" y="78" fontSize="10" fontWeight="800" fill="#fff">ETH</text>
+            </svg>
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <p className="ac-disclaimer">
+          This content is provided solely for informational and educational purposes and does not constitute financial, legal
+          or tax advice, nor does it represent a public offering or solicitation to invest pursuant to Legislative Decree
+          58/1998 (TUF). Crypto-assets are highly volatile instruments and carry a significant risk of partial or total loss of
+          invested capital. Past performance and any forecasts do not guarantee future results. For a detailed overview of
+          the risks, please refer to the <a href="#" onClick={(e) => e.preventDefault()}>General Risk Disclosure</a>. The payment account offered by Blockscaner is regulated
+          under Legislative Decree 11/2010 and cannot be equated with a bank current account; therefore, it does not
+          benefit from the protections applicable to bank deposits. You are encouraged to perform your own independent
+          and informed assessments, consult the latest <a href="#" onClick={(e) => e.preventDefault()}>Payment Account Terms and Conditions</a> and <a href="#" onClick={(e) => e.preventDefault()}>Currency Exchange
+          Terms and Conditions</a>, and, where appropriate, seek advice from a qualified professional before making any
+          financial or economic decision.
+        </p>
+
+        {/* Related */}
+        <section className="ac-related">
+          <h2>{_t("Related")}</h2>
+          <div className="ac-grid">
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+                  <rect width="220" height="150" fill="#ffe9a8"/>
+                  <path d="M0 150 L60 70 L120 110 L220 30 V150 Z" fill="#0d0d12" opacity=".9"/>
+                  <circle cx="130" cy="66" r="30" fill="#ffd23f" stroke="#0d0d12" strokeWidth="3"/>
+                  <text x="130" y="78" fontSize="30" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text>
+                  <circle cx="70" cy="104" r="16" fill="#ffd23f" stroke="#0d0d12" strokeWidth="3"/>
+                  <text x="70" y="110" fontSize="16" fontWeight="800" textAnchor="middle" fill="#0d0d12">Ł</text>
+                  <circle cx="48" cy="122" r="10" fill="#ffd23f" stroke="#0d0d12" strokeWidth="3"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Bitcoin</span></div>
+              <h3>What is Bitcoin and how does it work?</h3>
+              <p className="ac-desc">Bitcoin is the first cryptocurrency ever created, the most durable, strong and secure. Find out everything about its story and its functioning.</p>
+              <p className="ac-meta">October 8, 2026&nbsp;&nbsp;•&nbsp;&nbsp;11 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+                  <rect width="220" height="150" fill="#ffb3c7"/>
+                  <path d="M0 40 C40 10 80 20 110 50 C140 80 180 90 220 60 V0 H0 Z" fill="#0d0d12"/>
+                  <circle cx="110" cy="84" r="30" fill="#fff"/>
+                  <circle cx="110" cy="84" r="30" fill="none" stroke="#0d0d12" strokeWidth="3"/>
+                  <path d="M94 76 L90 66 L100 70 Z M126 76 L130 66 L120 70 Z" fill="#ff5f8f" stroke="#0d0d12" strokeWidth="2"/>
+                  <circle cx="100" cy="82" r="4" fill="#0d0d12"/><circle cx="120" cy="82" r="4" fill="#0d0d12"/>
+                  <ellipse cx="110" cy="94" rx="8" ry="10" fill="#0d0d12"/>
+                  <ellipse cx="110" cy="94" rx="4" ry="6" fill="#ff5f8f"/>
+                  <circle cx="52" cy="112" r="14" fill="#fff"/><circle cx="176" cy="108" r="10" fill="#fff"/>
+                  <circle cx="186" cy="46" r="12" fill="#ffb3c7" stroke="#0d0d12" strokeWidth="3"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Meme</span></div>
+              <h3>Popcat: what it is and how it works</h3>
+              <p className="ac-desc">POPCAT: what it is and how the 'pop' cat meme coin works</p>
+              <p className="ac-meta">May 8, 2026&nbsp;&nbsp;•&nbsp;&nbsp;7 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+                  <rect width="220" height="150" fill="#d9ccff"/>
+                  <circle cx="110" cy="76" r="44" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+                  <circle cx="110" cy="76" r="34" fill="#0d0d12"/>
+                  <text x="110" y="88" fontSize="34" fontWeight="800" textAnchor="middle" fill="#fff">T</text>
+                  <g stroke="#8b5cf6" strokeWidth="3" fill="none">
+                    <path d="M40 40 L80 60 M180 36 L142 62 M36 112 L76 94 M184 110 L144 92"/>
+                  </g>
+                  <circle cx="40" cy="40" r="10" fill="#8b5cf6"/><circle cx="180" cy="36" r="10" fill="#8b5cf6"/>
+                  <circle cx="36" cy="112" r="10" fill="#8b5cf6"/><circle cx="184" cy="110" r="10" fill="#8b5cf6"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">DeFi</span></div>
+              <h3>Bittensor: What It Is and How It Works</h3>
+              <p className="ac-desc">Explore Bittensor (TAO), the blockchain protocol decentralising machine learning. Learn about subnets, tokenomics, and the future of open-source AI.</p>
+              <p className="ac-meta">February 11, 2026&nbsp;&nbsp;•&nbsp;&nbsp;12 min</p>
+            </article>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
