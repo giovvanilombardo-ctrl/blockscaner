@@ -181,7 +181,7 @@ export default function AcademyRaydium() {
         <section className="ac-related">
           <h2>{_t("Related")}</h2>
           <div className="ac-grid">
-            <article className="ac-card">
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/fetch-ai")} style={{ cursor: "pointer" }}>
               <div className="ac-thumb"><Badge>Beginner</Badge>
                 <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
                   <rect width="340" height="210" fill="#ffe9b3"/>

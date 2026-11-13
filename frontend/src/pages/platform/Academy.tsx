@@ -364,7 +364,7 @@ export default function Academy() {
             <Card tags={["Crypto Market"]} title="Raydium: what it is and how it works" to="/products/academy/raydium"
               desc="What is Raydium and how does it work? We answer this and other key questions about Solana's most popular DEX"
               date="November 21, 2024" mins={6} art={ArtRaydium} />
-            <Card tags={["Crypto Market", "Proof-Of-Stake"]} title="Understanding Fetch.ai (FET): a complete guide with essential information"
+            <Card tags={["Crypto Market", "Proof-Of-Stake"]} title="Understanding Fetch.ai (FET): a complete guide with essential information" to="/products/academy/fetch-ai"
               desc="Fetch.ai merges AI with blockchain. Discover how FET cryptocurrency powers its innovative tech and applications in AI."
               date="December 20, 2023" mins={5} art={ArtFetch} />
           </div>

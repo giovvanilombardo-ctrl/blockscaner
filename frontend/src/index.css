@@ -1124,3 +1124,12 @@ html {
 .ac-buy-sol{ background:linear-gradient(120deg,#c9b8f5,#a98bff); }
 .ac-buy-sol h3{ color:#0f0f12; }
 .ac-buy-sol .ac-buy-btn{ background:#0d0d12; color:#fff; }
+
+/* ---------- Academy Fetch.ai: facts table ---------- */
+.ac-fetch-table{ margin-top:2rem; max-width:640px; margin-left:auto; margin-right:auto;
+  border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(15,15,18,.1); }
+.ac-fetch-row{ display:grid; grid-template-columns:repeat(5,1fr); }
+.ac-fetch-cell{ padding:1.1rem .6rem; text-align:center; font-size:.86rem; font-weight:800; color:#0f0f12;
+  background:#fff; display:flex; align-items:center; justify-content:center; }
+.ac-fetch-row-head .ac-fetch-cell{ background:#e6dcff; }
+.ac-fetch-row .ac-fetch-cell + .ac-fetch-cell{ border-left:1px solid #eeeef3; }

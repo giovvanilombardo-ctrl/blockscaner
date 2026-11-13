@@ -661,3 +661,14 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   "Buy SOL on Blockscaner" banner (.ac-buy-sol), legal disclaimer, Related grid (Fetch.ai yellow
   lens art, Play-to-Earn blue controller art, Yield Farming blue lock art). Route registered in
   App.tsx; card linked in Academy.tsx. Article complete end to end. Verified by screenshots.
+
+- **Academy Fetch.ai article (2026-11-14)**: new route /products/academy/fetch-ai
+  (frontend/src/pages/platform/AcademyFetch.tsx). Full article: header (breadcrumb, Crypto Market +
+  Proof-Of-Stake tags, H1, Dec 20 2023 / 5 min), yellow lens dot-grid hero, intro paragraph, academy
+  badge + facts table (Launch 2017, Founders Humayun Sheikh, Consensus Fetch.ai, Max Supply
+  1,152,997,575 FET, Field AI), and full body: "The genesis and evolution of Fetch.ai (FET)", "The
+  technical infrastructure of Fetch.ai" (Cosmos SDK, WASM, AEAs), "Capabilities of Fetch.ai" (five
+  functionalities), "The FET Token" (2019 Binance IEO, ERC-20, native bridge), "Fetch.ai's Impact:
+  Automotive and Healthcare Sectors" (Collective Learning, Catena-X), "Conclusions". Closing blocks:
+  "Sign up to Blockscaner" banner, legal disclaimer. Route registered in App.tsx; card linked in
+  Academy.tsx and in Raydium Related row. Article complete end to end. Verified by screenshots.
