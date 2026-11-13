@@ -400,3 +400,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   identity-reputation-validation / trust layer). Chart styles: .ac-erc-growth/.ac-erc-chart in
   index.css. Remaining sections (trust problem, What is an ERC, three registries, future of Ethereum)
   awaiting user copy.
+
+- **ERC-8004 trust section (2026-11-13)**: second body section added to AcademyERC.tsx — "The problem
+  of trust between agents" H2, four user-supplied paragraphs (DeFi portfolio scenario, bold trust
+  questions, centralised intermediaries, ERC-8004 proposal by Marco De Rossi/Davide Crapis/Jordan
+  Ellis/Erik Reppel, 13 Aug 2025 proposal / 29 Jan 2026 mainnet) with purple glossary links (DeFi,
+  fees, blockchain; .ac-body a style). Followed by dark EIP-8004 card (.ac-erc-eip): yellow Draft +
+  blue Standards Track: ERC pills, "ERC-8004: Trustless Agents" title, subtitle, and Authors/Created/
+  Discussion Link/Requires rows in near-black (#141419) rounded card. Verified by screenshot.

@@ -141,6 +141,46 @@ export default function AcademyERC() {
           <p>However, this expansion has not yet been matched by the development of adequate shared infrastructure underpinning relationships among the various agents, with the current system forcing agents to operate in fragmented environments, <b>lacking standardised mechanisms to verify the identity of counterparties or to access portable reputation data</b>.</p>
           <p><b>ERC-8004</b> aims to bridge this gap by defining an open standard for <b>the identity</b>, <b>reputation</b> and <b>validation</b> of AI agents on the Ethereum blockchain.</p>
           <p>If you're curious to find out <b>what the ERC-8004 update is</b> and how it could position Ethereum as the fundamental trust layer upon which the future of distributed artificial intelligence rests, you've come to the right place.</p>
+
+          <h2 id="erc-trust">{_t("The problem of trust between agents")}</h2>
+          <p>Imagine a future where an AI agent manages your <a href="#" onClick={(e) => e.preventDefault()}>DeFi</a> portfolio: monitoring prices, moving liquidity between protocols, evaluating returns, and executing trades autonomously. Now imagine that an agent needs to hire a second, more specialised agent — perhaps one that calculates a protocol's risk, or one that optimises transaction <a href="#" onClick={(e) => e.preventDefault()}>fees</a>.</p>
+          <p>At this point, a series of questions might arise, such as: <b>how does the first agent know whether it can trust the second? How does it verify its credentials? How does it check its performance history? How does it ensure it isn't interacting with an imposter?</b></p>
+          <p>Until now, there has been no shared, open answer to these questions. Each platform adopted proprietary solutions, and trust between agents depended on centralised intermediaries.</p>
+          <p><b>ERC-8004</b> stems from a proposal released on <b>13 August 2025</b>, which subsequently went live on the mainnet on <b>29 January 2026</b>, by four of the most prominent developers in the Ethereum ecosystem — Marco De Rossi, Davide Crapis, Jordan Ellis and Erik Reppel — to resolve precisely this problem through a system comprising three ledgers, recreating a history of an AI agent's behaviour within the <a href="#" onClick={(e) => e.preventDefault()}>blockchain</a>.</p>
+
+          {/* EIP-8004 card */}
+          <section className="ac-erc-eipsec" data-testid="erc-eip-card">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <div className="ac-erc-eip">
+              <div className="ac-erc-eip-pills">
+                <span className="ac-erc-eip-draft">⚠ Draft</span>
+                <span className="ac-erc-eip-track">Standards Track: ERC</span>
+              </div>
+              <h3>ERC-8004: Trustless Agents <span className="ac-erc-eip-ic">💬</span><span className="ac-erc-eip-ic">‹ ›</span></h3>
+              <p className="ac-erc-eip-sub">Discover agents and establish trust through reputation and validation</p>
+              <div className="ac-erc-eip-rows">
+                <div className="ac-erc-eip-row">
+                  <span className="ac-erc-eip-k">Authors</span>
+                  <span className="ac-erc-eip-v">Marco De Rossi (<a href="#" onClick={(e) => e.preventDefault()}>@MarcoMetaMask</a>), Davide Crapis (<a href="#" onClick={(e) => e.preventDefault()}>@dcrapis</a>) &lt;<a href="#" onClick={(e) => e.preventDefault()}>davide@ethereum.org</a>&gt;, Jordan Ellis &lt;<a href="#" onClick={(e) => e.preventDefault()}>jordaniellis@google.com</a>&gt;, Erik Reppel &lt;<a href="#" onClick={(e) => e.preventDefault()}>erik.reppel@coinbase.com</a>&gt;</span>
+                </div>
+                <div className="ac-erc-eip-row">
+                  <span className="ac-erc-eip-k">Created</span>
+                  <span className="ac-erc-eip-v">2025-08-13</span>
+                </div>
+                <div className="ac-erc-eip-row">
+                  <span className="ac-erc-eip-k">Discussion Link</span>
+                  <span className="ac-erc-eip-v"><a href="#" onClick={(e) => e.preventDefault()}>https://ethereum-magicians.org/t/erc-8004-trustless-agents/25098</a></span>
+                </div>
+                <div className="ac-erc-eip-row">
+                  <span className="ac-erc-eip-k">Requires</span>
+                  <span className="ac-erc-eip-v"><a href="#" onClick={(e) => e.preventDefault()}>EIP-155</a>, <a href="#" onClick={(e) => e.preventDefault()}>EIP-712</a>, <a href="#" onClick={(e) => e.preventDefault()}>EIP-721</a>, <a href="#" onClick={(e) => e.preventDefault()}>EIP-1271</a></span>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
 
       </div>
