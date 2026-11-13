@@ -96,6 +96,117 @@ export default function AcademyOptions() {
           <p>In summary, options create a zero-sum scenario: one party gains while the other loses. They’re valuable tools for hedging or leveraging, but they require experience and are not ideal for beginners. Therefore, they are often found only on platforms suited to advanced traders.</p>
         </div>
 
+        {/* Buy CTA */}
+        <div className="ac-buy" style={{ marginTop: "3rem" }}>
+          <div className="ac-buy-left">
+            <span className="ac-buy-logo"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="#0f0f12" strokeWidth="1.6"/><path d="M8 8h6a3 3 0 0 1 0 6H8zM8 14h7a3 3 0 0 1 0 6H8z" fill="none" stroke="#0f0f12" strokeWidth="1.6"/><circle cx="17.5" cy="6.5" r="1.3" fill="#1663d9"/></svg>blockscaner</span>
+            <h3>{_t("Sign up")}<br />{_t("to Blockscaner")}</h3>
+            <a className="ac-buy-btn" href="/products" onClick={(e) => e.preventDefault()}>{_t("Start now")} <span>→</span></a>
+          </div>
+          <div className="ac-buy-art">
+            <svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice">
+              <rect width="200" height="120" fill="none"/>
+              <rect x="20" y="34" width="110" height="70" rx="10" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+              <circle cx="75" cy="69" r="20" fill="#3ddc84" stroke="#0d0d12" strokeWidth="3"/>
+              <path d="M75 56 L84 70 L75 76 L66 70 Z" fill="#0d0d12"/>
+              <rect x="112" y="52" width="66" height="42" rx="10" fill="#1663d9"/>
+              <circle cx="130" cy="73" r="11" fill="#fff"/>
+              <text x="152" y="78" fontSize="10" fontWeight="800" fill="#fff">ETH</text>
+            </svg>
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <p className="ac-disclaimer">
+          This content is provided solely for informational and educational purposes and does not constitute financial, legal
+          or tax advice, nor does it represent a public offering or solicitation to invest pursuant to Legislative Decree
+          58/1998 (TUF). Crypto-assets are highly volatile instruments and carry a significant risk of partial or total loss of
+          invested capital. Past performance and any forecasts do not guarantee future results. For a detailed overview of
+          the risks, please refer to the <a href="#" onClick={(e) => e.preventDefault()}>General Risk Disclosure</a>. The payment account offered by Blockscaner is regulated
+          under Legislative Decree 11/2010 and cannot be equated with a bank current account; therefore, it does not
+          benefit from the protections applicable to bank deposits. You are encouraged to perform your own independent
+          and informed assessments, consult the latest <a href="#" onClick={(e) => e.preventDefault()}>Payment Account Terms and Conditions</a> and <a href="#" onClick={(e) => e.preventDefault()}>Currency Exchange
+          Terms and Conditions</a>, and, where appropriate, seek advice from a qualified professional before making any
+          financial or economic decision.
+        </p>
+
+        {/* Related */}
+        <section className="ac-related">
+          <h2>{_t("Related")}</h2>
+          <div className="ac-grid">
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/bonds")} style={{ cursor: "pointer" }}>
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#d9ccff"/>
+                  <path d="M60 130 L60 96 L98 70 L136 96 L136 130 Z" fill="#b9a7f0" stroke="#0d0d12" strokeWidth="4"/>
+                  <path d="M98 70 L136 96 H60 Z" fill="#8b5cf6"/>
+                  <rect x="74" y="104" width="9" height="26" fill="#0d0d12"/><rect x="92" y="104" width="9" height="26" fill="#0d0d12"/><rect x="110" y="104" width="9" height="26" fill="#0d0d12"/>
+                  <path d="M204 130 L204 96 L242 70 L280 96 L280 130 Z" fill="#b9a7f0" stroke="#0d0d12" strokeWidth="4"/>
+                  <path d="M242 70 L280 96 H204 Z" fill="#8b5cf6"/>
+                  <rect x="218" y="104" width="9" height="26" fill="#0d0d12"/><rect x="236" y="104" width="9" height="26" fill="#0d0d12"/><rect x="254" y="104" width="9" height="26" fill="#0d0d12"/>
+                  <rect x="140" y="58" width="90" height="86" rx="6" fill="#f3edff" stroke="#0d0d12" strokeWidth="4"/>
+                  <rect x="148" y="66" width="74" height="70" rx="4" fill="none" stroke="#0d0d12" strokeWidth="2"/>
+                  <circle cx="185" cy="90" r="14" fill="#c9a7ff" stroke="#0d0d12" strokeWidth="3"/>
+                  <circle cx="185" cy="90" r="8" fill="none" stroke="#0d0d12" strokeWidth="2" strokeDasharray="2 2"/>
+                  <line x1="158" y1="112" x2="212" y2="112" stroke="#0d0d12" strokeWidth="2.4"/>
+                  <line x1="158" y1="120" x2="206" y2="120" stroke="#0d0d12" strokeWidth="2.4"/>
+                  <line x1="158" y1="128" x2="200" y2="128" stroke="#0d0d12" strokeWidth="2.4"/>
+                  <circle cx="66" cy="64" r="15" fill="#fff" stroke="#0d0d12" strokeWidth="3.4"/>
+                  <ellipse cx="66" cy="72" rx="15" ry="5" fill="#d9ccff" stroke="#0d0d12" strokeWidth="2"/>
+                  <circle cx="278" cy="64" r="15" fill="#fff" stroke="#0d0d12" strokeWidth="3.4"/>
+                  <ellipse cx="278" cy="72" rx="15" ry="5" fill="#d9ccff" stroke="#0d0d12" strokeWidth="2"/>
+                  <circle cx="100" cy="152" r="15" fill="#fff" stroke="#0d0d12" strokeWidth="3.4"/>
+                  <ellipse cx="100" cy="160" rx="15" ry="5" fill="#d9ccff" stroke="#0d0d12" strokeWidth="2"/>
+                  <circle cx="252" cy="152" r="15" fill="#fff" stroke="#0d0d12" strokeWidth="3.4"/>
+                  <ellipse cx="252" cy="160" rx="15" ry="5" fill="#d9ccff" stroke="#0d0d12" strokeWidth="2"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Stocks</span></div>
+              <h3>What are bonds and how do they work?</h3>
+              <p className="ac-desc">What are bonds, and how do they work? The financial instruments that reduce the portfolio risk</p>
+              <p className="ac-meta">April 17, 2026&nbsp;&nbsp;•&nbsp;&nbsp;14 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+                  <rect width="220" height="150" fill="#0d0d12"/>
+                  <circle cx="110" cy="72" r="52" fill="#8b5cf6"/>
+                  <g fill="#efe9ff" stroke="#0d0d12" strokeWidth="1.4">
+                    <path d="M78 40 h20 v10 a6 6 0 0 0 10 0 v-10 h20 v20 h-10 a6 6 0 0 0 0 10 h10 v20 h-20 v-10 a6 6 0 0 0 -10 0 v10 h-20 z"/>
+                    <path d="M52 84 h14 v8 a5 5 0 0 0 8 0 v-8 h14 v14 h-8 a5 5 0 0 0 0 8 h8 v14 h-14 v-8 a5 5 0 0 0 -8 0 v8 h-14 z" transform="translate(-6 -8)"/>
+                    <path d="M142 92 h14 v8 a5 5 0 0 0 8 0 v-8 h14 v14 h-8 a5 5 0 0 0 0 8 h8 v14 h-14 v-8 a5 5 0 0 0 -8 0 v8 h-14 z" transform="translate(-2 6)"/>
+                  </g>
+                  <path d="M98 66 q12 10 24 0 l6 6 q-6 6 -12 6 t-12 -6 z" fill="#fff" stroke="#0d0d12" strokeWidth="1.4"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Stocks</span></div>
+              <h3>Stakeholders: who they are and how to identify them</h3>
+              <p className="ac-desc">What is a stakeholder? Discover the meaning of stakeholders, their types, practical examples, and the process of stakeholder mapping.</p>
+              <p className="ac-meta">June 25, 2024&nbsp;&nbsp;•&nbsp;&nbsp;5 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+                  <rect width="220" height="150" fill="#ff4d6d"/>
+                  <path d="M108 40 C120 34 142 36 152 50 C162 64 160 84 148 96 C138 106 122 108 108 102 C96 96 88 84 88 70 C88 56 96 46 108 40 Z" fill="#fff"/>
+                  <path d="M108 40 C114 30 130 28 138 36" stroke="#0d0d12" strokeWidth="2.4" fill="none"/>
+                  <circle cx="108" cy="66" r="20" fill="#ff4d6d" stroke="#0d0d12" strokeWidth="2.4"/>
+                  <path d="M102 62 l6 6 l10 -10" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M136 34 C146 26 160 28 168 38" stroke="#fff" strokeWidth="2" fill="none"/>
+                  <circle cx="52" cy="60" r="14" fill="#ff4d6d" stroke="#fff" strokeWidth="2"/>
+                  <circle cx="176" cy="96" r="18" fill="#fff" stroke="#0d0d12" strokeWidth="2.4"/>
+                  <path d="M170 92 h12 M176 86 v12" stroke="#ff4d6d" strokeWidth="2.4" strokeLinecap="round"/>
+                  <path d="M60 110 l6 -12 l6 12 l-12 -8 h12 z" fill="#fff"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Fiat Currency</span><span className="ac-tag">Stocks</span></div>
+              <h3>Managed Assets: what are they and how do they work?</h3>
+              <p className="ac-desc">Managed assets are services for investing and managing capital, led by professionals or passive tools, based on risk profiles and financial goals.</p>
+              <p className="ac-meta">June 18, 2024&nbsp;&nbsp;•&nbsp;&nbsp;4 min</p>
+            </article>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
