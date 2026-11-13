@@ -672,3 +672,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Automotive and Healthcare Sectors" (Collective Learning, Catena-X), "Conclusions". Closing blocks:
   "Sign up to Blockscaner" banner, legal disclaimer. Route registered in App.tsx; card linked in
   Academy.tsx and in Raydium Related row. Article complete end to end. Verified by screenshots.
+
+- **Step page monkey avatar (2026-11-14)**: replaced the SVG avatar in the Step page "Complete
+  levels to earn PUMP" card with a generated realistic photo of a monkey wearing blue headphones
+  (frontend/src/assets/monkey-headphones.png, generated via Gemini image gen). Avatar enlarged 20%
+  (76px → 91px) with rounded corners and object-fit cover. Verified by screenshot.

@@ -2,6 +2,7 @@ import { t as _t } from "@/i18n";
 import SiteLayout from "@/components/site/SiteLayout";
 import Seo from "@/components/Seo";
 import stepMaze from "@/assets/step-maze.png";
+import monkeyImg from "@/assets/monkey-headphones.png";
 
 /* Step Hub phone mockup (reference) */
 function StepPhone() {
@@ -398,17 +399,7 @@ export function StepCommunity() {
           <p>{_t("PUMP is the token of the Blockscaner ecosystem, the key to joining its community of crypto enthusiasts")}</p>
         </div>
         <div className="sc-earn-avatar" aria-hidden="true">
-          <svg viewBox="0 0 72 72" width="56" height="56">
-            <circle cx="36" cy="36" r="34" fill="#0f0f12"/>
-            <path d="M22 40c0-8 6-16 14-16s14 8 14 16c0 4-2 8-5 10v6H27v-6c-3-2-5-6-5-10z" fill="#00d68f"/>
-            <path d="M24 30c2-4 6-7 12-7s10 3 12 7c1 2 1 4 0 6-1-2-3-3-5-3s-4 1-5 3c-1-2-3-3-5-3s-4 1-5 3c-1-2-2-4-4-6z" fill="#0f0f12"/>
-            <path d="M16 34c-2 0-4 2-4 5v4c0 3 2 5 4 5h4v-14h-4zm40 0c2 0 4 2 4 5v4c0 3-2 5-4 5h-4v-14h4z" fill="#2f7fe8"/>
-            <rect x="14" y="30" width="6" height="20" rx="3" fill="#1d5fd0"/>
-            <rect x="52" y="30" width="6" height="20" rx="3" fill="#1d5fd0"/>
-            <path d="M52 30c0-9-7-16-16-16s-16 7-16 16" stroke="#1d5fd0" strokeWidth="4" fill="none" strokeLinecap="round"/>
-            <circle cx="30" cy="40" r="2.4" fill="#0f0f12"/><circle cx="42" cy="40" r="2.4" fill="#0f0f12"/>
-            <path d="M32 48c2 2 6 2 8 0" stroke="#0f0f12" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
-          </svg>
+          <img src={monkeyImg} alt="" width="68" height="68" />
         </div>
       </div>
 
