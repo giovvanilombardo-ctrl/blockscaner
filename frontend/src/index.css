@@ -824,3 +824,15 @@ html {
 .ac-rwa-legend span{ display:inline-flex; align-items:center; gap:.35rem; }
 .ac-rwa-legend i{ width:9px; height:9px; border-radius:2px; display:inline-block; }
 
+
+/* ---------- Academy ERC-8004: Agent Growth Trends chart ---------- */
+.ac-erc-growth{ margin-top:2.2rem; max-width:640px; }
+.ac-erc-growth .ac-summary-brand{ margin-bottom:.8rem; }
+.ac-erc-growth .ac-summary-brand span:last-child{ font-size:.95rem; }
+.ac-erc-chart{ background:#fff; border:1px solid #f1f1f4; border-radius:14px;
+  box-shadow:0 10px 30px rgba(15,15,18,.07); padding:1rem 1.1rem .9rem; }
+.ac-erc-chart-head{ display:flex; flex-direction:column; align-items:center; gap:.3rem; margin-bottom:.5rem; }
+.ac-erc-chart-head b{ font-size:.85rem; font-weight:800; color:#0f0f12; }
+.ac-erc-chart-legend{ display:inline-flex; align-items:center; gap:.35rem; font-size:.62rem; color:#57575c; }
+.ac-erc-chart-legend i{ width:8px; height:8px; border-radius:50%; background:#7c5cff; display:inline-block; }
+.ac-erc-chart svg{ display:block; width:100%; height:auto; }

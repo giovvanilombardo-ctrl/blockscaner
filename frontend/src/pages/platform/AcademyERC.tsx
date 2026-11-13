@@ -80,6 +80,69 @@ export default function AcademyERC() {
           </ul>
         </div>
 
+        {/* Article body */}
+        <div className="ac-body">
+          <h2 id="erc-update">{_t("The Ethereum ERC-8004 update is here: the new standard that promises a new lease of life for AI agents.")}</h2>
+          <p>Agent-based artificial intelligence represents <b>one of the fastest-growing developments in the current global technology landscape</b>.</p>
+          <p>Unlike a traditional Large Language Model (LLM), which merely generates a response based on an input, an AI agent is designed to pursue objectives autonomously, breaking complex problems into subtasks and using external tools to improve its behaviour based on the results.</p>
+          <p>Thanks to AI agents, <b>we are essentially moving rapidly from purely <b>reactive</b> artificial intelligence systems to systems capable of acting in the real world with a significant degree of <b>autonomy</b>.</b></p>
+
+          {/* Agent Growth Trends chart */}
+          <section className="ac-chartsec ac-erc-growth" data-testid="erc-growth-chart">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <div className="ac-erc-chart">
+              <div className="ac-erc-chart-head">
+                <b>Agent Growth Trends</b>
+                <span className="ac-erc-chart-legend"><i />Daily New Agents</span>
+              </div>
+              <svg viewBox="0 0 620 240" preserveAspectRatio="none" role="img" aria-label="Agent Growth Trends chart">
+                {/* grid */}
+                <g stroke="#ececf1" strokeWidth="1">
+                  <line x1="46" y1="30" x2="600" y2="30" />
+                  <line x1="46" y1="85" x2="600" y2="85" />
+                  <line x1="46" y1="140" x2="600" y2="140" />
+                  <line x1="46" y1="195" x2="600" y2="195" />
+                </g>
+                {/* y labels */}
+                <g fontSize="10" fill="#9a9aa0" textAnchor="end">
+                  <text x="40" y="34">140000</text>
+                  <text x="40" y="89">95000</text>
+                  <text x="40" y="144">70000</text>
+                  <text x="40" y="199">35000</text>
+                </g>
+                {/* x labels */}
+                <g fontSize="10" fill="#9a9aa0" textAnchor="middle">
+                  <text x="70" y="214">Jan 13</text>
+                  <text x="140" y="214">Jan 21</text>
+                  <text x="210" y="214">Jan 29</text>
+                  <text x="280" y="214">Feb 6</text>
+                  <text x="350" y="214">Feb 14</text>
+                  <text x="420" y="214">Feb 22</text>
+                  <text x="490" y="214">Mar 5</text>
+                  <text x="565" y="214">Mar 10</text>
+                </g>
+                {/* area fill */}
+                <path d="M46,190 L100,190 L150,189 L190,188 L205,150 L230,142 L255,140 L270,126 L300,122 L330,118 L360,100 L390,95 L420,90 L450,60 L480,55 L510,48 L545,42 L575,38 L600,36 L600,195 L46,195 Z" fill="url(#ercGrad)" opacity=".55" />
+                {/* line */}
+                <path d="M46,190 L100,190 L150,189 L190,188 L205,150 L230,142 L255,140 L270,126 L300,122 L330,118 L360,100 L390,95 L420,90 L450,60 L480,55 L510,48 L545,42 L575,38 L600,36" fill="none" stroke="#7c5cff" strokeWidth="2" />
+                <defs>
+                  <linearGradient id="ercGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stopColor="#7c5cff" stopOpacity=".35" />
+                    <stop offset="1" stopColor="#7c5cff" stopOpacity=".02" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </section>
+
+          <p>However, this expansion has not yet been matched by the development of adequate shared infrastructure underpinning relationships among the various agents, with the current system forcing agents to operate in fragmented environments, <b>lacking standardised mechanisms to verify the identity of counterparties or to access portable reputation data</b>.</p>
+          <p><b>ERC-8004</b> aims to bridge this gap by defining an open standard for <b>the identity</b>, <b>reputation</b> and <b>validation</b> of AI agents on the Ethereum blockchain.</p>
+          <p>If you're curious to find out <b>what the ERC-8004 update is</b> and how it could position Ethereum as the fundamental trust layer upon which the future of distributed artificial intelligence rests, you've come to the right place.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );

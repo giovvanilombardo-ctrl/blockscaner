@@ -389,3 +389,14 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   passes zoom=1.2 (Step hero additionally 1.25). Verified by testing agent (iteration_5): grid gone,
   hero + CTAs render, no overflow at 1366/1920.
 
+
+- **Academy ERC-8004 article (2026-11-13)**: new route /products/academy/erc-8004
+  (frontend/src/pages/platform/AcademyERC.tsx) linked from the Academy Technology card. Header: back
+  arrow, Ethereum tag, H1, March 31 2026 / 8 min, share icons, Ethereum-towers hero with Beginner
+  badge, "You will learn" box with 5 anchor links. First body section added (user-supplied copy):
+  "The Ethereum ERC-8004 update is here..." intro paragraphs with bold highlights, "academy" badge +
+  "Agent Growth Trends" chart card (SVG purple area chart, Daily New Agents legend, Jan 13-Mar 10
+  x-axis, 35k/70k/95k/140k y-grid) and closing paragraphs (fragmented environments / ERC-8004
+  identity-reputation-validation / trust layer). Chart styles: .ac-erc-growth/.ac-erc-chart in
+  index.css. Remaining sections (trust problem, What is an ERC, three registries, future of Ethereum)
+  awaiting user copy.
