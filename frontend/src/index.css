@@ -682,3 +682,12 @@ html {
   .ac-miles{ grid-template-columns:repeat(2,1fr); }
 }
 
+
+/* ---------- Academy meme image (Popcat) ---------- */
+.ac-meme-img{ margin-top:1.4rem; display:grid; grid-template-columns:1fr 1fr; gap:.6rem; max-width:560px; }
+.ac-meme-cat{ border-radius:14px; overflow:hidden; background:#f5f0e6; }
+.ac-meme-cat svg{ display:block; width:100%; height:auto; }
+@media (max-width:520px){
+  .ac-meme-img{ grid-template-columns:1fr; }
+}
+

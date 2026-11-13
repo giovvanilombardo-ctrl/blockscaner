@@ -92,6 +92,60 @@ export default function AcademyPopcat() {
           <p>The first image shows the cat with its mouth closed; in the second, digital editing exaggerates the opening of the mouth into a perfect ‘O’ shape.</p>
         </div>
 
+        {/* Academy image: the original Popcat meme photos */}
+        <section className="ac-summary" data-testid="popcat-meme-photos">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+
+          <div className="ac-meme-img">
+            {/* stylised recreation of the two Oatmeal photos */}
+            <div className="ac-meme-cat">
+              <svg viewBox="0 0 200 130">
+                <rect width="200" height="130" fill="#f5f0e6"/>
+                <ellipse cx="100" cy="92" rx="46" ry="34" fill="#fff"/>
+                <circle cx="100" cy="58" r="30" fill="#fff"/>
+                <path d="M74 44 L66 20 L92 32 Z" fill="#e8d9c8"/>
+                <path d="M126 44 L134 20 L108 32 Z" fill="#e8d9c8"/>
+                <path d="M78 40 L74 26 L90 34 Z" fill="#fff"/>
+                <path d="M122 40 L126 26 L110 34 Z" fill="#fff"/>
+                <path d="M78 34 C86 26 96 28 100 34 C104 28 114 26 122 34 C118 28 104 24 100 30 C96 24 82 28 78 34 Z" fill="#d9c9b8"/>
+                <ellipse cx="88" cy="54" rx="5" ry="6" fill="#0d0d12"/>
+                <ellipse cx="112" cy="54" rx="5" ry="6" fill="#0d0d12"/>
+                <path d="M96 66 q4 4 8 0" stroke="#0d0d12" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+                <path d="M100 64 l-3 -3 h6 z" fill="#ffb3c7"/>
+                <g stroke="#d9c9b8" strokeWidth="1.4" strokeLinecap="round">
+                  <line x1="74" y1="60" x2="56" y2="56"/><line x1="74" y1="66" x2="56" y2="66"/>
+                  <line x1="126" y1="60" x2="144" y2="56"/><line x1="126" y1="66" x2="144" y2="66"/>
+                </g>
+                <path d="M86 30 C92 24 108 24 114 30" stroke="#d9c9b8" strokeWidth="6" fill="none" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <div className="ac-meme-cat">
+              <svg viewBox="0 0 200 130">
+                <rect width="200" height="130" fill="#f5f0e6"/>
+                <ellipse cx="100" cy="92" rx="46" ry="34" fill="#fff"/>
+                <circle cx="100" cy="58" r="30" fill="#fff"/>
+                <path d="M74 44 L66 20 L92 32 Z" fill="#e8d9c8"/>
+                <path d="M126 44 L134 20 L108 32 Z" fill="#e8d9c8"/>
+                <path d="M78 40 L74 26 L90 34 Z" fill="#fff"/>
+                <path d="M122 40 L126 26 L110 34 Z" fill="#fff"/>
+                <path d="M78 34 C86 26 96 28 100 34 C104 28 114 26 122 34 C118 28 104 24 100 30 C96 24 82 28 78 34 Z" fill="#d9c9b8"/>
+                <path d="M84 50 q4 -4 8 0 M108 50 q4 -4 8 0" stroke="#0d0d12" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+                <ellipse cx="100" cy="72" rx="16" ry="20" fill="#7a1f2b"/>
+                <ellipse cx="100" cy="80" rx="10" ry="10" fill="#b33a4a"/>
+                <path d="M100 64 l-3 -3 h6 z" fill="#ffb3c7"/>
+                <g stroke="#d9c9b8" strokeWidth="1.4" strokeLinecap="round">
+                  <line x1="74" y1="60" x2="56" y2="56"/><line x1="74" y1="66" x2="56" y2="66"/>
+                  <line x1="126" y1="60" x2="144" y2="56"/><line x1="126" y1="66" x2="144" y2="66"/>
+                </g>
+                <path d="M86 30 C92 24 108 24 114 30" stroke="#d9c9b8" strokeWidth="6" fill="none" strokeLinecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
