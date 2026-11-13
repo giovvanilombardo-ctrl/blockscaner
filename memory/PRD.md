@@ -677,3 +677,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   levels to earn PUMP" card with a generated realistic photo of a monkey wearing blue headphones
   (frontend/src/assets/monkey-headphones.png, generated via Gemini image gen). Avatar enlarged 20%
   (76px → 91px) with rounded corners and object-fit cover. Verified by screenshot.
+
+- **About us dropdown menu (2026-11-14)**: added hover mega-menu to the "About us" nav link in
+  SiteHeader.tsx — four options with icons: Leadership (Users icon), Ecosystem (Boxes icon), Work
+  with us (Briefcase icon), Security (ShieldCheck icon). All link to /about for now. Verified by
+  hovering in the preview.

@@ -1,7 +1,7 @@
 import { t as _t, lang, setLang, LANGS } from "@/i18n";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound, LayoutDashboard, LogOut, Globe, ArrowLeftRight, LineChart, Zap, GraduationCap } from "lucide-react";
+import { Menu, Search, X, LifeBuoy, ChevronDown, UserRound, LayoutDashboard, LogOut, Globe, ArrowLeftRight, LineChart, Zap, GraduationCap, Users, Boxes, Briefcase, ShieldCheck } from "lucide-react";
 import SearchDialog from "./SearchDialog";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -36,6 +36,14 @@ export const BrandMark = ({ className = "" }: { className?: string }) => (
     <circle cx="24.5" cy="7.5" r="1.6" className="fill-primary" />
   </svg>
 );
+
+/* About us mega-menu content */
+const ABOUT_MENU = [
+  { icon: Users, color: "text-white bg-violet-500", title: "Leadership", desc: "Meet the team behind Blockscaner.", to: "/about" },
+  { icon: Boxes, color: "text-white bg-emerald-500", title: "Ecosystem", desc: "Explore our products and services.", to: "/about" },
+  { icon: Briefcase, color: "text-white bg-fuchsia-500", title: "Work with us", desc: "Join our mission to build the future of crypto.", to: "/about" },
+  { icon: ShieldCheck, color: "text-white bg-blue-500", title: "Security", desc: "Learn how we protect your assets and data.", to: "/about" },
+];
 
 /* Mega-menu item — icon + title + description */
 const MenuItem = ({ item }: { item: { icon: any; color: string; title: string; desc: string; to: string } }) => {
@@ -113,6 +121,28 @@ const SiteHeader = () => {  const [open, setOpen] = useState<string | null>(null
                                 {PRODUCTS_MENU.learn.map((item) => <MenuItem key={item.title} item={item} />)}
                               </div>
                             </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </li>
+                );
+              }
+              if (n.label === "About us") {
+                return (
+                  <li key={n.path} className="relative" onMouseEnter={() => setOpen("about")} onMouseLeave={() => setOpen(null)}>
+                    <Link
+                      to={n.path}
+                      onClick={() => setOpen(null)}
+                      className={`whitespace-nowrap text-[15px] font-semibold tracking-tight transition-colors ${loc.pathname === n.path || open === "about" ? "text-foreground" : "text-foreground/90 hover:text-foreground"}`}
+                    >
+                      {_t(n.label)}
+                    </Link>
+                    {open === "about" && (
+                      <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4">
+                        <div className="w-[340px] rounded-2xl border border-border bg-background p-6 shadow-2xl">
+                          <div className="space-y-5">
+                            {ABOUT_MENU.map((item) => <MenuItem key={item.title} item={item} />)}
                           </div>
                         </div>
                       </div>
