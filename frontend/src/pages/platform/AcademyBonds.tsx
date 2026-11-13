@@ -551,6 +551,73 @@ export default function AcademyBonds() {
           financial or economic decision.
         </p>
 
+        {/* Related */}
+        <section className="ac-related">
+          <h2>{_t("Related")}</h2>
+          <div className="ac-grid">
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+                  <rect width="220" height="150" fill="#0d0d12"/>
+                  <rect x="36" y="30" width="64" height="80" rx="8" fill="#fff"/>
+                  <rect x="46" y="44" width="30" height="8" rx="4" fill="#3a86ff"/>
+                  <rect x="46" y="58" width="44" height="6" rx="3" fill="#d9f0ff"/>
+                  <rect x="46" y="70" width="44" height="6" rx="3" fill="#d9f0ff"/>
+                  <text x="68" y="102" fontSize="13" fontWeight="800" textAnchor="middle" fill="#3a86ff">PUT</text>
+                  <rect x="120" y="30" width="64" height="80" rx="8" fill="#fff"/>
+                  <rect x="130" y="44" width="34" height="8" rx="4" fill="#8b5cf6"/>
+                  <rect x="130" y="58" width="44" height="6" rx="3" fill="#eee6ff"/>
+                  <rect x="130" y="70" width="44" height="6" rx="3" fill="#eee6ff"/>
+                  <text x="152" y="102" fontSize="13" fontWeight="800" textAnchor="middle" fill="#8b5cf6">CALL</text>
+                  <circle cx="60" cy="122" r="9" fill="#3a86ff"/><circle cx="168" cy="122" r="9" fill="#8b5cf6"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Stocks</span></div>
+              <h3>Options: what are they and how do they work?</h3>
+              <p className="ac-desc">Options in finance are contracts giving the right, but not the obligation, to buy or sell an asset at a set price by a certain date, with a paid premium.</p>
+              <p className="ac-meta">September 10, 2024&nbsp;&nbsp;•&nbsp;&nbsp;5 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+                  <rect width="220" height="150" fill="#0d0d12"/>
+                  <circle cx="110" cy="72" r="52" fill="#8b5cf6"/>
+                  <g fill="#efe9ff" stroke="#0d0d12" strokeWidth="1.4">
+                    <path d="M78 40 h20 v10 a6 6 0 0 0 10 0 v-10 h20 v20 h-10 a6 6 0 0 0 0 10 h10 v20 h-20 v-10 a6 6 0 0 0 -10 0 v10 h-20 z"/>
+                    <path d="M52 84 h14 v8 a5 5 0 0 0 8 0 v-8 h14 v14 h-8 a5 5 0 0 0 0 8 h8 v14 h-14 v-8 a5 5 0 0 0 -8 0 v8 h-14 z" transform="translate(-6 -8)"/>
+                    <path d="M142 92 h14 v8 a5 5 0 0 0 8 0 v-8 h14 v14 h-8 a5 5 0 0 0 0 8 h8 v14 h-14 v-8 a5 5 0 0 0 -8 0 v8 h-14 z" transform="translate(-2 6)"/>
+                  </g>
+                  <path d="M98 66 q12 10 24 0 l6 6 q-6 6 -12 6 t-12 -6 z" fill="#fff" stroke="#0d0d12" strokeWidth="1.4"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Stocks</span></div>
+              <h3>Stakeholders: who they are and how to identify them</h3>
+              <p className="ac-desc">What is a stakeholder? Discover the meaning of stakeholders, their types, practical examples, and the process of stakeholder mapping.</p>
+              <p className="ac-meta">June 25, 2024&nbsp;&nbsp;•&nbsp;&nbsp;5 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+                  <rect width="220" height="150" fill="#ff4d6d"/>
+                  <path d="M108 40 C120 34 142 36 152 50 C162 64 160 84 148 96 C138 106 122 108 108 102 C96 96 88 84 88 70 C88 56 96 46 108 40 Z" fill="#fff"/>
+                  <path d="M108 40 C114 30 130 28 138 36" stroke="#0d0d12" strokeWidth="2.4" fill="none"/>
+                  <circle cx="108" cy="66" r="20" fill="#ff4d6d" stroke="#0d0d12" strokeWidth="2.4"/>
+                  <path d="M102 62 l6 6 l10 -10" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M136 34 C146 26 160 28 168 38" stroke="#fff" strokeWidth="2" fill="none"/>
+                  <circle cx="52" cy="60" r="14" fill="#ff4d6d" stroke="#fff" strokeWidth="2"/>
+                  <circle cx="176" cy="96" r="18" fill="#fff" stroke="#0d0d12" strokeWidth="2.4"/>
+                  <path d="M170 92 h12 M176 86 v12" stroke="#ff4d6d" strokeWidth="2.4" strokeLinecap="round"/>
+                  <path d="M60 110 l6 -12 l6 12 l-12 -8 h12 z" fill="#fff"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Fiat Currency</span><span className="ac-tag">Stocks</span></div>
+              <h3>Managed Assets: what are they and how do they work?</h3>
+              <p className="ac-desc">Managed assets are services for investing and managing capital, led by professionals or passive tools, based on risk profiles and financial goals.</p>
+              <p className="ac-meta">June 18, 2024&nbsp;&nbsp;•&nbsp;&nbsp;4 min</p>
+            </article>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
