@@ -285,7 +285,7 @@ export default function Academy() {
             <a className="ac-more" href="#" onClick={(e) => e.preventDefault()}>{_t("See more")}</a>
           </div>
           <div className="ac-grid">
-            <Card tags={["Stocks"]} title="What are bonds and how do they work?"
+            <Card tags={["Stocks"]} title="What are bonds and how do they work?" to="/products/academy/bonds"
               desc="What are bonds, and how do they work? The financial instruments that reduce the portfolio risk"
               date="April 17, 2026" mins={14} art={ArtBonds} />
             <Card tags={["Stocks"]} title="Options: what are they and how do they work?"
