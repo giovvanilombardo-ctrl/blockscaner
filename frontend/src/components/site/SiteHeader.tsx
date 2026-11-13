@@ -147,8 +147,8 @@ const SiteHeader = () => {  const [open, setOpen] = useState<string | null>(null
                     </Link>
                     {open === "about" && (
                       <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4">
-                        <div className="w-[340px] rounded-2xl border border-border bg-background p-6 shadow-2xl">
-                          <div className="space-y-5">
+                        <div className="w-[200px] rounded-2xl border border-border bg-background py-3 px-5 shadow-2xl">
+                          <div className="space-y-3">
                             {ABOUT_MENU.map((item) => <TextMenuItem key={item.title} item={item} />)}
                           </div>
                         </div>

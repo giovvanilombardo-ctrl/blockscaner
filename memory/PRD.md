@@ -695,3 +695,7 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   About us mega-menu items in SiteHeader.tsx — items now show only the main names (Leadership,
   Ecosystem, Work with us, Security). Products menu icons/descriptions untouched. Verified by
   hovering in preview.
+
+- **About us dropdown compacted (2026-11-14)**: reduced the About us mega-menu container from
+  340px/p-6/space-y-5 to 200px/py-3 px-5/space-y-3 — much tighter layout with less white space.
+  Verified by hovering in preview.
