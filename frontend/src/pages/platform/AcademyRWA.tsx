@@ -129,6 +129,433 @@ export default function AcademyRWA() {
           </ul>
         </div>
 
+        {/* Article body */}
+        <div className="ac-body">
+          <h2 id="rwa-revolution">{_t("Real World Assets (RWA): the new revolution in the global financial system")}</h2>
+          <p>Real World Assets (RWAs) are a blockchain-based innovation that has the potential to transform the way we transfer and hold assets, both financial and non-financial.</p>
+          <p>In 2026, RWAs are experiencing significant interest and adoption, particularly among institutional entities, due to their key features, including efficiency, decentralisation, and accessibility.</p>
+          <p>As our CEO, Andrea Ferrero, aptly puts it, <i>"If we have been using tracks built after the Second World War, tokenisation is allowing us to move financial securities and more onto new tracks."</i> If you are curious to find out what RWAs are and how they work, this is the article for you.</p>
+
+          {/* Google Trends: RWA interest over time */}
+          <section className="ac-rwa-trends" data-testid="rwa-trends">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <div className="ac-rwa-trends-card">
+              {/* search row */}
+              <div className="ac-rwa-trends-top">
+                <div className="ac-rwa-trends-search">
+                  <span className="ac-rwa-trends-dot" />
+                  <span className="ac-rwa-trends-term">RWA<br /><i>Search term</i></span>
+                </div>
+                <div className="ac-rwa-trends-compare">+ Compare</div>
+              </div>
+              {/* filter row */}
+              <div className="ac-rwa-trends-filters">
+                <span>All over the world ▾</span>
+                <span>2004 - Present ▾</span>
+                <span>All categories ▾</span>
+                <span>Google Search ▾</span>
+              </div>
+              {/* chart */}
+              <div className="ac-rwa-trends-chart">
+                <div className="ac-rwa-trends-charthead">
+                  <span>Interest over time ⓘ</span>
+                  <span className="ac-rwa-trends-tools">⤓ &nbsp;&lt;/&gt;&nbsp; ⤢</span>
+                </div>
+                <svg viewBox="0 0 560 200" preserveAspectRatio="none" role="img" aria-label="RWA interest over time chart">
+                  <defs>
+                    <linearGradient id="rwaTrendGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stopColor="#4a7de0" stopOpacity=".28" />
+                      <stop offset="1" stopColor="#4a7de0" stopOpacity=".02" />
+                    </linearGradient>
+                  </defs>
+                  {/* grid */}
+                  <g stroke="#eeeef3" strokeWidth="1">
+                    <line x1="8" y1="30" x2="552" y2="30"/>
+                    <line x1="8" y1="75" x2="552" y2="75"/>
+                    <line x1="8" y1="120" x2="552" y2="120"/>
+                    <line x1="8" y1="165" x2="552" y2="165"/>
+                  </g>
+                  {/* area */}
+                  <path d="M8,150 L40,149 L80,148 L120,147 L160,146 L200,145 L240,144 L280,143 L320,142 L360,141 L390,138 L410,130 L430,120 L450,110 L470,95 L490,75 L510,55 L528,38 L544,26 L552,20 L552,168 L8,168 Z" fill="url(#rwaTrendGrad)"/>
+                  {/* line */}
+                  <path d="M8,150 L40,149 L80,148 L120,147 L160,146 L200,145 L240,144 L280,143 L320,142 L360,141 L390,138 L410,130 L430,120 L450,110 L470,95 L490,75 L510,55 L528,38 L544,26 L552,20" fill="none" stroke="#4a7de0" strokeWidth="2"/>
+                  {/* x labels */}
+                  <g fontSize="8.5" fill="#9a9aa0" textAnchor="middle">
+                    <text x="60" y="186">1 gen 2004</text>
+                    <text x="200" y="186">1 gen 2010</text>
+                    <text x="340" y="186">1 mar 2016</text>
+                    <text x="480" y="186">1 apr 2022</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </section>
+
+          <h2 id="rwa-technically">{_t("What are RWAs technically?")}</h2>
+          <p>What are <b>RWAs</b>? Simply put, RWAs are real-world assets (such as shares, bonds, real estate, loans, or works of art) represented in <a href="#" onClick={(e) => e.preventDefault()}>decentralised finance</a> via smart contracts.</p>
+
+          {/* RWA definition table */}
+          <div className="ac-rwa-table" data-testid="rwa-table">
+            <div className="ac-rwa-table-row"><b>Real asset</b><span>A legal object that has economic value (a house, a debt security, an ounce of gold, a share).</span></div>
+            <div className="ac-rwa-table-row"><b>RWA token</b><span>The digital representation of the asset</span></div>
+            <div className="ac-rwa-table-row"><b>Smart contract</b><span>The mechanism that regulates issuance, transfer, and rights</span></div>
+            <div className="ac-rwa-table-row"><b>Blockchain</b><span>The register that guarantees transparency and immutability</span></div>
+          </div>
+
+          <p>Although the concept may seem trivial, this 'simple' innovation is triggering a <b>silent revolution in the global financial infrastructure</b>, breaking down barriers to entry and making inherently inefficient markets liquid.</p>
+          <p>Historically, institutions such as banks, stock exchanges, and management companies have offered these services in an exclusive and centralised manner, forcing users to compromise on privacy, management costs, and the overall efficiency of the asset exchange process.</p>
+          <p>The goal of RWAs is therefore to evolve the current financial system from an efficient but highly centralised system to an even more efficient one, while introducing decentralisation and greater access.</p>
+
+          {/* Efficiency / Privacy-Security quadrant */}
+          <section className="ac-rwa-quadsec" data-testid="rwa-quadrant">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <div className="ac-rwa-quad">
+              <svg viewBox="0 0 420 400" role="img" aria-label="Efficiency vs Privacy-Security quadrant">
+                {/* quadrant backgrounds */}
+                <rect x="60" y="36" width="150" height="150" rx="14" fill="#f1f1f4"/>
+                <rect x="210" y="36" width="150" height="150" rx="14" fill="#b9f0d6"/>
+                <rect x="60" y="186" width="150" height="150" rx="14" fill="#ffd0cc"/>
+                <rect x="210" y="186" width="150" height="150" rx="14" fill="#f1f1f4"/>
+                {/* axes */}
+                <line x1="210" y1="20" x2="210" y2="356" stroke="#0f0f12" strokeWidth="1.6"/>
+                <path d="M210 14 l-5 10 h10 Z" fill="#0f0f12"/>
+                <line x1="48" y1="186" x2="376" y2="186" stroke="#0f0f12" strokeWidth="1.6"/>
+                <path d="M382 186 l-10 -5 v10 Z" fill="#0f0f12"/>
+                {/* axis labels */}
+                <text x="210" y="12" fontSize="13" fontWeight="800" textAnchor="middle" fill="#0f0f12">Efficiency</text>
+                <text x="376" y="206" fontSize="13" fontWeight="800" textAnchor="end" fill="#0f0f12">Privacy-Security</text>
+                {/* bubbles */}
+                <g>
+                  <ellipse cx="136" cy="112" rx="52" ry="24" fill="#8b5cf6"/>
+                  <text x="136" y="108" fontSize="10.5" fontWeight="700" textAnchor="middle" fill="#fff">Digital</text>
+                  <text x="136" y="119" fontSize="10.5" fontWeight="700" textAnchor="middle" fill="#fff">Centralised</text>
+                  <text x="136" y="130" fontSize="10.5" fontWeight="700" textAnchor="middle" fill="#fff">System</text>
+                </g>
+                <g>
+                  <ellipse cx="286" cy="80" rx="54" ry="24" fill="#8b5cf6"/>
+                  <text x="286" y="76" fontSize="10.5" fontWeight="700" textAnchor="middle" fill="#fff">Digital</text>
+                  <text x="286" y="87" fontSize="10.5" fontWeight="700" textAnchor="middle" fill="#fff">Decentralised</text>
+                  <text x="286" y="98" fontSize="10.5" fontWeight="700" textAnchor="middle" fill="#fff">System</text>
+                </g>
+                <g>
+                  <ellipse cx="136" cy="262" rx="46" ry="20" fill="#8b5cf6"/>
+                  <text x="136" y="266" fontSize="10.5" fontWeight="700" textAnchor="middle" fill="#fff">Paper System</text>
+                </g>
+              </svg>
+            </div>
+          </section>
+
+          <p>To better understand the mission and purpose of <b>RWAs</b>, let us retrace the evolution of modern financial infrastructure by studying <b>three fundamental steps</b> that have characterised this sector: the era of the paper-based system, the era of the centralised digital system and the era of the decentralised digital system.</p>
+
+          <h3>{_t("The era of the paper-based system (until the 1970s)")}</h3>
+          <p>This was the dominant system until the early 1970s. At this stage, the transfer of value between two parties occurred exclusively through the physical exchange of paper documents (share certificates, bonds, bearer securities), which were the only means of establishing ownership of the asset.</p>
+          <ul>
+            <li><b>The problem:</b> ownership was tied to the physical possession of the 'piece of paper', making exchanges slow, expensive and geographically limited.</li>
+          </ul>
+
+          {/* Paper System illustration */}
+          <section className="ac-rwa-era" data-testid="rwa-paper-era">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <h3 className="ac-depin-prn-title">{_t("Paper System")}</h3>
+            <div className="ac-rwa-era-art">
+              <svg viewBox="0 0 300 230" role="img" aria-label="Paper System illustration">
+                {/* big lavender circle */}
+                <circle cx="150" cy="118" r="64" fill="#ece8fb" stroke="#c9b8f5" strokeWidth="1.4"/>
+                {/* document icon */}
+                <rect x="128" y="86" width="44" height="58" rx="7" fill="#0f0f12"/>
+                <g stroke="#fff" strokeWidth="4.6" strokeLinecap="round">
+                  <path d="M137 100 h26"/><path d="M137 112 h26"/><path d="M137 124 h14"/>
+                </g>
+                {/* hand chips */}
+                <circle cx="222" cy="66" r="26" fill="#ece8fb" stroke="#c9b8f5" strokeWidth="1.4"/>
+                <g fill="none" stroke="#0f0f12" strokeWidth="2.4" strokeLinecap="round">
+                  <circle cx="218" cy="60" r="3.4"/>
+                  <path d="M210 72 q8 -6 16 0 M214 76 h8"/>
+                </g>
+                <circle cx="96" cy="168" r="24" fill="#ece8fb" stroke="#c9b8f5" strokeWidth="1.4"/>
+                <g fill="none" stroke="#0f0f12" strokeWidth="2.4" strokeLinecap="round">
+                  <circle cx="92" cy="162" r="3.4"/>
+                  <path d="M84 174 q8 -6 16 0 M88 178 h8"/>
+                </g>
+              </svg>
+            </div>
+          </section>
+
+          <h3>{_t("The era of the centralised digital system (from the 1970s to 2020)")}</h3>
+          <p>This phase began with the start of digitisation in the United States, particularly with the founding of <b>NASDAQ</b> in 1971 (the world's first electronic stock market). In this system, ownership transfers almost instantly with a single click, effectively eliminating physical media.</p>
+          <ul>
+            <li><b>The problem:</b> although much more efficient than the paper-based model, this system is inherently centralised. To function, it requires a trusted intermediary (banks, brokers, clearinghouses) to maintain records of individual ownership and validate transactions, potentially in a subjective or opaque manner. In this context, the need for a <b>decentralised</b> and <b>permissionless</b> alternative emerges.</li>
+          </ul>
+
+          {/* Centralised Exchange (CEX) illustration */}
+          <section className="ac-rwa-era" data-testid="rwa-cex-era">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <h3 className="ac-depin-prn-title">{_t("Centralised Exchange (CEX)")}</h3>
+            <div className="ac-rwa-cex-art">
+              <svg viewBox="0 0 300 260" role="img" aria-label="Centralised Exchange illustration">
+                {/* hub */}
+                <g>
+                  <circle cx="150" cy="130" r="24" fill="#ece8fb" stroke="#0f0f12" strokeWidth="2"/>
+                  <path d="M138 138 v-14 l12 -8 12 8 v14 h-6 v-10 h-12 v10 Z" fill="#0f0f12"/>
+                  <rect x="136" y="138" width="28" height="4" rx="2" fill="#0f0f12"/>
+                </g>
+                {/* hexagon spokes */}
+                <g stroke="#0f0f12" strokeWidth="1.4">
+                  <line x1="150" y1="106" x2="150" y2="70"/>
+                  <line x1="150" y1="154" x2="150" y2="190"/>
+                  <line x1="129" y1="118" x2="98" y2="100"/>
+                  <line x1="171" y1="118" x2="202" y2="100"/>
+                  <line x1="129" y1="142" x2="98" y2="160"/>
+                  <line x1="171" y1="142" x2="202" y2="160"/>
+                </g>
+                <g stroke="#0f0f12" strokeWidth="1.4" fill="none">
+                  <path d="M150 70 L202 100 L202 160 L150 190 L98 160 L98 100 Z"/>
+                </g>
+                <g fill="#0f0f12">
+                  <circle cx="150" cy="70" r="3"/><circle cx="150" cy="190" r="3"/>
+                  <circle cx="98" cy="100" r="3"/><circle cx="202" cy="100" r="3"/>
+                  <circle cx="98" cy="160" r="3"/><circle cx="202" cy="160" r="3"/>
+                </g>
+                {/* people chips */}
+                <g>
+                  <circle cx="150" cy="46" r="22" fill="#ece8fb" stroke="#c9b8f5" strokeWidth="1.2"/>
+                  <circle cx="150" cy="42" r="5.4" fill="#0f0f12"/>
+                  <path d="M142 58 q8 -10 16 0 Z" fill="#0f0f12"/>
+                  <rect x="149" y="46" width="2" height="9" fill="#fff"/>
+                </g>
+                <g>
+                  <circle cx="150" cy="214" r="22" fill="#ece8fb" stroke="#c9b8f5" strokeWidth="1.2"/>
+                  <circle cx="150" cy="210" r="5.4" fill="#0f0f12"/>
+                  <path d="M142 226 q8 -10 16 0 Z" fill="#0f0f12"/>
+                  <rect x="149" y="214" width="2" height="9" fill="#fff"/>
+                </g>
+                <g>
+                  <circle cx="78" cy="90" r="22" fill="#ece8fb" stroke="#c9b8f5" strokeWidth="1.2"/>
+                  <circle cx="78" cy="86" r="5.4" fill="#0f0f12"/>
+                  <path d="M70 102 q8 -10 16 0 Z" fill="#0f0f12"/>
+                  <rect x="77" y="90" width="2" height="9" fill="#fff"/>
+                </g>
+                <g>
+                  <circle cx="222" cy="90" r="22" fill="#ece8fb" stroke="#c9b8f5" strokeWidth="1.2"/>
+                  <circle cx="222" cy="86" r="5.4" fill="#0f0f12"/>
+                  <path d="M214 102 q8 -10 16 0 Z" fill="#0f0f12"/>
+                  <rect x="221" y="90" width="2" height="9" fill="#fff"/>
+                </g>
+                <g>
+                  <circle cx="78" cy="170" r="22" fill="#ece8fb" stroke="#c9b8f5" strokeWidth="1.2"/>
+                  <circle cx="78" cy="166" r="5.4" fill="#0f0f12"/>
+                  <path d="M70 182 q8 -10 16 0 Z" fill="#0f0f12"/>
+                  <rect x="77" y="170" width="2" height="9" fill="#fff"/>
+                </g>
+                <g>
+                  <circle cx="222" cy="170" r="22" fill="#ece8fb" stroke="#c9b8f5" strokeWidth="1.2"/>
+                  <circle cx="222" cy="166" r="5.4" fill="#0f0f12"/>
+                  <path d="M214 182 q8 -10 16 0 Z" fill="#0f0f12"/>
+                  <rect x="221" y="170" width="2" height="9" fill="#fff"/>
+                </g>
+              </svg>
+            </div>
+          </section>
+
+          <h3>{_t("The era of the decentralised digital system (since 2020)")}</h3>
+          <p>This phase marks the definitive shift from trust in human institutions to trust in cryptographic code. While the previous era digitised information and its movement, the decentralised era — driven by <a href="#" onClick={(e) => e.preventDefault()}>blockchain</a> technology and the advent of <b>RWAs</b> — is digitising <b>value itself</b>.</p>
+          <p>In this new paradigm, assets are no longer confined to private, isolated databases but are entered into distributed ledgers, structurally changing the global financial system and introducing three unprecedented innovations:</p>
+          <ul>
+            <li><b>Transformation of intermediation:</b> thanks to smart contracts, assets can be exchanged peer-to-peer, with rules and rights programmed directly into the token. This is a fundamental step towards reducing the number of manual steps that were mandatory until yesterday.</li>
+            <li><b>Liquidity and fractionalisation:</b> RWAs allow historically indivisible assets (such as real estate or investment funds) to be divided into thousands of tokens. This allows anyone to participate in markets previously reserved exclusively for large capital, transforming illiquid assets into dynamic financial instruments.</li>
+            <li><b>Transparency and composability:</b> every transaction is verifiable on-chain, eliminating the risk of register manipulation. Furthermore, being based on distributed standards, these assets can be integrated into decentralised finance protocols, allowing, for example, a tokenised property to be used as collateral for a loan instantly.</li>
+          </ul>
+
+          {/* Decentralised Exchange (DEX) illustration */}
+          <section className="ac-rwa-era" data-testid="rwa-dex-era">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <h3 className="ac-depin-prn-title">{_t("Decentralised Exchange (DEX)")}</h3>
+            <div className="ac-rwa-cex-art">
+              <svg viewBox="0 0 300 250" role="img" aria-label="Decentralised Exchange illustration">
+                {/* connections */}
+                <g stroke="#0f0f12" strokeWidth="1.6">
+                  <line x1="112" y1="72" x2="142" y2="106"/>
+                  <line x1="200" y1="66" x2="164" y2="102"/>
+                  <line x1="200" y1="92" x2="200" y2="120"/>
+                  <line x1="116" y1="158" x2="140" y2="130"/>
+                  <line x1="204" y1="160" x2="166" y2="130"/>
+                  <line x1="116" y1="180" x2="172" y2="178"/>
+                </g>
+                <g fill="#0f0f12">
+                  <circle cx="112" cy="72" r="2.6"/><circle cx="200" cy="66" r="2.6"/><circle cx="200" cy="120" r="2.6"/>
+                  <circle cx="116" cy="158" r="2.6"/><circle cx="204" cy="160" r="2.6"/><circle cx="172" cy="178" r="2.6"/>
+                </g>
+                {/* center person (larger) */}
+                <g>
+                  <circle cx="152" cy="118" r="32" fill="#fff" stroke="#0f0f12" strokeWidth="1.8"/>
+                  <circle cx="152" cy="110" r="9" fill="#0f0f12"/>
+                  <path d="M138 136 q14 -16 28 0 Z" fill="#e8e2fb" stroke="#0f0f12" strokeWidth="1.4"/>
+                  <rect x="150.4" y="116" width="3.2" height="16" fill="#0f0f12"/>
+                </g>
+                {/* top-left person */}
+                <g>
+                  <circle cx="96" cy="52" r="24" fill="#fff" stroke="#0f0f12" strokeWidth="1.6"/>
+                  <circle cx="96" cy="46" r="7" fill="#0f0f12"/>
+                  <path d="M85 66 q11 -12 22 0 Z" fill="#e8e2fb" stroke="#0f0f12" strokeWidth="1.2"/>
+                  <rect x="94.8" y="50" width="2.6" height="12" fill="#0f0f12"/>
+                </g>
+                {/* top-right person */}
+                <g>
+                  <circle cx="214" cy="44" r="20" fill="#fff" stroke="#0f0f12" strokeWidth="1.6"/>
+                  <circle cx="214" cy="39" r="6" fill="#0f0f12"/>
+                  <path d="M205 56 q9 -10 18 0 Z" fill="#e8e2fb" stroke="#0f0f12" strokeWidth="1.1"/>
+                  <rect x="213" y="42" width="2.2" height="10" fill="#0f0f12"/>
+                </g>
+                {/* bottom-left person */}
+                <g>
+                  <circle cx="98" cy="186" r="20" fill="#fff" stroke="#0f0f12" strokeWidth="1.6"/>
+                  <circle cx="98" cy="181" r="6" fill="#0f0f12"/>
+                  <path d="M89 198 q9 -10 18 0 Z" fill="#e8e2fb" stroke="#0f0f12" strokeWidth="1.1"/>
+                  <rect x="97" y="184" width="2.2" height="10" fill="#0f0f12"/>
+                </g>
+                {/* bottom-right person (larger) */}
+                <g>
+                  <circle cx="220" cy="188" r="26" fill="#fff" stroke="#0f0f12" strokeWidth="1.6"/>
+                  <circle cx="220" cy="182" r="7.4" fill="#0f0f12"/>
+                  <path d="M208 202 q12 -13 24 0 Z" fill="#e8e2fb" stroke="#0f0f12" strokeWidth="1.3"/>
+                  <rect x="218.6" y="186" width="2.8" height="13" fill="#0f0f12"/>
+                </g>
+              </svg>
+            </div>
+          </section>
+
+          <p>Tokenisation and, specifically, RWAs therefore represent the latest frontier in infrastructure innovation underpinning global value transfer. Although this path is not without problems — such as vulnerability to cyberattacks and the system's current operational complexity — it is undoubtedly the most plausible evolution of the current financial system.</p>
+
+          <h2 id="rwa-tokenisation">{_t("How the tokenisation process works")}</h2>
+          <p>Now that we understand what RWAs are and what problem they aim to solve, let's analyse how a physical asset is actually transformed into a digital asset. This process, known as <b>tokenisation</b>, is not a simple technical act, but an operation that combines law, finance and technology through <b>three essential stages: digitisation, code creation and market launch</b>.</p>
+
+          <h3>{_t("1. Digitisation of the asset")}</h3>
+          <p>The process begins with <b>digitisation</b>, a crucial step that bridges the physical and cryptographic worlds. At this stage, the real asset (whether a gold bar, a property, or a commercial credit) undergoes rigorous evaluation and specific legal structuring.</p>
+          <p>It is not just a matter of creating a digital 'photo' of the asset, but of establishing a <b>legal framework</b>—often through special purpose vehicles or custody agreements—that ensures ownership of the token effectively confers ownership, economic rights, and economic benefits of the underlying asset. At this stage, all relevant information, such as appraisals, certificates of authenticity and technical data, is prepared for transfer to the distributed ledger.</p>
+
+          <h3>{_t("2. Creating the smart contract")}</h3>
+          <p>Once the legal and documentation framework is defined, the technical phase of creating the <b>smart contract</b> begins. In this step, the tool for exchanging the asset within the blockchain infrastructure is developed.</p>
+          <p>The rules for using the token are written into the code, including the dividend distribution frequency, transfers (required to comply with anti-money laundering regulations), voting rights for holders, and all other information necessary for the asset. Through the <b>minting</b> process, the asset is officially issued on the blockchain, transforming a physical asset into a unique, secure, and non-counterfeit digital unit.</p>
+
+          <h3>{_t("3. Entry into the asset market")}</h3>
+          <p>The final stage concerns the asset's entry into the market, which represents a real step forward compared to the past. Thanks to tokenisation, the asset enters a global ecosystem that offers several indisputable advantages over the legacy digital system, including the potential for greater liquidity and accessibility.</p>
+          <p>On the one hand, by operating within a market structure built on <b>decentralisation, open access, and distributed systems</b>, a tokenised asset gains access to a global market that operates <b>24/7</b>. This eliminates the geographical and temporal barriers of traditional markets, dramatically increasing the base of potential investors and, in turn, liquidity and accessibility.</p>
+          <p>On the other hand, as RWAs are a digital representation of a physical asset, they benefit from the possibility of being <b>fractionated</b> into multiple shares in a much simpler way than a classic digital contract, bringing undoubted advantages in the process of exchanging large or valuable and typically illiquid assets, such as real estate or works of art.</p>
+
+          {/* Fractionalisation illustration */}
+          <section className="ac-rwa-frac" data-testid="rwa-fraction">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <div className="ac-rwa-frac-art">
+              <svg viewBox="0 0 640 210" role="img" aria-label="Asset fractionalisation illustration">
+                {/* building chip */}
+                <circle cx="110" cy="105" r="58" fill="#ece8fb"/>
+                <g fill="none" stroke="#0f0f12" strokeWidth="3" strokeLinejoin="round">
+                  <rect x="92" y="70" width="26" height="64" rx="4"/>
+                  <rect x="112" y="82" width="18" height="52" rx="4"/>
+                  <path d="M98 82 h14 M98 92 h14 M98 102 h14 M98 112 h14 M118 92 h6 M118 102 h6 M118 112 h6"/>
+                </g>
+                <text x="110" y="182" fontSize="19" fontWeight="800" textAnchor="middle" fill="#0f0f12">$250.000</text>
+                {/* arrow 1 */}
+                <g stroke="#0f0f12" strokeWidth="2.6" fill="none" strokeLinecap="round">
+                  <line x1="192" y1="105" x2="232" y2="105"/>
+                  <path d="M226 98 l10 7 -10 7"/>
+                </g>
+                {/* hexagon of cubes */}
+                <g stroke="#0f0f12" strokeWidth="1.8" fill="none">
+                  <path d="M320 60 L352 78 L352 114 L320 132 L288 114 L288 78 Z"/>
+                </g>
+                <g stroke="#0f0f12" strokeWidth="1.4">
+                  <line x1="320" y1="60" x2="320" y2="96"/>
+                  <line x1="320" y1="96" x2="288" y2="78"/>
+                  <line x1="320" y1="96" x2="352" y2="78"/>
+                </g>
+                {/* cubes */}
+                <g>
+                  <g transform="translate(298 42)">
+                    <path d="M0 10 l14 -8 14 8 v16 l-14 8 -14 -8 Z" fill="#c9b8f5" stroke="#0f0f12" strokeWidth="1.6"/>
+                    <path d="M0 10 l14 8 14 -8 M14 18 v16" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+                  </g>
+                  <g transform="translate(262 66)">
+                    <path d="M0 10 l14 -8 14 8 v16 l-14 8 -14 -8 Z" fill="#fff" stroke="#0f0f12" strokeWidth="1.6"/>
+                    <path d="M0 10 l14 8 14 -8 M14 18 v16" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+                  </g>
+                  <g transform="translate(334 66)">
+                    <path d="M0 10 l14 -8 14 8 v16 l-14 8 -14 -8 Z" fill="#fff" stroke="#0f0f12" strokeWidth="1.6"/>
+                    <path d="M0 10 l14 8 14 -8 M14 18 v16" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+                  </g>
+                  <g transform="translate(298 90)">
+                    <path d="M0 10 l14 -8 14 8 v16 l-14 8 -14 -8 Z" fill="#fff" stroke="#0f0f12" strokeWidth="1.6"/>
+                    <path d="M0 10 l14 8 14 -8 M14 18 v16" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+                  </g>
+                  <g transform="translate(262 118)">
+                    <path d="M0 10 l14 -8 14 8 v16 l-14 8 -14 -8 Z" fill="#fff" stroke="#0f0f12" strokeWidth="1.6"/>
+                    <path d="M0 10 l14 8 14 -8 M14 18 v16" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+                  </g>
+                  <g transform="translate(334 118)">
+                    <path d="M0 10 l14 -8 14 8 v16 l-14 8 -14 -8 Z" fill="#fff" stroke="#0f0f12" strokeWidth="1.6"/>
+                    <path d="M0 10 l14 8 14 -8 M14 18 v16" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+                  </g>
+                </g>
+                {/* arrow 2 */}
+                <g stroke="#0f0f12" strokeWidth="2.6" fill="none" strokeLinecap="round">
+                  <line x1="396" y1="105" x2="436" y2="105"/>
+                  <path d="M430 98 l10 7 -10 7"/>
+                </g>
+                {/* token chips */}
+                <g fill="#ece8fb">
+                  <circle cx="470" cy="66" r="13"/><circle cx="506" cy="48" r="13"/><circle cx="542" cy="64" r="13"/>
+                  <circle cx="506" cy="92" r="13"/><circle cx="470" cy="118" r="13"/><circle cx="542" cy="118" r="13"/>
+                  <circle cx="506" cy="140" r="13"/>
+                </g>
+                <g fill="#0f0f12">
+                  <circle cx="466" cy="64" r="3"/><circle cx="474" cy="69" r="3"/>
+                  <circle cx="502" cy="46" r="3"/><circle cx="510" cy="51" r="3"/>
+                  <circle cx="538" cy="62" r="3"/><circle cx="546" cy="67" r="3"/>
+                  <circle cx="502" cy="90" r="3"/><circle cx="510" cy="95" r="3"/>
+                  <circle cx="466" cy="116" r="3"/><circle cx="474" cy="121" r="3"/>
+                  <circle cx="538" cy="116" r="3"/><circle cx="546" cy="121" r="3"/>
+                  <circle cx="502" cy="138" r="3"/><circle cx="510" cy="143" r="3"/>
+                </g>
+                <text x="506" y="188" fontSize="16" fontWeight="800" textAnchor="middle" fill="#0f0f12">1 token</text>
+                <text x="506" y="206" fontSize="15" fontWeight="800" textAnchor="middle" fill="#0f0f12">$25</text>
+              </svg>
+            </div>
+          </section>
+
+          <p>Ultimately, the integration of these three phases demonstrates that tokenisation is not simply a migration of data from a paper register to a digital one, but a <b>fundamental shift in the concept of ownership</b>. Through the perfect synchrony between legal compliance, technological rigour, and freedom of exchange, RWAs enable historically static assets to achieve unprecedented dynamism and flexibility.</p>
+
+          <h2 id="rwa-fleap">{_t("A practical example: the Fleap case")}</h2>
+          <p>To illustrate the potential of tokenisation in concrete terms, let us examine one of the most significant case studies in Italy: the Fleap case. This example represents a milestone in the RWA sector, as it demonstrates how blockchain technology is successfully applied to complex financial processes while ensuring full legal and operational compliance.</p>
+          <p>More specifically, <b>Fleap S.p.A.</b> is an Italian company founded in 2019 within PoliHub, the incubator of the Politecnico di Milano, to create new opportunities in private markets through the tokenisation of financial instruments.</p>
+          <p>Fleap is a highly emblematic case, as it was the first company to obtain authorisation from <b>CONSOB</b> (the Italian financial markets regulator) as a 'register keeper' under the 'Fintech Decree'. Thanks to this qualification, it can offer Italian companies native tokenisation services for financial instruments.</p>
+          <p>Through its platform, it is possible to manage shares, bonds, debt securities and OICR units as <b>programmable tokens</b> on the blockchain, while maintaining their legal value and economic rights unchanged. This brings concrete benefits in terms of transparency, efficiency and cost reduction.</p>
+          <p>The platform also supports advanced governance features, including voting management, minute-taking, document storage, and corporate operations automation, reducing the complexity of historically burdensome, fragmented processes.</p>
+          <p>The Fleap case demonstrates that asset tokenisation technology is a ready-made solution to improve our relationship with financial asset management, offering a glimpse into the future infrastructure of the economic system.</p>
+
+          <h2 id="rwa-conclusions">{_t("Conclusions")}</h2>
+          <p>As we have analysed, RWAs are among the most revolutionary frontiers in technology applied to finance, marking a paradigm shift that is rewriting the rules of ownership and exchange.</p>
+          <p>Currently, the RWA market (excluding stablecoins) has reached a capitalisation of approximately <b>$14 billion</b>. However, this is only the beginning: expert estimates indicate exponential growth that will bring the sector to <b>$38 billion</b> over the coming years, confirming that tokenisation is emerging from an experimental phase to become an institutionally recognised standard.</p>
+          <p>In this scenario, understanding what RWAs are is a vital requirement for anyone who wants to correctly interpret the direction of financial markets and value transfer systems globally. We are witnessing the birth of a more equitable, liquid and transparent financial infrastructure, where the boundary between 'real' and 'digital' has now been definitively blurred.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );

@@ -515,3 +515,20 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   pedestal with floor reflection. User asked to make the design "look more expensive". Note: user
   previously required exact reference copies for supplied images; this restyle was an explicit
   request to deviate for the RWA hero only. Body sections still awaiting user copy.
+
+- **RWA revolution section (2026-11-14)**: first body section added to AcademyRWA.tsx — "Real World
+  Assets (RWA): the new revolution in the global financial system" H2 with three paragraphs
+  (blockchain innovation, 2026 adoption, italic Andrea Ferrero CEO quote), plus a Google Trends-
+  style card (.ac-rwa-trends-card: RWA search term, Compare, filter row, Interest over time blue
+  area chart, 2004/2010/2016/2022 x-labels). Verified by screenshot. Remaining: What are RWAs
+  technically, tokenisation process, Fleap case, Conclusions.
+
+- **RWA article body completed (2026-11-14)**: all remaining body sections added to AcademyRWA.tsx —
+  eras progression paragraph, "The era of the paper-based system" H3 + bullet + Paper System
+  illustration, "The era of the centralised digital system" H3 + bullet + CEX hexagon illustration,
+  "The era of the decentralised digital system" H3 + three bullets + DEX network illustration,
+  fractionalisation illustration (building $250.000 → cubes → 1 token $25), tokenisation summary,
+  "How the tokenisation process works" H2 with three numbered H3 stages (Digitisation, Creating the
+  smart contract, Entry into the asset market), "A practical example: the Fleap case" H2 (Fleap
+  S.p.A., CONSOB, PoliHub), and "Conclusions" H2. Article body complete; closing banner/disclaimer/
+  Related still pending. Verified by screenshots.

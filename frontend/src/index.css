@@ -984,3 +984,56 @@ html {
   .ac-signup{ grid-template-columns:1fr; }
   .ac-signup-art{ max-width:240px; }
 }
+
+/* ---------- Academy RWA: Google Trends card ---------- */
+.ac-rwa-trends{ margin-top:2.6rem; max-width:600px; }
+.ac-rwa-trends .ac-summary-brand{ margin-bottom:.6rem; }
+.ac-rwa-trends-card{ background:#fff; border:1px solid #f1f1f4; border-radius:16px;
+  box-shadow:0 12px 36px rgba(15,15,18,.09); padding:.9rem 1rem 1rem; }
+.ac-rwa-trends-top{ display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+.ac-rwa-trends-search{ display:flex; align-items:center; gap:.5rem; background:#fff; border:1px solid #ececf1;
+  border-radius:10px; padding:.55rem .8rem; }
+.ac-rwa-trends-dot{ width:8px; height:8px; border-radius:50%; background:#4a7de0; flex:none; }
+.ac-rwa-trends-term{ font-size:.78rem; font-weight:800; color:#0f0f12; line-height:1.2; }
+.ac-rwa-trends-term i{ font-style:normal; font-weight:400; font-size:.62rem; color:#9a9aa0; }
+.ac-rwa-trends-compare{ display:flex; align-items:center; justify-content:center; background:#eef2fb;
+  border-radius:10px; font-size:.78rem; font-weight:700; color:#4a7de0; }
+.ac-rwa-trends-filters{ display:flex; gap:1rem; flex-wrap:wrap; margin-top:.6rem; padding:.45rem .3rem;
+  border-top:1px solid #f4f4f7; border-bottom:1px solid #f4f4f7; font-size:.66rem; color:#57575c; }
+.ac-rwa-trends-chart{ margin-top:.5rem; }
+.ac-rwa-trends-charthead{ display:flex; align-items:center; justify-content:space-between;
+  font-size:.66rem; color:#57575c; padding:.3rem 0 .5rem; }
+.ac-rwa-trends-tools{ color:#9a9aa0; letter-spacing:.1em; }
+.ac-rwa-trends-chart svg{ display:block; width:100%; height:auto; }
+
+/* ---------- Academy RWA: definition table + quadrant ---------- */
+.ac-rwa-table{ margin:1.6rem 0 1.8rem; border:1px solid #e6e6ea; border-radius:12px; overflow:hidden; }
+.ac-rwa-table-row{ display:grid; grid-template-columns:170px 1fr; gap:1rem; padding:.85rem 1.1rem; font-size:.82rem; }
+.ac-rwa-table-row + .ac-rwa-table-row{ border-top:1px solid #eeeef3; }
+.ac-rwa-table-row b{ font-weight:800; color:#0f0f12; }
+.ac-rwa-table-row span{ color:#57575c; line-height:1.55; }
+@media (max-width:560px){
+  .ac-rwa-table-row{ grid-template-columns:1fr; gap:.2rem; }
+}
+.ac-rwa-quadsec{ margin-top:2.4rem; }
+.ac-rwa-quadsec .ac-summary-brand{ margin-bottom:1rem; }
+.ac-rwa-quad{ max-width:480px; margin:0 auto; }
+.ac-rwa-quad svg{ display:block; width:100%; height:auto; }
+
+/* ---------- Academy RWA: era illustration ---------- */
+.ac-rwa-era{ margin-top:2rem; }
+.ac-rwa-era .ac-summary-brand{ margin-bottom:.4rem; }
+.ac-rwa-era-art{ display:grid; place-items:center; padding:1rem 0; }
+.ac-rwa-era-art svg{ display:block; width:min(300px,100%); height:auto; }
+
+/* ---------- Academy RWA: era illustrations ---------- */
+.ac-rwa-era{ margin-top:2.2rem; }
+.ac-rwa-era .ac-summary-brand{ margin-bottom:.4rem; }
+.ac-rwa-era-art, .ac-rwa-cex-art{ max-width:340px; margin:1rem auto 0; }
+.ac-rwa-era-art svg, .ac-rwa-cex-art svg{ display:block; width:100%; height:auto; }
+
+/* ---------- Academy RWA: fractionalisation illustration ---------- */
+.ac-rwa-frac{ margin-top:2.2rem; }
+.ac-rwa-frac .ac-summary-brand{ margin-bottom:.4rem; }
+.ac-rwa-frac-art{ max-width:620px; margin:.6rem auto 0; }
+.ac-rwa-frac-art svg{ display:block; width:100%; height:auto; }
