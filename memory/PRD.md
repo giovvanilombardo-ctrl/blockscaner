@@ -609,3 +609,15 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Supertrend; Wyckoff Related now links Futures and Supertrend; Supertrend Related already linked
   Futures and Wyckoff. Grok and Bollinger Bands cards intentionally left unlinked until their
   articles exist.
+
+- **Academy Sonic article (2026-11-14)**: new route /products/academy/sonic
+  (frontend/src/pages/platform/AcademySonic.tsx) linked from the Academy Technology Sonic card.
+  Full article: header (breadcrumb, DeFi tag, H1, Nov 26 2025 / 10 min), purple starburst hero,
+  You-will-learn box with 7 anchors, and full body: "Sonic: The Ultra-Fast L1 EVM Blockchain That
+  Revolutionized Fantom" intro, "The Motivation Behind Rebranding Fantom to Sonic" (TVL chart +
+  Fantom→Sonic logo transition), "What is Sonic?", "Under the Bonnet: Sonic's High-Speed
+  Architecture" (ABFT, DAG + Blockchain vs DAG diagram), "$S: Tokenomics That Reward Developers"
+  (FeeM + dark leaderboard card), "Balancing the Books: Inflation vs Deflation" (burn mechanisms),
+  "Conclusions". Related grid: Address poisoning (purple bottle art), Berachain (yellow honeycomb
+  bear art), Bitcoin Block Explorer (black isometric cubes + magnifier art). CSS for all Sonic
+  visuals added. Article complete end to end. Verified by screenshots.

@@ -342,7 +342,7 @@ export default function Academy() {
             <a className="ac-more" href="#" onClick={(e) => e.preventDefault()}>{_t("See more")}</a>
           </div>
           <div className="ac-grid">
-            <Card tags={["DeFi"]} title="Sonic Blockchain: What Is It and How Does It Work?"
+            <Card tags={["DeFi"]} title="Sonic Blockchain: What Is It and How Does It Work?" to="/products/academy/sonic"
               desc="Discover Sonic: the ultra-fast EVM blockchain evolved from Fantom. 400k TPS, sub-second finality, and 90% fee rewards for developers."
               date="November 26, 2025" mins={10} art={ArtSonic} />
             <Card tags={["Crypto Security"]} title="Address poisoning: what it is and how to defend against it"

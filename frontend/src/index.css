@@ -1037,3 +1037,52 @@ html {
 .ac-rwa-frac .ac-summary-brand{ margin-bottom:.4rem; }
 .ac-rwa-frac-art{ max-width:620px; margin:.6rem auto 0; }
 .ac-rwa-frac-art svg{ display:block; width:100%; height:auto; }
+
+/* ---------- Academy Sonic: visuals ---------- */
+.ac-sonic-tvl{ margin-top:2.4rem; max-width:620px; }
+.ac-sonic-tvl .ac-summary-brand{ margin-bottom:.6rem; }
+.ac-sonic-tvl-card{ background:#fff; border:1px solid #f1f1f4; border-radius:14px;
+  box-shadow:0 12px 36px rgba(15,15,18,.09); padding:1rem 1.2rem .8rem; }
+.ac-sonic-tvl-card b{ display:block; text-align:center; font-size:.95rem; font-weight:800; color:#0f0f12; margin-bottom:.4rem; }
+.ac-sonic-tvl-card svg{ display:block; width:100%; height:auto; }
+
+.ac-sonic-transition{ margin-top:2.4rem; }
+.ac-sonic-transition .ac-summary-brand{ margin-bottom:1.2rem; }
+.ac-sonic-transition-row{ display:flex; align-items:center; justify-content:center; gap:2.4rem; }
+.ac-sonic-token{ display:flex; flex-direction:column; align-items:center; gap:.9rem; }
+.ac-sonic-logo svg{ display:block; width:150px; height:150px; }
+.ac-sonic-label{ background:#8b5cf6; color:#fff; font-weight:800; font-size:1.05rem;
+  border-radius:99px; padding:.5rem 1.6rem; }
+.ac-sonic-arrow{ font-size:2rem; font-weight:800; color:#0f0f12; }
+@media (max-width:560px){
+  .ac-sonic-transition-row{ gap:1rem; }
+  .ac-sonic-logo svg{ width:110px; height:110px; }
+}
+
+.ac-sonic-dagsec{ margin-top:2.4rem; }
+.ac-sonic-dagsec .ac-summary-brand{ margin-bottom:1rem; }
+.ac-sonic-dag{ display:grid; grid-template-columns:auto 1fr; gap:2.5rem; align-items:center; }
+.ac-sonic-dag-col b{ display:block; font-size:1.25rem; font-weight:800; color:#0f0f12; margin-bottom:.9rem; }
+.ac-sonic-dag-col svg{ display:block; width:100%; max-width:320px; height:auto; }
+@media (max-width:620px){
+  .ac-sonic-dag{ grid-template-columns:1fr; gap:1.6rem; }
+}
+
+.ac-sonic-feecard{ margin-top:2.4rem; max-width:620px; }
+.ac-sonic-feecard .ac-summary-brand{ margin-bottom:.6rem; }
+.ac-sonic-leader{ background:#141419; border-radius:16px; padding:1.1rem 1.2rem 1.2rem;
+  box-shadow:0 16px 40px rgba(15,15,18,.22); }
+.ac-sonic-leader-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+.ac-sonic-leader-logo{ color:#fff; font-weight:800; font-size:1.05rem; letter-spacing:.02em; }
+.ac-sonic-leader-connect{ color:#fff; font-size:.68rem; border:1px solid #3a3a42; border-radius:8px; padding:.3rem .6rem; }
+.ac-sonic-leader-total small{ display:block; color:#8b8b93; font-size:.62rem; }
+.ac-sonic-leader-total > b{ display:block; color:#fff; font-size:1.9rem; font-weight:800; margin:.2rem 0 .8rem; }
+.ac-sonic-s-coin{ color:#c9b8f5; font-size:1rem; }
+.ac-sonic-leader-stats{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.ac-sonic-leader-stats b{ display:block; color:#fff; font-size:1.05rem; font-weight:800; }
+.ac-sonic-leader-board{ margin-top:1.2rem; }
+.ac-sonic-leader-board > b{ display:block; color:#fff; font-size:.95rem; font-weight:800; margin-bottom:.6rem; }
+.ac-sonic-leader-board table{ width:100%; border-collapse:collapse; font-size:.62rem; }
+.ac-sonic-leader-board th{ text-align:left; color:#8b8b93; font-weight:600; padding:.35rem .3rem; border-bottom:1px solid #26262e; }
+.ac-sonic-leader-board td{ color:#d5d5dc; padding:.4rem .3rem; border-bottom:1px solid #1e1e24; }
+.ac-sonic-leader-board td:first-child{ color:#8b8b93; }
