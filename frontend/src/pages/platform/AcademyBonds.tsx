@@ -506,6 +506,51 @@ export default function AcademyBonds() {
           </div>
         </section>
 
+        {/* Article body — continued */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <p>Bonds are therefore set to usher in a new chapter in their history, evolving from distribution exclusively through traditional channels to an on-chain infrastructure, making the debt market more efficient, liquid and global, thanks to native blockchain advantages such as instant settlement (T+0) and 24/7 operation.</p>
+
+          <h2 id="bonds-conclusions">Conclusions</h2>
+          <p>In an uncertain macroeconomic environment such as that of recent years, understanding what bonds are and how they work is an essential step towards building a solid, diversified portfolio that is more resilient to market fluctuations.</p>
+          <p>Thanks to their advantages and provided risks are properly assessed, bonds offer investors an effective tool for diversifying exposure and reducing the overall volatility of their portfolio.</p>
+          <p>Furthermore, with the tokenisation of traditional assets and the entry of bonds into the world of decentralised finance, barriers to accessing this financial instrument are gradually being reduced, opening new opportunities to a much wider audience of investors.</p>
+          <p>Ultimately, knowing what bonds are and how they work means not only understanding a financial product, but equipping oneself with a genuine tool for interpreting the economic landscape – one that is useful for protecting capital, making more informed choices and seizing new opportunities, including, today, at the very heart of decentralised on-chain finance.</p>
+        </div>
+
+        {/* Buy CTA */}
+        <div className="ac-buy" style={{ marginTop: "3rem" }}>
+          <div className="ac-buy-left">
+            <span className="ac-buy-logo"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="#0f0f12" strokeWidth="1.6"/><path d="M8 8h6a3 3 0 0 1 0 6H8zM8 14h7a3 3 0 0 1 0 6H8z" fill="none" stroke="#0f0f12" strokeWidth="1.6"/><circle cx="17.5" cy="6.5" r="1.3" fill="#1663d9"/></svg>blockscaner</span>
+            <h3>{_t("Sign up")}<br />{_t("to Blockscaner")}</h3>
+            <a className="ac-buy-btn" href="/products" onClick={(e) => e.preventDefault()}>{_t("Start now")} <span>→</span></a>
+          </div>
+          <div className="ac-buy-art">
+            <svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice">
+              <rect width="200" height="120" fill="none"/>
+              <rect x="20" y="34" width="110" height="70" rx="10" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+              <circle cx="75" cy="69" r="20" fill="#3ddc84" stroke="#0d0d12" strokeWidth="3"/>
+              <path d="M75 56 L84 70 L75 76 L66 70 Z" fill="#0d0d12"/>
+              <rect x="112" y="52" width="66" height="42" rx="10" fill="#1663d9"/>
+              <circle cx="130" cy="73" r="11" fill="#fff"/>
+              <text x="152" y="78" fontSize="10" fontWeight="800" fill="#fff">ETH</text>
+            </svg>
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <p className="ac-disclaimer">
+          This content is provided solely for informational and educational purposes and does not constitute financial, legal
+          or tax advice, nor does it represent a public offering or solicitation to invest pursuant to Legislative Decree
+          58/1998 (TUF). Crypto-assets are highly volatile instruments and carry a significant risk of partial or total loss of
+          invested capital. Past performance and any forecasts do not guarantee future results. For a detailed overview of
+          the risks, please refer to the <a href="#" onClick={(e) => e.preventDefault()}>General Risk Disclosure</a>. The payment account offered by Blockscaner is regulated
+          under Legislative Decree 11/2010 and cannot be equated with a bank current account; therefore, it does not
+          benefit from the protections applicable to bank deposits. You are encouraged to perform your own independent
+          and informed assessments, consult the latest <a href="#" onClick={(e) => e.preventDefault()}>Payment Account Terms and Conditions</a> and <a href="#" onClick={(e) => e.preventDefault()}>Currency Exchange
+          Terms and Conditions</a>, and, where appropriate, seek advice from a qualified professional before making any
+          financial or economic decision.
+        </p>
+
       </div>
     </SiteLayout>
   );
