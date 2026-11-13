@@ -971,3 +971,16 @@ html {
 @media (max-width:620px){
   .ac-depin-adv-row{ flex-direction:column; align-items:center; gap:2rem; }
 }
+
+/* ---------- Academy DePIN: sign up banner ---------- */
+.ac-signup{ margin-top:3.5rem; display:grid; grid-template-columns:1fr 300px; gap:2rem; align-items:center;
+  background:linear-gradient(120deg,#0e5fb8,#1a7fd0); border-radius:22px; padding:2.2rem 2.4rem; overflow:hidden; }
+.ac-signup-logo{ color:#fff; }
+.ac-signup h3{ font-size:clamp(1.7rem,3vw,2.3rem); font-weight:800; letter-spacing:-.02em; color:#fff; margin:.9rem 0 1.3rem; line-height:1.12; }
+.ac-signup-btn{ display:inline-flex; align-items:center; gap:.5rem; background:#3ddc84; color:#0f0f12; border-radius:99px;
+  padding:.75rem 1.4rem; font-size:.95rem; font-weight:800; text-decoration:none; }
+.ac-signup-art svg{ display:block; width:100%; height:auto; }
+@media (max-width:700px){
+  .ac-signup{ grid-template-columns:1fr; }
+  .ac-signup-art{ max-width:240px; }
+}

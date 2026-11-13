@@ -495,3 +495,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   with Web2 Incumbents/globe icon), long-term success paragraph, and "Conclusions" H2 with three
   paragraphs (mass adoption, orchestration layer, Web3 bold). DePIN article body is now complete.
   Remaining: closing buy banner + disclaimer + Related grid (same pattern as ERC-8004).
+
+- **DePIN closing blocks (2026-11-14)**: DePIN article completed — "Sign up to Blockscaner" blue
+  banner (.ac-signup: logo, green Start now pill, phone-with-coin-list SVG), full legal disclaimer,
+  and Related grid with three cards (ERC-8004 blue Ethereum towers art linking to
+  /products/academy/erc-8004, RWA red globe art, Grok purple head art). DePIN article is now fully
+  built end to end. Verified by screenshot.

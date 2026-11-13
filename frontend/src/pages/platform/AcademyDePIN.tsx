@@ -382,6 +382,156 @@ export default function AcademyDePIN() {
           <p>Thanks to DePIN technology, the future of infrastructure is no longer the exclusive domain of large centralized operators; it becomes a tool at the service of the community to develop a fairer and more sustainable tomorrow, in line with the original vision of the <b>Web3</b> movement.</p>
         </div>
 
+        {/* Sign up banner */}
+        <div className="ac-signup" data-testid="depin-signup-banner">
+          <div className="ac-signup-left">
+            <span className="ac-buy-logo ac-signup-logo"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="#fff" strokeWidth="1.6"/><path d="M8 8h6a3 3 0 0 1 0 6H8zM8 14h7a3 3 0 0 1 0 6H8z" fill="none" stroke="#fff" strokeWidth="1.6"/><circle cx="17.5" cy="6.5" r="1.3" fill="#3ddc84"/></svg>blockscaner</span>
+            <h3>{_t("Sign up")}<br />{_t("to Blockscaner")}</h3>
+            <a className="ac-signup-btn" href="/products" onClick={(e) => e.preventDefault()}>{_t("Start now")} <span>→</span></a>
+          </div>
+          <div className="ac-signup-art">
+            <svg viewBox="0 0 240 190" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="depinBanner" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stopColor="#0e5fb8"/><stop offset="1" stopColor="#1a7fd0"/>
+                </linearGradient>
+              </defs>
+              <rect width="240" height="190" fill="url(#depinBanner)"/>
+              {/* green hill */}
+              <path d="M120 190 Q150 96 240 110 L240 190 Z" fill="#3ddc84"/>
+              {/* phone */}
+              <rect x="86" y="18" width="92" height="180" rx="16" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+              <rect x="86" y="18" width="92" height="180" rx="16" fill="none" stroke="#0d0d12" strokeWidth="1.5" opacity=".4"/>
+              {/* status bar */}
+              <text x="96" y="36" fontSize="9" fill="#0f0f12">9:41</text>
+              <g fill="#0f0f12"><rect x="150" y="30" width="8" height="6" rx="1"/><rect x="161" y="28" width="10" height="8" rx="2"/></g>
+              {/* Home */}
+              <text x="96" y="56" fontSize="11" fontWeight="800" fill="#0f0f12">Home</text>
+              <circle cx="150" cy="52" r="5" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+              <circle cx="162" cy="52" r="5" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+              {/* balance */}
+              <text x="96" y="76" fontSize="15" fontWeight="800" fill="#0f0f12">1.350,00 €</text>
+              <text x="96" y="88" fontSize="7" fill="#8b8b93">Saldo Totale</text>
+              {/* favourites */}
+              <text x="96" y="106" fontSize="9" fontWeight="800" fill="#0f0f12">I tuoi preferiti</text>
+              <text x="158" y="106" fontSize="7" fill="#8b8b93">Vedi tutti</text>
+              {/* coin rows */}
+              <g fontSize="8" fill="#0f0f12">
+                <circle cx="102" cy="122" r="7" fill="#f7931a"/><text x="102" y="125" fontSize="8" fontWeight="800" textAnchor="middle" fill="#fff">₿</text>
+                <text x="114" y="120" fontWeight="800">Bitcoin</text><text x="114" y="129" fontSize="6.5" fill="#8b8b93">BTC</text>
+                <text x="150" y="120" fontSize="8" fontWeight="800">36.079,35 €</text><text x="150" y="129" fontSize="6.5" fill="#16a34a">+0,29%</text>
+                <circle cx="102" cy="142" r="7" fill="#627eea"/><path d="M102 137 l4 5.4 -4 5.4 -4 -5.4 Z" fill="#fff"/>
+                <text x="114" y="140" fontWeight="800">Ethereum</text><text x="114" y="149" fontSize="6.5" fill="#8b8b93">ETH</text>
+                <text x="150" y="140" fontSize="8" fontWeight="800">2.502,40 €</text><text x="150" y="149" fontSize="6.5" fill="#16a34a">+2,17%</text>
+                <circle cx="102" cy="162" r="7" fill="#23292f"/><text x="102" y="165" fontSize="8" fontWeight="800" textAnchor="middle" fill="#fff">✕</text>
+                <text x="114" y="160" fontWeight="800">Ripple</text><text x="114" y="169" fontSize="6.5" fill="#8b8b93">XRP</text>
+                <text x="150" y="160" fontSize="8" fontWeight="800">0,8197 €</text><text x="150" y="169" fontSize="6.5" fill="#dc2626">-0,15%</text>
+                <circle cx="102" cy="182" r="7" fill="#ff007a"/><text x="102" y="185" fontSize="7" fontWeight="800" textAnchor="middle" fill="#fff">U</text>
+                <text x="114" y="180" fontWeight="800">Uniswap</text><text x="114" y="189" fontSize="6.5" fill="#8b8b93">UNI</text>
+                <text x="150" y="180" fontSize="8" fontWeight="800">20,14 €</text><text x="150" y="189" fontSize="6.5" fill="#dc2626">-0,50%</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <p className="ac-disclaimer">
+          This content is provided solely for informational and educational purposes and does not constitute financial, legal
+          or tax advice, nor does it represent a public offering or solicitation to invest pursuant to Legislative Decree
+          58/1998 (TUF). Crypto-assets are highly volatile instruments and carry a significant risk of partial or total loss of
+          invested capital. Past performance and any forecasts do not guarantee future results. For a detailed overview of
+          the risks, please refer to the <a href="#" onClick={(e) => e.preventDefault()}>General Risk Disclosure</a>. The payment account offered by Blockscaner is regulated
+          under Legislative Decree 11/2010 and cannot be equated with a bank current account; therefore, it does not
+          benefit from the protections applicable to bank deposits. You are encouraged to perform your own independent
+          and informed assessments, consult the latest <a href="#" onClick={(e) => e.preventDefault()}>Payment Account Terms and Conditions</a> and <a href="#" onClick={(e) => e.preventDefault()}>Currency Exchange
+          Terms and Conditions</a>, and, where appropriate, seek advice from a qualified professional before making any
+          financial or economic decision.
+        </p>
+
+        {/* Related */}
+        <section className="ac-related">
+          <h2>{_t("Related")}</h2>
+          <div className="ac-grid">
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/erc-8004")} style={{ cursor: "pointer" }}>
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#aee3ff"/>
+                  <circle cx="170" cy="105" r="40" fill="#fff"/>
+                  <path d="M170 66 L192 108 L170 126 L148 108 Z" fill="#3a86ff"/>
+                  <path d="M170 66 L192 108 L170 94 Z" fill="#0d0d12"/>
+                  <g fill="#3a86ff" stroke="#0d0d12" strokeWidth="2.5">
+                    <path d="M50 150 L70 108 L90 150 Z"/>
+                    <path d="M250 150 L270 108 L290 150 Z"/>
+                    <path d="M96 162 L112 128 L128 162 Z"/>
+                    <path d="M212 162 L228 128 L244 162 Z"/>
+                  </g>
+                  <g stroke="#0d0d12" strokeWidth="3" fill="none">
+                    <path d="M70 108 L70 76 M270 108 L270 76"/>
+                  </g>
+                  <circle cx="70" cy="66" r="10" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+                  <circle cx="270" cy="66" r="10" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Ethereum</span></div>
+              <h3>ERC-8004: The Future of AI on Ethereum</h3>
+              <p className="ac-desc">The Ethereum ERC-8004 update is here: the new standard that promises a new lease of life for AI agents.</p>
+              <p className="ac-meta">March 31, 2026&nbsp;&nbsp;•&nbsp;&nbsp;8 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#ff8f9f"/>
+                  <rect x="28" y="0" width="26" height="210" rx="13" fill="#0d0d12"/>
+                  <rect x="286" y="0" width="26" height="210" rx="13" fill="#0d0d12"/>
+                  <circle cx="170" cy="92" r="52" fill="#ff5f7a" stroke="#0d0d12" strokeWidth="4"/>
+                  <g stroke="#0d0d12" strokeWidth="2.2" fill="none">
+                    <ellipse cx="170" cy="92" rx="52" ry="18"/>
+                    <ellipse cx="170" cy="92" rx="52" ry="36"/>
+                    <ellipse cx="170" cy="92" rx="18" ry="52"/>
+                    <ellipse cx="170" cy="92" rx="36" ry="52"/>
+                    <path d="M118 92 h104"/>
+                  </g>
+                  <rect x="128" y="146" width="84" height="16" rx="6" fill="#0d0d12"/>
+                  <rect x="104" y="162" width="132" height="26" rx="12" fill="#fff" stroke="#0d0d12" strokeWidth="3.5"/>
+                  <g fontSize="13" fontWeight="800" textAnchor="middle">
+                    <rect x="66" y="66" width="42" height="26" rx="13" fill="#fff" stroke="#0d0d12" strokeWidth="2.6"/>
+                    <text x="87" y="84" fill="#ff5f7a">RWA</text>
+                    <rect x="232" y="60" width="42" height="26" rx="13" fill="#fff" stroke="#0d0d12" strokeWidth="2.6"/>
+                    <text x="253" y="78" fill="#ff5f7a">RWA</text>
+                  </g>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">DeFi</span></div>
+              <h3>RWA: what they are and how they work</h3>
+              <p className="ac-desc">Real World Assets (RWA): the new revolution in the global financial system</p>
+              <p className="ac-meta">February 6, 2026&nbsp;&nbsp;•&nbsp;&nbsp;11 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#a98bff"/>
+                  <g stroke="#fff" strokeWidth="3" strokeLinecap="round">
+                    <path d="M40 40 l14 14 M54 40 l-14 14"/>
+                    <path d="M288 36 l14 14 M302 36 l-14 14"/>
+                    <path d="M52 150 l12 12 M64 150 l-12 12"/>
+                    <path d="M282 158 l12 12 M294 158 l-12 12"/>
+                    <path d="M150 26 l10 10 M160 26 l-10 10"/>
+                  </g>
+                  <circle cx="120" cy="112" r="56" fill="#fff"/>
+                  <path d="M150 60 a58 58 0 0 1 66 44 q10 2 8 12 q-2 8 -10 10 q2 10 -6 14 q0 12 -12 14 l-4 22 h-66 q10 -30 4 -52 a58 58 0 0 1 20 -64 Z" fill="#0d0d12"/>
+                  <circle cx="196" cy="96" r="18" fill="none" stroke="#fff" strokeWidth="3"/>
+                  <path d="M182 108 a18 18 0 0 1 24 -22" stroke="#fff" strokeWidth="3" fill="none"/>
+                  <path d="M178 92 l34 10" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">IA</span></div>
+              <h3>What is Grok: Elon Musk's new AI assistant</h3>
+              <p className="ac-desc">Grok is xAI's artificial intelligence model designed to redefine the concept of a virtual assistant. Discover how it works and what makes it different.</p>
+              <p className="ac-meta">August 26, 2025&nbsp;&nbsp;•&nbsp;&nbsp;10 min</p>
+            </article>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
