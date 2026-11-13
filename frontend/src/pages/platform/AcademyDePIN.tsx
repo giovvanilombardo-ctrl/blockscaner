@@ -297,6 +297,53 @@ export default function AcademyDePIN() {
               <div className="ac-depin-prn-cell">Bandwidth<br />Networks</div>
             </div>
           </section>
+
+          <p>To learn more about the Render project, we recommend reading our Academy article: <a href="#" onClick={(e) => e.preventDefault()}>"Render Network (RENDER): what it is and how It works."</a> If you're looking to buy RENDER instead, this is the page for you: <a href="#" onClick={(e) => e.preventDefault()}>"Buying Render (RENDER) is easy!"</a></p>
+
+          <h2 id="depin-advantages">{_t("The advantages of DePIN")}</h2>
+          <p>Thanks to its architecture, the DePIN model introduces a series of structural advantages that are difficult to replicate using traditional models. Let's look at the three main ones:</p>
+          <p><b>Efficiency:</b> through a distributed infrastructure and the use of high-performance blockchains like Solana, Base, and Optimism, DePIN networks are now able to offer competitive performance and, in several use cases, outperform centralized systems. Applications such as distributed GPU rendering, bandwidth provisioning, or environmental data collection already demonstrate how on-chain coordination can result in a more efficient infrastructure compared to centralized alternatives.</p>
+          <p><b>Decentralization:</b> in a landscape increasingly dominated by a few large global operators, a system managed by a distributed community represents a structurally more robust alternative. Reducing single points of failure and censorship risks increases overall network security and limits the concentration of decision-making power and resources within a single center of control.</p>
+          <p><b>Economic/Incentive Advantage:</b> thanks to the flywheel model, DePIN creates a mechanism where value and revenue are reinvested and distributed within the ecosystem. Directly incentivizing participants aligns the interests of users, operators, and investors, reducing the "value extraction" typical of centralized models and rewarding those who concretely contribute to the development and maintenance of the infrastructure.</p>
+
+          {/* The Advantages of DePIN cards */}
+          <section className="ac-depin-adv" data-testid="depin-advantages-cards">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <h3 className="ac-depin-prn-title">{_t("The Advantages of DePIN")}</h3>
+            <div className="ac-depin-adv-row">
+              <div className="ac-depin-adv-card">
+                <div className="ac-depin-adv-pill">Efficiency</div>
+                <span className="ac-depin-adv-ic">
+                  <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm0 5.2a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Z" fill="#0f0f12"/><path d="M12 2l1.2 2.4 2.6-.8.4 2.6 2.6.4-.8 2.6L20.4 12l-2.4 1.2.8 2.6-2.6.4-.4 2.6-2.6-.8L12 22l-1.2-2.4-2.6.8-.4-2.6-2.6-.4.8-2.6L3.6 12 6 10.8l-.8-2.6 2.6-.4.4-2.6 2.6.8Z" fill="#0f0f12" opacity=".92" transform="scale(.86) translate(1.7 1.7)"/></svg>
+                </span>
+              </div>
+              <div className="ac-depin-adv-card">
+                <div className="ac-depin-adv-pill">Decentralization</div>
+                <span className="ac-depin-adv-ic">
+                  <svg viewBox="0 0 24 24" width="26" height="26"><path d="M14.5 3.5c-2.6.6-4.8 2.6-5.6 5.2l-1.5-.4c-1.2-.3-2.4.2-3 1.3l-.5.9 3.4 2 4.4 4.4 2 3.4.9-.5c1.1-.6 1.6-1.8 1.3-3l-.4-1.5c2.6-.8 4.6-3 5.2-5.6.3-1.3.2-2.7-.3-3.9-.5-.6-1.3-.9-2.1-.9-1.2 0-2.4.2-3.8.6Z" fill="none" stroke="#0f0f12" strokeWidth="1.8"/><circle cx="15.5" cy="8.5" r="1.6" fill="none" stroke="#0f0f12" strokeWidth="1.6"/><path d="M7 15c-1.8 1-3 3.4-3.2 5.2 1.8-.2 4.2-1.4 5.2-3.2" fill="none" stroke="#0f0f12" strokeWidth="1.8" strokeLinecap="round"/></svg>
+                </span>
+              </div>
+              <div className="ac-depin-adv-card">
+                <div className="ac-depin-adv-pill">Economic/<br />Incentive</div>
+                <span className="ac-depin-adv-ic">
+                  <svg viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="8.4" fill="none" stroke="#0f0f12" strokeWidth="1.8"/><path d="M8.5 10.5a3.5 3.5 0 0 1 5.9-2.6M15.5 13.5a3.5 3.5 0 0 1-5.9 2.6" fill="none" stroke="#0f0f12" strokeWidth="1.8" strokeLinecap="round"/><path d="M14.2 5.5l.6 2.4-2.4.4M9.8 18.5l-.6-2.4 2.4-.4" fill="none" stroke="#0f0f12" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <p>The combination of these three advantages makes the <b>DePIN movement</b> one of the most dynamic and promising drivers in the evolution of the cryptocurrency world today, as well as a significant technological challenge to the giants of <b>Web2</b>.</p>
+
+          <h2 id="depin-challenges">{_t("Current challenges for the DePIN movement")}</h2>
+          <p>As we have seen, while DePIN technology represents a major leap forward in creating physical infrastructure from many perspectives, a few years after the birth of this movement, several "growing pains" remain that limit its current large-scale adoption. Let's analyze the main ones:</p>
+          <ul>
+            <li><b>Operational complexity:</b> actively participating in a DePIN network often requires setting up dedicated hardware, maintaining high <b>uptime</b>, and self-managing wallets and private keys. These are technical barriers that currently make the user experience less intuitive than centralized services, slowing down the entry of the average user.</li>
+            <li><b>Economic sustainability of incentives:</b> the <b>flywheel mechanism</b> only works as long as the token maintains enough value to compensate resource providers. During periods of high volatility or a <b>bear market</b>, incentives can decrease, risking that some participants might disconnect their machines, thus affecting the network's capacity and service quality.</li>
+            <li><b>Competition with web2 incumbents:</b> large centralized operators possess immense capital, widespread infrastructure, and significant strategic leverage. Through aggressive pricing policies, acquisitions, or vertical integration, they could defend their dominant positions, making the path to mainstream success for DePIN networks more complex.</li>
+          </ul>
         </div>
 
       </div>

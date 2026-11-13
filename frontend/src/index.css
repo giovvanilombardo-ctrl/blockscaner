@@ -957,3 +957,17 @@ html {
 @media (max-width:560px){
   .ac-depin-drn-grid{ grid-template-columns:1fr; }
 }
+
+/* ---------- Academy DePIN: advantages cards ---------- */
+.ac-depin-adv{ margin-top:2.4rem; }
+.ac-depin-adv .ac-summary-brand{ margin-bottom:.6rem; }
+.ac-depin-adv-row{ display:flex; justify-content:center; gap:1.6rem; margin-top:1.2rem; }
+.ac-depin-adv-card{ position:relative; background:linear-gradient(160deg,#8b5cf6,#7c5cff);
+  border-radius:14px; padding:1.2rem 1.4rem 1.6rem; min-width:170px; text-align:center; }
+.ac-depin-adv-pill{ font-size:1.08rem; font-weight:800; color:#fff; line-height:1.3; }
+.ac-depin-adv-ic{ position:absolute; left:50%; bottom:-20px; transform:translateX(-50%);
+  width:42px; height:42px; border-radius:50%; background:#fff; display:grid; place-items:center;
+  box-shadow:0 4px 12px rgba(15,15,18,.14); }
+@media (max-width:620px){
+  .ac-depin-adv-row{ flex-direction:column; align-items:center; gap:2rem; }
+}

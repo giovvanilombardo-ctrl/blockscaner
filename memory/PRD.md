@@ -472,3 +472,12 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   contracts bold), and the Digital Resource Networks 2x2 purple grid (.ac-depin-drn modifier:
   Storage, Compute, Security, Bandwidth Networks). Verified by screenshot. Remaining: advantages,
   challenges, conclusions.
+
+- **DePIN advantages + challenges (2026-11-14)**: added to AcademyDePIN.tsx — Render learn-more
+  paragraph with two purple links, "The advantages of DePIN" H2 with intro and three bold-labeled
+  paragraphs (Efficiency, Decentralization, Economic/Incentive), "The Advantages of DePIN" three
+  purple cards (.ac-depin-adv-row: Efficiency gear, Decentralization rocket, Economic/Incentive
+  circular arrows icons), combination paragraph (DePIN movement / Web2 bold), and "Current
+  challenges for the DePIN movement" H2 with three bullets (Operational complexity, Economic
+  sustainability, Competition with web2 incumbents). Verified via screenshots. Remaining:
+  conclusions + closing blocks (buy banner, disclaimer, Related).
