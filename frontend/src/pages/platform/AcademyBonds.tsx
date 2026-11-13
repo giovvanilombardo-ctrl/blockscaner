@@ -292,6 +292,112 @@ export default function AcademyBonds() {
           </ul>
         </div>
 
+        {/* Academy image: maturity cards */}
+        <section className="ac-summary" data-testid="bonds-maturity-cards">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+
+          <div className="ac-maturity">
+            <div className="ac-mat-card">
+              <div className="ac-mat-dots"><i className="on"/><i/><i/></div>
+              <p className="ac-mat-title">Short-term</p>
+              <p className="ac-mat-body">The short-term usually refers to a period of less than two years</p>
+            </div>
+            <div className="ac-mat-card">
+              <div className="ac-mat-dots"><i className="on"/><i className="on"/><i/></div>
+              <p className="ac-mat-title">Medium-term</p>
+              <p className="ac-mat-body">The medium term is a period that typically lasts between approximately 2 and 5 years</p>
+            </div>
+            <div className="ac-mat-card">
+              <div className="ac-mat-dots"><i className="on"/><i className="on"/><i className="on"/></div>
+              <p className="ac-mat-title">Long-term</p>
+              <p className="ac-mat-body">The long term extends well beyond five years; for some, at least ten.</p>
+            </div>
+          </div>
+        </section>
+
+        <p className="ac-body" style={{ marginTop: "2.4rem", maxWidth: 560 }}>
+          Maturity directly affects the security’s risk/return profile. Generally, bonds with longer maturities tend to offer higher yields to compensate for the increased risk, particularly that associated with changes in interest rates over time.
+        </p>
+
+        {/* Academy image: yield curve */}
+        <section className="ac-summary" data-testid="bonds-yield-curve">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+          <div className="ac-curve">
+            <span className="ac-curve-label">Yield</span>
+            <svg viewBox="0 0 560 320" preserveAspectRatio="none" style={{ width: "100%", height: 220 }}>
+              <line x1="40" y1="290" x2="540" y2="290" stroke="#0d0d12" strokeWidth="1.6"/>
+              <path d="M532 286 L544 290 L532 294 Z" fill="#0d0d12"/>
+              <line x1="40" y1="290" x2="40" y2="20" stroke="#0d0d12" strokeWidth="1.6"/>
+              <path d="M36 28 L40 16 L44 28 Z" fill="#0d0d12"/>
+              <path d="M40 290 C120 250 180 150 240 100 C320 50 420 30 540 24" fill="none" stroke="#0d0d12" strokeWidth="2.4"/>
+            </svg>
+          </div>
+        </section>
+
+        {/* Article body — continued */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <h3 id="bonds-rating">Credit rating</h3>
+          <p>A credit rating is an assessment assigned by independent, specialised agencies, such as Moody’s, Standard & Poor’s, and Fitch, that measures an issuer’s financial strength and its ability to repay debt on time.</p>
+          <p>A high rating indicates a low risk of default and, therefore, a safer bond, but one generally associated with a lower yield. Conversely, bonds with lower ratings — known as high-yield or junk bonds — offer higher yields to compensate for the greater perceived risk to investors.</p>
+          <p>This classification is probably the most important analytical tool for assessing the issuer’s reliability and, consequently, the investment’s risk. Although bonds do enjoy a ‘priority’ of repayment in the event of the issuer’s bankruptcy (as we have seen), this risk is never zero.</p>
+          <p>In this sense, investors use credit ratings precisely to define their risk management strategies.</p>
+
+          <h2 id="bonds-advantages">Advantages associated with the use of bonds</h2>
+          <p>Now that we understand what bonds are and how they work, let’s take a look at the main advantages associated with these financial instruments.</p>
+
+          <h3 id="bonds-stable">Stable returns and low volatility</h3>
+          <p>One of the most valued aspects of bonds is the ability to know in advance the cash flows they will generate. Unlike riskier instruments such as shares, bonds offer periodic payments (coupons) whose amounts and due dates are generally set at the time of issue.</p>
+          <p>Although their prices may fluctuate over time on the secondary market — influenced by factors such as interest rates and the issuer’s creditworthiness — they have historically exhibited lower volatility than equities.</p>
+          <p>This is due to the scheduled nature of the returns and, above all, to the priority of repayment (seniority), which guarantees them a privileged position within the company’s capital structure in the event of default.</p>
+
+          <h3 id="bonds-diversification">Portfolio risk diversification</h3>
+          <p>Bonds are an ideal instrument for diversifying risk within a financial portfolio. Their nature as relatively stable assets, particularly during periods of market turbulence, makes them attractive to investors.</p>
+          <p>In such contexts, the growing demand for bonds tends to drive up their price, helping to offset losses from other, more volatile instruments, such as shares.</p>
+        </div>
+
+        {/* Academy image: Advantages of bonds */}
+        <section className="ac-summary" data-testid="bonds-advantages-img">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+          <h2 className="ac-adv-title">Advantages of bonds</h2>
+          <div className="ac-adv-list">
+            <div className="ac-adv-item">
+              <span className="ac-adv-ic"><svg viewBox="0 0 40 40" width="38" height="38"><circle cx="20" cy="20" r="17" fill="none" stroke="#0d0d12" strokeWidth="1.6"/><path d="M12 22 l4 -6 l4 5 l6 -9" stroke="#0d0d12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <p>Consistency of returns</p>
+            </div>
+            <div className="ac-adv-item">
+              <span className="ac-adv-ic"><svg viewBox="0 0 40 40" width="38" height="38"><circle cx="20" cy="20" r="17" fill="none" stroke="#0d0d12" strokeWidth="1.6"/><path d="M9 20 C12 14 28 14 31 20 C28 26 12 26 9 20 Z" fill="none" stroke="#0d0d12" strokeWidth="1.6"/><circle cx="20" cy="20" r="3.6" fill="none" stroke="#0d0d12" strokeWidth="1.6"/><circle cx="20" cy="20" r="1.2" fill="#0d0d12"/></svg></span>
+              <p>Low volatility</p>
+            </div>
+            <div className="ac-adv-item">
+              <span className="ac-adv-ic"><svg viewBox="0 0 40 40" width="38" height="38"><circle cx="20" cy="20" r="17" fill="none" stroke="#0d0d12" strokeWidth="1.6"/><circle cx="20" cy="20" r="6" fill="none" stroke="#0d0d12" strokeWidth="1.6"/><circle cx="20" cy="20" r="2" fill="#0d0d12"/><path d="M20 8v3 M20 29v3 M8 20h3 M29 20h3 M11.5 11.5l2 2 M26.5 26.5l2 2 M28.5 11.5l-2 2 M13.5 26.5l-2 2" stroke="#0d0d12" strokeWidth="1.6"/></svg></span>
+              <p>Portfolio risk diversification</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Article body — risks */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <h2 id="bonds-risks">Risks associated with investing in bonds</h2>
+          <p>In addition to their many advantages, bonds — like any other investment — carry risks that are important to consider before investing.</p>
+
+          <h3 id="bonds-credit-risk">Credit risk (issuer default)</h3>
+          <p>One of the main risks associated with bonds is credit risk, i.e. the possibility that the issuer — be it a company or a government — will be unable to honour coupon payments or repay the principal at maturity. In the event of default, the bondholder could suffer a partial or total loss of their investment, unless a third party guarantees the bond.</p>
+          <p>It should be noted, however, that, as mentioned earlier, in the event of the issuer’s bankruptcy, bondholders have priority over shareholders in the distribution of any remaining assets. This can partially limit the losses incurred by the investor.</p>
+
+          <h3 id="bonds-rate-risk">Interest rate risk</h3>
+          <p>Interest rate risk relates to the possibility that the market price of a bond may change over time due to fluctuations in the interest rates set by central banks.</p>
+          <p>To understand this better, let’s take a simple example: imagine you have a bond that pays 2% interest. If, at a later date, the central bank raises rates and new bonds offering 4% start to be issued, your bond — which pays only 2% — becomes less attractive to other investors. Consequently, its market price falls.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );

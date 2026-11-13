@@ -780,3 +780,28 @@ html {
   .ac-pyramid-side{ flex-direction:row; justify-content:center; gap:.6rem; }
 }
 
+/* ---------- Academy maturity cards + yield curve ---------- */
+.ac-maturity{ margin-top:1.4rem; display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; max-width:560px; }
+.ac-mat-card{ background:#efe9ff; border-radius:16px; padding:1.1rem 1rem 1.1rem; display:flex; flex-direction:column; gap:.7rem; }
+.ac-mat-dots{ display:flex; gap:6px; }
+.ac-mat-dots i{ width:10px; height:10px; border-radius:50%; background:#fff; display:block; }
+.ac-mat-dots i.on{ background:#7c5cff; }
+.ac-mat-title{ margin:0; font-size:.92rem; font-weight:800; color:#0f0f12; }
+.ac-mat-body{ margin:0; background:#8b5cf6; border-radius:10px; padding:.7rem .8rem; font-size:.66rem;
+  color:#fff; line-height:1.45; }
+.ac-curve{ margin-top:1.4rem; display:flex; align-items:flex-end; gap:.8rem; max-width:560px; }
+.ac-curve-label{ background:#8b5cf6; color:#fff; font-weight:800; font-size:.78rem; border-radius:10px;
+  padding:.5rem .7rem; writing-mode:vertical-rl; transform:rotate(180deg); }
+.ac-curve svg{ display:block; flex:1; height:auto; }
+@media (max-width:560px){
+  .ac-maturity{ grid-template-columns:1fr; }
+}
+
+
+/* ---------- Academy advantages list ---------- */
+.ac-adv-title{ margin:1.2rem 0 1.4rem; font-size:1.6rem; font-weight:800; color:#0f0f12; }
+.ac-adv-list{ display:flex; flex-direction:column; gap:1.3rem; }
+.ac-adv-item{ display:flex; align-items:center; gap:1rem; }
+.ac-adv-ic{ width:44px; height:44px; flex:none; display:grid; place-items:center; }
+.ac-adv-item p{ margin:0; font-size:.92rem; font-weight:800; color:#0f0f12; }
+
