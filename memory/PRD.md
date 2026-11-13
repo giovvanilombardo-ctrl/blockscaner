@@ -532,3 +532,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   smart contract, Entry into the asset market), "A practical example: the Fleap case" H2 (Fleap
   S.p.A., CONSOB, PoliHub), and "Conclusions" H2. Article body complete; closing banner/disclaimer/
   Related still pending. Verified by screenshots.
+
+- **RWA closing blocks (2026-11-14)**: RWA article completed — "Sign up to Blockscaner" blue banner
+  (.ac-signup reuse: logo, green Start now pill, phone-with-coin-list SVG), full legal disclaimer,
+  and Related grid (ERC-8004 blue Ethereum towers art linking to /products/academy/erc-8004, DePIN
+  blue visor art linking to /products/academy/depin, Grok purple head art). RWA article is now fully
+  built end to end. Verified by screenshot.
