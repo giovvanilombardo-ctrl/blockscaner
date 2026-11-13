@@ -1191,6 +1191,12 @@ html {
 .eco-btn:hover{ background:#2ee58a; }
 .eco-art{ margin-top:2.2rem; border-radius:18px 18px 0 0; overflow:hidden; }
 .eco-phone{ display:block; width:100%; height:auto; }
+.eco-card-black{ background:#0d0d12; }
+.eco-card-black .eco-logo{ color:#fff; }
+.eco-card-black h3{ color:#fff; }
+.eco-card-black p{ color:#e8e8ec; }
+.eco-step-badge{ background:#ff2e88; color:#fff; font-size:.52rem; font-weight:800; letter-spacing:.06em;
+  padding:.18rem .4rem; border-radius:4px; margin-left:.3rem; align-self:center; }
 @media (max-width:860px){
   .eco-grid{ grid-template-columns:1fr; }
 }

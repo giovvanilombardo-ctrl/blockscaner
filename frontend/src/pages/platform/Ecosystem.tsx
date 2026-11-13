@@ -190,6 +190,128 @@ function PhonePro() {
   );
 }
 
+function StepPhone() {
+  return (
+    <svg viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice" className="eco-phone">
+      <defs>
+        <linearGradient id="ecoStepBg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#ff2e88"/><stop offset="1" stopColor="#e01874"/>
+        </linearGradient>
+      </defs>
+      <rect width="320" height="260" fill="url(#ecoStepBg)"/>
+      {/* phone body */}
+      <rect x="110" y="34" width="100" height="226" rx="16" fill="#0d0d12"/>
+      <rect x="113" y="37" width="94" height="220" rx="13" fill="#fff"/>
+      {/* notch */}
+      <rect x="138" y="37" width="44" height="7" rx="3.5" fill="#0d0d12"/>
+      {/* status */}
+      <text x="120" y="52" fontSize="7" fill="#0f0f12">15:28</text>
+      <g fill="#0f0f12"><rect x="188" y="47" width="7" height="5" rx="1"/><rect x="197" y="46" width="7" height="6" rx="1.4"/></g>
+      {/* Step header */}
+      <text x="120" y="72" fontSize="11" fontWeight="800" fill="#0f0f12">Step</text>
+      <circle cx="186" cy="68" r="4" fill="none" stroke="#0f0f12" strokeWidth="1.2"/>
+      <circle cx="197" cy="68" r="4" fill="none" stroke="#0f0f12" strokeWidth="1.2"/>
+      {/* balance */}
+      <text x="120" y="92" fontSize="15" fontWeight="800" fill="#0f0f12">34.78 <tspan fontSize="8">PUMP</tspan></text>
+      <text x="120" y="104" fontSize="6.5" fill="#8b8b93">Total Balance</text>
+      {/* steps */}
+      <text x="120" y="124" fontSize="7.5" fontWeight="800" fill="#0f0f12">Steps</text>
+      <text x="120" y="134" fontSize="6.5" fill="#8b8b93">4000 steps</text>
+      <rect x="120" y="140" width="60" height="5" rx="2.5" fill="#ffd4e6"/>
+      <rect x="120" y="140" width="42" height="5" rx="2.5" fill="#ff2e88"/>
+      <rect x="184" y="128" width="24" height="12" rx="6" fill="#ff2e88"/>
+      <text x="196" y="136.5" fontSize="5.5" textAnchor="middle" fill="#fff" fontWeight="800">Claim</text>
+      {/* highlights */}
+      <text x="120" y="162" fontSize="7.5" fontWeight="800" fill="#0f0f12">Highlights</text>
+      <rect x="120" y="168" width="87" height="34" rx="8" fill="#fff" stroke="#eeeef3"/>
+      <circle cx="132" cy="185" r="8" fill="#d9f5e3"/>
+      <circle cx="132" cy="185" r="5" fill="#14c96e"/>
+      <path d="M129.5 185 l2 2 3.5 -3.5" stroke="#fff" strokeWidth="1.4" fill="none" strokeLinecap="round"/>
+      <text x="144" y="181" fontSize="5.2" fontWeight="700" fill="#0f0f12">Killer rewards, jaw-dropping airdrops</text>
+      <text x="144" y="188" fontSize="5.2" fill="#57575c">and more: take advantage of your</text>
+      <text x="144" y="195" fontSize="5.2" fill="#57575c">PUMP!</text>
+    </svg>
+  );
+}
+
+function AcademyLaptop() {
+  return (
+    <svg viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice" className="eco-phone">
+      <defs>
+        <linearGradient id="ecoAcadBg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#8b5cf6"/><stop offset="1" stopColor="#7c3aed"/>
+        </linearGradient>
+      </defs>
+      <rect width="320" height="260" fill="url(#ecoAcadBg)"/>
+      {/* laptop screen */}
+      <rect x="40" y="40" width="240" height="150" rx="8" fill="#fff" stroke="#0d0d12" strokeWidth="2"/>
+      {/* browser bar */}
+      <rect x="40" y="40" width="240" height="14" rx="8" fill="#f4f4f6"/>
+      <g fill="#8b8b93"><circle cx="50" cy="47" r="1.8"/><circle cx="56" cy="47" r="1.8"/><circle cx="62" cy="47" r="1.8"/></g>
+      {/* academy header */}
+      <circle cx="70" cy="66" r="5" fill="#8b5cf6"/>
+      <path d="M67.5 66 l2 2 3 -3" stroke="#fff" strokeWidth="1.4" fill="none" strokeLinecap="round"/>
+      <text x="78" y="69" fontSize="7" fontWeight="800" fill="#0f0f12">academy</text>
+      <text x="150" y="68" fontSize="4.5" fill="#8b8b93">Popular</text>
+      <text x="180" y="68" fontSize="4.5" fill="#8b8b93">Categories</text>
+      <rect x="240" y="60" width="30" height="9" rx="4.5" fill="#8b5cf6"/>
+      <text x="255" y="66.5" fontSize="4.5" textAnchor="middle" fill="#fff">Sign up</text>
+      {/* hero article */}
+      <text x="52" y="88" fontSize="8" fontWeight="800" fill="#0f0f12">10 Ways to Use Your</text>
+      <text x="52" y="97" fontSize="8" fontWeight="800" fill="#0f0f12">Unstoppable Web3</text>
+      <text x="52" y="106" fontSize="8" fontWeight="800" fill="#0f0f12">Domain</text>
+      <g fontSize="4" fill="#8b8b93">
+        <text x="52" y="114">Ever wondered what you can do with a Web3 domain? Unstoppable Domains</text>
+        <text x="52" y="119">October 26, 2022 • 5 min</text>
+      </g>
+      {/* hero art */}
+      <rect x="190" y="78" width="80" height="44" rx="4" fill="#3ad0ff"/>
+      <ellipse cx="230" cy="100" rx="20" ry="6" fill="#0d0d12"/>
+      <rect x="222" y="88" width="16" height="10" rx="2" fill="#0d0d12"/>
+      <rect x="224" y="90" width="12" height="6" rx="1" fill="#fff"/>
+      <g stroke="#0d0d12" strokeWidth=".8">
+        <path d="M190 108 h80 M198 104 h64 M206 100 h48"/>
+      </g>
+      {/* section label */}
+      <text x="52" y="138" fontSize="7" fontWeight="800" fill="#0f0f12">Blockchain</text>
+      <text x="270" y="138" fontSize="5" textAnchor="end" fill="#e11d48">See more</text>
+      {/* three cards */}
+      {[0, 1, 2].map((i) => (
+        <g key={i}>
+          <rect x={52 + i * 74} y="146" width="68" height="34" rx="4" fill="#3ad0ff"/>
+          <rect x={52 + i * 74} y="146" width="68" height="9" rx="4" fill="#0d0d12"/>
+          <rect x={56 + i * 74} y="148.5" width="14" height="4" rx="2" fill="#fff"/>
+          <path d={`M${58 + i * 74} 168 q8 -6 16 0 q8 -6 16 0 q8 -6 16 0 q8 -6 16 0`} stroke="#0d0d12" strokeWidth="1" fill="none"/>
+          {i === 0 && <ellipse cx={86 + i * 74} cy={162} rx="14" ry="5" fill="#0d0d12"/>}
+          {i === 1 && <g fill="#0d0d12"><rect x={74 + i * 74} y={154} width="8" height="10" rx="1"/><rect x={84 + i * 74} y={154} width="8" height="10" rx="1"/><rect x={94 + i * 74} y={154} width="8" height="10" rx="1"/></g>}
+          {i === 2 && <g><rect x={78 + i * 74} y={156} width="22" height="10" rx="5" fill="#fff" stroke="#0d0d12" strokeWidth="1"/><text x={89 + i * 74} y={163.5} fontSize="5" textAnchor="middle" fill="#0f0f12" fontWeight="800">Web3</text></g>}
+        </g>
+      ))}
+      {/* laptop base */}
+      <path d="M30 190 h260 l10 14 a8 6 0 0 1 -8 6 h-264 a8 6 0 0 1 -8 -6 Z" fill="#d5d5dc" stroke="#0d0d12" strokeWidth="1.4"/>
+      <rect x="140" y="192" width="40" height="6" rx="3" fill="#b9b9c2"/>
+    </svg>
+  );
+}
+
+function StepLogo() {
+  return (
+    <span className="eco-logo">
+      <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="11" fill="#ff2e88"/><path d="M7 12.5 l3.4 3.4 L17.5 8.5" stroke="#fff" strokeWidth="2.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      blockscaner<span className="eco-step-badge">STEP</span>
+    </span>
+  );
+}
+
+function AcademyLogo() {
+  return (
+    <span className="eco-logo">
+      <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="11" fill="#8b5cf6"/><path d="M7 12.5 l3.4 3.4 L17.5 8.5" stroke="#fff" strokeWidth="2.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      academy
+    </span>
+  );
+}
+
 export default function Ecosystem() {
   return (
     <SiteLayout>
@@ -229,6 +351,27 @@ export default function Ecosystem() {
               <p>{_t("Advanced platform for buying and selling crypto-assets, featuring charting tools and conditional orders.")}</p>
               <a className="eco-btn" href="/products" onClick={(e) => e.preventDefault()}>{_t("Discover more")}</a>
               <div className="eco-art"><PhonePro /></div>
+            </article>
+          </div>
+        </section>
+
+        {/* learn while having fun */}
+        <section className="eco-one">
+          <h2>{_t("Learn while having fun")}</h2>
+          <div className="eco-grid">
+            <article className="eco-card eco-card-black" data-testid="eco-step-card">
+              <StepLogo />
+              <h3>{_t("Play and Discover")}</h3>
+              <p>{_t("Turn your free time into moments of discovery: walk, complete challenges, level up and earn rewards in PUMP tokens.")}</p>
+              <a className="eco-btn" href="/products" onClick={(e) => e.preventDefault()}>{_t("Discover more")}</a>
+              <div className="eco-art"><StepPhone /></div>
+            </article>
+            <article className="eco-card eco-card-light" data-testid="eco-academy-card">
+              <AcademyLogo />
+              <h3>{_t("Crypto Made Clear")}</h3>
+              <p>{_t("Free lessons for all levels. Unveil the mysteries of the crypto universe and find your way into personal finance.")}</p>
+              <a className="eco-btn" href="/products" onClick={(e) => e.preventDefault()}>{_t("Discover more")}</a>
+              <div className="eco-art"><AcademyLaptop /></div>
             </article>
           </div>
         </section>
