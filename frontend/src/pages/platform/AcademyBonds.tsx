@@ -114,6 +114,59 @@ export default function AcademyBonds() {
           </ul>
         </div>
 
+        {/* Academy image: Creditor vs Debtor */}
+        <section className="ac-summary" data-testid="bonds-parties-img">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+
+          <div className="ac-parties">
+            <div className="ac-party">
+              <svg viewBox="0 0 120 130" width="110" height="118">
+                <circle cx="60" cy="60" r="52" fill="#fff" stroke="#0d0d12" strokeWidth="2.4"/>
+                <circle cx="60" cy="52" r="17" fill="#fff" stroke="#0d0d12" strokeWidth="2"/>
+                <path d="M42 52 C42 36 78 36 78 52 C78 44 72 38 60 38 C48 38 42 44 42 52 Z" fill="#0d0d12"/>
+                <path d="M46 50 q2 -2 4 0 M56 50 q2 -2 4 0" stroke="#0d0d12" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+                <path d="M60 64 l-4 6 h8 z" fill="#0d0d12"/>
+                <path d="M36 96 C40 78 80 78 84 96 L84 106 L36 106 Z" fill="#efe9ff" stroke="#0d0d12" strokeWidth="2"/>
+                <rect x="57" y="84" width="6" height="20" rx="3" fill="#0d0d12"/>
+              </svg>
+              <p className="ac-party-name">Creditor</p>
+              <p className="ac-party-sub">(Money Surplus)</p>
+            </div>
+            <div className="ac-party">
+              <svg viewBox="0 0 120 130" width="110" height="118">
+                <circle cx="60" cy="60" r="52" fill="#fff" stroke="#0d0d12" strokeWidth="2.4"/>
+                <circle cx="60" cy="52" r="17" fill="#fff" stroke="#0d0d12" strokeWidth="2"/>
+                <path d="M42 52 C42 36 78 36 78 52 C78 44 72 38 60 38 C48 38 42 44 42 52 Z" fill="#0d0d12"/>
+                <path d="M46 50 q2 -2 4 0 M56 50 q2 -2 4 0" stroke="#0d0d12" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+                <path d="M60 64 l-4 6 h8 z" fill="#0d0d12"/>
+                <path d="M36 96 C40 78 80 78 84 96 L84 106 L36 106 Z" fill="#efe9ff" stroke="#0d0d12" strokeWidth="2"/>
+                <rect x="57" y="84" width="6" height="20" rx="3" fill="#0d0d12"/>
+              </svg>
+              <p className="ac-party-name">Debtor</p>
+              <p className="ac-party-sub">(Money Need)</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Article body — continued */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <p>The relationship between these counterparties establishes a direct credit relationship in which the investor acquires the right to receive future payments, whilst the issuer assumes a binding obligation to honour the debt by repaying the principal and interest.</p>
+
+          <h3 id="bonds-issuance">Issuance mechanism</h3>
+          <p>To place securities on the market and raise capital, the issuer primarily uses two procedures: public auctions and direct placements. Let’s look in detail at the differences between these two methods:</p>
+          <ul>
+            <li><b>Public auction:</b> the most common method for government bonds (such as BTPs). It operates as a genuine competitive tender: the issuer does not set the final price in advance; instead, it offers the securities to the market, inviting institutional investors (such as banks) to submit bids. It is the interplay between supply and demand that determines the purchase price and, consequently, the bond’s effective yield.</li>
+            <li><b>Direct placement:</b> In this case, the issuer (often a company or a bank) uses a group of intermediary banks to sell the securities directly to investors. Unlike an auction, here the terms (price and interest rate) are often set in advance by the issuer. Investors simply reserve and purchase the securities on the agreed terms, until the offer is exhausted.</li>
+          </ul>
+          <p>In both cases, once trading has concluded, a bond must have three fundamental elements to be defined as such: a maturity date, a face value (principal), and an interest rate, also known as a coupon.</p>
+
+          <h3 id="bonds-coupons">Coupons and the effective yield of a bond</h3>
+          <p>During the life of the bond, as we have mentioned, the debtor pays the creditor periodic interest, known as a coupon. This may be paid annually, half-yearly or at other intervals, and may be a fixed or variable amount, depending on the bond’s terms.The coupon is the component set at the time of issue and represents the ‘cost’ of the loan to the debtor and the nominal return to the creditor. However, it is essential not to confuse the coupon with the actual return on the investment.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );

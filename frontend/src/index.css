@@ -737,3 +737,13 @@ html {
 .ac-table td{ font-size:.78rem; color:#0f0f12; padding:.85rem 1.1rem; border-top:1.5px solid #0d0d12; }
 .ac-table td:first-child{ font-weight:800; }
 
+/* ---------- Academy creditor/debtor illustration ---------- */
+.ac-parties{ margin-top:1.4rem; display:flex; justify-content:center; gap:6rem; }
+.ac-party{ display:flex; flex-direction:column; align-items:center; text-align:center; }
+.ac-party svg{ display:block; }
+.ac-party-name{ margin:.6rem 0 0; font-size:1.05rem; font-weight:800; color:#0f0f12; }
+.ac-party-sub{ margin:.15rem 0 0; font-size:.82rem; font-weight:700; color:#0f0f12; }
+@media (max-width:560px){
+  .ac-parties{ gap:2.4rem; }
+}
+
