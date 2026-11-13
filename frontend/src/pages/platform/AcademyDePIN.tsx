@@ -180,6 +180,102 @@ export default function AcademyDePIN() {
             <li><b>Rewards (tokens):</b> the economic incentive that drives suppliers to keep their machines active and fully operational.</li>
             <li><b>Users (customers):</b> those who actually use and pay for the service, and who must perceive a real advantage in using the decentralized network compared to centralized competitors.</li>
           </ul>
+
+          {/* Supplier / Tokens / Customer circles */}
+          <section className="ac-depin-trio" data-testid="depin-trio">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <div className="ac-depin-trio-row">
+              <div className="ac-depin-circle"><b>Supplier</b></div>
+              <div className="ac-depin-circle"><b>Tokens</b></div>
+              <div className="ac-depin-circle"><b>Customer</b></div>
+            </div>
+          </section>
+
+          <p>The combination of these three elements, along with blockchain technology—which enables the decentralized execution and verification of every step—allows the aforementioned <b>flywheel effect</b> to take hold. This continuously incentivizes existing actors while attracting new ones, activating the cycle as follows:</p>
+          <ul>
+            <li><b>Network expansion:</b> as more suppliers join the network, drawn by token incentives, the infrastructure becomes more extensive and reliable.</li>
+            <li><b>Customer attraction:</b> a stronger network attracts more customers, who begin using the service because it is cost-effective and efficient.</li>
+            <li><b>Value generation:</b> increased usage generates value, driving the growth of the ecosystem and increasing demand for the token.</li>
+            <li><b>Re-investment &amp; growth:</b> as the token gains value, it attracts new suppliers ready to install more hardware to earn more attractive rewards.</li>
+          </ul>
+
+          {/* DePIN Flywheel cycle diagram */}
+          <section className="ac-depin-cyclesec" data-testid="depin-flywheel-diagram">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <div className="ac-depin-cycle">
+              <svg viewBox="0 0 560 420" role="img" aria-label="DePIN Flywheel cycle diagram">
+                {/* curved arrows */}
+                <g fill="none" stroke="#0f0f12" strokeWidth="2">
+                  <path d="M330 96 A150 150 0 0 1 424 190"/>
+                  <path d="M418 184 l8 12 l-14 2 Z" fill="#0f0f12" stroke="none"/>
+                  <path d="M424 236 A150 150 0 0 1 330 326"/>
+                  <path d="M336 318 l-8 12 l-6 -13 Z" fill="#0f0f12" stroke="none"/>
+                  <path d="M230 326 A150 150 0 0 1 136 236"/>
+                  <path d="M142 230 l-8 -12 l14 -2 Z" fill="#0f0f12" stroke="none"/>
+                  <path d="M136 190 A150 150 0 0 1 230 96"/>
+                  <path d="M224 102 l8 -12 l6 13 Z" fill="#0f0f12" stroke="none"/>
+                </g>
+                {/* center label */}
+                <text x="280" y="208" fontSize="24" fontWeight="800" textAnchor="middle" fill="#0f0f12">DePIN</text>
+                <text x="280" y="236" fontSize="24" fontWeight="800" textAnchor="middle" fill="#0f0f12">Flywheel</text>
+                {/* top box */}
+                <rect x="196" y="10" width="168" height="66" rx="12" fill="#8b5cf6"/>
+                <text x="280" y="34" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">Token rewards incentivize</text>
+                <text x="280" y="50" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">supply-side participants to</text>
+                <text x="280" y="66" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">deploy infrastructure</text>
+                {/* right box */}
+                <rect x="392" y="178" width="168" height="76" rx="12" fill="#8b5cf6"/>
+                <text x="476" y="198" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">At the network's</text>
+                <text x="476" y="214" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">supply-side grows, devs,</text>
+                <text x="476" y="230" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">product builders, and end</text>
+                <text x="476" y="244" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">users are attracted</text>
+                {/* bottom box */}
+                <rect x="196" y="344" width="168" height="76" rx="12" fill="#8b5cf6"/>
+                <text x="280" y="364" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">Fees generated from end</text>
+                <text x="280" y="380" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">users utilizing a network's</text>
+                <text x="280" y="396" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">services attracts more</text>
+                <text x="280" y="410" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">service providers</text>
+                {/* left box */}
+                <rect x="0" y="178" width="168" height="76" rx="12" fill="#8b5cf6"/>
+                <text x="84" y="198" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">Protocol token models</text>
+                <text x="84" y="214" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">create a relationship</text>
+                <text x="84" y="230" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">between network usage</text>
+                <text x="84" y="244" fontSize="12.5" fontWeight="600" textAnchor="middle" fill="#fff">and token price</text>
+              </svg>
+            </div>
+          </section>
+
+          <p>Thanks to this approach, <b>DePIN technology does more than just create a long-term sustainable ecosystem</b>; it also solves the problem of the massive upfront investment required to build infrastructure capable of competing with current centralized options.</p>
+          <p>In fact, through this incremental process, the incentive created by the ecosystem's growth allows the network to develop <b>organically</b> without the need for enormous initial capital. This provides a significant competitive advantage over centralized alternatives.</p>
+
+          <h2 id="depin-categories">{_t("The two major categories of DePIN: PRN vs. DRN")}</h2>
+          <p>Within the DePIN sector, we can distinguish between two main macro-categories: <b>Physical Resource Networks (PRN)</b> and <b>Digital Resource Networks (DRN)</b>. Let's explore the differences.</p>
+
+          <h3>{_t("PRN: Physical Resource Networks")}</h3>
+          <p>Physical Resource Networks coordinate tangible and "localized" physical assets, such as wireless connectivity (<b>5G/Wi-Fi</b>), energy grids, or environmental sensors. In this model, the hardware represents the central resource of the ecosystem, and its <b>geographic distribution</b> is essential to ensuring the coverage and efficiency of the services offered on the ground.</p>
+
+          {/* Physical Resource Networks grid */}
+          <section className="ac-depin-prn" data-testid="depin-prn-grid">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <h3 className="ac-depin-prn-title">{_t("Physical Resource Networks")}</h3>
+            <div className="ac-depin-prn-grid">
+              <div className="ac-depin-prn-cell">Wireless<br />Networks</div>
+              <div className="ac-depin-prn-cell">Mobility<br />Networks</div>
+              <div className="ac-depin-prn-cell">Energy<br />Networks</div>
+              <div className="ac-depin-prn-cell">Health<br />Networks</div>
+              <div className="ac-depin-prn-cell">Agriculture<br />Networks</div>
+              <div className="ac-depin-prn-cell">Geospatial<br />Networks</div>
+            </div>
+          </section>
         </div>
 
       </div>

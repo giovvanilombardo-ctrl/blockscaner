@@ -451,3 +451,17 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   bold), and "How DePIN works: the magic of the economic flywheel" H2 with intro paragraphs and the
   Suppliers/Rewards(tokens)/Users(customers) bullet list. Verified by screenshot. Remaining: PRN vs
   DRN, advantages, challenges, conclusions.
+
+- **DePIN trio + flywheel diagram (2026-11-14)**: added to AcademyDePIN.tsx — Supplier/Tokens/
+  Customer light-purple circles row (.ac-depin-trio), combination paragraph and four-step bullet
+  list (Network expansion, Customer attraction, Value generation, Re-investment & growth), then the
+  DePIN Flywheel cycle diagram (.ac-depin-cycle SVG): four purple rounded boxes (token rewards /
+  supply-side grows / fees generated / protocol token models) around a "DePIN Flywheel" center with
+  curved arrows. Verified by screenshots. Remaining: PRN vs DRN, advantages, challenges, conclusions.
+
+- **DePIN PRN section (2026-11-14)**: added to AcademyDePIN.tsx — closing flywheel paragraphs
+  (sustainable ecosystem / organically bold), "The two major categories of DePIN: PRN vs. DRN" H2,
+  "PRN: Physical Resource Networks" H3 with paragraph (5G/Wi-Fi, geographic distribution bold), and
+  the Physical Resource Networks six-cell purple grid (.ac-depin-prn-grid: Wireless, Mobility,
+  Energy, Health, Agriculture, Geospatial Networks). Also added .ac-depin-trio/.ac-depin-cycle CSS.
+  Verified by screenshot. Remaining: DRN, advantages, challenges, conclusions.
