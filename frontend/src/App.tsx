@@ -39,6 +39,7 @@ import AcademyBerachain from "./pages/platform/AcademyBerachain";
 import AcademyRaydium from "./pages/platform/AcademyRaydium";
 import AcademyFetch from "./pages/platform/AcademyFetch";
 import Leadership from "./pages/platform/Leadership";
+import Ecosystem from "./pages/platform/Ecosystem";
 import Markets from "./pages/platform/Markets";
 import Business from "./pages/platform/Business";
 import About from "./pages/platform/About";
@@ -85,6 +86,7 @@ const AppContent = () => {
           <Route path="/products/academy/raydium" element={<AcademyRaydium />} />
           <Route path="/products/academy/fetch-ai" element={<AcademyFetch />} />
           <Route path="/about/leadership" element={<Leadership />} />
+          <Route path="/about/ecosystem" element={<Ecosystem />} />
           <Route path="/markets" element={<Markets />} />
           <Route path="/markets/:coinId" element={<CoinDetail />} />
           <Route path="/business" element={<Business />} />

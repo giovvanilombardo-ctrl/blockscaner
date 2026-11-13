@@ -40,7 +40,7 @@ export const BrandMark = ({ className = "" }: { className?: string }) => (
 /* About us mega-menu content */
 const ABOUT_MENU = [
   { icon: Users, color: "text-white bg-violet-500", title: "Leadership", desc: "Meet the team behind Blockscaner.", to: "/about/leadership" },
-  { icon: Boxes, color: "text-white bg-emerald-500", title: "Ecosystem", desc: "Explore our products and services.", to: "/about" },
+  { icon: Boxes, color: "text-white bg-emerald-500", title: "Ecosystem", desc: "Explore our products and services.", to: "/about/ecosystem" },
   { icon: Briefcase, color: "text-white bg-fuchsia-500", title: "Work with us", desc: "Join our mission to build the future of crypto.", to: "/about" },
   { icon: ShieldCheck, color: "text-white bg-blue-500", title: "Security", desc: "Learn how we protect your assets and data.", to: "/about" },
 ];

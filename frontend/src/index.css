@@ -1157,3 +1157,40 @@ html {
 @media (max-width:520px){
   .lead-grid{ grid-template-columns:1fr; }
 }
+
+/* ---------- Ecosystem / Our Products page ---------- */
+.eco-page{ max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 6rem; }
+.eco-head{ text-align:center; margin-top:2.5rem; }
+.eco-head h1{ font-size:clamp(2.6rem,5vw,3.8rem); font-weight:800; letter-spacing:-.03em; color:#0f0f12; margin:0; }
+.eco-head p{ font-size:1.15rem; color:#0f0f12; margin:.9rem 0 1.4rem; }
+.eco-cta{ display:inline-flex; align-items:center; gap:.5rem; background:#14c96e; color:#0d0d12;
+  border-radius:99px; padding:.8rem 1.6rem; font-size:.95rem; font-weight:800; text-decoration:none;
+  transition:background-color .15s; }
+.eco-cta:hover{ background:#2ee58a; }
+.eco-one{ margin-top:5rem; }
+.eco-one h2{ text-align:center; font-size:clamp(1.8rem,3vw,2.4rem); font-weight:800; letter-spacing:-.02em;
+  color:#0f0f12; margin:0 0 2.4rem; }
+.eco-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+.eco-card{ border-radius:26px; padding:2.4rem 2.4rem 0; overflow:hidden; display:flex; flex-direction:column; }
+.eco-card-light{ background:#f7f7f8; }
+.eco-card-dark{ background:#0d0d12; }
+.eco-logo{ display:inline-flex; align-items:center; gap:.45rem; font-size:1.1rem; font-weight:800; letter-spacing:-.01em; }
+.eco-card-light .eco-logo{ color:#0f0f12; }
+.eco-card-dark .eco-logo{ color:#fff; }
+.eco-card-dark .eco-logo svg rect{ stroke:#fff; }
+.eco-card-dark .eco-logo svg path{ stroke:#fff; }
+.eco-card h3{ font-size:1.9rem; font-weight:800; letter-spacing:-.02em; margin:1.6rem 0 .8rem; }
+.eco-card-light h3{ color:#0f0f12; }
+.eco-card-dark h3{ color:#fff; }
+.eco-card p{ font-size:.98rem; line-height:1.6; margin:0; }
+.eco-card-light p{ color:#0f0f12; }
+.eco-card-dark p{ color:#c9c9cf; }
+.eco-btn{ display:inline-block; margin-top:1.4rem; background:#14c96e; color:#0d0d12; border-radius:99px;
+  padding:.7rem 1.3rem; font-size:.9rem; font-weight:800; text-decoration:none; align-self:flex-start;
+  transition:background-color .15s; }
+.eco-btn:hover{ background:#2ee58a; }
+.eco-art{ margin-top:2.2rem; border-radius:18px 18px 0 0; overflow:hidden; }
+.eco-phone{ display:block; width:100%; height:auto; }
+@media (max-width:860px){
+  .eco-grid{ grid-template-columns:1fr; }
+}

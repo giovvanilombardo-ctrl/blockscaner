@@ -744,3 +744,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   (Italian), Ivan Kovač (Croatian), Oliver Bennett (UK), Anders Jensen (Danish). Advisors (3
   unique new portraits): Priit Tamm (Estonian), Matteo Ricci (Italian), James Clarke (UK). All
   generated via Gemini image gen in /app/frontend/src/assets/leaders/.
+
+- **Ecosystem / Our Products page (2026-11-14)**: new route /about/ecosystem
+  (frontend/src/pages/platform/Ecosystem.tsx). Page shows breadcrumb (Home / Our products), "Our
+  Products" H1, "We make crypto-assets simple and accessible to everyone" subtitle, "Get started on
+  Blockscaner" green CTA, "One account for both platforms" H2, and two cards: "Crypto Made Easy"
+  (light bg, blockscaner logo, phone-with-green-app art, Discover more button) and "Crypto Made Pro"
+  (dark bg, blockscaner logo, dark-trading-terminal art, Discover more button). About us menu
+  Ecosystem option links to /about/ecosystem. CSS for all eco- classes added. Verified by screenshots.
