@@ -726,3 +726,7 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   portraits to all be the same ethnicity (white European), varying only haircut/style — Ryan Morris
   (buzz cut, grey v-neck), Lucas Ward (wavy medium hair, black t-shirt), Oliver Knight (long blonde
   hair + beard, light blue shirt), Noah Price (side-parted dark hair, white dress shirt).
+
+- **Marcus Cole photo swap (2026-11-14)**: swapped the portrait between Marcus Cole (Board of
+  Directors) and Ryan Morris (Executive Leadership) — Marcus Cole now shows the buzz-cut photo
+  (exec-ryan-morris.png), Ryan Morris shows the alexandru-stefan-gheban.png photo.
