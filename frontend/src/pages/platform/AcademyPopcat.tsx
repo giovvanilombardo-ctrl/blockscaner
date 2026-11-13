@@ -146,6 +146,18 @@ export default function AcademyPopcat() {
           </div>
         </section>
 
+        {/* Article body — continued */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <p>The result? One of the most viral memes of recent years. The content spread across Reddit, Instagram and Twitter at an astonishing speed. Users remixed it by syncing it with music tracks, turning Oatmeal into a sort of feline singer.</p>
+          <p>Following the meme’s popularity, on 11 December 2020, popcat. Click was launched: a global clicker game in which users click on the cat’s image to boost their country’s ranking, thus transforming a simple meme into an ironic geopolitical competition.</p>
+          <p>Currently, years after its launch, the top of the global leaderboard features:</p>
+          <ul>
+            <li>Thailand</li>
+            <li>Hong Kong</li>
+            <li>Taiwan</li>
+          </ul>
+        </div>
+
       </div>
     </SiteLayout>
   );
