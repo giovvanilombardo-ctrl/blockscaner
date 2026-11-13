@@ -1191,6 +1191,21 @@ html {
 .eco-btn:hover{ background:#2ee58a; }
 .eco-art{ margin-top:2.2rem; border-radius:18px 18px 0 0; overflow:hidden; }
 .eco-phone{ display:block; width:100%; height:auto; }
+/* Blockscaner Pro hero */
+.pro-page{ position:relative; background:#030308; min-height:92vh; overflow:hidden; display:flex;
+  align-items:center; justify-content:center; }
+.pro-hero-bg{ position:absolute; inset:0; width:100%; height:100%; }
+.pro-page::after{ content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 55%, rgba(3,3,8,.86) 0%, rgba(3,3,8,.55) 55%, rgba(3,3,8,.25) 100%); }
+.pro-hero{ position:relative; z-index:2; text-align:center; padding:6rem 1.5rem 8rem; max-width:52rem; }
+.pro-hero h1{ color:#fff; font-size:clamp(2.6rem,5.5vw,4.4rem); font-weight:500; letter-spacing:-.03em;
+  line-height:1.08; margin:0; }
+.pro-hero h1 em{ font-style:normal; color:#2ee58a; font-weight:600; }
+.pro-hero p{ color:#9d9da8; font-size:.98rem; line-height:1.65; max-width:34rem; margin:1.6rem auto 0; }
+.pro-cta{ display:inline-block; margin-top:2rem; background:#2ee58a; color:#04140b; border-radius:99px;
+  padding:.8rem 1.9rem; font-size:.92rem; font-weight:800; text-decoration:none; transition:background-color .15s; }
+.pro-cta:hover{ background:#4bf09e; }
+
 .eco-card-black{ background:#0d0d12; }
 .eco-card-black .eco-logo{ color:#fff; }
 .eco-card-black h3{ color:#fff; }

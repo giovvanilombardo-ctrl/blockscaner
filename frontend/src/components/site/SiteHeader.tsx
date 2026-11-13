@@ -21,7 +21,7 @@ const NAV_LINKS = [
 const PRODUCTS_MENU = {
   trade: [
     { icon: ArrowLeftRight, color: "text-white bg-emerald-500", title: "Blockscaner", desc: "Buy and sell crypto assets on a simple, intuitive platform.", to: "/products" },
-    { icon: LineChart, color: "text-white bg-slate-800", title: "Blockscaner Pro", desc: "Advanced platform for buying and selling crypto, with charting tools and conditional orders.", to: "/products" },
+    { icon: LineChart, color: "text-white bg-slate-800", title: "Blockscaner Pro", desc: "Advanced platform for buying and selling crypto, with charting tools and conditional orders.", to: "/products/pro" },
   ],
   learn: [
     { icon: Zap, color: "text-white bg-fuchsia-500", title: "Blockscaner Step", desc: "Walk, take crypto quizzes, complete challenges and earn rewards.", to: "/products" },
