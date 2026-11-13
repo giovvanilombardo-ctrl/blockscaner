@@ -326,7 +326,7 @@ export default function Academy() {
             <Card tags={["Derivati"]} title="Futures: what they are and how they work" to="/products/academy/futures"
               desc="What are futures and how do they work? Discover these unique derivative financial instruments widely used by expert traders."
               date="November 26, 2025" mins={8} art={ArtFutures} />
-            <Card tags={["Crypto Technical Analysis"]} title="Wyckoff theory: what is it, and how does it work?"
+            <Card tags={["Crypto Technical Analysis"]} title="Wyckoff theory: what is it, and how does it work?" to="/products/academy/wyckoff"
               desc="Wyckoff theory is a trading method focused on market cycles, guiding traders in understanding price movements through accumulation and distribution."
               date="November 21, 2024" mins={5} art={ArtWyckoff} />
             <Card tags={["Crypto Technical Analysis"]} title="Supertrend Indicator: What is it, and how does it work?"

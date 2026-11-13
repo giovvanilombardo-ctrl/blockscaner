@@ -563,3 +563,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   disclaimer, Related grid (Wyckoff theory zigzag art, Supertrend Indicator candlestick monitor art,
   Bollinger Bands candlestick monitor art — all Crypto Technical Analysis tags). Futures article is
   now fully built end to end. Verified by screenshot.
+
+- **Academy Wyckoff article (2026-11-14)**: new route /products/academy/wyckoff
+  (frontend/src/pages/platform/AcademyWyckoff.tsx) linked from the Academy Trading Wyckoff card.
+  Header: breadcrumb (Home/Trading/Wyckoff), back arrow, Crypto Technical Analysis tag, H1 "Wyckoff
+  theory: what is it, and how does it work?", November 21 2024 / 5 min, share icons, blue zigzag
+  accumulation/distribution hero with ellipses and Beginner badge, "You will learn" box with 5
+  anchor links. Body sections awaiting user copy. Route registered in App.tsx.
