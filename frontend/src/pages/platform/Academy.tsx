@@ -266,7 +266,7 @@ export default function Academy() {
             <a className="ac-more" href="#" onClick={(e) => e.preventDefault()}>{_t("See more")}</a>
           </div>
           <div className="ac-grid">
-            <Card tags={["Ethereum"]} title="The genesis of Ethereum: the story of the ICO"
+            <Card tags={["Ethereum"]} title="The genesis of Ethereum: the story of the ICO" to="/products/academy/ethereum-ico"
               desc="The Ethereum ICO showcased an innovative fundraising model that inspired numerous projects and entrepreneurs."
               date="October 9, 2026" mins={10} art={ArtEthereumNote} />
             <Card tags={["Bitcoin"]} title="What is Bitcoin and how does it work?" to="/products/academy/bitcoin"

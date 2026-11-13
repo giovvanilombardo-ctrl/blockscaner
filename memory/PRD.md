@@ -597,3 +597,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - **Supertrend card link fix (2026-11-14)**: added missing to="/products/academy/supertrend" to the
   Supertrend card in the Academy Trading section (Academy.tsx). Verified by clicking the card in the
   preview — it now navigates to the article page.
+
+- **Ethereum ICO card link fix (2026-11-14)**: added missing to="/products/academy/ethereum-ico" to
+  "The genesis of Ethereum: the story of the ICO" card in the Academy Featured section
+  (Academy.tsx). Card now navigates to the article page. AcademyArticle hero already had a click
+  handler opening the article in a new tab.
