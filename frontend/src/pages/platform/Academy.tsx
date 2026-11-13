@@ -348,7 +348,7 @@ export default function Academy() {
             <Card tags={["Crypto Security"]} title="Address poisoning: what it is and how to defend against it" to="/products/academy/address-poisoning"
               desc="Address poisoning is a sophisticated social engineering scam targeting crypto transactions. Learn how this attack works, its devastating impact, and essential strategies to protect your crypto fund"
               date="October 15, 2025" mins={8} art={ArtPoison} />
-            <Card tags={["DeFi", "Proof-Of-Stake"]} title="Berachain: what it is and how it revolutionises Liquidity in Web3"
+            <Card tags={["DeFi", "Proof-Of-Stake"]} title="Berachain: what it is and how it revolutionises Liquidity in Web3" to="/products/academy/berachain"
               desc="Discover how Berachain, a hybrid blockchain, is revolutionising Web3 with its Proof-of-Liquidity mechanism, blending security and liquidity management."
               date="September 24, 2025" mins={15} art={ArtBerachain} />
           </div>

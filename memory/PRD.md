@@ -646,3 +646,7 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Bera Thesis). Closing blocks: brown "Buy BERA on Blockscaner" banner (.ac-buy-bera), legal
   disclaimer, Related grid (Sonic, Address poisoning, Bitcoin Block Explorer cards). Route registered
   in App.tsx. Article complete end to end. Verified by screenshots.
+
+- **Berachain card link fix (2026-11-14)**: added missing to="/products/academy/berachain" to the
+  Berachain card in the Academy Technology section (Academy.tsx). Card now navigates to the article
+  page.
