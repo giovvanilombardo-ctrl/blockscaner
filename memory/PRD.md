@@ -585,3 +585,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   legal disclaimer, Related grid (Futures mountains art linking to /products/academy/futures,
   Supertrend candlestick art, Bollinger Bands candlestick art). Wyckoff article is now fully built
   end to end. Verified by screenshot.
+
+- **Academy Supertrend article (2026-11-14)**: new route /products/academy/supertrend
+  (frontend/src/pages/platform/AcademySupertrend.tsx). Full body: intro paragraphs, Supertrend
+  Indicator: What is it (Olivier Seban, 2011, trend-following), How it works (number of bars,
+  factor), How it is calculated and the formula (ATR, J. Welles Wilder Jr., formula quote),
+  advantages and disadvantages (strengths, weaknesses), Conclusions. Closing blocks: "Sign up to
+  Blockscaner" banner, legal disclaimer, Related grid (Futures, Wyckoff, Bollinger Bands cards).
+  Route registered in App.tsx; Wyckoff Related card links to its article. Article complete.
