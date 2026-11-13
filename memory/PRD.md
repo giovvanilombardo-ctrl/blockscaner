@@ -570,3 +570,18 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   theory: what is it, and how does it work?", November 21 2024 / 5 min, share icons, blue zigzag
   accumulation/distribution hero with ellipses and Beginner badge, "You will learn" box with 5
   anchor links. Body sections awaiting user copy. Route registered in App.tsx.
+
+- **Wyckoff hero restyle (2026-11-14)**: AcademyWyckoff.tsx hero art replaced to match user
+  reference — layered blue zigzag mountains (3 opacity layers) with white ellipses and horizon glow,
+  replacing the earlier single-line zigzag. "You will learn" list updated to the four correct anchors
+  (five fundamental principles, Wyckoff's market phases, charts and volume, accumulation phase).
+  Body sections still awaiting user copy.
+
+- **Wyckoff article completed (2026-11-14)**: full body added to AcademyWyckoff.tsx — intro
+  paragraphs (Richard Wyckoff, 1930s), The five fundamental principles (market cycles, supply and
+  demand, effort vs result, cause and effect, market testing), Wyckoff's market phases
+  (accumulation, markup, distribution, markdown), The importance of charts and volume, A practical
+  example: the accumulation phase, Conclusion. Closing blocks: "Sign up to Blockscaner" banner,
+  legal disclaimer, Related grid (Futures mountains art linking to /products/academy/futures,
+  Supertrend candlestick art, Bollinger Bands candlestick art). Wyckoff article is now fully built
+  end to end. Verified by screenshot.
