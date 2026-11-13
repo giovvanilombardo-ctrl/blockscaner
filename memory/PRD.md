@@ -730,3 +730,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - **Marcus Cole photo swap (2026-11-14)**: swapped the portrait between Marcus Cole (Board of
   Directors) and Ryan Morris (Executive Leadership) — Marcus Cole now shows the buzz-cut photo
   (exec-ryan-morris.png), Ryan Morris shows the alexandru-stefan-gheban.png photo.
+
+- **Ryan Morris appears twice (2026-11-14)**: changed the first Board of Directors entry to Ryan
+  Morris with the same buzz-cut photo (exec-ryan-morris.png), so Ryan Morris now appears in both
+  Board of Directors and Executive Leadership with the same photo and role (Co-CEO & CFO &
+  Co-founder). Marcus Cole removed from the list.

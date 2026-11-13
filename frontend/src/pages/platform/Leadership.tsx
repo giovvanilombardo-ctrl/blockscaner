@@ -15,7 +15,7 @@ import oliverImg from "@/assets/leaders/exec-oliver-knight.png";
 import noahImg from "@/assets/leaders/exec-noah-price.png";
 
 const LEADERS = [
-  { name: "Marcus Cole", role: "Co-CEO & CFO & Co-founder", img: ryanImg },
+  { name: "Ryan Morris", role: "Co-CEO & CFO & Co-founder", img: ryanImg },
   { name: "Ethan Blake", role: "Co-CEO & Co-founder", img: andreaImg },
   { name: "Daniel Brooks", role: "Member Board Of Directors", img: edoardoImg },
   { name: "Thomas Hale", role: "Member Board Of Directors", img: giorgioImg },
@@ -24,7 +24,7 @@ const LEADERS = [
 ];
 
 const EXECUTIVES = [
-  { name: "Ryan Morris", role: "Co-CEO & CFO & Co-founder", img: alexImg },
+  { name: "Ryan Morris", role: "Co-CEO & CFO & Co-founder", img: ryanImg },
   { name: "Lucas Ward", role: "Co-CEO & Co-founder", img: lucasImg },
   { name: "Oliver Knight", role: "Chief Experience Officer", img: oliverImg },
   { name: "Noah Price", role: "Chief Technology Officer & Co-founder", img: noahImg },
