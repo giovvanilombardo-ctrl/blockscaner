@@ -1,6 +1,7 @@
 import SiteLayout from "@/components/site/SiteLayout";
 import Seo from "@/components/Seo";
 import { t as _t } from "@/i18n";
+import { useNavigate } from "react-router-dom";
 
 /* ---- hero artwork: mint banknote with ETH coin + fingerprint ---- */
 const ArtEthereumNote = (
@@ -259,13 +260,14 @@ function Card({ tags, title, desc, date, mins, art, badge = "Beginner" }: {
 }
 
 export default function Academy() {
+  const navigate = useNavigate();
   return (
     <SiteLayout>
       <Seo title="Blockscaner Academy — Learn crypto, trading and economics" description="Guides, courses and market explainers — written to make crypto make sense." />
       <div className="ac-wrap" data-testid="academy-page">
 
         {/* Hero — featured article (exact reference layout) */}
-        <section className="ac-hero" data-testid="academy-hero">
+        <section className="ac-hero" data-testid="academy-hero" onClick={() => navigate("/products/academy/ethereum-ico")} style={{ cursor: "pointer" }} role="link" aria-label="Open article">
           <div className="ac-hero-copy">
             <Tag>Ethereum</Tag>
             <h1>{_t("The genesis of")}<br />{_t("Ethereum: the")}<br />{_t("story of the ICO")}</h1>
