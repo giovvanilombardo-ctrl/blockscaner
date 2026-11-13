@@ -304,7 +304,7 @@ export default function Academy() {
             <a className="ac-more" href="#" onClick={(e) => e.preventDefault()}>{_t("See more")}</a>
           </div>
           <div className="ac-grid">
-            <Card tags={["Ethereum"]} title="ERC-8004: The Future of AI on Ethereum"
+            <Card tags={["Ethereum"]} title="ERC-8004: The Future of AI on Ethereum" to="/products/academy/erc-8004"
               desc="The Ethereum ERC-8004 update is here: the new standard that promises a new lease of life for AI agents."
               date="March 31, 2026" mins={8} art={ArtERC} />
             <Card tags={["DeFi"]} badge="Principiante" title="DePIN: what they are and how decentralized physical infrastructure networks work"

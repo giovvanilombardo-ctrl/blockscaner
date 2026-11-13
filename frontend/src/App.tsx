@@ -27,6 +27,7 @@ import AcademyPopcat from "./pages/platform/AcademyPopcat";
 import AcademyBonds from "./pages/platform/AcademyBonds";
 import AcademyOptions from "./pages/platform/AcademyOptions";
 import AcademyStakeholders from "./pages/platform/AcademyStakeholders";
+import AcademyERC from "./pages/platform/AcademyERC";
 import Markets from "./pages/platform/Markets";
 import Business from "./pages/platform/Business";
 import About from "./pages/platform/About";
@@ -61,6 +62,7 @@ const AppContent = () => {
           <Route path="/products/academy/bonds" element={<AcademyBonds />} />
           <Route path="/products/academy/options" element={<AcademyOptions />} />
           <Route path="/products/academy/stakeholders" element={<AcademyStakeholders />} />
+          <Route path="/products/academy/erc-8004" element={<AcademyERC />} />
           <Route path="/markets" element={<Markets />} />
           <Route path="/markets/:coinId" element={<CoinDetail />} />
           <Route path="/business" element={<Business />} />
