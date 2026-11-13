@@ -84,6 +84,19 @@ export default function AcademyDePIN() {
           </ul>
         </div>
 
+        {/* Article body */}
+        <div className="ac-body">
+          <h2 id="depin-what">{_t("What is DePIN? the blockchain technology revolutionizing decentralized physical infrastructure")}</h2>
+          <p>Imagine a world where you don't have to pay massive corporations to use the internet, store data, or access connectivity networks—instead, it is you, using your own hardware, who builds those networks and receives a reward for doing so. This isn't science fiction: it's called DePIN, and it's already happening.</p>
+          <p>DePIN, an acronym for <b>Decentralized Physical Infrastructure Networks</b>, is one of the most exciting and fastest-growing sectors in the crypto ecosystem. Unlike many web3 projects that exist solely on-chain, DePIN brings decentralization into the real physical world: hotspots, antennas, hard drives, GPUs, and sensors—all managed not by a single corporation, but by a distributed community of everyday people incentivized by tokens.</p>
+          <p>Projects like <a href="#" onClick={(e) => e.preventDefault()}>Filecoin</a> or Render Network are just a small fraction of the entities that, thanks to DePIN technology, are already revolutionizing the world of physical infrastructure, creating a viable alternative to today's centralized systems.</p>
+          <p>In this article, we will answer these questions: What is DePIN, how does it work, and why could it be one of the most important trends of the coming years?</p>
+
+          <h2 id="depin-definition">{_t("What is DePIN: a simple definition")}</h2>
+          <p>What exactly is DePIN? The core concept behind this movement is to <b>shift the ownership and management of physical infrastructure from large centralized operators to a distributed network of participants</b> coordinated by blockchain technology.</p>
+          <p>In the current traditional model, the vast majority of internet networks, servers, data storage systems, and infrastructure are built and controlled by a handful of giant companies. The DePIN movement aims to flip this logic by building decentralized networks managed by a multitude of individuals. In this model, <b>every participant contributes their own physical resources—such as hardware, connectivity, or computing power—and is compensated through economic incentive mechanisms</b>. This creates a system where individual interests are perfectly aligned with the growth of the network.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );

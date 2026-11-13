@@ -437,3 +437,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   nodes hero with Beginner badge, "You will learn" box with 7 anchor links (what is DePIN, simple
   definition, economic flywheel, PRN vs DRN, advantages, challenges, conclusions). Body sections
   awaiting user copy. Route registered in App.tsx.
+
+- **DePIN article body part 1 (2026-11-14)**: first two body sections added to AcademyDePIN.tsx —
+  "What is DePIN? the blockchain technology revolutionizing decentralized physical infrastructure"
+  (4 paragraphs, Decentralized Physical Infrastructure Networks bold, Filecoin purple link) and
+  "What is DePIN: a simple definition" (2 paragraphs, bold highlights on ownership shift and
+  resource contribution). Verified by screenshot. Remaining: flywheel, PRN vs DRN, advantages,
+  challenges, conclusions.
