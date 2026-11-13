@@ -945,8 +945,15 @@ html {
 .ac-depin-prn-title{ font-size:1.35rem; font-weight:800; color:#0f0f12; margin:0 0 1.4rem; }
 .ac-depin-prn-grid{ background:#f3efff; border-radius:20px; padding:1.2rem;
   display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.ac-depin-drn .ac-depin-prn-grid{ grid-template-columns:repeat(2,1fr); max-width:480px; margin:0 auto; }
 .ac-depin-prn-cell{ background:linear-gradient(160deg,#8b5cf6,#7c5cff); border-radius:14px;
   padding:1.2rem .8rem; text-align:center; font-size:1.05rem; font-weight:800; color:#fff; line-height:1.35; }
 @media (max-width:560px){
   .ac-depin-prn-grid{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* ---------- Academy DePIN: DRN grid (2-col) ---------- */
+.ac-depin-drn-grid{ grid-template-columns:repeat(2,1fr); max-width:560px; margin:0 auto; }
+@media (max-width:560px){
+  .ac-depin-drn-grid{ grid-template-columns:1fr; }
 }

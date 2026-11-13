@@ -276,6 +276,27 @@ export default function AcademyDePIN() {
               <div className="ac-depin-prn-cell">Geospatial<br />Networks</div>
             </div>
           </section>
+
+          <p>A prime example is <a href="#" onClick={(e) => e.preventDefault()}>Helium</a>, a protocol that allows anyone to install a hotspot in their office or home to contribute to the creation of a <b>decentralized wireless network</b>, receiving tokens in return as a reward for providing coverage and connectivity.</p>
+
+          <h3>{_t("DRN: Digital Resource Networks")}</h3>
+          <p><b>Digital Resource Networks</b>, on the other hand, coordinate digital resources. While they still rely on an underlying physical infrastructure, the user interaction occurs primarily at the <b>software level</b>.</p>
+          <p>An example is <b>Render Network</b>, a platform that allows those with idle <b>GPUs</b> to make them available for graphic rendering and high-performance computing. Artists, developers, and creative studios can purchase computing power <b>on-demand</b>, paying in tokens. In this case, the end-user does not interact with a visible physical infrastructure—like an antenna or a wireless node—but rather with a distributed network of <b>computational capacity</b> that is orchestrated digitally through <b>smart contracts</b>.</p>
+
+          {/* Digital Resource Networks grid */}
+          <section className="ac-depin-prn ac-depin-drn" data-testid="depin-drn-grid">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <h3 className="ac-depin-prn-title">{_t("Digital Resource Networks")}</h3>
+            <div className="ac-depin-prn-grid ac-depin-drn-grid">
+              <div className="ac-depin-prn-cell">Storage<br />Networks</div>
+              <div className="ac-depin-prn-cell">Compute<br />Networks</div>
+              <div className="ac-depin-prn-cell">Security<br />Networks</div>
+              <div className="ac-depin-prn-cell">Bandwidth<br />Networks</div>
+            </div>
+          </section>
         </div>
 
       </div>

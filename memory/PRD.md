@@ -465,3 +465,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   the Physical Resource Networks six-cell purple grid (.ac-depin-prn-grid: Wireless, Mobility,
   Energy, Health, Agriculture, Geospatial Networks). Also added .ac-depin-trio/.ac-depin-cycle CSS.
   Verified by screenshot. Remaining: DRN, advantages, challenges, conclusions.
+
+- **DePIN DRN section (2026-11-14)**: added to AcademyDePIN.tsx — Helium example paragraph (Helium
+  purple link, decentralized wireless network bold), "DRN: Digital Resource Networks" H3 with two
+  paragraphs (software level, Render Network, GPUs, on-demand, computational capacity, smart
+  contracts bold), and the Digital Resource Networks 2x2 purple grid (.ac-depin-drn modifier:
+  Storage, Compute, Security, Bandwidth Networks). Verified by screenshot. Remaining: advantages,
+  challenges, conclusions.
