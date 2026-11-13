@@ -691,3 +691,25 @@ html {
   .ac-meme-img{ grid-template-columns:1fr; }
 }
 
+/* ---------- Academy popcat.click leaderboard ---------- */
+.ac-leader{ margin-top:1.4rem; max-width:640px; border-radius:14px; overflow:hidden;
+  border:1px solid #e6e6ea; box-shadow:0 10px 30px rgba(15,15,18,.08); background:#e8dcc8; }
+.ac-leader-chrome{ display:flex; align-items:center; gap:.8rem; background:#2b2b2e; padding:.45rem .8rem; }
+.ac-leader-dots{ display:flex; gap:4px; }
+.ac-leader-dots i{ width:8px; height:8px; border-radius:50%; display:block; }
+.ac-leader-dots i:nth-child(1){ background:#ff5f57; } .ac-leader-dots i:nth-child(2){ background:#febc2e; } .ac-leader-dots i:nth-child(3){ background:#28c840; }
+.ac-leader-tab{ background:#3d3d40; color:#fff; font-size:.62rem; font-weight:700; border-radius:6px; padding:.15rem .6rem; }
+.ac-leader-url{ background:#3d3d40; color:#cfcfd4; font-size:.62rem; border-radius:99px; padding:.15rem .8rem; flex:1; }
+.ac-leader-body{ position:relative; padding:1.2rem 1.6rem 1.6rem; text-align:center; }
+.ac-leader-cats{ display:flex; justify-content:flex-start; gap:.4rem; }
+.ac-leader-cat{ width:34px; height:34px; border-radius:50%; overflow:hidden; display:grid; place-items:center; background:#fff; }
+.ac-leader-title{ margin:.4rem 0 .8rem; font-size:1.6rem; font-weight:800; color:#fff;
+  text-shadow:0 2px 0 rgba(0,0,0,.25), 0 0 1px #0d0d12; letter-spacing:.02em; }
+.ac-leader-panel{ max-width:340px; margin:0 auto; background:#fff; border-radius:12px; padding:.8rem 1rem 1rem;
+  box-shadow:0 10px 24px rgba(15,15,18,.14); text-align:left; }
+.ac-leader-panel-head{ display:flex; align-items:center; justify-content:space-between; font-size:.72rem; font-weight:800;
+  color:#0f0f12; padding-bottom:.5rem; border-bottom:1px solid #f1f1f4; }
+.ac-leader-panel ul{ list-style:none; margin:.5rem 0 0; padding:0; display:flex; flex-direction:column; gap:.35rem; }
+.ac-leader-panel li{ display:flex; align-items:center; justify-content:space-between; font-size:.62rem; color:#0f0f12; }
+.ac-leader-panel li b{ font-weight:700; color:#0f0f12; }
+

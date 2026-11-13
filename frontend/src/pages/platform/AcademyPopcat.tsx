@@ -158,6 +158,65 @@ export default function AcademyPopcat() {
           </ul>
         </div>
 
+        {/* Academy image: popcat.click leaderboard screenshot */}
+        <section className="ac-summary" data-testid="popcat-leaderboard">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+
+          <div className="ac-leader">
+            {/* browser chrome */}
+            <div className="ac-leader-chrome">
+              <span className="ac-leader-dots"><i/><i/><i/></span>
+              <span className="ac-leader-tab">POPCAT</span>
+              <span className="ac-leader-url">popcat.click</span>
+              <span className="ac-leader-right" />
+            </div>
+            <div className="ac-leader-body">
+              <div className="ac-leader-cats">
+                <span className="ac-leader-cat"><svg viewBox="0 0 40 40" width="34" height="34"><circle cx="20" cy="20" r="19" fill="#9fd8c9"/><path d="M12 14 L9 5 L18 9 Z M28 14 L31 5 L22 9 Z" fill="#fff"/><circle cx="20" cy="22" r="10" fill="#fff"/><circle cx="16" cy="21" r="1.6" fill="#0d0d12"/><circle cx="24" cy="21" r="1.6" fill="#0d0d12"/><ellipse cx="20" cy="26" rx="2.4" ry="3" fill="#7a1f2b"/></svg></span>
+                <span className="ac-leader-cat"><svg viewBox="0 0 40 40" width="34" height="34"><circle cx="20" cy="20" r="19" fill="#0d0d12"/><circle cx="20" cy="22" r="10" fill="#fff"/><path d="M12 14 L9 5 L18 9 Z M28 14 L31 5 L22 9 Z" fill="#e8d9c8"/><circle cx="16" cy="21" r="1.6" fill="#0d0d12"/><circle cx="24" cy="21" r="1.6" fill="#0d0d12"/><ellipse cx="20" cy="27" rx="2.6" ry="3.4" fill="#7a1f2b"/></svg></span>
+              </div>
+              <h3 className="ac-leader-title">POPCAT</h3>
+
+              <div className="ac-leader-panel">
+                <div className="ac-leader-panel-head">
+                  <span>🏆</span>
+                  <span>Leaderboard</span>
+                  <span>⌄</span>
+                </div>
+                <ul>
+                  <li><span>🌍 Worldwide</span><b>346.3 PPS 657,787,969,982</b></li>
+                  <li><span>🥇 Thailand</span><b>125,539,985,445</b></li>
+                  <li><span>🥈 Hong Kong</span><b>33.4 PPS 123,306,405,393</b></li>
+                  <li><span>🥉 Taiwan</span><b>121,716,455,448</b></li>
+                  <li><span>4 🇯🇵 Japan</span><b>108,905,452,887</b></li>
+                  <li><span>5 🇰🇷 South Korea</span><b>30,932,166,568</b></li>
+                  <li><span>6 🇲🇾 Malaysia</span><b>26,122,438,999</b></li>
+                  <li><span>7 🇸🇦 Saudi Arabia</span><b>11,590,714,232</b></li>
+                  <li><span>8 🇺🇸 United States</span><b>11,010,065,013</b></li>
+                  <li><span>9 🇮🇩 Indonesia</span><b>10,267,594,078</b></li>
+                  <li><span>10 🇫🇮 Finland</span><b>9,390,489,224</b></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Article body — continued */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <h2 id="popcat-discord">From Discord to Solana: how the Popcat crypto came about</h2>
+          <p>The definitive shift from social media to digital markets occurred in December 2023. At that time, whilst the Solana ecosystem was buzzing with new energy around the memecoin phenomenon, someone recognised the potential to transform Oatmeal into an on-chain asset, launching the $POPCAT token.</p>
+          <p>The launch took place on Raydium, the leading decentralised exchange by volume on Solana. (If you’d like to learn more about the technology behind this protocol, our guide ‘Raydium: what it is and how it works’ is the perfect resource for you).</p>
+          <p>The debut marked one of the most successful memecoin launches of that period, but, as in any good story worth its salt, the most critical moment for the $POPCAT ecosystem came at the height of the project’s growth.</p>
+
+          <h2 id="popcat-community">The community rebels against the founder</h2>
+          <p>Starting as a simple viral image and evolving into one of the most talked-about meme coins in the Solana ecosystem, the story of $POPCAT risked an abrupt end due to a plot twist worthy of a financial thriller.</p>
+          <p>Shortly after the launch, the original developer decided to attempt a move bordering on blackmail: he openly threatened to compromise the token’s metadata — that is, its visual identity and technical information recorded on-chain — if the community did not fund his personal NFT collection with a whopping 5,000 SOL, equivalent at the time to around $1.2 million.</p>
+          <p>The community’s response was immediate and unanimous. jpeggler, founder of the ENIGMA digital art collection and a $POPCAT holder, stepped forward and, on 22 December 2023, brought the whole affair to light with a tweet that was destined to go down in the community’s history. Rather than giving in to blackmail, jpeggler negotiated directly with the developer and purchased the token’s update rights, along with control of the official social media channels and website, for 35,000 USDC, ousting the founder for good.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );
