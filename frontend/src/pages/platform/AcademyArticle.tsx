@@ -58,11 +58,13 @@ export default function AcademyArticle() {
         </div>
         <p className="ac-meta">October 9, 2026&nbsp;&nbsp;•&nbsp;&nbsp;10 min</p>
 
-        {/* hero image */}
-        <div className="ac-article-thumb">
-          <Badge>Beginner</Badge>
-          {ArtEthereumNote}
-        </div>
+        {/* hero image — click opens this article in a new tab */}
+        <Link to="/products/academy/ethereum-ico" target="_blank" rel="noopener noreferrer" aria-label="Open this article in a new page" style={{ display: "block" }}>
+          <div className="ac-article-thumb">
+            <Badge>Beginner</Badge>
+            {ArtEthereumNote}
+          </div>
+        </Link>
 
         {/* You will learn */}
         <div className="ac-learn">
