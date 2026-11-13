@@ -114,6 +114,36 @@ const ArtBerachain = (
   </svg>
 );
 
+const ArtRaydium = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#4fc3f7"/>
+    <path d="M0 150 L60 60 L110 110 L170 30 L220 90 V150 Z" fill="#0d0d12"/>
+    <path d="M40 150 L110 70 L180 150 Z" fill="#8be2ff" opacity=".8"/>
+    <circle cx="110" cy="70" r="42" fill="#fff"/>
+    <circle cx="110" cy="70" r="34" fill="#0d0d12"/>
+    <path d="M110 48 L128 82 H92 Z" fill="#fff"/>
+    <circle cx="188" cy="34" r="8" fill="#0d0d12"/><circle cx="200" cy="56" r="5" fill="#0d0d12"/>
+    <rect x="96" y="60" width="28" height="20" rx="4" fill="#4fc3f7"/>
+    <text x="110" y="75" fontSize="16" fontWeight="800" textAnchor="middle" fill="#0d0d12">R</text>
+  </svg>
+);
+
+const ArtFetch = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#0d0d12"/>
+    <circle cx="110" cy="75" r="34" fill="#ffd23f"/>
+    <circle cx="110" cy="75" r="26" fill="#fff"/>
+    <circle cx="110" cy="75" r="18" fill="#0d0d12"/>
+    {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
+      <circle key={a} cx={110 + 11 * Math.cos((a * Math.PI) / 180)} cy={75 + 11 * Math.sin((a * Math.PI) / 180)} r="2.4" fill="#ffd23f"/>
+    ))}
+    <rect x="18" y="92" width="36" height="36" rx="4" fill="#ffd23f"/>
+    <rect x="170" y="24" width="34" height="34" rx="4" fill="#ffd23f"/>
+    <rect x="28" y="28" width="20" height="20" rx="3" fill="#fff"/>
+    <rect x="172" y="98" width="20" height="20" rx="3" fill="#fff"/>
+  </svg>
+);
+
 const ArtBonds = (
   <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
     <rect width="220" height="150" fill="#d9ccff"/>
@@ -340,6 +370,22 @@ export default function Academy() {
             <Card tags={["DeFi", "Proof-Of-Stake"]} title="Berachain: what it is and how it revolutionises Liquidity in Web3"
               desc="Discover how Berachain, a hybrid blockchain, is revolutionising Web3 with its Proof-of-Liquidity mechanism, blending security and liquidity management."
               date="September 24, 2025" mins={15} art={ArtBerachain} />
+          </div>
+        </section>
+
+        {/* Cryptonomics */}
+        <section className="ac-cat">
+          <div className="ac-cat-head">
+            <h2>{_t("Cryptonomics")}</h2>
+            <a className="ac-more" href="#" onClick={(e) => e.preventDefault()}>{_t("See more")}</a>
+          </div>
+          <div className="ac-grid ac-grid--two">
+            <Card tags={["Crypto Market"]} title="Raydium: what it is and how it works"
+              desc="What is Raydium and how does it work? We answer this and other key questions about Solana's most popular DEX"
+              date="November 21, 2024" mins={6} art={ArtRaydium} />
+            <Card tags={["Crypto Market", "Proof-Of-Stake"]} title="Understanding Fetch.ai (FET): a complete guide with essential information"
+              desc="Fetch.ai merges AI with blockchain. Discover how FET cryptocurrency powers its innovative tech and applications in AI."
+              date="December 20, 2023" mins={5} art={ArtFetch} />
           </div>
         </section>
 

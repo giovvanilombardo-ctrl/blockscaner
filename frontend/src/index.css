@@ -512,12 +512,13 @@ html {
 
 
 /* ---------- Academy page ---------- */
-.ac-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1.5rem 5rem; }
+.ac-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1.5rem 5rem; zoom:.37; }
 .ac-cat{ margin-top:3.5rem; }
 .ac-cat-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:1.4rem; }
 .ac-cat-head h2{ font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; letter-spacing:-.02em; color:#0f0f12; margin:0; }
 .ac-more{ font-size:.9rem; font-weight:800; color:#7c5cff; text-decoration:none; }
 .ac-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2rem 1.6rem; }
+.ac-grid--two{ grid-template-columns:repeat(2,1fr); max-width:66.66%; }
 
 .ac-card h3{ font-size:1.15rem; font-weight:800; letter-spacing:-.01em; color:#0f0f12; margin:.7rem 0 .45rem; line-height:1.25; }
 .ac-thumb{ position:relative; border-radius:18px; overflow:hidden; aspect-ratio:220/150; }
