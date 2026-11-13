@@ -481,3 +481,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   challenges for the DePIN movement" H2 with three bullets (Operational complexity, Economic
   sustainability, Competition with web2 incumbents). Verified via screenshots. Remaining:
   conclusions + closing blocks (buy banner, disclaimer, Related).
+
+- **DePIN advantages + challenges (2026-11-14)**: added to AcademyDePIN.tsx — Render article/buy
+  links paragraph, "The advantages of DePIN" H2 with intro and three bold paragraphs (Efficiency,
+  Decentralization, Economic/Incentive Advantage), the Advantages cards row (.ac-depin-adv-row:
+  three purple pills with gear/rocket/cycle icons), summary sentence, and "Current challenges for
+  the DePIN movement" H2 with intro and three bullets (Operational complexity, Economic
+  sustainability, Competition with web2 incumbents). Card bottom margin added for spacing. Verified
+  by screenshot — order matches reference. Remaining: Conclusions + buy banner/disclaimer/related.

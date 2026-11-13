@@ -961,7 +961,7 @@ html {
 /* ---------- Academy DePIN: advantages cards ---------- */
 .ac-depin-adv{ margin-top:2.4rem; }
 .ac-depin-adv .ac-summary-brand{ margin-bottom:.6rem; }
-.ac-depin-adv-row{ display:flex; justify-content:center; gap:1.6rem; margin-top:1.2rem; }
+.ac-depin-adv-row{ display:flex; justify-content:center; gap:1.6rem; margin-top:1.2rem; margin-bottom:2.2rem; }
 .ac-depin-adv-card{ position:relative; background:linear-gradient(160deg,#8b5cf6,#7c5cff);
   border-radius:14px; padding:1.2rem 1.4rem 1.6rem; min-width:170px; text-align:center; }
 .ac-depin-adv-pill{ font-size:1.08rem; font-weight:800; color:#fff; line-height:1.3; }
