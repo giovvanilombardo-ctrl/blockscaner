@@ -418,3 +418,14 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Agent Card, no intermediaries / Reputation: feedback, immutable history, portability / Validation:
   third-party verification, auditors, public & permanent). Closing paragraph about verifiable,
   interoperable, trustless system. Verified by screenshot at 1366px.
+
+- **ERC-8004 registries deep-dive + footer sections (2026-11-13)**: final content added to
+  AcademyERC.tsx — Identity/Reputation/Validation registry H3 sub-sections with user copy, "Why it
+  matters for the future of Ethereum" H2 (ERC-20 2015 / ERC-721 2017 / universal trust layer). Then
+  closing blocks matching the reference: Buy ETH banner (blockscaner logo, "Buy ETH on Blockscaner"
+  H3, black Buy now pill, blue 3D pedestal + ETH coin SVG), full legal disclaimer paragraph with
+  General Risk Disclosure / Payment Account T&C / Currency Exchange T&C links, and a Related grid
+  with three cards: DePIN (blue VR-visor network art, March 19 2026, 8 min), RWA (red globe pedestal
+  art, February 6 2026, 11 min), What is Grok (purple head silhouette art, IA tag, August 26 2025,
+  10 min). .ac-body h3 style added. Verified via screenshots + DOM checks (banner text, 3 cards).
+  ERC-8004 article is now complete end to end.

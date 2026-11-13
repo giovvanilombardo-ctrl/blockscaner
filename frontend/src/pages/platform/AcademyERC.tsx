@@ -241,7 +241,173 @@ export default function AcademyERC() {
           </section>
 
           <p>Each of these registries intervenes at a specific stage of an agent's lifecycle, thereby creating a <b>verifiable</b>, <b>interoperable</b> and <b>trustless</b> system. Let us now look more closely at each registry to understand in detail what ERC-8004 is and how it works.</p>
+
+          <h3>{_t("Identity registry")}</h3>
+          <p>The first registry, the <b>identity registry</b>, fulfils the critical function of anchoring the agent on the blockchain, representing its formal and unique identity.</p>
+          <p>In a purely digital and potentially ephemeral context, this identity is consolidated through the issuance of a <b>non-fungible token (NFT)</b> compliant with the <b>ERC-721</b> standard. This technical choice not only guarantees authenticity but also enables the transferability of the agent's ownership and granular management of access rights.</p>
+          <p>The informational core of this registry lies in the so-called <b>Agent Card</b>, a JSON document that serves as a universal technical specification. Within it, operational endpoints, declared capabilities and payment addresses are mapped; this allows any smart contract or user to uniquely identify the methods of interaction with the synthetic entity, without resorting to centralised intermediaries.</p>
+
+          <h3>{_t("Reputation registry")}</h3>
+          <p>The second registry, the <b>reputation registry</b>, constitutes the agent's operational history, acting as an immutable archive of behavioural and technical performance. In this second pillar, trust is quantified through the on-chain recording of structured feedback, generated at the end of each interaction by users or other coordinating agents.</p>
+          <p>This architecture transforms qualitative data into a transparent empirical metric that reflects critical parameters such as execution reliability, response latency, and the accuracy of the outputs provided.</p>
+          <p>To achieve this objective, the registry introduces a mechanism based on applied game theory: since building a positive reputation requires a constant commitment of resources and time (opportunity cost), the accumulated reputational capital acts as collateral against malicious behaviour. In the absence of a central rating authority, the Reputation Registry enables selecting agents solely on cryptographic evidence, making operational merit a verifiable, immutable digital asset.</p>
+
+          <h3>{_t("Validation registry")}</h3>
+          <p>The third and final component, the <b>validation registry</b>, introduces a level of external verification necessary to mitigate the information asymmetries inherent in artificial intelligence models.</p>
+          <p>This registry enables qualified third parties — such as security auditors, academic institutions, or agents specialising in validation — to issue formal attestations regarding specific competencies, security standards, or the agent's ethical compliance.</p>
+          <p>The combination of these three elements represents a true paradigm shift in how AI agents interact with one another: for the first time, <b>identity</b>, <b>reputation</b>, and <b>validation</b> are brought together and transformed into shared, portable resources that anyone on the blockchain can verify.</p>
+
+          <h2 id="erc-future">{_t("Why it matters for the future of Ethereum")}</h2>
+          <p>Ethereum's history is written in its standards. These are not merely technical documents, but the foundations upon which entire cycles of economic innovation rest. This happened in 2015 with <b>ERC-20</b>, which gave rise to the token industry, and in 2017 with <b>ERC-721</b>, which opened the doors to the world of NFTs, transforming both cases into global markets.</p>
+          <p><b>ERC-8004</b> follows exactly in this vein, but raises the stakes further by applying the logic of standardisation to agentic artificial intelligence.</p>
+          <p>With this standard, Ethereum ceases to be merely a network for financial transactions and positions itself to become the <b>universal trust layer for autonomous agents</b>, thereby creating the technological environment necessary for the growth of an on-chain synthetic economy, where complex services are delivered and verified without human intervention.</p>
+          <p>Understanding what ERC-8004 is and how it works means having the tools to grasp the next phase of Ethereum's maturity: the one in which the programmability of value finally meets the autonomy of AI, transforming the network's use into concrete, measurable utility rooted in the real economy.</p>
         </div>
+
+        {/* Buy ETH banner */}
+        <div className="ac-buy">
+          <div className="ac-buy-left">
+            <span className="ac-buy-logo"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="#0f0f12" strokeWidth="1.6"/><path d="M8 8h6a3 3 0 0 1 0 6H8zM8 14h7a3 3 0 0 1 0 6H8z" fill="none" stroke="#0f0f12" strokeWidth="1.6"/><circle cx="17.5" cy="6.5" r="1.3" fill="#1663d9"/></svg>blockscaner</span>
+            <h3>{_t("Buy ETH")}<br />{_t("on Blockscaner")}</h3>
+            <a className="ac-buy-btn" href="/products" onClick={(e) => e.preventDefault()}>{_t("Buy now")} <span>→</span></a>
+          </div>
+          <div className="ac-buy-art">
+            <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="ercPed" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="#7fb2ff"/><stop offset="1" stopColor="#3a86ff"/>
+                </linearGradient>
+                <linearGradient id="ercPedTop" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stopColor="#a8ccff"/><stop offset="1" stopColor="#6ea8ff"/>
+                </linearGradient>
+                <linearGradient id="ercCoin" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="#8fb6ff"/><stop offset="1" stopColor="#3a86ff"/>
+                </linearGradient>
+              </defs>
+              <rect width="220" height="150" fill="#eef3ff"/>
+              {/* pedestal */}
+              <path d="M70 150 L70 88 a40 14 0 0 1 80 0 L150 150 Z" fill="url(#ercPed)"/>
+              <ellipse cx="110" cy="88" rx="40" ry="14" fill="url(#ercPedTop)"/>
+              {/* ETH coin */}
+              <circle cx="110" cy="58" r="36" fill="url(#ercCoin)"/>
+              <path d="M110 30 L130 60 L110 74 L90 60 Z" fill="#fff"/>
+              <path d="M110 30 L130 60 L110 54 Z" fill="#dbe7ff"/>
+              <path d="M110 82 L128 64 L110 76 L92 64 Z" fill="#fff" opacity=".9"/>
+            </svg>
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <p className="ac-disclaimer">
+          This content is provided solely for informational and educational purposes and does not constitute financial, legal
+          or tax advice, nor does it represent a public offering or solicitation to invest pursuant to Legislative Decree
+          58/1998 (TUF). Crypto-assets are highly volatile instruments and carry a significant risk of partial or total loss of
+          invested capital. Past performance and any forecasts do not guarantee future results. For a detailed overview of
+          the risks, please refer to the <a href="#" onClick={(e) => e.preventDefault()}>General Risk Disclosure</a>. The payment account offered by Blockscaner is regulated
+          under Legislative Decree 11/2010 and cannot be equated with a bank current account; therefore, it does not
+          benefit from the protections applicable to bank deposits. You are encouraged to perform your own independent
+          and informed assessments, consult the latest <a href="#" onClick={(e) => e.preventDefault()}>Payment Account Terms and Conditions</a> and <a href="#" onClick={(e) => e.preventDefault()}>Currency Exchange
+          Terms and Conditions</a>, and, where appropriate, seek advice from a qualified professional before making any
+          financial or economic decision.
+        </p>
+
+        {/* Related */}
+        <section className="ac-related">
+          <h2>{_t("Related")}</h2>
+          <div className="ac-grid">
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#bfe9ff"/>
+                  {/* network lines */}
+                  <g stroke="#0d0d12" strokeWidth="3" fill="none">
+                    <path d="M30 30 L90 70 M310 26 L250 66 M26 180 L92 142 M314 178 L248 140"/>
+                  </g>
+                  <g fill="#3a86ff" stroke="#0d0d12" strokeWidth="3">
+                    <rect x="14" y="16" width="30" height="30" rx="6" transform="rotate(12 29 31)"/>
+                    <rect x="296" y="14" width="30" height="30" rx="6" transform="rotate(-10 311 29)"/>
+                    <rect x="12" y="166" width="30" height="30" rx="6" transform="rotate(-8 27 181)"/>
+                    <rect x="298" y="164" width="30" height="30" rx="6" transform="rotate(10 313 179)"/>
+                  </g>
+                  {/* server block */}
+                  <rect x="105" y="120" width="130" height="46" rx="10" fill="#3ad0ff" stroke="#0d0d12" strokeWidth="3.5"/>
+                  <path d="M105 132 h130" stroke="#0d0d12" strokeWidth="2" opacity=".4"/>
+                  <rect x="112" y="158" width="116" height="14" rx="6" fill="#0d0d12"/>
+                  {/* VR visor */}
+                  <path d="M92 74 a78 40 0 0 1 156 0 l-8 34 a40 24 0 0 1 -30 18 l-24 4 a30 16 0 0 1 -32 0 l-24 -4 a40 24 0 0 1 -30 -18 Z" fill="#3ad0ff" stroke="#0d0d12" strokeWidth="4"/>
+                  <rect x="118" y="66" width="104" height="40" rx="20" fill="#fff" stroke="#0d0d12" strokeWidth="3.5"/>
+                  <text x="170" y="95" fontSize="26" fontWeight="800" textAnchor="middle" fill="#0d0d12" fontStyle="italic">DePIN</text>
+                  {/* antenna */}
+                  <path d="M170 34 v-14 M162 24 l8 -8 8 8" stroke="#0d0d12" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">DeFi</span></div>
+              <h3>DePIN: what they are and how decentralized physical infrastructure networks work</h3>
+              <p className="ac-desc">What is DePIN? The blockchain technology revolutionising decentralised physical infrastructure</p>
+              <p className="ac-meta">March 19, 2026&nbsp;&nbsp;•&nbsp;&nbsp;8 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#ff8f9f"/>
+                  {/* side rails */}
+                  <rect x="28" y="0" width="26" height="210" rx="13" fill="#0d0d12"/>
+                  <rect x="286" y="0" width="26" height="210" rx="13" fill="#0d0d12"/>
+                  {/* globe */}
+                  <circle cx="170" cy="92" r="52" fill="#ff5f7a" stroke="#0d0d12" strokeWidth="4"/>
+                  <g stroke="#0d0d12" strokeWidth="2.2" fill="none">
+                    <ellipse cx="170" cy="92" rx="52" ry="18"/>
+                    <ellipse cx="170" cy="92" rx="52" ry="36"/>
+                    <ellipse cx="170" cy="92" rx="18" ry="52"/>
+                    <ellipse cx="170" cy="92" rx="36" ry="52"/>
+                    <path d="M118 92 h104"/>
+                  </g>
+                  {/* pedestal */}
+                  <rect x="128" y="146" width="84" height="16" rx="6" fill="#0d0d12"/>
+                  <rect x="104" y="162" width="132" height="26" rx="12" fill="#fff" stroke="#0d0d12" strokeWidth="3.5"/>
+                  {/* labels */}
+                  <g fontSize="13" fontWeight="800" textAnchor="middle">
+                    <rect x="66" y="66" width="42" height="26" rx="13" fill="#fff" stroke="#0d0d12" strokeWidth="2.6"/>
+                    <text x="87" y="84" fill="#ff5f7a">RWA</text>
+                    <rect x="232" y="60" width="42" height="26" rx="13" fill="#fff" stroke="#0d0d12" strokeWidth="2.6"/>
+                    <text x="253" y="78" fill="#ff5f7a">RWA</text>
+                  </g>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">DeFi</span></div>
+              <h3>RWA: what they are and how they work</h3>
+              <p className="ac-desc">Real World Assets (RWA): the new revolution in the global financial system</p>
+              <p className="ac-meta">February 6, 2026&nbsp;&nbsp;•&nbsp;&nbsp;11 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#a98bff"/>
+                  {/* x sparkles */}
+                  <g stroke="#fff" strokeWidth="3" strokeLinecap="round">
+                    <path d="M40 40 l14 14 M54 40 l-14 14"/>
+                    <path d="M288 36 l14 14 M302 36 l-14 14"/>
+                    <path d="M52 150 l12 12 M64 150 l-12 12"/>
+                    <path d="M282 158 l12 12 M294 158 l-12 12"/>
+                    <path d="M150 26 l10 10 M160 26 l-10 10"/>
+                  </g>
+                  {/* moon circle */}
+                  <circle cx="120" cy="112" r="56" fill="#fff"/>
+                  {/* head silhouette */}
+                  <path d="M150 60 a58 58 0 0 1 66 44 q10 2 8 12 q-2 8 -10 10 q2 10 -6 14 q0 12 -12 14 l-4 22 h-66 q10 -30 4 -52 a58 58 0 0 1 20 -64 Z" fill="#0d0d12"/>
+                  {/* grok eye */}
+                  <circle cx="196" cy="96" r="18" fill="none" stroke="#fff" strokeWidth="3"/>
+                  <path d="M182 108 a18 18 0 0 1 24 -22" stroke="#fff" strokeWidth="3" fill="none"/>
+                  <path d="M178 92 l34 10" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">IA</span></div>
+              <h3>What is Grok: Elon Musk's new AI assistant</h3>
+              <p className="ac-desc">Grok is xAI's artificial intelligence model designed to redefine the concept of a virtual assistant. Discover how it works and what makes it different.</p>
+              <p className="ac-meta">August 26, 2025&nbsp;&nbsp;•&nbsp;&nbsp;10 min</p>
+            </article>
+          </div>
+        </section>
 
       </div>
     </SiteLayout>
