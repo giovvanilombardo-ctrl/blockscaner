@@ -9,6 +9,10 @@ import edoardoImg from "@/assets/leaders/edoardo-guerrieri.png";
 import giorgioImg from "@/assets/leaders/giorgio-medda.png";
 import nicolasImg from "@/assets/leaders/nicolas-bertrand.png";
 import salvatoreImg from "@/assets/leaders/salvatore-sberna.png";
+import ryanImg from "@/assets/leaders/exec-ryan-morris.png";
+import lucasImg from "@/assets/leaders/exec-lucas-ward.png";
+import oliverImg from "@/assets/leaders/exec-oliver-knight.png";
+import noahImg from "@/assets/leaders/exec-noah-price.png";
 
 const LEADERS = [
   { name: "Marcus Cole", role: "Co-CEO & CFO & Co-founder", img: alexImg },
@@ -17,6 +21,13 @@ const LEADERS = [
   { name: "Thomas Hale", role: "Member Board Of Directors", img: giorgioImg },
   { name: "Victor Grant", role: "Chairman & Member Board Of Directors", img: nicolasImg },
   { name: "James Ellis", role: "Member Board Of Directors", img: salvatoreImg },
+];
+
+const EXECUTIVES = [
+  { name: "Ryan Morris", role: "Co-CEO & CFO & Co-founder", img: ryanImg },
+  { name: "Lucas Ward", role: "Co-CEO & Co-founder", img: lucasImg },
+  { name: "Oliver Knight", role: "Chief Experience Officer", img: oliverImg },
+  { name: "Noah Price", role: "Chief Technology Officer & Co-founder", img: noahImg },
 ];
 
 export default function Leadership() {
@@ -34,6 +45,28 @@ export default function Leadership() {
           <div className="lead-grid">
             {LEADERS.map((p) => (
               <article key={p.name} className="lead-card" data-testid={`leader-${p.name.split(" ")[0].toLowerCase()}`}>
+                <div className="lead-photo">
+                  <img src={p.img} alt={p.name} loading="lazy" />
+                </div>
+                <div className="lead-info">
+                  <div className="lead-name-row">
+                    <h3>{p.name}</h3>
+                    <a href="#" onClick={(e) => e.preventDefault()} aria-label={`${p.name} on LinkedIn`} className="lead-li">
+                      <Linkedin size={16} />
+                    </a>
+                  </div>
+                  <p>{p.role}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="lead-board">
+          <h2>{_t("Executive Leadership")}</h2>
+          <div className="lead-grid">
+            {EXECUTIVES.map((p) => (
+              <article key={p.name} className="lead-card" data-testid={`exec-${p.name.split(" ")[0].toLowerCase()}`}>
                 <div className="lead-photo">
                   <img src={p.img} alt={p.name} loading="lazy" />
                 </div>

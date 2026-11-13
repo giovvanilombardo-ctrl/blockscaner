@@ -721,3 +721,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - **Victor Grant tie change (2026-11-14)**: regenerated nicolas-bertrand.png (Victor Grant) with a
   solid burgundy-red silk tie instead of the light patterned tie. Face unchanged concept (same
   portrait subject).
+
+- **Executive Leadership portraits fixed (2026-11-14)**: regenerated the four Executive Leadership
+  portraits to all be the same ethnicity (white European), varying only haircut/style — Ryan Morris
+  (buzz cut, grey v-neck), Lucas Ward (wavy medium hair, black t-shirt), Oliver Knight (long blonde
+  hair + beard, light blue shirt), Noah Price (side-parted dark hair, white dress shirt).
