@@ -25,7 +25,7 @@ const PRODUCTS_MENU = {
   ],
   learn: [
     { icon: Zap, color: "text-white bg-fuchsia-500", title: "Blockscaner Step", desc: "Walk, take crypto quizzes, complete challenges and earn rewards.", to: "/products" },
-    { icon: GraduationCap, color: "text-white bg-violet-500", title: "Academy", desc: "Learn the basics of crypto assets and blockchain with simple guides and free access.", to: "/blog" },
+    { icon: GraduationCap, color: "text-white bg-violet-500", title: "Academy", desc: "Learn the basics of crypto assets and blockchain with simple guides and free access.", to: "/products/academy" },
   ],
 };
 
