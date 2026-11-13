@@ -2,31 +2,7 @@ import SiteLayout from "@/components/site/SiteLayout";
 import Seo from "@/components/Seo";
 import { t as _t } from "@/i18n";
 import { useNavigate } from "react-router-dom";
-
-/* ---- hero artwork: mint banknote with ETH coin + fingerprint ---- */
-const ArtEthereumNote = (
-  <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
-    <rect width="340" height="210" fill="#c9f5dd"/>
-    {/* banknote */}
-    <rect x="46" y="34" width="248" height="142" rx="14" fill="#3ddc84"/>
-    <rect x="46" y="34" width="248" height="142" rx="14" fill="none" stroke="#0d0d12" strokeWidth="4"/>
-    <rect x="58" y="46" width="224" height="118" rx="8" fill="none" stroke="#0d0d12" strokeWidth="2" opacity=".5"/>
-    {/* corner marks */}
-    <path d="M58 60 q14 0 14 -14 M282 60 q-14 0 -14 -14 M58 150 q14 0 14 14 M282 150 q-14 0 -14 14" stroke="#0d0d12" strokeWidth="2.5" fill="none"/>
-    {/* ETH coin */}
-    <circle cx="120" cy="105" r="44" fill="#fff" stroke="#0d0d12" strokeWidth="4"/>
-    <path d="M120 74 L138 106 L120 118 L102 106 Z" fill="#0d0d12"/>
-    <path d="M120 74 L138 106 L120 100 Z" fill="#0d0d12" opacity=".55"/>
-    {/* fingerprint circle */}
-    <circle cx="214" cy="105" r="44" fill="#fff" stroke="#0d0d12" strokeWidth="4"/>
-    <g fill="none" stroke="#0d0d12" strokeWidth="2.6">
-      <path d="M214 84 a21 21 0 0 1 21 21"/><path d="M193 105 a21 21 0 0 1 12 -19"/>
-      <path d="M214 93 a12 12 0 0 1 12 12"/><path d="M202 105 a12 12 0 0 1 6 -10"/>
-      <path d="M214 101 a4 4 0 0 1 4 4 a4 4 0 0 1 -4 4"/>
-      <path d="M226 118 a24 24 0 0 1 -22 10"/><path d="M196 118 a20 20 0 0 1 -6 -13"/>
-    </g>
-  </svg>
-);
+import { ArtEthereumNote } from "./AcademyArticle";
 
 const ArtBitcoin = (
   <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">

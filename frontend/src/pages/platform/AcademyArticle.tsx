@@ -4,7 +4,8 @@ import { t as _t } from "@/i18n";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
-const ArtEthereumNote = (
+/* shared banknote artwork — also used by the Academy hero */
+export const ArtEthereumNote = (
   <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
     <rect width="340" height="210" fill="#c9f5dd"/>
     <rect x="46" y="34" width="248" height="142" rx="14" fill="#3ddc84"/>
