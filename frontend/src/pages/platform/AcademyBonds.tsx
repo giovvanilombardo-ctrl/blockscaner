@@ -210,6 +210,24 @@ export default function AcademyBonds() {
           </div>
         </section>
 
+        {/* Article body — continued */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <p>Whilst the coupon (often fixed) remains unchanged, the investor’s return can change drastically if the bond is purchased in the secondary market. After issuance, in fact, the securities are freely traded between investors, and their prices fluctuate with interest rate trends and the issuer’s creditworthiness.</p>
+          <p>To better understand this mechanism, let’s look at a practical example.</p>
+          <p>Imagine a bond issued at a value of €100 with a fixed coupon of 5% (meaning it pays €5 per year). If, for various market reasons, the price of this bond falls to €90 and you decide to buy it, your actual return increases significantly for two reasons:</p>
+          <ul>
+            <li>You will still receive the fixed €5 coupon (which, on an investment of just €90, represents a rate higher than the original 5%);</li>
+            <li>At maturity, you will be repaid the nominal €100, guaranteeing you a further profit of €10 (the difference between what you paid and what you are repaid).</li>
+          </ul>
+          <p>It is precisely for this reason that, in the bond market, price and yield always move in opposite directions: when the price of a bond falls, its effective yield for the buyer rises, and vice versa.</p>
+
+          <h2 id="bonds-characteristics">Key characteristics of bonds</h2>
+          <p>Bonds can have very different characteristics, which influence their expected return, risk and suitability for different investor profiles. Let’s look at the main ones:</p>
+
+          <h3 id="bonds-bankruptcy">Repayment in the event of bankruptcy</h3>
+          <p>A key consideration is how bonds are treated in the event of the issuer’s bankruptcy. In bankruptcy situations, bonds offer greater protection than other financial instruments, such as shares. Bondholders, in fact, have priority in repayments: this means that, in the event of the company’s liquidation, they will be repaid — at least partially — before shareholders, drawing on the remaining available resources.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );
