@@ -267,6 +267,18 @@ export default function AcademyBitcoin() {
           </div>
         </section>
 
+        {/* Article body — continued */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <p>Bitcoin, however, in order to establish itself in the macro-economic context, will first have to achieve mass adoption. Its aims will not be met if it continues to live in the niche of ‘early adopters‘. Its spread, however, needs regulation first and foremost: clear laws that match the blockchain’s innovation. Indeed, crypto-assets cannot be treated in the same way as any other currency, given the characteristics just presented.</p>
+
+          <div className="ac-note">
+            <h4>j.nieder</h4>
+            <p>The first purchase in Bitcoin took place on 22 May 2010 and saw the exchange of 10,000 BTC for two family pizzas. Laszlo Hanyecz paid, in fact, about $40 in Bitcoin at Papa John’s pizzeria, Florida: since then, 22 May has been celebrated every year as ‘Bitcoin Pizza Day’.</p>
+          </div>
+
+          <p>In any case, it is important to emphasise that the value of Bitcoin has not drawn a steady arc of growth, but rather an oscillation between bear markets and bull markets. Volatility has often characterised the price of Bitcoin, between exciting highs and lows. However, Bitcoin’s price trend does not have to be a mystery: there are several tools to monitor it, such as supports and resistances or trendlines!</p>
+        </div>
+
       </div>
     </SiteLayout>
   );
