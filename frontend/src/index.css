@@ -864,3 +864,32 @@ html {
   .ac-erc-eip-row{ flex-direction:column; gap:.15rem; }
   .ac-erc-eip-k{ width:auto; }
 }
+
+/* ---------- Academy ERC-8004: three registries diagram ---------- */
+.ac-erc-regsec{ margin-top:2.4rem; max-width:640px; margin-left:auto; margin-right:auto; }
+.ac-erc-regsec .ac-summary-brand{ margin-bottom:1.6rem; }
+.ac-erc-regsec .ac-summary-brand span:last-child{ font-size:1.05rem; }
+.ac-erc-reg{ display:flex; flex-direction:column; align-items:center; }
+.ac-erc-agents{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.ac-erc-agent{ flex:none; width:172px; background:linear-gradient(135deg,#8b5cf6,#7c5cff); border-radius:14px;
+  padding:.9rem 1rem .85rem; text-align:center; box-shadow:0 10px 24px rgba(124,92,255,.28); }
+.ac-erc-agent b{ display:block; font-size:1.02rem; font-weight:800; color:#fff; letter-spacing:-.01em; }
+.ac-erc-agent span{ display:block; margin-top:.2rem; font-size:.68rem; color:#e6dcff; }
+.ac-erc-link{ flex:1; display:flex; align-items:center; gap:0; }
+.ac-erc-link i{ flex:1; border-top:2px dashed #b9a5f5; }
+.ac-erc-q{ flex:none; width:44px; height:44px; margin:0 .4rem; border-radius:10px; background:#8b5cf6;
+  display:grid; place-items:center; font-size:1.25rem; font-weight:800; color:#fff;
+  box-shadow:0 8px 20px rgba(124,92,255,.3); }
+.ac-erc-arrows{ width:100%; display:flex; justify-content:space-between; padding:0 76px; margin:.15rem 0 .3rem; }
+.ac-erc-regs{ width:100%; background:#f6f2ff; border-radius:20px; padding:.9rem;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; }
+.ac-erc-registry{ background:linear-gradient(160deg,#8b5cf6,#7c5cff); border-radius:14px;
+  padding:1rem .9rem 1.1rem; text-align:center; }
+.ac-erc-registry b{ display:block; font-size:.92rem; font-weight:800; color:#fff; margin-bottom:.7rem; }
+.ac-erc-registry p{ margin:.55rem 0 0; font-size:.68rem; line-height:1.45; color:#e6dcff; }
+@media (max-width:620px){
+  .ac-erc-agents{ flex-direction:column; }
+  .ac-erc-link{ width:100%; }
+  .ac-erc-arrows{ display:none; }
+  .ac-erc-regs{ grid-template-columns:1fr; }
+}

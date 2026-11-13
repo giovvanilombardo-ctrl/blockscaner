@@ -408,3 +408,13 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   fees, blockchain; .ac-body a style). Followed by dark EIP-8004 card (.ac-erc-eip): yellow Draft +
   blue Standards Track: ERC pills, "ERC-8004: Trustless Agents" title, subtitle, and Authors/Created/
   Discussion Link/Requires rows in near-black (#141419) rounded card. Verified by screenshot.
+
+- **ERC-8004 What-is-ERC + registries (2026-11-13)**: third and fourth body sections added to
+  AcademyERC.tsx — "What is an ERC" H2 with five user-supplied paragraphs (Ethereum Request for
+  Comments, open convention, standardised/efficient bold highlights) and "How ERC-8004 works: the
+  three registries" H2 with intro paragraph. Registries diagram (.ac-erc-reg): two purple AI Agent
+  cards (Manages DeFi portfolio / Calculates DeFi risk) joined by a dashed line with a "?" box,
+  arrows down into a light-purple panel with three purple registry cards (Identity: ERC-721 NFT,
+  Agent Card, no intermediaries / Reputation: feedback, immutable history, portability / Validation:
+  third-party verification, auditors, public & permanent). Closing paragraph about verifiable,
+  interoperable, trustless system. Verified by screenshot at 1366px.

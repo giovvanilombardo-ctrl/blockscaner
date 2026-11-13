@@ -181,6 +181,66 @@ export default function AcademyERC() {
               </div>
             </div>
           </section>
+
+          <h2 id="erc-what">{_t("What is an ERC")}</h2>
+          <p>Before delving into the more technical aspects of this article and understanding <b>what ERC-8004 is</b> and <b>how it works</b>, it is useful to take a step back and clarify <b>what is meant by the term ERC</b>.</p>
+          <p>ERC stands for <b>Ethereum Request for Comments</b>, a set of technical documents that define shared standards for the operation of certain components of the Ethereum ecosystem.</p>
+          <p>Essentially, an ERC represents a formal proposal through which developers establish common rules that anyone can adopt — just like the protocols that allow browsers and servers to communicate with one another, regardless of who built them.</p>
+          <p>When the community adopts a standard, it becomes a fundamental building block of the blockchain infrastructure, upon which developers can build, knowing that their products will be compatible with the rest of the ecosystem.</p>
+          <p>An ERC is therefore <b>an open convention</b>, proposed by developers, discussed publicly and adopted voluntarily to create a more <b>standardised</b> and <b>efficient</b> technological environment.</p>
+
+          <h2 id="erc-registries">{_t("How ERC-8004 works: the three registries")}</h2>
+          <p>The ERC-8004 standard, designed to become a benchmark for AI agent infrastructure within the Ethereum ecosystem, achieves this standardisation by establishing <b>three key registries: the 'identity registry', the 'reputation registry' and the 'validation registry'</b>.</p>
+
+          {/* Three registries diagram */}
+          <section className="ac-erc-regsec" data-testid="erc-registries-diagram">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <div className="ac-erc-reg">
+              {/* agents row */}
+              <div className="ac-erc-agents">
+                <div className="ac-erc-agent">
+                  <b>AI Agent 1</b>
+                  <span>Manages DeFi portfolio</span>
+                </div>
+                <div className="ac-erc-link"><i /><span className="ac-erc-q">?</span><i /></div>
+                <div className="ac-erc-agent">
+                  <b>AI Agent 2</b>
+                  <span>Calculates DeFi risk</span>
+                </div>
+              </div>
+              {/* arrows */}
+              <div className="ac-erc-arrows">
+                <svg viewBox="0 0 20 34" width="18" height="30"><path d="M10 2v24M4 20l6 8 6-8" stroke="#7c5cff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <svg viewBox="0 0 20 34" width="18" height="30"><path d="M10 2v24M4 20l6 8 6-8" stroke="#7c5cff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </div>
+              {/* registries */}
+              <div className="ac-erc-regs">
+                <div className="ac-erc-registry">
+                  <b>Identity Registry</b>
+                  <p>Unique on-chain ID via ERC-721 NFT</p>
+                  <p>Public Agent Card capabilities &amp; endpoints</p>
+                  <p>No intermediaries</p>
+                </div>
+                <div className="ac-erc-registry">
+                  <b>Reputation Registry</b>
+                  <p>Structured feedback after each task</p>
+                  <p>Immutable and public performance history</p>
+                  <p>Open portability</p>
+                </div>
+                <div className="ac-erc-registry">
+                  <b>Validation Registry</b>
+                  <p>Third-party verification by independents</p>
+                  <p>Auditors, institutions and specialised agents</p>
+                  <p>Public and permanent</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <p>Each of these registries intervenes at a specific stage of an agent's lifecycle, thereby creating a <b>verifiable</b>, <b>interoperable</b> and <b>trustless</b> system. Let us now look more closely at each registry to understand in detail what ERC-8004 is and how it works.</p>
         </div>
 
       </div>
