@@ -277,6 +277,20 @@ export default function Academy() {
       <Seo title="Blockscaner Academy — Learn crypto, trading and economics" description="Guides, courses and market explainers — written to make crypto make sense." />
 
       <div className="ac-wrap" data-testid="academy-page">
+        {/* Featured hero — top of the page */}
+        <section className="ac-feature" data-testid="academy-feature">
+          <div className="ac-feature-copy">
+            <Tag>Ethereum</Tag>
+            <h2>{_t("The genesis of Ethereum: the story of the ICO")}</h2>
+            <p className="ac-desc">{_t("The Ethereum ICO showcased an innovative fundraising model that inspired numerous projects and entrepreneurs.")}</p>
+            <p className="ac-meta">October 9, 2026 • 10 min</p>
+          </div>
+          <div className="ac-feature-thumb">
+            <Badge>Beginner</Badge>
+            {ArtEthereum}
+          </div>
+        </section>
+
         {/* Cryptonomics */}
         <Category title="Cryptonomics">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 340px))", gap: "2rem 1.6rem" }}>
@@ -340,20 +354,6 @@ export default function Academy() {
             desc="Real World Assets (RWA): the new revolution in the global financial system"
             date="February 6, 2026" mins={11} art={ArtRWA} />
         </Category>
-
-        {/* Featured */}
-        <section className="ac-feature" data-testid="academy-feature">
-          <div className="ac-feature-copy">
-            <Tag>Ethereum</Tag>
-            <h2>{_t("The genesis of Ethereum: the story of the ICO")}</h2>
-            <p className="ac-desc">{_t("The Ethereum ICO showcased an innovative fundraising model that inspired numerous projects and entrepreneurs.")}</p>
-            <p className="ac-meta">October 9, 2026 • 10 min</p>
-          </div>
-          <div className="ac-feature-thumb">
-            <Badge>Beginner</Badge>
-            {ArtEthereum}
-          </div>
-        </section>
 
         {/* Cryptocurrencies */}
         <Category title="Cryptocurrencies">
