@@ -30,6 +30,7 @@ import AcademyStakeholders from "./pages/platform/AcademyStakeholders";
 import AcademyERC from "./pages/platform/AcademyERC";
 import AcademyDePIN from "./pages/platform/AcademyDePIN";
 import AcademyRWA from "./pages/platform/AcademyRWA";
+import AcademyFutures from "./pages/platform/AcademyFutures";
 import Markets from "./pages/platform/Markets";
 import Business from "./pages/platform/Business";
 import About from "./pages/platform/About";
@@ -67,6 +68,7 @@ const AppContent = () => {
           <Route path="/products/academy/erc-8004" element={<AcademyERC />} />
           <Route path="/products/academy/depin" element={<AcademyDePIN />} />
           <Route path="/products/academy/rwa" element={<AcademyRWA />} />
+          <Route path="/products/academy/futures" element={<AcademyFutures />} />
           <Route path="/markets" element={<Markets />} />
           <Route path="/markets/:coinId" element={<CoinDetail />} />
           <Route path="/business" element={<Business />} />

@@ -538,3 +538,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   and Related grid (ERC-8004 blue Ethereum towers art linking to /products/academy/erc-8004, DePIN
   blue visor art linking to /products/academy/depin, Grok purple head art). RWA article is now fully
   built end to end. Verified by screenshot.
+
+- **Academy Futures article (2026-11-14)**: new route /products/academy/futures
+  (frontend/src/pages/platform/AcademyFutures.tsx) linked from the Academy Trading Futures card.
+  Header: breadcrumb (Home/Trading/Futures), back arrow, Derivati tag, H1 "Futures: what they are
+  and how they work", November 26 2025 / 8 min, share icons, blue mountains-and-coins hero with
+  Beginner badge, "You will learn" box with 6 anchor links (Unravelling Futures, What exactly are
+  Futures Contracts, mechanics of derivative contracts, contract guarantees and margin, specific
+  operational details, Summary). Body sections awaiting user copy. Route registered in App.tsx.
