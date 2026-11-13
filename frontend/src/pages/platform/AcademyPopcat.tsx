@@ -248,6 +248,21 @@ export default function AcademyPopcat() {
           </div>
         </section>
 
+        {/* Article body — continued */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <p>Since then, $POPCAT has become a textbook case of a CTO — Community TakeOver: a token with no team, no top-down roadmap, kept alive solely by the determination of its holders. A story that closely mirrors the origins of Dogecoin, born almost by chance and surviving thanks to the strength of a community that believed in it more than its own creator.</p>
+
+          <h2 id="popcat-tokenomics">Transparent, community-driven tokenomics</h2>
+          <p>It was precisely in the wake of these events that the economic structure (tokenomics) of $POPCAT was fortified to eliminate the risks typical of emerging projects and protect investors from any future manipulation. Here are the pillars that make $POPCAT a transparent and secure asset:</p>
+          <ul>
+            <li><b>Total supply:</b> 979.94 million tokens.</li>
+            <li><b>Liquidity pool (93.1%):</b> almost all tokens are locked in it. This ensures rapid trading and protects the market from sudden drain-offs (rug pulls).</li>
+            <li><b>Strategic reserve (6.9%):</b> a small portion is held in a multi-signature wallet (which requires multiple approvals for each transaction). These funds are the ‘fuel’ for development: listings on major exchanges (CEX), bridges between blockchains and new liquidity.</li>
+            <li><b>Zero fees:</b> the protocol charges 0% on both buying and selling, eliminating transaction friction.</li>
+            <li><b>Immutable contract:</b> following the founder’s split, ownership of the contract has been relinquished. This means that no one can alter its rules, metadata or functions.</li>
+          </ul>
+        </div>
+
       </div>
     </SiteLayout>
   );
