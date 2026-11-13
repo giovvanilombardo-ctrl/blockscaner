@@ -39,6 +39,85 @@ const ArtBitcoin = (
   </svg>
 );
 
+const ArtBonds = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#d9ccff"/>
+    <circle cx="110" cy="75" r="50" fill="#fff"/>
+    <path d="M70 100 L70 70 L110 44 L150 70 L150 100 Z" fill="#e9e2ff" stroke="#0d0d12" strokeWidth="3"/>
+    <rect x="82" y="80" width="12" height="20" fill="#8b5cf6"/><rect x="104" y="80" width="12" height="20" fill="#8b5cf6"/><rect x="126" y="80" width="12" height="20" fill="#8b5cf6"/>
+    <path d="M110 44 L150 70 H70 Z" fill="#8b5cf6"/>
+    <circle cx="60" cy="50" r="12" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+    <circle cx="164" cy="44" r="9" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+  </svg>
+);
+
+const ArtOptions = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#0d0d12"/>
+    <rect x="36" y="30" width="64" height="80" rx="8" fill="#fff"/>
+    <rect x="46" y="44" width="30" height="8" rx="4" fill="#3a86ff"/>
+    <rect x="46" y="58" width="44" height="6" rx="3" fill="#d9f0ff"/>
+    <rect x="46" y="70" width="44" height="6" rx="3" fill="#d9f0ff"/>
+    <text x="68" y="102" fontSize="13" fontWeight="800" textAnchor="middle" fill="#3a86ff">PUT</text>
+    <rect x="120" y="30" width="64" height="80" rx="8" fill="#fff"/>
+    <rect x="130" y="44" width="34" height="8" rx="4" fill="#8b5cf6"/>
+    <rect x="130" y="58" width="44" height="6" rx="3" fill="#eee6ff"/>
+    <rect x="130" y="70" width="44" height="6" rx="3" fill="#eee6ff"/>
+    <text x="152" y="102" fontSize="13" fontWeight="800" textAnchor="middle" fill="#8b5cf6">CALL</text>
+    <circle cx="60" cy="122" r="9" fill="#3a86ff"/><circle cx="168" cy="122" r="9" fill="#8b5cf6"/>
+  </svg>
+);
+
+const ArtStake = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#8b5cf6"/>
+    <path d="M30 90 C50 60 80 60 100 80 L110 88 L120 80 C140 60 170 60 190 90 L190 110 C170 80 140 80 120 100 L110 108 L100 100 C80 80 50 80 30 110 Z" fill="#c9a7ff"/>
+    <circle cx="70" cy="60" r="16" fill="#fff"/><circle cx="150" cy="60" r="16" fill="#fff"/>
+    <path d="M70 52 C70 44 78 44 78 52 M70 52 C70 60 62 60 62 52" stroke="#0d0d12" strokeWidth="3" fill="none"/>
+    <path d="M150 52 C150 44 158 44 158 52 M150 52 C150 60 142 60 142 52" stroke="#0d0d12" strokeWidth="3" fill="none"/>
+  </svg>
+);
+
+const ArtERC = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#aee3ff"/>
+    <circle cx="110" cy="75" r="34" fill="#fff"/>
+    <path d="M110 48 L126 78 L110 92 L94 78 Z" fill="#3a86ff"/>
+    <path d="M110 48 L126 78 L110 66 Z" fill="#0d0d12"/>
+    <path d="M40 110 L60 84 L80 110 Z" fill="#3a86ff"/><path d="M140 110 L160 84 L180 110 Z" fill="#3a86ff"/>
+    <path d="M60 84 L60 60 M160 84 L160 60" stroke="#0d0d12" strokeWidth="3"/>
+    <circle cx="60" cy="54" r="8" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+    <circle cx="160" cy="54" r="8" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+  </svg>
+);
+
+const ArtDePIN = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#7cc4ff"/>
+    <rect x="46" y="44" width="128" height="64" rx="24" fill="#fff"/>
+    <rect x="46" y="44" width="128" height="64" rx="24" fill="none" stroke="#0d0d12" strokeWidth="3"/>
+    <text x="110" y="84" fontSize="26" fontWeight="800" textAnchor="middle" fill="#0d0d12">DePIN</text>
+    <path d="M70 44 L86 24 M150 44 L134 24" stroke="#0d0d12" strokeWidth="4" strokeLinecap="round"/>
+    <circle cx="90" cy="20" r="6" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+    <circle cx="130" cy="20" r="6" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+    <circle cx="110" cy="126" r="10" fill="#3a86ff" stroke="#0d0d12" strokeWidth="3"/>
+  </svg>
+);
+
+const ArtRWA = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#ffb3c7"/>
+    <ellipse cx="110" cy="112" rx="52" ry="18" fill="#fff"/>
+    <ellipse cx="110" cy="112" rx="52" ry="18" fill="none" stroke="#0d0d12" strokeWidth="3"/>
+    <circle cx="110" cy="72" r="30" fill="#ff5f8f"/>
+    <path d="M90 72 A20 20 0 0 1 130 72 M110 52 A28 28 0 0 1 138 80 M110 92 A28 28 0 0 1 82 64" stroke="#fff" strokeWidth="3" fill="none"/>
+    <rect x="88" y="60" width="44" height="24" rx="6" fill="#fff"/>
+    <text x="110" y="77" fontSize="14" fontWeight="800" textAnchor="middle" fill="#ff2e88">RWA</text>
+    <circle cx="52" cy="60" r="14" fill="#fff"/><text x="52" y="65" fontSize="12" fontWeight="800" textAnchor="middle" fill="#ff2e88">⌂</text>
+    <circle cx="170" cy="56" r="10" fill="#fff"/><text x="170" y="60" fontSize="10" fontWeight="800" textAnchor="middle" fill="#ff2e88">@</text>
+  </svg>
+);
+
 const ArtPopcat = (
   <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
     <rect width="220" height="150" fill="#ffb3c7"/>
@@ -60,12 +139,12 @@ function Badge({ children }: { children: React.ReactNode }) {
 function Tag({ children }: { children: React.ReactNode }) {
   return <span className="ac-tag">{children}</span>;
 }
-function Card({ tags, title, desc, date, mins, art }: {
-  tags: string[]; title: string; desc: string; date: string; mins: number; art: React.ReactNode;
+function Card({ tags, title, desc, date, mins, art, badge = "Beginner" }: {
+  tags: string[]; title: string; desc: string; date: string; mins: number; art: React.ReactNode; badge?: string;
 }) {
   return (
     <article className="ac-card">
-      <div className="ac-thumb"><Badge>Beginner</Badge>{art}</div>
+      <div className="ac-thumb"><Badge>{badge}</Badge>{art}</div>
       <div className="ac-tags">{tags.map((t) => <Tag key={t}>{t}</Tag>)}</div>
       <h3>{_t(title)}</h3>
       <p className="ac-desc">{_t(desc)}</p>
@@ -110,6 +189,44 @@ export default function Academy() {
             <Card tags={["Meme"]} title="Popcat: what it is and how it works"
               desc="POPCAT: what it is and how the 'pop' cat meme coin works"
               date="May 8, 2026" mins={7} art={ArtPopcat} />
+          </div>
+        </section>
+
+        {/* Easy Economics */}
+        <section className="ac-cat">
+          <div className="ac-cat-head">
+            <h2>{_t("Easy Economics")}</h2>
+            <a className="ac-more" href="#" onClick={(e) => e.preventDefault()}>{_t("See more")}</a>
+          </div>
+          <div className="ac-grid">
+            <Card tags={["Stocks"]} title="What are bonds and how do they work?"
+              desc="What are bonds, and how do they work? The financial instruments that reduce the portfolio risk"
+              date="April 17, 2026" mins={14} art={ArtBonds} />
+            <Card tags={["Stocks"]} title="Options: what are they and how do they work?"
+              desc="Options in finance are contracts giving the right, but not the obligation, to buy or sell an asset at a set price by a certain date, with a paid premium."
+              date="September 10, 2024" mins={5} art={ArtOptions} />
+            <Card tags={["Stocks"]} title="Stakeholders: who they are and how to identify them"
+              desc="What is a stakeholder? Discover the meaning of stakeholders, their types, practical examples, and the process of stakeholder mapping."
+              date="June 25, 2024" mins={5} art={ArtStake} />
+          </div>
+        </section>
+
+        {/* Technology */}
+        <section className="ac-cat">
+          <div className="ac-cat-head">
+            <h2>{_t("Technology")}</h2>
+            <a className="ac-more" href="#" onClick={(e) => e.preventDefault()}>{_t("See more")}</a>
+          </div>
+          <div className="ac-grid">
+            <Card tags={["Ethereum"]} title="ERC-8004: The Future of AI on Ethereum"
+              desc="The Ethereum ERC-8004 update is here: the new standard that promises a new lease of life for AI agents."
+              date="March 31, 2026" mins={8} art={ArtERC} />
+            <Card tags={["DeFi"]} badge="Principiante" title="DePIN: what they are and how decentralized physical infrastructure networks work"
+              desc="Che cos'è il DePIN? La tecnologia blockchain che sta rivoluzionando le infrastrutture fisiche decentralizzate"
+              date="March 19, 2026" mins={8} art={ArtDePIN} />
+            <Card tags={["DeFi"]} title="RWA: what they are and how they work"
+              desc="Real World Assets (RWA): the new revolution in the global financial system"
+              date="February 6, 2026" mins={11} art={ArtRWA} />
           </div>
         </section>
 
