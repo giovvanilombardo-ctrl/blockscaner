@@ -65,7 +65,6 @@ const MenuItem = ({ item }: { item: { icon: any; color: string; title: string; d
 const TextMenuItem = ({ item }: { item: { title: string; desc: string; to: string } }) => (
   <Link to={item.to} className="group block">
     <span className="block text-[15px] font-bold text-foreground group-hover:text-primary transition-colors">{_t(item.title)}</span>
-    <span className="mt-1 block text-[13px] leading-snug text-muted-foreground">{_t(item.desc)}</span>
   </Link>
 );
 
