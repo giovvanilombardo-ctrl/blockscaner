@@ -1086,3 +1086,32 @@ html {
 .ac-sonic-leader-board th{ text-align:left; color:#8b8b93; font-weight:600; padding:.35rem .3rem; border-bottom:1px solid #26262e; }
 .ac-sonic-leader-board td{ color:#d5d5dc; padding:.4rem .3rem; border-bottom:1px solid #1e1e24; }
 .ac-sonic-leader-board td:first-child{ color:#8b8b93; }
+
+/* ---------- Academy Poison: bar chart + flow diagram ---------- */
+.ac-poison-chart{ margin-top:2.4rem; }
+.ac-poison-chart .ac-summary-brand{ margin-bottom:.6rem; }
+.ac-poison-chart-card{ background:#fff; border:1px solid #f1f1f4; border-radius:14px;
+  box-shadow:0 12px 36px rgba(15,15,18,.09); padding:1.2rem 1.4rem 1.4rem; }
+.ac-poison-chart-card > b{ display:block; text-align:center; font-size:1.02rem; font-weight:800; color:#0f0f12; margin-bottom:.9rem; }
+.ac-poison-chart-legend{ display:flex; justify-content:center; gap:1.6rem; margin-bottom:1.2rem; }
+.ac-poison-legend-item{ display:inline-flex; align-items:center; gap:.4rem; font-size:.78rem; font-weight:700; color:#0f0f12; }
+.ac-poison-legend-note{ font-style:normal; font-weight:400; font-size:.68rem; color:#57575c; }
+.ac-poison-dot{ width:12px; height:12px; border-radius:50%; display:inline-block; }
+.ac-poison-dot-victim{ background:#8b5cf6; }
+.ac-poison-dot-typical{ background:#5b21b6; }
+.ac-poison-bars{ display:flex; justify-content:space-around; align-items:flex-end; gap:1.5rem; min-height:240px; }
+.ac-poison-bar-group{ display:flex; flex-direction:column; align-items:center; gap:.6rem; }
+.ac-poison-bar-col{ display:flex; align-items:flex-end; gap:.5rem; }
+.ac-poison-bar{ width:52px; border-radius:8px 8px 0 0; position:relative; display:flex; align-items:flex-start; justify-content:center; }
+.ac-poison-bar span{ position:absolute; top:-1.3rem; font-size:.66rem; font-weight:800; color:#0f0f12; white-space:nowrap; }
+.ac-poison-bar-victim{ background:#8b5cf6; }
+.ac-poison-bar-typical{ background:#c9b8f5; }
+.ac-poison-bar-label{ font-size:.8rem; font-weight:800; color:#0f0f12; text-align:center; }
+@media (max-width:620px){
+  .ac-poison-bars{ flex-wrap:wrap; }
+}
+
+.ac-poison-flow{ margin-top:2.4rem; }
+.ac-poison-flow .ac-summary-brand{ margin-bottom:.6rem; }
+.ac-poison-flow-art{ max-width:640px; margin:0 auto; }
+.ac-poison-flow-art svg{ display:block; width:100%; height:auto; }

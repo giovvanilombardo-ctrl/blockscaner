@@ -345,7 +345,7 @@ export default function Academy() {
             <Card tags={["DeFi"]} title="Sonic Blockchain: What Is It and How Does It Work?" to="/products/academy/sonic"
               desc="Discover Sonic: the ultra-fast EVM blockchain evolved from Fantom. 400k TPS, sub-second finality, and 90% fee rewards for developers."
               date="November 26, 2025" mins={10} art={ArtSonic} />
-            <Card tags={["Crypto Security"]} title="Address poisoning: what it is and how to defend against it"
+            <Card tags={["Crypto Security"]} title="Address poisoning: what it is and how to defend against it" to="/products/academy/address-poisoning"
               desc="Address poisoning is a sophisticated social engineering scam targeting crypto transactions. Learn how this attack works, its devastating impact, and essential strategies to protect your crypto fund"
               date="October 15, 2025" mins={8} art={ArtPoison} />
             <Card tags={["DeFi", "Proof-Of-Stake"]} title="Berachain: what it is and how it revolutionises Liquidity in Web3"

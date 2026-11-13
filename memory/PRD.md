@@ -621,3 +621,15 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   "Conclusions". Related grid: Address poisoning (purple bottle art), Berachain (yellow honeycomb
   bear art), Bitcoin Block Explorer (black isometric cubes + magnifier art). CSS for all Sonic
   visuals added. Article complete end to end. Verified by screenshots.
+
+- **Academy Address poisoning article (2026-11-14)**: new route
+  /products/academy/address-poisoning (frontend/src/pages/platform/AcademyPoison.tsx) linked from
+  the Academy Crypto Security card. Full article: header (breadcrumb, Crypto Security tag, H1,
+  Oct 15 2025 / 8 min), purple warning bottle hero, You-will-learn box with 6 anchors, and full
+  body: intro, "What is address poisoning, and how does it work", "Data and spread: the scope of
+  the threat" (bar chart: AVG balance $338,900 vs $1,536.96, median, transfer lifespan, transfer
+  numbers), "Attack mechanism: spoofing" (two flow diagrams with V/R/L address pills), "How to
+  defend yourself: essential security strategies" (four bullet practices), "Conclusion: The
+  responsibility for security in Web3". Closing blocks: sign-up banner, legal disclaimer, Related
+  grid (Sonic, Berachain, Bitcoin Block Explorer cards). CSS for bar chart and flow diagrams added.
+  Article complete end to end. Verified by screenshots.
