@@ -354,6 +354,18 @@ export default function AcademyBitcoin() {
           </div>
         </section>
 
+        {/* Article body — final sections */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <h2 id="bitcoin-long-term">Bitcoin in the long term</h2>
+          <p>Of all crypto-assets, Bitcoin is the longest-lived. Its network has remained online and operational 99.99% of the time since its conception, since 2009. Bitcoin is the only crypto-assets to have a similar history: its code has proved an impregnable fortress for hackers, even when its value would have made an attack extremely profitable. This is certainly a fact: Bitcoin’s algorithm is secure.</p>
+          <p>This sentiment has since been reflected in the value of Bitcoin: while initially a subject of speculation, its technology has led some ‘holders’ (BTC holders) to see it as an instrument with potential in the medium to long term. The increasing adoption and use cases will stimulate the integration of Bitcoin and the real economy. This is likely to influence its value in the long term.</p>
+
+          <h2 id="bitcoin-new-internet">Bitcoin: the new Internet</h2>
+          <p>To talk about what Bitcoin is is to address one of the most interesting technological innovations of the last 20 years. The change brought about by Bitcoin is by many compared to what the internet brought about at its birth.</p>
+          <p>Bitcoin is mainly known as crypto-assets, but it is much more than that. To claim that Bitcoin is just a virtual currency would be like saying that the internet is just e-mail exchange. In fact, the applications of blockchain and crypto-assets, of which Bitcoin is an example, have gone as far as defining a new era: Web3.</p>
+          <p>If the Internet has democratised access to information, the dissemination of data and the possibility of access to knowledge, Bitcoin has democratised access to financial resources, the exchange of money and the transparency of information, challenging the current global financial system.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );
