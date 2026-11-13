@@ -686,3 +686,7 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - **About us dropdown thumbnails removed (2026-11-14)**: removed the icon thumbnails from the About
   us mega-menu items in SiteHeader.tsx — items now show only title + description text. Verified by
   hovering in the preview.
+
+- **Products menu icons restored (2026-11-14)**: reverted the MenuItem component change so the
+  Products mega-menu again shows icons (Blockscaner, Blockscaner Pro, Blockscaner Step, Academy).
+  About us menu uses a separate TextMenuItem component (text-only). Verified by hovering in preview.

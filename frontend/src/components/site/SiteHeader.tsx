@@ -47,8 +47,12 @@ const ABOUT_MENU = [
 
 /* Mega-menu item — icon + title + description */
 const MenuItem = ({ item }: { item: { icon: any; color: string; title: string; desc: string; to: string } }) => {
+  const Icon = item.icon;
   return (
     <Link to={item.to} className="group flex items-start gap-4">
+      <span className={`mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${item.color}`}>
+        <Icon className="h-5 w-5" />
+      </span>
       <span>
         <span className="block text-[15px] font-bold text-foreground group-hover:text-primary transition-colors">{_t(item.title)}</span>
         <span className="mt-1 block text-[13px] leading-snug text-muted-foreground">{_t(item.desc)}</span>
@@ -56,6 +60,14 @@ const MenuItem = ({ item }: { item: { icon: any; color: string; title: string; d
     </Link>
   );
 };
+
+/* Text-only menu item (About us) */
+const TextMenuItem = ({ item }: { item: { title: string; desc: string; to: string } }) => (
+  <Link to={item.to} className="group block">
+    <span className="block text-[15px] font-bold text-foreground group-hover:text-primary transition-colors">{_t(item.title)}</span>
+    <span className="mt-1 block text-[13px] leading-snug text-muted-foreground">{_t(item.desc)}</span>
+  </Link>
+);
 
 const SiteHeader = () => {  const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
@@ -138,7 +150,7 @@ const SiteHeader = () => {  const [open, setOpen] = useState<string | null>(null
                       <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4">
                         <div className="w-[340px] rounded-2xl border border-border bg-background p-6 shadow-2xl">
                           <div className="space-y-5">
-                            {ABOUT_MENU.map((item) => <MenuItem key={item.title} item={item} />)}
+                            {ABOUT_MENU.map((item) => <TextMenuItem key={item.title} item={item} />)}
                           </div>
                         </div>
                       </div>
