@@ -296,7 +296,7 @@ export default function Academy() {
             <Card tags={["Bitcoin"]} title="What is Bitcoin and how does it work?" to="/products/academy/bitcoin"
               desc="Bitcoin is the first cryptocurrency ever created, the most durable, strong and secure. Find out everything about its story and its functioning."
               date="October 8, 2026" mins={11} art={ArtBitcoin} />
-            <Card tags={["Meme"]} title="Popcat: what it is and how it works"
+            <Card tags={["Meme"]} title="Popcat: what it is and how it works" to="/products/academy/popcat"
               desc="POPCAT: what it is and how the 'pop' cat meme coin works"
               date="May 8, 2026" mins={7} art={ArtPopcat} />
           </div>

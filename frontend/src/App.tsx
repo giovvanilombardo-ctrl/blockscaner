@@ -23,6 +23,7 @@ import StepPage from "./pages/platform/Step";
 import Academy from "./pages/platform/Academy";
 import AcademyArticle from "./pages/platform/AcademyArticle";
 import AcademyBitcoin from "./pages/platform/AcademyBitcoin";
+import AcademyPopcat from "./pages/platform/AcademyPopcat";
 import Markets from "./pages/platform/Markets";
 import Business from "./pages/platform/Business";
 import About from "./pages/platform/About";
@@ -53,6 +54,7 @@ const AppContent = () => {
           <Route path="/academy" element={<Academy />} />
           <Route path="/products/academy/ethereum-ico" element={<AcademyArticle />} />
           <Route path="/products/academy/bitcoin" element={<AcademyBitcoin />} />
+          <Route path="/products/academy/popcat" element={<AcademyPopcat />} />
           <Route path="/markets" element={<Markets />} />
           <Route path="/markets/:coinId" element={<CoinDetail />} />
           <Route path="/business" element={<Business />} />
