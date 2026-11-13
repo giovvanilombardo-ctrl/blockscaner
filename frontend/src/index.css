@@ -713,3 +713,19 @@ html {
 .ac-leader-panel li{ display:flex; align-items:center; justify-content:space-between; font-size:.62rem; color:#0f0f12; }
 .ac-leader-panel li b{ font-weight:700; color:#0f0f12; }
 
+
+/* ---------- Academy tweet embed (Popcat) ---------- */
+.ac-tweet{ margin-top:1.4rem; max-width:520px; margin-left:auto; margin-right:auto; background:#fff;
+  border:1px solid #e6e6ea; border-radius:16px; padding:1.1rem 1.2rem 1rem; box-shadow:0 8px 24px rgba(15,15,18,.08); }
+.ac-tweet-head{ display:flex; align-items:center; gap:.6rem; }
+.ac-tweet-avatar{ width:36px; height:36px; border-radius:50%; overflow:hidden; flex:none; }
+.ac-tweet-id{ display:flex; flex-direction:column; line-height:1.2; }
+.ac-tweet-id b{ font-size:.82rem; font-weight:800; color:#0f0f12; }
+.ac-tweet-id span{ font-size:.72rem; color:#9a9aa0; }
+.ac-tweet-dots{ margin-left:auto; color:#9a9aa0; font-weight:800; }
+.ac-tweet-txt{ margin:.8rem 0 0; font-size:.74rem; color:#0f0f12; line-height:1.55; }
+.ac-tweet-link{ color:#1d9bf0; }
+.ac-tweet-links{ margin:.6rem 0 0; font-size:.74rem; line-height:1.6; }
+.ac-tweet-meta{ margin:.8rem 0 0; font-size:.68rem; color:#9a9aa0; }
+.ac-tweet-meta b{ color:#0f0f12; }
+

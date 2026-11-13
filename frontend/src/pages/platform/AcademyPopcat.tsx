@@ -217,6 +217,37 @@ export default function AcademyPopcat() {
           <p>The community’s response was immediate and unanimous. jpeggler, founder of the ENIGMA digital art collection and a $POPCAT holder, stepped forward and, on 22 December 2023, brought the whole affair to light with a tweet that was destined to go down in the community’s history. Rather than giving in to blackmail, jpeggler negotiated directly with the developer and purchased the token’s update rights, along with control of the official social media channels and website, for 35,000 USDC, ousting the founder for good.</p>
         </div>
 
+        {/* Academy image: jpeggler's tweet */}
+        <section className="ac-summary" data-testid="popcat-tweet">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+
+          <div className="ac-tweet">
+            <div className="ac-tweet-head">
+              <span className="ac-tweet-avatar">
+                <svg viewBox="0 0 40 40" width="36" height="36"><circle cx="20" cy="20" r="19" fill="#f0d9e8"/><path d="M10 26 C12 18 18 12 26 10 C28 16 26 24 20 28 C16 30 12 30 10 26 Z" fill="#e8b7d4"/><circle cx="24" cy="14" r="3" fill="#fff"/><circle cx="24" cy="14" r="1.4" fill="#0d0d12"/></svg>
+              </span>
+              <div className="ac-tweet-id">
+                <b>jpeggler <svg viewBox="0 0 24 24" width="13" height="13" style={{verticalAlign:"-2px"}}><circle cx="12" cy="12" r="10" fill="#1d9bf0"/><path d="M9 12.5l2 2 4-4" stroke="#fff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></b>
+                <span>@jpeggler</span>
+              </div>
+              <span className="ac-tweet-dots">···</span>
+            </div>
+            <p className="ac-tweet-txt">
+              Gm, wanted to address a few things and clarify some stuff regarding <span className="ac-tweet-link">$POPCAT</span>. The old dev wanted to release an NFT collection to raise like 5000 sol for himself. He demanded that I/the community support the NFT mint or he would deface the token metadata. After the mint was live and on the old twitter, He started changing the metadata to say "support the NFT". I negotiated a deal for $35k USDC for the update authority for the token and the socials/website. There was a rumor I was admin on a scam server that was trying to sell the NFT. If I was I was added and given the role without me knowing. Here are the transactions of the two payments of $17500 USDC to two different 3rd partys helping with the exchange. I plan to make the token metadata immutable, but I need a bit more time to do that as the metadata still links to the old website which I'm still working on getting control of. The community can rest easy as it will be sorted very soon and be 100% immutable.
+            </p>
+            <p className="ac-tweet-links">
+              <span className="ac-tweet-link">solscan.io/tx/3CzVAV1ckSh...</span><br />
+              <span className="ac-tweet-link">solscan.io/tx/58HYWC83Kzi...</span>
+            </p>
+            <p className="ac-tweet-txt">POP POP POP<br /><br />-jpeggler</p>
+            <p className="ac-tweet-txt"><span className="ac-tweet-link">@POPCATSOLANA</span></p>
+            <p className="ac-tweet-meta">10:35 AM · Dec 23, 2023 · <b>76.3K</b> Views</p>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
