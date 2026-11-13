@@ -30,6 +30,19 @@ const EXECUTIVES = [
   { name: "Noah Price", role: "Chief Technology Officer & Co-founder", img: noahImg },
 ];
 
+const FOUNDERS = [
+  { name: "Ryan Morris", role: "Co-CEO & CFO & Co-founder", img: ryanImg },
+  { name: "Lucas Ward", role: "Co-CEO & Co-founder", img: lucasImg },
+  { name: "Noah Price", role: "Chief Technology Officer & Co-founder", img: noahImg },
+  { name: "Marco Rossi", role: "Co-founder", img: andreaImg },
+];
+
+const ADVISORS = [
+  { name: "Luka Horvat", role: "Legal Advisor", img: alexImg },
+  { name: "Ivan Kovač", role: "Strategy Advisor", img: giorgioImg },
+  { name: "Alessandro Bianchi", role: "Technology Advisor", img: edoardoImg },
+];
+
 export default function Leadership() {
   return (
     <SiteLayout>
@@ -67,6 +80,50 @@ export default function Leadership() {
           <div className="lead-grid">
             {EXECUTIVES.map((p) => (
               <article key={p.name} className="lead-card" data-testid={`exec-${p.name.split(" ")[0].toLowerCase()}`}>
+                <div className="lead-photo">
+                  <img src={p.img} alt={p.name} loading="lazy" />
+                </div>
+                <div className="lead-info">
+                  <div className="lead-name-row">
+                    <h3>{p.name}</h3>
+                    <a href="#" onClick={(e) => e.preventDefault()} aria-label={`${p.name} on LinkedIn`} className="lead-li">
+                      <Linkedin size={16} />
+                    </a>
+                  </div>
+                  <p>{p.role}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="lead-board">
+          <h2>{_t("Founders")}</h2>
+          <div className="lead-grid">
+            {FOUNDERS.map((p) => (
+              <article key={p.name} className="lead-card" data-testid={`founder-${p.name.split(" ")[0].toLowerCase()}`}>
+                <div className="lead-photo">
+                  <img src={p.img} alt={p.name} loading="lazy" />
+                </div>
+                <div className="lead-info">
+                  <div className="lead-name-row">
+                    <h3>{p.name}</h3>
+                    <a href="#" onClick={(e) => e.preventDefault()} aria-label={`${p.name} on LinkedIn`} className="lead-li">
+                      <Linkedin size={16} />
+                    </a>
+                  </div>
+                  <p>{p.role}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="lead-board">
+          <h2>{_t("Advisors")}</h2>
+          <div className="lead-grid">
+            {ADVISORS.map((p) => (
+              <article key={p.name} className="lead-card" data-testid={`advisor-${p.name.split(" ")[0].toLowerCase()}`}>
                 <div className="lead-photo">
                   <img src={p.img} alt={p.name} loading="lazy" />
                 </div>

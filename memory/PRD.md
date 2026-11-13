@@ -735,3 +735,7 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Morris with the same buzz-cut photo (exec-ryan-morris.png), so Ryan Morris now appears in both
   Board of Directors and Executive Leadership with the same photo and role (Co-CEO & CFO &
   Co-founder). Marcus Cole removed from the list.
+
+- **Founders + Advisors sections (2026-11-14)**: added Founders (4: Ryan Morris, Lucas Ward, Noah
+  Price, Marco Rossi) and Advisors (3: Luka Horvat, Ivan Kovač, Alessandro Bianchi) sections to
+  Leadership.tsx, reusing existing portraits. All with LinkedIn icons. Verified by screenshot.
