@@ -450,6 +450,62 @@ export default function AcademyBonds() {
           </div>
         </section>
 
+        {/* Article body — tokenisation */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <h2 id="bonds-tokenisation">Tokenisation of bonds</h2>
+          <p>As explored in the article <em>“Real World Assets (RWA): what they are and how tokenised securities work”</em>, the tokenisation of traditional financial assets represents one of the hottest and most promising trends within the DeFi ecosystem.</p>
+          <p><b>Bonds are at the forefront of this evolution, establishing themselves as the most “tokenised” asset class</b> in decentralised finance. In particular, <b>US Treasuries</b> play a central role in this transformation, thanks to their liquidity, reliability and standardisation.</p>
+          <p>According to the latest data, the total value of tokenised US Treasuries has exceeded <b>$10 billion</b>, confirming the growing interest from institutional investors and on-chain developers in real financial instruments that are accessible in digital form.</p>
+        </div>
+
+        {/* Academy image: RWA chart */}
+        <section className="ac-summary" data-testid="bonds-rwa-chart">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+          <div className="ac-rwa">
+            <div className="ac-rwa-head">
+              <p className="ac-rwa-title">Treasury Product Metrics</p>
+              <div className="ac-rwa-tabs">
+                <span className="ac-rwa-tab on">Treasury Market Caps</span>
+                <span className="ac-rwa-tab">Mint / Burn Volumes</span>
+                <span className="ac-rwa-tab">Holders</span>
+                <span className="ac-rwa-tab">7D APY</span>
+              </div>
+            </div>
+            <svg viewBox="0 0 560 240" preserveAspectRatio="none" style={{ width: "100%", height: 220 }}>
+              {[0,1,2,3,4,5].map((i) => (
+                <line key={i} x1="40" y1={30 + i * 38} x2="540" y2={30 + i * 38} stroke="#ececf0" strokeWidth="1"/>
+              ))}
+              <text x="34" y="34" fontSize="9" fill="#9a9aa0" textAnchor="end">$12.5B</text>
+              <text x="34" y="72" fontSize="9" fill="#9a9aa0" textAnchor="end">$10.0B</text>
+              <text x="34" y="110" fontSize="9" fill="#9a9aa0" textAnchor="end">$7.5B</text>
+              <text x="34" y="148" fontSize="9" fill="#9a9aa0" textAnchor="end">$5.0B</text>
+              <text x="34" y="186" fontSize="9" fill="#9a9aa0" textAnchor="end">$2.5B</text>
+              <text x="34" y="224" fontSize="9" fill="#9a9aa0" textAnchor="end">$0.0B</text>
+              {/* stacked areas */}
+              <path d="M40 220 L120 210 L200 190 L280 150 L360 120 L440 90 L540 60 L540 220 Z" fill="#ffd9b3"/>
+              <path d="M40 220 L120 212 L200 196 L280 170 L360 150 L440 130 L540 110 L540 220 Z" fill="#9fd8c9"/>
+              <path d="M40 220 L120 214 L200 200 L280 184 L360 170 L440 158 L540 148 L540 220 Z" fill="#aee3ff"/>
+              <path d="M40 220 L120 216 L200 208 L280 198 L360 190 L440 182 L540 176 L540 220 Z" fill="#c9a7ff"/>
+              <path d="M40 220 L120 218 L200 214 L280 210 L360 206 L440 202 L540 200 L540 220 Z" fill="#8b5cf6" opacity=".35"/>
+              <g fontSize="8.5" fill="#57575c">
+                <text x="40" y="234">1/1/23</text><text x="120" y="234">5/1/23</text><text x="200" y="234">9/1/23</text>
+                <text x="280" y="234">1/1/24</text><text x="360" y="234">5/1/24</text><text x="440" y="234">9/1/24</text><text x="520" y="234" textAnchor="end">1/1/25</text>
+              </g>
+              <text x="200" y="80" fontSize="12" fontWeight="700" fill="#b3a1e8">rwa.xyz</text>
+            </svg>
+            <div className="ac-rwa-legend">
+              <span><i style={{background:"#ffd9b3"}}/>BlackRock US...</span>
+              <span><i style={{background:"#9fd8c9"}}/>Circle USYC</span>
+              <span><i style={{background:"#aee3ff"}}/>Ondo U.S. Doll...</span>
+              <span><i style={{background:"#c9a7ff"}}/>Franklin OnCh...</span>
+              <span><i style={{background:"#8b5cf6"}}/>Superstate Sh...</span>
+            </div>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
