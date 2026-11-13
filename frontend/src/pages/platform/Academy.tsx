@@ -245,11 +245,14 @@ function Badge({ children }: { children: React.ReactNode }) {
 function Tag({ children }: { children: React.ReactNode }) {
   return <span className="ac-tag">{children}</span>;
 }
-function Card({ tags, title, desc, date, mins, art, badge = "Beginner" }: {
-  tags: string[]; title: string; desc: string; date: string; mins: number; art: React.ReactNode; badge?: string;
+function Card({ tags, title, desc, date, mins, art, badge = "Beginner", to }: {
+  tags: string[]; title: string; desc: string; date: string; mins: number; art: React.ReactNode; badge?: string; to?: string;
 }) {
   return (
-    <article className="ac-card">
+    <article
+      className="ac-card"
+      {...(to ? { onClick: () => window.location.assign(to), style: { cursor: "pointer" }, role: "link", tabIndex: 0 } : {})}
+    >
       <div className="ac-thumb"><Badge>{badge}</Badge>{art}</div>
       <div className="ac-tags">{tags.map((t) => <Tag key={t}>{t}</Tag>)}</div>
       <h3>{_t(title)}</h3>
@@ -290,7 +293,7 @@ export default function Academy() {
             <Card tags={["Ethereum"]} title="The genesis of Ethereum: the story of the ICO"
               desc="The Ethereum ICO showcased an innovative fundraising model that inspired numerous projects and entrepreneurs."
               date="October 9, 2026" mins={10} art={ArtEthereumNote} />
-            <Card tags={["Bitcoin"]} title="What is Bitcoin and how does it work?"
+            <Card tags={["Bitcoin"]} title="What is Bitcoin and how does it work?" to="/products/academy/bitcoin"
               desc="Bitcoin is the first cryptocurrency ever created, the most durable, strong and secure. Find out everything about its story and its functioning."
               date="October 8, 2026" mins={11} art={ArtBitcoin} />
             <Card tags={["Meme"]} title="Popcat: what it is and how it works"
