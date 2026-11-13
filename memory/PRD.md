@@ -699,3 +699,17 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - **About us dropdown compacted (2026-11-14)**: reduced the About us mega-menu container from
   340px/p-6/space-y-5 to 200px/py-3 px-5/space-y-3 — much tighter layout with less white space.
   Verified by hovering in preview.
+
+- **About us dropdown centered (2026-11-14)**: added text-center to the About us mega-menu items
+  container so the four option names (Leadership, Ecosystem, Work with us, Security) are centered
+  in the dropdown. Verified by hovering in preview.
+
+- **Leadership page (2026-11-14)**: new route /about/leadership
+  (frontend/src/pages/platform/Leadership.tsx). Page shows "Leadership" H1, "Different backgrounds,
+  shared vision." subtitle, and a Board of Directors grid with six AI-generated realistic portraits
+  (frontend/src/assets/leaders/*.png, generated via Gemini image gen): Alexandru Stefan Gheban
+  (Co-CEO & CFO & Co-founder), Andrea Ferrero (Co-CEO & Co-founder), Edoardo Guerrieri (Member
+  Board Of Directors), Giorgio Medda (Member), Nicolas Bertrand (Chairman & Member), Salvatore
+  Sberna (Member). Each card has a LinkedIn icon link. About us menu Leadership option links to
+  /about/leadership. Photo crop adjusted to object-position:top center. Verified by clicking from
+  the About us dropdown.

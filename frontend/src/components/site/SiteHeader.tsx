@@ -39,7 +39,7 @@ export const BrandMark = ({ className = "" }: { className?: string }) => (
 
 /* About us mega-menu content */
 const ABOUT_MENU = [
-  { icon: Users, color: "text-white bg-violet-500", title: "Leadership", desc: "Meet the team behind Blockscaner.", to: "/about" },
+  { icon: Users, color: "text-white bg-violet-500", title: "Leadership", desc: "Meet the team behind Blockscaner.", to: "/about/leadership" },
   { icon: Boxes, color: "text-white bg-emerald-500", title: "Ecosystem", desc: "Explore our products and services.", to: "/about" },
   { icon: Briefcase, color: "text-white bg-fuchsia-500", title: "Work with us", desc: "Join our mission to build the future of crypto.", to: "/about" },
   { icon: ShieldCheck, color: "text-white bg-blue-500", title: "Security", desc: "Learn how we protect your assets and data.", to: "/about" },
@@ -148,7 +148,7 @@ const SiteHeader = () => {  const [open, setOpen] = useState<string | null>(null
                     {open === "about" && (
                       <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4">
                         <div className="w-[200px] rounded-2xl border border-border bg-background py-3 px-5 shadow-2xl">
-                          <div className="space-y-3">
+                          <div className="space-y-3 text-center">
                             {ABOUT_MENU.map((item) => <TextMenuItem key={item.title} item={item} />)}
                           </div>
                         </div>
