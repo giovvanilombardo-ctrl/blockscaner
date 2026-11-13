@@ -95,6 +95,91 @@ export default function AcademyDePIN() {
           <h2 id="depin-definition">{_t("What is DePIN: a simple definition")}</h2>
           <p>What exactly is DePIN? The core concept behind this movement is to <b>shift the ownership and management of physical infrastructure from large centralized operators to a distributed network of participants</b> coordinated by blockchain technology.</p>
           <p>In the current traditional model, the vast majority of internet networks, servers, data storage systems, and infrastructure are built and controlled by a handful of giant companies. The DePIN movement aims to flip this logic by building decentralized networks managed by a multitude of individuals. In this model, <b>every participant contributes their own physical resources—such as hardware, connectivity, or computing power—and is compensated through economic incentive mechanisms</b>. This creates a system where individual interests are perfectly aligned with the growth of the network.</p>
+
+          {/* DePIN network illustration */}
+          <section className="ac-depin-netsec" data-testid="depin-network-art">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <div className="ac-depin-net">
+              <svg viewBox="0 0 480 260" role="img" aria-label="DePIN network illustration">
+                {/* mesh lines */}
+                <g stroke="#d9ccf7" strokeWidth="1.2" fill="none">
+                  <path d="M60 70 L120 46 M120 46 L190 60 M190 60 L250 40 M250 40 L320 56 M320 56 L400 40"/>
+                  <path d="M60 70 L96 128 M96 128 L160 110 M160 110 L230 130 M230 130 L300 108 M300 108 L370 128 M370 128 L420 96"/>
+                  <path d="M96 128 L140 190 M140 190 L220 176 M220 176 L290 196 M290 196 L360 176"/>
+                  <path d="M120 46 L96 128 M190 60 L160 110 M250 40 L230 130 M320 56 L300 108 M400 40 L370 128"/>
+                  <path d="M160 110 L140 190 M230 130 L220 176 M300 108 L290 196 M370 128 L360 176"/>
+                  <path d="M60 70 L40 150 M40 150 L96 128 M420 96 L440 170 M440 170 L370 128"/>
+                  <path d="M40 150 L140 190 M440 170 L360 176 M140 190 L240 236 M240 236 L290 196"/>
+                </g>
+                {/* small squares */}
+                <g fill="#8b5cf6">
+                  <rect x="52" y="62" width="16" height="16" rx="3"/>
+                  <rect x="112" y="38" width="16" height="16" rx="3"/>
+                  <rect x="182" y="52" width="16" height="16" rx="3"/>
+                  <rect x="242" y="32" width="16" height="16" rx="3"/>
+                  <rect x="312" y="48" width="16" height="16" rx="3"/>
+                  <rect x="392" y="32" width="16" height="16" rx="3"/>
+                  <rect x="88" y="120" width="16" height="16" rx="3"/>
+                  <rect x="152" y="102" width="16" height="16" rx="3"/>
+                  <rect x="292" y="100" width="16" height="16" rx="3"/>
+                  <rect x="362" y="120" width="16" height="16" rx="3"/>
+                  <rect x="132" y="182" width="16" height="16" rx="3"/>
+                  <rect x="212" y="168" width="16" height="16" rx="3"/>
+                  <rect x="282" y="188" width="16" height="16" rx="3"/>
+                  <rect x="352" y="168" width="16" height="16" rx="3"/>
+                  <rect x="232" y="228" width="16" height="16" rx="3"/>
+                </g>
+                {/* big icon circles */}
+                <g>
+                  <circle cx="230" cy="130" r="34" fill="#8b5cf6"/>
+                  <rect x="216" y="120" width="28" height="24" rx="4" fill="none" stroke="#fff" strokeWidth="3.4"/>
+                  <path d="M222 120 v-6 a8 8 0 0 1 16 0 v6" fill="none" stroke="#fff" strokeWidth="3.4"/>
+                  <circle cx="230" cy="132" r="3.4" fill="#fff"/>
+                </g>
+                <g>
+                  <circle cx="40" cy="150" r="26" fill="#8b5cf6"/>
+                  <path d="M44 136 l-10 16 h8 l-4 12 12 -16 h-8 l6 -12 Z" fill="#fff"/>
+                </g>
+                <g>
+                  <circle cx="420" cy="96" r="26" fill="#8b5cf6"/>
+                  <path d="M408 104 a17 17 0 0 1 24 0 M412 98 a12 12 0 0 1 16 0 M416 92 a6 6 0 0 1 8 0" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                  <circle cx="420" cy="106" r="3" fill="#fff"/>
+                </g>
+                <g>
+                  <circle cx="440" cy="170" r="26" fill="#8b5cf6"/>
+                  <g fill="none" stroke="#fff" strokeWidth="2.6">
+                    <rect x="430" y="160" width="9" height="9" rx="2"/><rect x="441" y="160" width="9" height="9" rx="2"/>
+                    <rect x="430" y="171" width="9" height="9" rx="2"/><rect x="441" y="171" width="9" height="9" rx="2"/>
+                  </g>
+                </g>
+                <g>
+                  <circle cx="120" cy="46" r="0" fill="none"/>
+                  <circle cx="190" cy="60" r="0" fill="none"/>
+                </g>
+                <g>
+                  <circle cx="170" cy="120" r="24" fill="#8b5cf6"/>
+                  <g stroke="#fff" strokeWidth="2.8" strokeLinecap="round">
+                    <path d="M162 114 h16 M162 120 h16 M162 126 h10"/>
+                  </g>
+                  <circle cx="168" cy="112" r="1.8" fill="#fff"/>
+                </g>
+              </svg>
+            </div>
+          </section>
+
+          <p>The ambition of <b>DePIN</b> is therefore to offer a concrete alternative to the current market concentration—presently dominated by players like <b>Amazon Web Services (AWS)</b> and <b>Google Cloud</b>—through an incentive system designed to be self-sustaining. This is often described as a <b>flywheel</b>, where the value generated by the infrastructure is redistributed to those who make it possible, rather than being concentrated in the hands of a few central actors.</p>
+
+          <h2 id="depin-flywheel">{_t("How DePIN works: the magic of the economic “flywheel”")}</h2>
+          <p>To truly understand what DePIN is and how these networks can compete with giants of the caliber of Amazon or Google, one must look at the secret behind this technology's success: the incentive mechanism that drives everything, known as the <b>flywheel effect</b>.</p>
+          <p>The flywheel is a virtuous cycle that allows all participants to receive an incentive to remain within the system, maintaining a perfect balance between three main elements:</p>
+          <ul>
+            <li><b>Suppliers:</b> those who make their hardware available—such as storage space or 5G antennas—to serve the network.</li>
+            <li><b>Rewards (tokens):</b> the economic incentive that drives suppliers to keep their machines active and fully operational.</li>
+            <li><b>Users (customers):</b> those who actually use and pay for the service, and who must perceive a real advantage in using the decentralized network compared to centralized competitors.</li>
+          </ul>
         </div>
 
       </div>

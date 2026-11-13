@@ -444,3 +444,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   "What is DePIN: a simple definition" (2 paragraphs, bold highlights on ownership shift and
   resource contribution). Verified by screenshot. Remaining: flywheel, PRN vs DRN, advantages,
   challenges, conclusions.
+
+- **DePIN flywheel section (2026-11-14)**: added to AcademyDePIN.tsx — DePIN network mesh
+  illustration (.ac-depin-net SVG: light purple mesh lines, purple node squares, icon circles for
+  document/lock/wifi/chip/lightning) under "academy" badge, ambition paragraph (AWS/Google Cloud
+  bold), and "How DePIN works: the magic of the economic flywheel" H2 with intro paragraphs and the
+  Suppliers/Rewards(tokens)/Users(customers) bullet list. Verified by screenshot. Remaining: PRN vs
+  DRN, advantages, challenges, conclusions.
