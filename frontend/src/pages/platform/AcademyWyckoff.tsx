@@ -208,7 +208,7 @@ export default function AcademyWyckoff() {
               <p className="ac-desc">What are futures and how do they work? Discover these unique derivative financial instruments widely used by expert traders.</p>
               <p className="ac-meta">November 26, 2025&nbsp;&nbsp;•&nbsp;&nbsp;8 min</p>
             </article>
-            <article className="ac-card">
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/supertrend")} style={{ cursor: "pointer" }}>
               <div className="ac-thumb"><Badge>Beginner</Badge>
                 <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
                   <rect width="340" height="210" fill="#bfe9ff"/>

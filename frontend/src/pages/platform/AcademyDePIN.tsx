@@ -477,7 +477,7 @@ export default function AcademyDePIN() {
               <p className="ac-desc">The Ethereum ERC-8004 update is here: the new standard that promises a new lease of life for AI agents.</p>
               <p className="ac-meta">March 31, 2026&nbsp;&nbsp;•&nbsp;&nbsp;8 min</p>
             </article>
-            <article className="ac-card">
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/rwa")} style={{ cursor: "pointer" }}>
               <div className="ac-thumb"><Badge>Beginner</Badge>
                 <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
                   <rect width="340" height="210" fill="#ff8f9f"/>

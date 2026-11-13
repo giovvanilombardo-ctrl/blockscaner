@@ -220,7 +220,7 @@ export default function AcademyFutures() {
         <section className="ac-related">
           <h2>{_t("Related")}</h2>
           <div className="ac-grid">
-            <article className="ac-card">
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/wyckoff")} style={{ cursor: "pointer" }}>
               <div className="ac-thumb"><Badge>Beginner</Badge>
                 <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
                   <rect width="340" height="210" fill="#bfe9ff"/>
@@ -243,7 +243,7 @@ export default function AcademyFutures() {
               <p className="ac-desc">Wyckoff theory is a trading method focused on market cycles, guiding traders in understanding price movements through accumulation and distribution.</p>
               <p className="ac-meta">November 21, 2024&nbsp;&nbsp;•&nbsp;&nbsp;5 min</p>
             </article>
-            <article className="ac-card">
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/supertrend")} style={{ cursor: "pointer" }}>
               <div className="ac-thumb"><Badge>Beginner</Badge>
                 <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
                   <rect width="340" height="210" fill="#bfe9ff"/>

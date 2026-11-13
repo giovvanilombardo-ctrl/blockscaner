@@ -602,3 +602,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   "The genesis of Ethereum: the story of the ICO" card in the Academy Featured section
   (Academy.tsx). Card now navigates to the article page. AcademyArticle hero already had a click
   handler opening the article in a new tab.
+
+- **Related card links (2026-11-14)**: wired all cross-article Related cards to their pages —
+  ERC-8004 Related now links DePIN and RWA cards; RWA Related already linked ERC-8004 and DePIN;
+  DePIN Related already linked ERC-8004 and now links RWA; Futures Related now links Wyckoff and
+  Supertrend; Wyckoff Related now links Futures and Supertrend; Supertrend Related already linked
+  Futures and Wyckoff. Grok and Bollinger Bands cards intentionally left unlinked until their
+  articles exist.

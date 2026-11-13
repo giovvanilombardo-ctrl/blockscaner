@@ -315,7 +315,7 @@ export default function AcademyERC() {
         <section className="ac-related">
           <h2>{_t("Related")}</h2>
           <div className="ac-grid">
-            <article className="ac-card">
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/depin")} style={{ cursor: "pointer" }}>
               <div className="ac-thumb"><Badge>Beginner</Badge>
                 <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
                   <rect width="340" height="210" fill="#bfe9ff"/>
@@ -346,7 +346,7 @@ export default function AcademyERC() {
               <p className="ac-desc">What is DePIN? The blockchain technology revolutionising decentralised physical infrastructure</p>
               <p className="ac-meta">March 19, 2026&nbsp;&nbsp;•&nbsp;&nbsp;8 min</p>
             </article>
-            <article className="ac-card">
+            <article className="ac-card" onClick={() => window.location.assign("/products/academy/rwa")} style={{ cursor: "pointer" }}>
               <div className="ac-thumb"><Badge>Beginner</Badge>
                 <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
                   <rect width="340" height="210" fill="#ff8f9f"/>
