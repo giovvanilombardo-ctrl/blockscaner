@@ -747,3 +747,18 @@ html {
   .ac-parties{ gap:2.4rem; }
 }
 
+/* ---------- Academy bond flow diagram ---------- */
+.ac-flow{ margin-top:1.4rem; display:grid; grid-template-columns:auto 1fr auto; gap:1.4rem; align-items:center; max-width:560px; }
+.ac-flow-person svg{ display:block; }
+.ac-flow-steps{ display:flex; flex-direction:column; gap:.9rem; }
+.ac-flow-row{ display:flex; align-items:center; gap:.5rem; position:relative; }
+.ac-flow-chip{ background:#8b5cf6; color:#fff; font-weight:800; font-size:.82rem; border-radius:10px;
+  padding:.5rem .9rem; white-space:nowrap; }
+.ac-flow-note{ position:absolute; right:0; bottom:-1.05rem; font-size:.66rem; color:#57575c; }
+.ac-flow-issuer{ background:#efe9ff; border-radius:14px; padding:2.6rem 1.4rem; font-weight:800; color:#0f0f12;
+  font-size:1rem; min-width:120px; text-align:center; align-self:stretch; display:grid; place-items:center; }
+@media (max-width:560px){
+  .ac-flow{ grid-template-columns:1fr; }
+  .ac-flow-issuer{ min-width:0; padding:1.2rem; }
+}
+

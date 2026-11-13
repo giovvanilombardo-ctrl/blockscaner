@@ -167,6 +167,49 @@ export default function AcademyBonds() {
           <p>During the life of the bond, as we have mentioned, the debtor pays the creditor periodic interest, known as a coupon. This may be paid annually, half-yearly or at other intervals, and may be a fixed or variable amount, depending on the bond’s terms.The coupon is the component set at the time of issue and represents the ‘cost’ of the loan to the debtor and the nominal return to the creditor. However, it is essential not to confuse the coupon with the actual return on the investment.</p>
         </div>
 
+        {/* Academy image: bond flow diagram */}
+        <section className="ac-summary" data-testid="bonds-flow">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+
+          <div className="ac-flow">
+            <div className="ac-flow-person">
+              <svg viewBox="0 0 100 112" width="92" height="102">
+                <circle cx="50" cy="52" r="44" fill="#fff" stroke="#0d0d12" strokeWidth="2"/>
+                <circle cx="50" cy="46" r="14" fill="#fff" stroke="#0d0d12" strokeWidth="1.6"/>
+                <path d="M36 46 C36 32 64 32 64 46 C64 39 59 34 50 34 C41 34 36 39 36 46 Z" fill="#0d0d12"/>
+                <path d="M40 44 q2 -2 4 0 M48 44 q2 -2 4 0" stroke="#0d0d12" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                <path d="M50 56 l-3 5 h6 z" fill="#0d0d12"/>
+                <path d="M30 84 C33 68 67 68 70 84 L70 92 L30 92 Z" fill="#efe9ff" stroke="#0d0d12" strokeWidth="1.6"/>
+                <rect x="47" y="74" width="5" height="17" rx="2.5" fill="#0d0d12"/>
+              </svg>
+            </div>
+
+            <div className="ac-flow-steps">
+              <div className="ac-flow-row">
+                <svg className="ac-flow-arrow right" viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h15M13 6l7 6-7 6" stroke="#0d0d12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <span className="ac-flow-chip">Presta 10.000 €</span>
+                <svg className="ac-flow-arrow right" viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h15M13 6l7 6-7 6" stroke="#0d0d12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </div>
+              <div className="ac-flow-row">
+                <svg className="ac-flow-arrow left" viewBox="0 0 24 24" width="18" height="18"><path d="M21 12H6M11 6l-7 6 7 6" stroke="#0d0d12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <span className="ac-flow-chip">Cedola annua 5%</span>
+                <svg className="ac-flow-arrow left" viewBox="0 0 24 24" width="18" height="18"><path d="M21 12H6M11 6l-7 6 7 6" stroke="#0d0d12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </div>
+              <div className="ac-flow-row">
+                <svg className="ac-flow-arrow left" viewBox="0 0 24 24" width="18" height="18"><path d="M21 12H6M11 6l-7 6 7 6" stroke="#0d0d12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <span className="ac-flow-chip">Ricevi 10.000 €</span>
+                <svg className="ac-flow-arrow left" viewBox="0 0 24 24" width="18" height="18"><path d="M21 12H6M11 6l-7 6 7 6" stroke="#0d0d12" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <span className="ac-flow-note">alla scadenza</span>
+              </div>
+            </div>
+
+            <div className="ac-flow-issuer">Emittente</div>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
