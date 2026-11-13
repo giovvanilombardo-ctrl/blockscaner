@@ -91,6 +91,29 @@ export default function AcademyBonds() {
           </ul>
         </div>
 
+        {/* Article body */}
+        <div className="ac-body">
+          <h2 id="bonds-intro">What are bonds, and how do they work? Financial instruments to reduce portfolio risk</h2>
+          <p>Bonds are one of the fundamental financial instruments of traditional finance. They act as a bridge between those who need money for their projects (such as a government or a company) and those who want to invest their savings to grow them.</p>
+          <p>With a market estimated at around $140.7 trillion and widespread use by governments, supranational bodies, businesses and private individuals, understanding in detail what bonds are and how they work is essential for building sound financial literacy.</p>
+          <p>That said, let’s dive straight in and find out what bonds are and how they work.</p>
+
+          <h2 id="bonds-what">What are bonds?</h2>
+          <p>Bonds are debt instruments issued by an entity that, as the debtor, undertakes to repay a specific sum of money to a counterparty (investor or creditor) by a predetermined deadline, whilst making periodic payments of interest, known as coupons.</p>
+          <p>This exchange of value is defined and governed by a financial contract, namely the bond, which unambiguously and bindingly sets out the terms, timing and conditions under which the entire transaction is to be managed.</p>
+          <p>In a nutshell, a bond is nothing more than a loan in the form of a financial security: the purchaser lends capital, the issuer receives it, thereby formalising the debt and the terms of repayment.</p>
+
+          <h2 id="bonds-technically">How bonds work technically</h2>
+          <p>To fully understand what bonds are and how they work, let us now examine their technical structure in detail, focusing specifically on three aspects: the parties involved, the issuance mechanism and the coupon/yield system.</p>
+
+          <h3 id="bonds-parties">The parties involved</h3>
+          <p>A bond issue is a capital market transaction involving the interaction of at least two categories of parties, whose positions are mirror images of and complementary to one another:</p>
+          <ul>
+            <li><b>The debtor (or issuer):</b> the party (state, supranational body, or company) that issues the bond to borrow money. It undertakes contractually to repay the principal at maturity and to pay the agreed interest.</li>
+            <li><b>The creditor (or investor):</b> is the party (private individual, bank, investment fund) which, having surplus liquidity, decides to lend a sum of money in exchange for future remuneration (interest).</li>
+          </ul>
+        </div>
+
       </div>
     </SiteLayout>
   );
