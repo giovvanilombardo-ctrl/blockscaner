@@ -54,48 +54,101 @@ function PhoneEasy() {
 }
 
 function PhonePro() {
+  /* candles: [x, openY, closeY, highY, lowY] */
+  const candles = [
+    [34, 150, 138, 134, 156], [46, 138, 128, 122, 144], [58, 128, 138, 124, 144],
+    [70, 138, 122, 116, 144], [82, 122, 132, 118, 138], [94, 132, 118, 112, 138],
+    [106, 118, 108, 102, 124], [118, 108, 118, 104, 124], [130, 118, 102, 96, 124],
+    [142, 102, 112, 96, 118], [154, 112, 98, 90, 118], [166, 98, 88, 82, 104],
+    [178, 88, 98, 84, 104], [190, 98, 84, 78, 104],
+  ];
   return (
     <svg viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice" className="eco-phone">
       <defs>
-        <linearGradient id="ecoProBg" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#1a1a24"/><stop offset="1" stopColor="#0d0d12"/>
+        <linearGradient id="ecoProBg2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#14141c"/><stop offset="1" stopColor="#0a0a10"/>
         </linearGradient>
       </defs>
-      <rect width="320" height="260" fill="url(#ecoProBg)"/>
-      {/* desktop window */}
-      <rect x="20" y="24" width="280" height="212" rx="10" fill="#14141a" stroke="#26262e" strokeWidth="1.5"/>
-      {/* top bar */}
-      <rect x="20" y="24" width="280" height="20" rx="10" fill="#1c1c24"/>
-      <g fill="#8b8b93"><circle cx="30" cy="34" r="2.4"/><circle cx="38" cy="34" r="2.4"/><circle cx="46" cy="34" r="2.4"/></g>
-      {/* chart area */}
-      <rect x="30" y="52" width="170" height="130" rx="6" fill="#0d0d12"/>
-      <path d="M34 170 L44 162 L54 166 L64 156 L74 160 L84 150 L94 154 L104 144 L114 148 L124 138 L134 142 L144 132 L154 136 L164 126 L174 130 L184 120 L192 124" stroke="#2ee58a" strokeWidth="2" fill="none" strokeLinecap="round"/>
-      <g fill="#2ee58a">
-        <rect x="44" y="120" width="4" height="10" rx="1"/><rect x="58" y="130" width="4" height="14" rx="1"/>
-        <rect x="72" y="112" width="4" height="12" rx="1"/><rect x="86" y="122" width="4" height="16" rx="1"/>
-        <rect x="100" y="106" width="4" height="10" rx="1"/><rect x="114" y="116" width="4" height="14" rx="1"/>
-        <rect x="128" y="100" width="4" height="12" rx="1"/><rect x="142" y="110" width="4" height="16" rx="1"/>
-        <rect x="156" y="96" width="4" height="10" rx="1"/><rect x="170" y="106" width="4" height="14" rx="1"/>
+      <rect width="320" height="260" fill="url(#ecoProBg2)"/>
+      {/* window */}
+      <rect x="10" y="10" width="300" height="240" rx="8" fill="#101016" stroke="#22222c" strokeWidth="1"/>
+      {/* title bar */}
+      <rect x="10" y="10" width="300" height="18" rx="8" fill="#181820"/>
+      <g fill="#5b5b66"><circle cx="19" cy="19" r="2"/><circle cx="26" cy="19" r="2"/><circle cx="33" cy="19" r="2"/></g>
+      <text x="160" y="22" fontSize="6" textAnchor="middle" fill="#8b8b93">BTC/EUR — Blockscaner Pro</text>
+      {/* pair tabs */}
+      <g fontSize="5.5">
+        <rect x="16" y="32" width="42" height="12" rx="3" fill="#1e1e28"/>
+        <text x="37" y="40" textAnchor="middle" fill="#e8e8ec" fontWeight="700">BTC/EUR</text>
+        <rect x="62" y="32" width="42" height="12" rx="3" fill="#16161e"/>
+        <text x="83" y="40" textAnchor="middle" fill="#8b8b93">ETH/EUR</text>
+        <rect x="108" y="32" width="42" height="12" rx="3" fill="#16161e"/>
+        <text x="129" y="40" textAnchor="middle" fill="#8b8b93">SOL/EUR</text>
       </g>
-      {/* right panel */}
-      <rect x="210" y="52" width="80" height="130" rx="6" fill="#0d0d12"/>
-      <g fontSize="6" fill="#8b8b93">
-        <text x="216" y="66">BTC/USD</text>
-        <text x="216" y="78" fill="#e8e8ec" fontWeight="800">26,482.4</text>
-        <text x="216" y="92">ETH/USD</text>
-        <text x="216" y="104" fill="#e8e8ec" fontWeight="800">1,842.6</text>
-        <text x="216" y="118">SOL/USD</text>
-        <text x="216" y="130" fill="#e8e8ec" fontWeight="800">24.18</text>
+      {/* price header */}
+      <text x="16" y="58" fontSize="11" fontWeight="800" fill="#2ee58a">26,482.40</text>
+      <text x="78" y="58" fontSize="6" fill="#2ee58a">+1.24%</text>
+      <text x="16" y="66" fontSize="5" fill="#8b8b93">24h High 26,780.10</text>
+      <text x="90" y="66" fontSize="5" fill="#8b8b93">24h Low 25,940.00</text>
+      {/* grid */}
+      <g stroke="#1c1c26" strokeWidth=".6">
+        <line x1="16" y1="76" x2="206" y2="76"/><line x1="16" y1="106" x2="206" y2="106"/>
+        <line x1="16" y1="136" x2="206" y2="136"/><line x1="16" y1="166" x2="206" y2="166"/>
       </g>
+      {/* candles */}
+      {candles.map(([x, o, c, h, l], i) => {
+        const up = c < o;
+        const col = up ? "#2ee58a" : "#e11d48";
+        const top = Math.min(o, c);
+        const hgt = Math.max(Math.abs(o - c), 2);
+        return (
+          <g key={i}>
+            <line x1={x + 3} y1={h} x2={x + 3} y2={l} stroke={col} strokeWidth="1"/>
+            <rect x={x} y={top} width="6" height={hgt} fill={col} rx="1"/>
+          </g>
+        );
+      })}
+      {/* MA line */}
+      <path d="M20 150 L36 142 L52 136 L68 130 L84 126 L100 120 L116 116 L132 110 L148 106 L164 100 L180 96 L196 92" stroke="#f5c518" strokeWidth="1.2" fill="none" opacity=".7"/>
+      {/* volume bars */}
       <g>
-        <rect x="216" y="140" width="66" height="8" rx="2" fill="#2ee58a" opacity=".8"/>
-        <rect x="216" y="152" width="66" height="8" rx="2" fill="#e11d48" opacity=".8"/>
-        <rect x="216" y="164" width="66" height="8" rx="2" fill="#2ee58a" opacity=".6"/>
+        {candles.map(([x, o, c], i) => {
+          const up = c < o;
+          return <rect key={i} x={x} y={176 - (i % 4) * 3} width="6" height={8 + (i % 4) * 3} fill={up ? "#2ee58a" : "#e11d48"} opacity=".35" rx="1"/>;
+        })}
       </g>
-      {/* bottom bar */}
-      <rect x="30" y="192" width="260" height="32" rx="6" fill="#1c1c24"/>
-      <rect x="38" y="200" width="60" height="16" rx="4" fill="#2ee58a"/>
-      <text x="68" y="211" fontSize="7" textAnchor="middle" fill="#0d0d12" fontWeight="800">Buy</text>
+      {/* right order book */}
+      <rect x="214" y="52" width="90" height="130" rx="4" fill="#0c0c12"/>
+      <text x="220" y="62" fontSize="5.5" fill="#8b8b93">Order Book</text>
+      {[0,1,2,3,4].map(i => (
+        <g key={`a${i}`}>
+          <rect x="218" y={68 + i * 9} width={60 - i * 8} height="7" rx="1" fill="#e11d48" opacity=".22"/>
+          <text x="220" y={73.5 + i * 9} fontSize="4.5" fill="#e11d48">26,49{i}.2</text>
+          <text x="296" y={73.5 + i * 9} fontSize="4.5" fill="#8b8b93" textAnchor="end">0.{4 + i}2</text>
+        </g>
+      ))}
+      <rect x="214" y="114" width="90" height="10" fill="#16161e"/>
+      <text x="259" y="121.5" fontSize="6" textAnchor="middle" fill="#2ee58a" fontWeight="800">26,482.40</text>
+      {[0,1,2,3,4].map(i => (
+        <g key={`b${i}`}>
+          <rect x={218 + i * 6} y={130 + i * 9} width={60 - i * 8} height="7" rx="1" fill="#2ee58a" opacity=".22"/>
+          <text x="220" y={135.5 + i * 9} fontSize="4.5" fill="#2ee58a">26,47{8 - i}.1</text>
+          <text x="296" y={135.5 + i * 9} fontSize="4.5" fill="#8b8b93" textAnchor="end">0.{6 + i}8</text>
+        </g>
+      ))}
+      {/* bottom buy/sell */}
+      <rect x="16" y="192" width="136" height="52" rx="5" fill="#0c0c12"/>
+      <text x="22" y="204" fontSize="5.5" fill="#8b8b93">Amount (BTC)</text>
+      <rect x="22" y="208" width="84" height="14" rx="3" fill="#16161e"/>
+      <text x="26" y="217.5" fontSize="6" fill="#e8e8ec">0.0421</text>
+      <rect x="22" y="228" width="124" height="12" rx="4" fill="#2ee58a"/>
+      <text x="84" y="236.5" fontSize="6.5" textAnchor="middle" fill="#0d0d12" fontWeight="800">Buy BTC</text>
+      <rect x="160" y="192" width="144" height="52" rx="5" fill="#0c0c12"/>
+      <text x="166" y="204" fontSize="5.5" fill="#8b8b93">Total (EUR)</text>
+      <rect x="166" y="208" width="88" height="14" rx="3" fill="#16161e"/>
+      <text x="170" y="217.5" fontSize="6" fill="#e8e8ec">1,114.91</text>
+      <rect x="166" y="228" width="124" height="12" rx="4" fill="#e11d48"/>
+      <text x="228" y="236.5" fontSize="6.5" textAnchor="middle" fill="#fff" fontWeight="800">Sell BTC</text>
     </svg>
   );
 }

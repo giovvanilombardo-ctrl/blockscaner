@@ -752,3 +752,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   (light bg, blockscaner logo, phone-with-green-app art, Discover more button) and "Crypto Made Pro"
   (dark bg, blockscaner logo, dark-trading-terminal art, Discover more button). About us menu
   Ecosystem option links to /about/ecosystem. CSS for all eco- classes added. Verified by screenshots.
+
+- **Ecosystem Pro card art upgraded (2026-11-14)**: rebuilt the Crypto Made Pro phone art in
+  Ecosystem.tsx to show a real professional trading platform — BTC/EUR pair tabs, price header with
+  24h high/low, candlestick chart with moving average line, volume bars, order book with bid/ask
+  levels, and Buy/Sell buttons. Verified by screenshot.
