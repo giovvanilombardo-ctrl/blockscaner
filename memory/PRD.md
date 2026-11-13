@@ -682,3 +682,7 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   SiteHeader.tsx — four options with icons: Leadership (Users icon), Ecosystem (Boxes icon), Work
   with us (Briefcase icon), Security (ShieldCheck icon). All link to /about for now. Verified by
   hovering in the preview.
+
+- **About us dropdown thumbnails removed (2026-11-14)**: removed the icon thumbnails from the About
+  us mega-menu items in SiteHeader.tsx — items now show only title + description text. Verified by
+  hovering in the preview.
