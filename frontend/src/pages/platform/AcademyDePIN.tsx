@@ -344,6 +344,42 @@ export default function AcademyDePIN() {
             <li><b>Economic sustainability of incentives:</b> the <b>flywheel mechanism</b> only works as long as the token maintains enough value to compensate resource providers. During periods of high volatility or a <b>bear market</b>, incentives can decrease, risking that some participants might disconnect their machines, thus affecting the network's capacity and service quality.</li>
             <li><b>Competition with web2 incumbents:</b> large centralized operators possess immense capital, widespread infrastructure, and significant strategic leverage. Through aggressive pricing policies, acquisitions, or vertical integration, they could defend their dominant positions, making the path to mainstream success for DePIN networks more complex.</li>
           </ul>
+
+          {/* DePIN Challenges cards */}
+          <section className="ac-depin-adv" data-testid="depin-challenges-cards">
+            <div className="ac-summary-brand">
+              <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+              <span>academy</span>
+            </div>
+            <h3 className="ac-depin-prn-title">{_t("DePIN Challenges")}</h3>
+            <div className="ac-depin-adv-row">
+              <div className="ac-depin-adv-card">
+                <div className="ac-depin-adv-pill">Operational<br />Complexity</div>
+                <span className="ac-depin-adv-ic">
+                  <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 4 22 20H2Z" fill="none" stroke="#0f0f12" strokeWidth="2" strokeLinejoin="round"/><path d="M12 10v4.4" stroke="#0f0f12" strokeWidth="2" strokeLinecap="round"/><circle cx="12" cy="17.2" r="1.2" fill="#0f0f12"/></svg>
+                </span>
+              </div>
+              <div className="ac-depin-adv-card">
+                <div className="ac-depin-adv-pill">Economic<br />Sustainability</div>
+                <span className="ac-depin-adv-ic">
+                  <svg viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="8.4" fill="none" stroke="#0f0f12" strokeWidth="1.8"/><path d="M8.5 10.5a3.5 3.5 0 0 1 5.9-2.6M15.5 13.5a3.5 3.5 0 0 1-5.9 2.6" fill="none" stroke="#0f0f12" strokeWidth="1.8" strokeLinecap="round"/><path d="M14.2 5.5l.6 2.4-2.4.4M9.8 18.5l-.6-2.4 2.4-.4" fill="none" stroke="#0f0f12" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </span>
+              </div>
+              <div className="ac-depin-adv-card">
+                <div className="ac-depin-adv-pill">Competition with<br />Web2 Incumbents</div>
+                <span className="ac-depin-adv-ic">
+                  <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="#0f0f12" strokeWidth="1.8"/><path d="M3.6 12h16.8M12 3.6c2.4 2.2 3.6 5.1 3.6 8.4s-1.2 6.2-3.6 8.4c-2.4-2.2-3.6-5.1-3.6-8.4S9.6 5.8 12 3.6Z" fill="none" stroke="#0f0f12" strokeWidth="1.6"/></svg>
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <p>The long-term success of <b>DePIN</b> will therefore depend on the ability of projects to simplify the user experience, stabilize incentive mechanisms, and build a sustainable competitive advantage over traditional operators—transforming from an emerging narrative into infrastructure that is truly adopted on a global scale.</p>
+
+          <h2 id="depin-conclusions">{_t("Conclusions")}</h2>
+          <p>According to many experts, <b>DePIN</b> represents one of the most concrete evolutions in the journey toward the <b>mass adoption</b> of blockchain. After an initial phase focused on digital currencies, decentralized finance (DeFi), and collectible assets, the technology is now making a structural shift, moving from the purely digital realm to the management of physical infrastructure.</p>
+          <p>With DePIN, blockchain will stop being a simple ledger of transactions and instead become an <b>orchestration layer</b> for energy grids, connectivity, computing power, and data collection systems. This allows decentralization to move beyond the speculative dimension and integrate into services used daily—even by those who have never directly interacted with a cryptocurrency.</p>
+          <p>Thanks to DePIN technology, the future of infrastructure is no longer the exclusive domain of large centralized operators; it becomes a tool at the service of the community to develop a fairer and more sustainable tomorrow, in line with the original vision of the <b>Web3</b> movement.</p>
         </div>
 
       </div>

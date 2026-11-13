@@ -489,3 +489,9 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   the DePIN movement" H2 with intro and three bullets (Operational complexity, Economic
   sustainability, Competition with web2 incumbents). Card bottom margin added for spacing. Verified
   by screenshot — order matches reference. Remaining: Conclusions + buy banner/disclaimer/related.
+
+- **DePIN challenges cards + conclusions (2026-11-14)**: added to AcademyDePIN.tsx — DePIN Challenges
+  cards row (Operational Complexity/warning icon, Economic Sustainability/cycle icon, Competition
+  with Web2 Incumbents/globe icon), long-term success paragraph, and "Conclusions" H2 with three
+  paragraphs (mass adoption, orchestration layer, Web3 bold). DePIN article body is now complete.
+  Remaining: closing buy banner + disclaimer + Related grid (same pattern as ERC-8004).
