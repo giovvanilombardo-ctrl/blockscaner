@@ -4,43 +4,77 @@ import { t as _t } from "@/i18n";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
-/* RWA hero artwork — wireframe globe on pedestal with house/car chips */
+/* RWA hero artwork — premium dark vault scene */
 const ArtRWA = (
   <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
-    <rect width="340" height="210" fill="#ff5f7a"/>
-    {/* diagonal side lines */}
-    <g stroke="#0d0d12" strokeWidth="3" fill="none">
-      <path d="M60 0 L120 210"/><path d="M280 0 L220 210"/>
+    <defs>
+      <radialGradient id="rwaBg" cx="50%" cy="30%" r="80%">
+        <stop offset="0" stopColor="#2a1e3f"/><stop offset="1" stopColor="#0d0b16"/>
+      </radialGradient>
+      <linearGradient id="rwaGlobe" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#c9b8ff"/><stop offset=".5" stopColor="#8b5cf6"/><stop offset="1" stopColor="#5b21b6"/>
+      </linearGradient>
+      <linearGradient id="rwaPed" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#3a2d5c"/><stop offset="1" stopColor="#17122a"/>
+      </linearGradient>
+      <linearGradient id="rwaGold" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stopColor="#f5d98a"/><stop offset=".5" stopColor="#e8b94a"/><stop offset="1" stopColor="#c9932a"/>
+      </linearGradient>
+      <linearGradient id="rwaRing" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stopColor="#c9b8ff" stopOpacity=".1"/><stop offset=".5" stopColor="#c9b8ff" stopOpacity=".85"/><stop offset="1" stopColor="#c9b8ff" stopOpacity=".1"/>
+      </linearGradient>
+    </defs>
+    <rect width="340" height="210" fill="url(#rwaBg)"/>
+    {/* ambient glow */}
+    <ellipse cx="170" cy="96" rx="120" ry="80" fill="#8b5cf6" opacity=".12"/>
+    {/* floor reflection */}
+    <ellipse cx="170" cy="186" rx="110" ry="14" fill="#8b5cf6" opacity=".1"/>
+    {/* light beams */}
+    <g fill="#c9b8ff" opacity=".05">
+      <path d="M80 0 L150 210 L60 210 Z"/>
+      <path d="M260 0 L190 210 L280 210 Z"/>
     </g>
-    {/* side black ovals */}
-    <ellipse cx="66" cy="120" rx="34" ry="18" fill="#0d0d12" transform="rotate(24 66 120)"/>
-    <ellipse cx="274" cy="112" rx="34" ry="18" fill="#0d0d12" transform="rotate(-24 274 112)"/>
-    {/* pedestal */}
-    <ellipse cx="170" cy="168" rx="66" ry="20" fill="#fff" stroke="#0d0d12" strokeWidth="3.5"/>
-    <path d="M104 168 v14 a66 20 0 0 0 132 0 v-14" fill="#0d0d12"/>
-    <ellipse cx="170" cy="150" rx="40" ry="12" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
-    <path d="M130 150 v10 a40 12 0 0 0 80 0 v-10" fill="#0d0d12"/>
-    {/* wireframe globe */}
-    <circle cx="170" cy="92" r="46" fill="#ff5f7a" stroke="#0d0d12" strokeWidth="3.5"/>
-    <g stroke="#0d0d12" strokeWidth="1.6" fill="none">
-      <ellipse cx="170" cy="92" rx="46" ry="14"/>
-      <ellipse cx="170" cy="92" rx="46" ry="28"/>
-      <ellipse cx="170" cy="92" rx="46" ry="40"/>
-      <ellipse cx="170" cy="92" rx="12" ry="46"/>
-      <ellipse cx="170" cy="92" rx="26" ry="46"/>
-      <ellipse cx="170" cy="92" rx="38" ry="46"/>
-      <path d="M124 92 h92"/>
+    {/* sparkle particles */}
+    <g fill="#c9b8ff">
+      <circle cx="60" cy="44" r="1.6" opacity=".8"/><circle cx="286" cy="40" r="1.4" opacity=".7"/>
+      <circle cx="44" cy="120" r="1.3" opacity=".6"/><circle cx="300" cy="118" r="1.5" opacity=".7"/>
+      <circle cx="120" cy="26" r="1.2" opacity=".5"/><circle cx="222" cy="24" r="1.3" opacity=".55"/>
     </g>
+    {/* orbit rings */}
+    <ellipse cx="170" cy="92" rx="104" ry="30" fill="none" stroke="url(#rwaRing)" strokeWidth="1.2" transform="rotate(-16 170 92)"/>
+    <ellipse cx="170" cy="92" rx="118" ry="36" fill="none" stroke="url(#rwaRing)" strokeWidth=".9" opacity=".6" transform="rotate(-16 170 92)"/>
+    {/* globe */}
+    <circle cx="170" cy="88" r="48" fill="url(#rwaGlobe)"/>
+    <circle cx="170" cy="88" r="48" fill="none" stroke="#e9d5ff" strokeWidth="1" opacity=".6"/>
+    {/* globe wireframe */}
+    <g stroke="#e9d5ff" strokeWidth="1" fill="none" opacity=".65">
+      <ellipse cx="170" cy="88" rx="48" ry="15"/>
+      <ellipse cx="170" cy="88" rx="48" ry="30"/>
+      <ellipse cx="170" cy="88" rx="48" ry="42"/>
+      <ellipse cx="170" cy="88" rx="13" ry="48"/>
+      <ellipse cx="170" cy="88" rx="28" ry="48"/>
+      <ellipse cx="170" cy="88" rx="40" ry="48"/>
+    </g>
+    {/* globe sheen */}
+    <ellipse cx="152" cy="68" rx="20" ry="12" fill="#fff" opacity=".14" transform="rotate(-22 152 68)"/>
     {/* RWA label */}
-    <rect x="142" y="78" width="56" height="28" rx="14" fill="#fff" stroke="#0d0d12" strokeWidth="2.6"/>
-    <text x="170" y="97" fontSize="15" fontWeight="800" textAnchor="middle" fill="#ff2e88">RWA</text>
+    <rect x="141" y="74" width="58" height="28" rx="14" fill="#0d0b16" stroke="url(#rwaGold)" strokeWidth="1.6"/>
+    <text x="170" y="93" fontSize="15" fontWeight="800" textAnchor="middle" fill="#f5d98a" letterSpacing="1.5">RWA</text>
     {/* house chip */}
-    <ellipse cx="108" cy="98" rx="20" ry="26" fill="#fff" stroke="#0d0d12" strokeWidth="2.6" transform="rotate(-14 108 98)"/>
-    <path d="M100 100 L108 92 L116 100 M102 98 v8 h12 v-8" fill="none" stroke="#ff2e88" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+    <g transform="rotate(-14 104 98)">
+      <ellipse cx="104" cy="98" rx="21" ry="27" fill="#17122a" stroke="#c9b8ff" strokeWidth="1.4"/>
+      <path d="M95 100 L104 91 L113 100 M97 98 v9 h14 v-9" fill="none" stroke="#f5d98a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </g>
     {/* car chip */}
-    <circle cx="238" cy="72" r="20" fill="#ff5f7a" stroke="#0d0d12" strokeWidth="2.6"/>
-    <path d="M229 74 h18 l-3 -7 h-12 Z M229 74 v5 h18 v-5" fill="none" stroke="#0d0d12" strokeWidth="2" strokeLinejoin="round"/>
-    <circle cx="233" cy="80" r="1.8" fill="#0d0d12"/><circle cx="243" cy="80" r="1.8" fill="#0d0d12"/>
+    <circle cx="238" cy="70" r="21" fill="#17122a" stroke="#c9b8ff" strokeWidth="1.4"/>
+    <path d="M228 72 h20 l-3 -8 h-14 Z M228 72 v6 h20 v-6" fill="none" stroke="#f5d98a" strokeWidth="2" strokeLinejoin="round"/>
+    <circle cx="232" cy="79" r="1.9" fill="#f5d98a"/><circle cx="244" cy="79" r="1.9" fill="#f5d98a"/>
+    {/* pedestal */}
+    <path d="M128 150 h84 l8 30 a76 16 0 0 1 -100 0 Z" fill="url(#rwaPed)"/>
+    <ellipse cx="170" cy="150" rx="42" ry="12" fill="#241b3e" stroke="#c9b8ff" strokeWidth="1" opacity=".9"/>
+    <ellipse cx="170" cy="182" rx="84" ry="16" fill="none" stroke="#c9b8ff" strokeWidth="1" opacity=".4"/>
+    {/* gold base line */}
+    <path d="M96 196 h148" stroke="url(#rwaGold)" strokeWidth="1.4" opacity=".7"/>
   </svg>
 );
 

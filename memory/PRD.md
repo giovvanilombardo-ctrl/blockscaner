@@ -508,3 +508,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   share icons, pink wireframe-globe-on-pedestal hero with house/car chips and Beginner badge,
   "You will learn" box with 5 anchor links (RWA revolution, What are RWAs technically, tokenisation
   process, Fleap case, Conclusions). Body sections awaiting user copy. Route registered in App.tsx.
+
+- **RWA hero premium restyle (2026-11-14)**: AcademyRWA.tsx hero art reworked from flat pink to a
+  premium dark-violet vault scene — radial dark bg, glowing purple wireframe globe with sheen, gold
+  "RWA" label chip, gold house/car icon chips, orbit rings, light beams, sparkle particles, floating
+  pedestal with floor reflection. User asked to make the design "look more expensive". Note: user
+  previously required exact reference copies for supplied images; this restyle was an explicit
+  request to deviate for the RWA hero only. Body sections still awaiting user copy.
