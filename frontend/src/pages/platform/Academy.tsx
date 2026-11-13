@@ -39,6 +39,81 @@ const ArtBitcoin = (
   </svg>
 );
 
+const ArtFutures = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#7cc4ff"/>
+    <path d="M0 110 L40 50 L80 90 L120 40 L170 95 L220 55 V150 H0 Z" fill="#0d0d12"/>
+    <path d="M30 150 L80 80 L130 130 L180 70 L220 120 V150 Z" fill="#3a86ff"/>
+    <circle cx="120" cy="60" r="18" fill="#fff"/>
+    <circle cx="120" cy="60" r="12" fill="#7cc4ff"/>
+    <circle cx="34" cy="90" r="8" fill="#fff"/><circle cx="34" cy="90" r="5" fill="#3a86ff"/>
+    <circle cx="190" cy="118" r="10" fill="#fff"/><circle cx="190" cy="118" r="6" fill="#0d0d12"/>
+  </svg>
+);
+
+const ArtWyckoff = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#9fdcff"/>
+    <path d="M0 120 L20 60 L40 100 L60 40 L80 95 L100 30 L120 90 L140 50 L160 105 L180 45 L200 95 L220 60" fill="none" stroke="#fff" strokeWidth="6"/>
+    <path d="M0 130 L20 80 L40 115 L60 60 L80 110 L100 50 L120 105 L140 70 L160 120 L180 65 L200 110 L220 80" fill="none" stroke="#0d0d12" strokeWidth="3"/>
+    <ellipse cx="100" cy="110" rx="12" ry="6" fill="#fff"/><ellipse cx="140" cy="30" rx="12" ry="6" fill="#fff"/>
+  </svg>
+);
+
+const ArtSupertrend = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#d9f0ff"/>
+    <rect x="30" y="30" width="160" height="90" rx="6" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+    <rect x="86" y="120" width="48" height="8" rx="4" fill="#0d0d12"/>
+    {[40, 58, 76, 94, 112, 130, 148, 166].map((x, i) => (
+      <g key={x}>
+        <rect x={x} y={i % 2 ? 55 : 45} width="8" height={i % 2 ? 22 : 30} fill={i % 3 === 0 ? "#3a86ff" : "#7cc4ff"}/>
+        <line x1={x + 4} y1={i % 2 ? 48 : 38} x2={x + 4} y2={i % 2 ? 82 : 82} stroke="#0d0d12" strokeWidth="2"/>
+      </g>
+    ))}
+    <path d="M36 90 Q110 20 186 96" fill="none" stroke="#0d0d12" strokeWidth="2.4"/>
+    <rect x="120" y="12" width="76" height="22" rx="6" fill="#3a86ff"/>
+    <text x="158" y="27" fontSize="11" fontWeight="800" textAnchor="middle" fill="#fff">Supertrend</text>
+  </svg>
+);
+
+const ArtSonic = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#c9a7ff"/>
+    <circle cx="110" cy="90" r="46" fill="#fff"/>
+    <path d="M110 44 C126 60 150 66 172 60 C160 80 150 96 140 110 C126 100 116 84 110 70 C104 84 94 100 80 110 C70 96 60 80 48 60 C70 66 94 60 110 44 Z" fill="#8b5cf6"/>
+    <path d="M110 44 C116 56 118 66 118 76 C112 66 108 56 110 44 Z" fill="#fff"/>
+    <circle cx="110" cy="90" r="46" fill="none" stroke="#0d0d12" strokeWidth="3"/>
+  </svg>
+);
+
+const ArtPoison = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#d9ccff"/>
+    <path d="M60 20 L40 60 L60 100" fill="none" stroke="#0d0d12" strokeWidth="3"/>
+    <path d="M170 30 L190 70 L170 110" fill="none" stroke="#0d0d12" strokeWidth="3"/>
+    <path d="M110 40 L140 110 H80 Z" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+    <circle cx="110" cy="82" r="6" fill="#8b5cf6"/>
+    <rect x="106" y="66" width="8" height="18" rx="4" fill="#8b5cf6"/>
+    <path d="M88 96 C80 108 96 114 100 104 C104 96 92 92 88 96 Z" fill="#8b5cf6"/>
+    <path d="M132 96 C140 108 124 114 120 104 C116 96 128 92 132 96 Z" fill="#8b5cf6"/>
+    <path d="M60 118 L80 130 M160 118 L140 130" stroke="#0d0d12" strokeWidth="3" strokeLinecap="round"/>
+  </svg>
+);
+
+const ArtBerachain = (
+  <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="220" height="150" fill="#ffd23f"/>
+    {[0, 1, 2, 3, 4, 5].map((i) => (
+      <path key={i} d={`M${30 + i * 32} 20 L${46 + i * 32} 28 L${46 + i * 32} 44 L${30 + i * 32} 52 L${14 + i * 32} 44 L${14 + i * 32} 28 Z`} fill="none" stroke="#0d0d12" strokeWidth="2"/>
+    ))}
+    <circle cx="110" cy="80" r="30" fill="#fff"/>
+    <circle cx="110" cy="80" r="24" fill="#ffd23f"/>
+    <circle cx="110" cy="80" r="24" fill="none" stroke="#0d0d12" strokeWidth="3"/>
+    <text x="110" y="85" fontSize="13" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿₿</text>
+  </svg>
+);
+
 const ArtBonds = (
   <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid slice">
     <rect width="220" height="150" fill="#d9ccff"/>
@@ -227,6 +302,44 @@ export default function Academy() {
             <Card tags={["DeFi"]} title="RWA: what they are and how they work"
               desc="Real World Assets (RWA): the new revolution in the global financial system"
               date="February 6, 2026" mins={11} art={ArtRWA} />
+          </div>
+        </section>
+
+        {/* Trading */}
+        <section className="ac-cat">
+          <div className="ac-cat-head">
+            <h2>{_t("Trading")}</h2>
+            <a className="ac-more" href="#" onClick={(e) => e.preventDefault()}>{_t("See more")}</a>
+          </div>
+          <div className="ac-grid">
+            <Card tags={["Derivati"]} title="Futures: what they are and how they work"
+              desc="What are futures and how do they work? Discover these unique derivative financial instruments widely used by expert traders."
+              date="November 26, 2025" mins={8} art={ArtFutures} />
+            <Card tags={["Crypto Technical Analysis"]} title="Wyckoff theory: what is it, and how does it work?"
+              desc="Wyckoff theory is a trading method focused on market cycles, guiding traders in understanding price movements through accumulation and distribution."
+              date="November 21, 2024" mins={5} art={ArtWyckoff} />
+            <Card tags={["Crypto Technical Analysis"]} title="Supertrend Indicator: What is it, and how does it work?"
+              desc="Learn what the Supertrend indicator is, what it measures and how to use it for your trading strategies for cryptocurrencies."
+              date="March 22, 2024" mins={7} art={ArtSupertrend} />
+          </div>
+        </section>
+
+        {/* Blockchain */}
+        <section className="ac-cat">
+          <div className="ac-cat-head">
+            <h2>{_t("Blockchain")}</h2>
+            <a className="ac-more" href="#" onClick={(e) => e.preventDefault()}>{_t("See more")}</a>
+          </div>
+          <div className="ac-grid">
+            <Card tags={["DeFi"]} title="Sonic Blockchain: What Is It and How Does It Work?"
+              desc="Discover Sonic: the ultra-fast EVM blockchain evolved from Fantom. 400k TPS, sub-second finality, and 90% fee rewards for developers."
+              date="November 26, 2025" mins={10} art={ArtSonic} />
+            <Card tags={["Crypto Security"]} title="Address poisoning: what it is and how to defend against it"
+              desc="Address poisoning is a sophisticated social engineering scam targeting crypto transactions. Learn how this attack works, its devastating impact, and essential strategies to protect your crypto fund"
+              date="October 15, 2025" mins={8} art={ArtPoison} />
+            <Card tags={["DeFi", "Proof-Of-Stake"]} title="Berachain: what it is and how it revolutionises Liquidity in Web3"
+              desc="Discover how Berachain, a hybrid blockchain, is revolutionising Web3 with its Proof-of-Liquidity mechanism, blending security and liquidity management."
+              date="September 24, 2025" mins={15} art={ArtBerachain} />
           </div>
         </section>
 
