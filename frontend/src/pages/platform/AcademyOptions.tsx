@@ -3,54 +3,10 @@ import Seo from "@/components/Seo";
 import { t as _t } from "@/i18n";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import optionsHands from "@/assets/options-hands.png";
 
-/* PUT/CALL hero artwork — exact reference */
-const ArtOptionsHero = (
-  <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
-    <rect width="340" height="210" fill="#0d0d12"/>
-    {/* corner arcs */}
-    <path d="M-30 -30 A80 80 0 0 1 40 -50" fill="none" stroke="#4fc3f7" strokeWidth="9"/>
-    <path d="M300 -40 A80 80 0 0 1 380 20" fill="none" stroke="#4fc3f7" strokeWidth="9"/>
-    <path d="M-30 240 A80 80 0 0 1 40 190" fill="none" stroke="#4fc3f7" strokeWidth="9"/>
-    <path d="M310 240 A70 70 0 0 1 380 190" fill="none" stroke="#4fc3f7" strokeWidth="9"/>
-
-    {/* PUT document + hand (left) */}
-    <g transform="translate(0 -6)">
-      <rect x="74" y="28" width="92" height="128" rx="6" fill="#fff"/>
-      <path d="M166 28 v128" stroke="#e6e6ea" strokeWidth="1.6"/>
-      <text x="120" y="46" fontSize="13" fontWeight="800" textAnchor="middle" fill="#3a86ff">PUT</text>
-      {[58, 70, 82, 94].map((y) => (
-        <rect key={y} x="86" y={y} width="68" height="7" rx="3.5" fill="#3a86ff"/>
-      ))}
-      <rect x="130" y="118" width="24" height="24" rx="5" fill="#3a86ff"/>
-      <path d="M137 130 l5 5 l9 -9" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-      {/* arm (blue, entering from left) */}
-      <path d="M-10 118 C14 108 34 104 46 108 L46 132 C34 136 14 140 -10 148 Z" fill="#4fc3f7"/>
-      {/* hand (white, gripping document edge) */}
-      <path d="M46 108 C54 110 62 114 66 120 L60 128 C54 130 48 128 46 124 Z" fill="#fff"/>
-      <path d="M60 118 L74 116 L74 128 L60 128 Z" fill="#fff"/>
-      <path d="M50 112 C56 114 62 118 66 122" stroke="#0d0d12" strokeWidth="2" fill="none" strokeLinecap="round"/>
-    </g>
-
-    {/* CALL document + hand (right) */}
-    <g transform="translate(0 8)">
-      <rect x="182" y="34" width="92" height="128" rx="6" fill="#fff"/>
-      <path d="M182 34 v128" stroke="#e6e6ea" strokeWidth="1.6"/>
-      <text x="228" y="52" fontSize="13" fontWeight="800" textAnchor="middle" fill="#3a86ff">CALL</text>
-      {[64, 76, 88, 100].map((y) => (
-        <rect key={y} x="194" y={y} width="68" height="7" rx="3.5" fill="#3a86ff"/>
-      ))}
-      <rect x="194" y="124" width="24" height="24" rx="5" fill="#3a86ff"/>
-      <path d="M201 136 l5 5 l9 -9" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-      {/* arm (blue, entering from right) */}
-      <path d="M350 126 C326 116 306 112 294 116 L294 140 C306 144 326 148 350 156 Z" fill="#4fc3f7"/>
-      {/* hand (white, gripping document edge) */}
-      <path d="M294 116 C286 118 278 122 274 128 L280 136 C286 138 292 136 294 132 Z" fill="#fff"/>
-      <path d="M280 126 L266 124 L266 136 L280 136 Z" fill="#fff"/>
-      <path d="M290 120 C284 122 278 126 274 130" stroke="#0d0d12" strokeWidth="2" fill="none" strokeLinecap="round"/>
-    </g>
-  </svg>
-);
+/* PUT/CALL hero — realistic hands holding documents */
+const ArtOptionsHero = <img src={optionsHands} alt="Two hands holding PUT and CALL documents" style={{ display: "block", width: "100%", height: "auto" }} />;
 
 function Badge({ children }: { children: React.ReactNode }) {
   return <span className="ac-badge"><i />{children}</span>;
