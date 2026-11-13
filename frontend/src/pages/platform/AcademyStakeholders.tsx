@@ -89,6 +89,64 @@ export default function AcademyStakeholders() {
           </ul>
         </div>
 
+        {/* Article body */}
+        <div className="ac-body">
+          <h2 id="stakeholders-intro">Introduction: who are the stakeholders?</h2>
+          <p>The term stakeholder refers to any individual, group, or organisation impacted by or interested in a business’s operations. In the UK, stakeholders are often called “interest holders” as they are parties who may benefit from or be affected by a company’s decisions. So, what are stakeholders in business, and what roles do they play? This guide will cover the stakeholder definition, types, and examples to clarify their importance in business.</p>
+
+          <h3 id="stakeholders-definition">What is a stakeholder? Definition and meaning</h3>
+          <p>A stakeholder is any individual or group that holds a vested interest in a business’s actions and outcomes. Stakeholders range from employees, customers, and suppliers to investors, local communities, and regulatory bodies. These stakeholders each have specific interests and needs that influence how they relate to the business.</p>
+          <p>Key examples of stakeholders include:</p>
+          <ul>
+            <li><b>Internal stakeholders</b> such as employees, management, and investors</li>
+            <li><b>External stakeholders</b> like customers, suppliers, government entities, and local communities</li>
+          </ul>
+
+          <h3 id="stakeholders-types">Types of stakeholders: internal vs. external</h3>
+          <p>To better understand the meaning of stakeholders, it’s useful to differentiate between internal and external stakeholders. Internal stakeholders, such as employees, shareholders, and board members, are directly involved with the business. External stakeholders, on the other hand, don’t work directly for the organisation but still affect its operations or are affected by its actions, such as suppliers, creditors, and the community.</p>
+          <ul>
+            <li><b>Internal stakeholders</b> – directly linked to the company’s day-to-day operations. For instance, employees rely on the company’s success for their income and career advancement.</li>
+            <li><b>External stakeholders</b> – have an indirect relationship with the company. For example, local communities may have environmental or social concerns related to the company’s operations.</li>
+          </ul>
+
+          <h2 id="stakeholders-examples">Practical examples of stakeholders</h2>
+          <p>To understand stakeholders better, let’s consider a practical example. Imagine you’ve launched a new startup and a business angel invests in it. By contributing funds, the business angel becomes an internal stakeholder directly affected by the company’s success or failure.</p>
+          <p>In contrast, a nearby resident affected by the company’s noise or emissions represents an external stakeholder. Additionally, a regulatory agency overseeing your business licensing is an external stakeholder, influencing operations through compliance requirements.</p>
+
+          <h3 id="stakeholders-mapping">Stakeholder mapping: how to identify and manage stakeholders</h3>
+          <p>Stakeholder mapping is a crucial part of managing a successful business, as it enables companies to visualise and strategise their relationships with various stakeholders. This process involves identifying stakeholders, assessing their level of interest and influence, and creating a stakeholder map.</p>
+          <p>Steps in stakeholder mapping include:</p>
+          <ul>
+            <li><b>Identify stakeholders</b> – List all parties who may impact or be impacted by your business.</li>
+            <li><b>Categories stakeholders</b> – Group them as internal or external, according to their influence level.</li>
+            <li><b>Map stakeholders</b> – Visually represent these relationships using a stakeholder map or diagram.</li>
+            <li><b>Develop engagement strategies</b> – Tailor communication and strategy for each stakeholder group to address their needs and expectations.</li>
+          </ul>
+
+          <h3 id="stakeholders-analysis">Stakeholder analysis: understanding interests and influence</h3>
+          <p>Once stakeholders are mapped, stakeholder analysis evaluates each group’s power, interest, and potential impact on the business. This process helps organisations prioritise and allocate resources effectively, building strong stakeholder relationships that support business goals. A well-structured stakeholder analysis ensures transparent communication, minimises risks and reinforces trust.</p>
+
+          <h3 id="stakeholders-management">Stakeholder management: building solid relationships</h3>
+          <p>Effective stakeholder management requires a proactive approach to understand and address the interests of different stakeholder groups. By managing stakeholders actively, businesses can maintain positive relationships, reduce conflict, and enhance their reputation.</p>
+          <p>Core strategies in stakeholder management:</p>
+          <ul>
+            <li><b>Regular communication</b> – Ensures stakeholders stay informed and engaged with the company’s goals.</li>
+            <li><b>Feedback collection</b> – Allows businesses to address concerns and incorporate stakeholders’ suggestions.</li>
+            <li><b>Transparent decision-making</b> – Builds trust and supports long-term relationships.</li>
+          </ul>
+
+          <h2 id="stakeholders-difference">Difference between stakeholders and shareholders</h2>
+          <p>Though often used interchangeably, stakeholders and shareholders are distinct. A shareholder (or stockholder) owns shares in a company and is primarily interested in the financial returns on their investment. Conversely, stakeholders encompass a broader range of interests, from environmental impact to corporate responsibility.</p>
+          <ul>
+            <li><b>Shareholders</b> focus on financial gain and often expect returns through dividends or capital growth.</li>
+            <li><b>Stakeholders</b> have broader concerns, including sustainability, social responsibility, and ethical practices.</li>
+          </ul>
+
+          <h2 id="stakeholders-important">Why are stakeholders important?</h2>
+          <p>Effective stakeholder management is essential for achieving business success. Stakeholders influence decisions, affect corporate reputation, and can drive growth or expose risks. By proactively engaging stakeholders, businesses gain insights into their expectations and create a trusted environment. Stakeholder engagement thus enables companies to align their goals with community and market needs, fostering long-term sustainability.</p>
+          <p>Companies that understand and address stakeholder needs can strengthen their competitive advantage and build enduring partnerships in a business landscape that increasingly values transparency and social responsibility.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );
