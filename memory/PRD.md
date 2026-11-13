@@ -713,3 +713,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Sberna (Member). Each card has a LinkedIn icon link. About us menu Leadership option links to
   /about/leadership. Photo crop adjusted to object-position:top center. Verified by clicking from
   the About us dropdown.
+
+- **Leadership names changed (2026-11-14)**: replaced the six board member names in Leadership.tsx
+  with new English names: Marcus Cole, Ethan Blake, Daniel Brooks, Thomas Hale, Victor Grant,
+  James Ellis. Portraits and roles unchanged.
+
+- **Victor Grant tie change (2026-11-14)**: regenerated nicolas-bertrand.png (Victor Grant) with a
+  solid burgundy-red silk tie instead of the light patterned tie. Face unchanged concept (same
+  portrait subject).

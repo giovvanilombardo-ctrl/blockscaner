@@ -11,12 +11,12 @@ import nicolasImg from "@/assets/leaders/nicolas-bertrand.png";
 import salvatoreImg from "@/assets/leaders/salvatore-sberna.png";
 
 const LEADERS = [
-  { name: "Alexandru Stefan Gheban", role: "Co-CEO & CFO & Co-founder", img: alexImg },
-  { name: "Andrea Ferrero", role: "Co-CEO & Co-founder", img: andreaImg },
-  { name: "Edoardo Guerrieri", role: "Member Board Of Directors", img: edoardoImg },
-  { name: "Giorgio Medda", role: "Member Board Of Directors", img: giorgioImg },
-  { name: "Nicolas Bertrand", role: "Chairman & Member Board Of Directors", img: nicolasImg },
-  { name: "Salvatore Sberna", role: "Member Board Of Directors", img: salvatoreImg },
+  { name: "Marcus Cole", role: "Co-CEO & CFO & Co-founder", img: alexImg },
+  { name: "Ethan Blake", role: "Co-CEO & Co-founder", img: andreaImg },
+  { name: "Daniel Brooks", role: "Member Board Of Directors", img: edoardoImg },
+  { name: "Thomas Hale", role: "Member Board Of Directors", img: giorgioImg },
+  { name: "Victor Grant", role: "Chairman & Member Board Of Directors", img: nicolasImg },
+  { name: "James Ellis", role: "Member Board Of Directors", img: salvatoreImg },
 ];
 
 export default function Leadership() {
