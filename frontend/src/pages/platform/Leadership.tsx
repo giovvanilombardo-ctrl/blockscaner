@@ -13,6 +13,13 @@ import ryanImg from "@/assets/leaders/exec-ryan-morris.png";
 import lucasImg from "@/assets/leaders/exec-lucas-ward.png";
 import oliverImg from "@/assets/leaders/exec-oliver-knight.png";
 import noahImg from "@/assets/leaders/exec-noah-price.png";
+import marcoImg from "@/assets/leaders/founder-marco-rossi.png";
+import giovanniImg from "@/assets/leaders/founder-giovanni-esposito.png";
+import matteoImg from "@/assets/leaders/founder-matteo-ricci.png";
+import lucaFImg from "@/assets/leaders/founder-luca-ferrari.png";
+import lukaImg from "@/assets/leaders/advisor-luka-horvat.png";
+import ivanImg from "@/assets/leaders/advisor-ivan-kovac.png";
+import alessandroImg from "@/assets/leaders/advisor-alessandro-bianchi.png";
 
 const LEADERS = [
   { name: "Ryan Morris", role: "Co-CEO & CFO & Co-founder", img: ryanImg },
@@ -31,16 +38,16 @@ const EXECUTIVES = [
 ];
 
 const FOUNDERS = [
-  { name: "Ryan Morris", role: "Co-CEO & CFO & Co-founder", img: ryanImg },
-  { name: "Lucas Ward", role: "Co-CEO & Co-founder", img: lucasImg },
-  { name: "Noah Price", role: "Chief Technology Officer & Co-founder", img: noahImg },
-  { name: "Marco Rossi", role: "Co-founder", img: andreaImg },
+  { name: "Marco Rossi", role: "Co-founder", img: marcoImg },
+  { name: "Ivan Kovač", role: "Co-founder", img: ivanImg },
+  { name: "Oliver Bennett", role: "Co-founder", img: giovanniImg },
+  { name: "Anders Jensen", role: "Co-founder", img: lucaFImg },
 ];
 
 const ADVISORS = [
-  { name: "Luka Horvat", role: "Legal Advisor", img: alexImg },
-  { name: "Ivan Kovač", role: "Strategy Advisor", img: giorgioImg },
-  { name: "Alessandro Bianchi", role: "Technology Advisor", img: edoardoImg },
+  { name: "Priit Tamm", role: "Legal Advisor", img: lukaImg },
+  { name: "Matteo Ricci", role: "Strategy Advisor", img: matteoImg },
+  { name: "James Clarke", role: "Technology Advisor", img: alessandroImg },
 ];
 
 export default function Leadership() {

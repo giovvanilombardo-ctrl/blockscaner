@@ -739,3 +739,8 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
 - **Founders + Advisors sections (2026-11-14)**: added Founders (4: Ryan Morris, Lucas Ward, Noah
   Price, Marco Rossi) and Advisors (3: Luka Horvat, Ivan Kovač, Alessandro Bianchi) sections to
   Leadership.tsx, reusing existing portraits. All with LinkedIn icons. Verified by screenshot.
+
+- **Founders/Advisors names + photos (2026-11-14)**: Founders (4 unique new portraits): Marco Rossi
+  (Italian), Ivan Kovač (Croatian), Oliver Bennett (UK), Anders Jensen (Danish). Advisors (3
+  unique new portraits): Priit Tamm (Estonian), Matteo Ricci (Italian), James Clarke (UK). All
+  generated via Gemini image gen in /app/frontend/src/assets/leaders/.
