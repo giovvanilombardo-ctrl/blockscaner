@@ -307,7 +307,7 @@ export default function Academy() {
             <Card tags={["Ethereum"]} title="ERC-8004: The Future of AI on Ethereum" to="/products/academy/erc-8004"
               desc="The Ethereum ERC-8004 update is here: the new standard that promises a new lease of life for AI agents."
               date="March 31, 2026" mins={8} art={ArtERC} />
-            <Card tags={["DeFi"]} badge="Principiante" title="DePIN: what they are and how decentralized physical infrastructure networks work"
+            <Card tags={["DeFi"]} badge="Principiante" title="DePIN: what they are and how decentralized physical infrastructure networks work" to="/products/academy/depin"
               desc="Che cos'è il DePIN? La tecnologia blockchain che sta rivoluzionando le infrastrutture fisiche decentralizzate"
               date="March 19, 2026" mins={8} art={ArtDePIN} />
             <Card tags={["DeFi"]} title="RWA: what they are and how they work"

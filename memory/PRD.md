@@ -429,3 +429,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   art, February 6 2026, 11 min), What is Grok (purple head silhouette art, IA tag, August 26 2025,
   10 min). .ac-body h3 style added. Verified via screenshots + DOM checks (banner text, 3 cards).
   ERC-8004 article is now complete end to end.
+
+- **Academy DePIN article (2026-11-14)**: new route /products/academy/depin
+  (frontend/src/pages/platform/AcademyDePIN.tsx) linked from the Academy Technology DePIN card.
+  Header: back arrow, DeFi tag, three-line H1 "DePIN: what they are and how decentralized physical
+  infrastructure networks work", March 19 2026 / 8 min, share icons, blue DePIN visor-with-network-
+  nodes hero with Beginner badge, "You will learn" box with 7 anchor links (what is DePIN, simple
+  definition, economic flywheel, PRN vs DRN, advantages, challenges, conclusions). Body sections
+  awaiting user copy. Route registered in App.tsx.
