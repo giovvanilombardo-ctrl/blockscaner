@@ -501,3 +501,10 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   and Related grid with three cards (ERC-8004 blue Ethereum towers art linking to
   /products/academy/erc-8004, RWA red globe art, Grok purple head art). DePIN article is now fully
   built end to end. Verified by screenshot.
+
+- **Academy RWA article (2026-11-14)**: new route /products/academy/rwa
+  (frontend/src/pages/platform/AcademyRWA.tsx) linked from the Academy Technology RWA card.
+  Header: back arrow, DeFi tag, H1 "RWA: what they are and how they work", February 6 2026 / 11 min,
+  share icons, pink wireframe-globe-on-pedestal hero with house/car chips and Beginner badge,
+  "You will learn" box with 5 anchor links (RWA revolution, What are RWAs technically, tokenisation
+  process, Fleap case, Conclusions). Body sections awaiting user copy. Route registered in App.tsx.

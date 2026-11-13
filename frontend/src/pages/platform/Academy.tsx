@@ -310,7 +310,7 @@ export default function Academy() {
             <Card tags={["DeFi"]} badge="Principiante" title="DePIN: what they are and how decentralized physical infrastructure networks work" to="/products/academy/depin"
               desc="Che cos'è il DePIN? La tecnologia blockchain che sta rivoluzionando le infrastrutture fisiche decentralizzate"
               date="March 19, 2026" mins={8} art={ArtDePIN} />
-            <Card tags={["DeFi"]} title="RWA: what they are and how they work"
+            <Card tags={["DeFi"]} title="RWA: what they are and how they work" to="/products/academy/rwa"
               desc="Real World Assets (RWA): the new revolution in the global financial system"
               date="February 6, 2026" mins={11} art={ArtRWA} />
           </div>
