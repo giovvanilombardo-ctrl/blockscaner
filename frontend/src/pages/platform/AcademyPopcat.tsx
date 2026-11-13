@@ -80,6 +80,18 @@ export default function AcademyPopcat() {
           </ul>
         </div>
 
+        {/* Article body */}
+        <div className="ac-body">
+          <h2 id="popcat-what">POPCAT: what it is and how the ‘pop’ cat meme coin works</h2>
+          <p>There’s a cat on the internet that opens and closes its mouth funnily, making a sharp, irresistible sound. From that simple image, which later became a video, one of the most talked-about meme coins of recent years was born.</p>
+          <p>It’s called Popcat, its token is $POPCAT, and its evolution from a simple homemade joke to a financial phenomenon on the blockchain is one of the most absurd—and fascinating—stories in the entire crypto ecosystem. A story made up of global clicks, community uprisings and a climb to the top of the Solana network.</p>
+          <p>If you’re curious about what Popcat is and why it’s become a web3 icon, this is the article for you.</p>
+
+          <h2 id="popcat-meme">POPCAT: The meme that took the internet by storm</h2>
+          <p>It all began in October 2020, when a Discord user named XavierBFV posted two photos of his pet cat, Oatmeal.</p>
+          <p>The first image shows the cat with its mouth closed; in the second, digital editing exaggerates the opening of the mouth into a perfect ‘O’ shape.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );
