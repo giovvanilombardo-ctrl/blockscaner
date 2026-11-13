@@ -120,7 +120,6 @@ export default function AcademyBonds() {
             <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
             <span>academy</span>
           </div>
-
           <div className="ac-parties">
             <div className="ac-party">
               <svg viewBox="0 0 120 130" width="110" height="118">
@@ -226,6 +225,71 @@ export default function AcademyBonds() {
 
           <h3 id="bonds-bankruptcy">Repayment in the event of bankruptcy</h3>
           <p>A key consideration is how bonds are treated in the event of the issuer’s bankruptcy. In bankruptcy situations, bonds offer greater protection than other financial instruments, such as shares. Bondholders, in fact, have priority in repayments: this means that, in the event of the company’s liquidation, they will be repaid — at least partially — before shareholders, drawing on the remaining available resources.</p>
+        </div>
+
+        {/* Academy image: repayment priority pyramid */}
+        <section className="ac-summary" data-testid="bonds-pyramid">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+
+          <div className="ac-pyramid">
+            <div className="ac-pyramid-side left">
+              <span className="ac-chip">Low Risk</span>
+              <svg viewBox="0 0 20 80" width="16" height="64"><line x1="10" y1="4" x2="10" y2="56" stroke="#0d0d12" strokeWidth="1.8"/><path d="M4 50 L10 60 L16 50 Z" fill="#0d0d12"/></svg>
+              <span className="ac-chip">High Risk</span>
+            </div>
+
+            <div className="ac-pyramid-chart">
+              <div className="ac-pyramid-row r1"><span>Senior Debt</span></div>
+              <div className="ac-pyramid-row r2"><span>Subordinated Debt</span></div>
+              <div className="ac-pyramid-row r3"><span>Preferred Equity</span></div>
+              <div className="ac-pyramid-row r4"><span>Common Equity</span></div>
+            </div>
+
+            <div className="ac-pyramid-side right">
+              <span className="ac-chip">High Priority<br />of Payment</span>
+              <svg viewBox="0 0 20 80" width="16" height="64"><line x1="10" y1="60" x2="10" y2="8" stroke="#0d0d12" strokeWidth="1.8"/><path d="M4 14 L10 4 L16 14 Z" fill="#0d0d12"/></svg>
+              <span className="ac-chip">Low Priority<br />of Payment</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Article body — continued */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <p>Whilst the coupon (often fixed) remains unchanged, the investor’s return can change drastically if the bond is purchased in the secondary market. After issuance, in fact, the securities are freely traded between investors, and their prices fluctuate with interest rate trends and the issuer’s creditworthiness.</p>
+          <p>To better understand this mechanism, let’s look at a practical example.</p>
+          <p>Imagine a bond issued at a value of €100 with a fixed coupon of 5% (meaning it pays €5 per year). If, for various market reasons, the price of this bond falls to €90 and you decide to buy it, your actual return increases significantly for two reasons:</p>
+          <ul>
+            <li>You will still receive the fixed €5 coupon (which, on an investment of just €90, represents a rate higher than the original 5%);</li>
+            <li>At maturity, you will be repaid the nominal €100, guaranteeing you a further profit of €10 (the difference between what you paid and what you are repaid).</li>
+          </ul>
+          <p>It is precisely for this reason that, in the bond market, price and yield always move in opposite directions: when the price of a bond falls, its effective yield for the buyer rises, and vice versa.</p>
+
+          <h2 id="bonds-characteristics">Key characteristics of bonds</h2>
+          <p>Bonds can have very different characteristics, which influence their expected return, risk and suitability for different investor profiles. Let’s look at the main ones:</p>
+
+          <h3 id="bonds-bankruptcy">Repayment in the event of bankruptcy</h3>
+          <p>A key consideration is how bonds are treated in the event of the issuer’s bankruptcy. In bankruptcy situations, bonds offer greater protection than other financial instruments, such as shares. Bondholders, in fact, have priority in repayments: this means that, in the event of the company’s liquidation, they will be repaid — at least partially — before shareholders, drawing on the remaining available resources.</p>
+        </div>
+
+        {/* Article body — fixed/variable rate and maturity */}
+        <div className="ac-body" style={{ marginTop: "3rem" }}>
+          <h3 id="bonds-rate">Fixed rate and variable rate</h3>
+          <p>Another key distinction between the different types of bonds concerns the structure of the interest rate applied:</p>
+          <ul>
+            <li><b>Fixed-rate bonds:</b> these provide for the payment of a fixed coupon for the entire duration of the security. They offer investors stable and easily predictable cash flows, making them particularly suitable in low-volatility market environments or during periods of falling interest rates.</li>
+            <li><b>Floating-rate bonds:</b> these have a coupon indexed to a benchmark (such as the Euribor or the ECB’s official rate), with periodic updates. This makes them more responsive to changes in the macroeconomic environment, with the advantage of protecting the investor in scenarios of rising interest rates, but with less predictability regarding returns.</li>
+          </ul>
+
+          <h3 id="bonds-maturity">Maturity: short, medium and long term</h3>
+          <p>A further criterion for classifying bonds relates to the remaining maturity of the investment, i.e. the time between the purchase of the security and its maturity:</p>
+          <ul>
+            <li><b>Short term:</b> up to 2 years.</li>
+            <li><b>Medium term:</b> between 2 and 5 years.</li>
+            <li><b>Long term:</b> over 5 years.</li>
+          </ul>
         </div>
 
       </div>

@@ -762,3 +762,21 @@ html {
   .ac-flow-issuer{ min-width:0; padding:1.2rem; }
 }
 
+/* ---------- Academy repayment pyramid ---------- */
+.ac-pyramid{ margin-top:1.4rem; display:grid; grid-template-columns:auto 1fr auto; gap:1.6rem; align-items:center; max-width:560px; }
+.ac-pyramid-side{ display:flex; flex-direction:column; align-items:center; gap:.4rem; }
+.ac-chip{ background:#c9a7ff; color:#0f0f12; font-weight:800; font-size:.72rem; border-radius:10px;
+  padding:.4rem .7rem; text-align:center; line-height:1.15; }
+.ac-pyramid-chart{ display:flex; flex-direction:column; gap:3px; }
+.ac-pyramid-row{ display:grid; place-items:center; padding:.55rem 0; font-size:.72rem; font-weight:800; color:#fff;
+  clip-path:polygon(var(--l) 0, calc(100% - var(--r)) 0, calc(100% - var(--r) - 8px) 100%, calc(var(--l) + 8px) 100%); }
+.ac-pyramid-row.r1{ --l:32%; --r:32%; background:#efe9ff; color:#0f0f12; }
+.ac-pyramid-row.r2{ --l:20%; --r:20%; background:#9b6bff; }
+.ac-pyramid-row.r3{ --l:10%; --r:10%; background:#6d28d9; }
+.ac-pyramid-row.r4{ --l:0%; --r:0%; background:#0d0d12; }
+.ac-pyramid-row span{ position:relative; top:2px; }
+@media (max-width:560px){
+  .ac-pyramid{ grid-template-columns:1fr; }
+  .ac-pyramid-side{ flex-direction:row; justify-content:center; gap:.6rem; }
+}
+
