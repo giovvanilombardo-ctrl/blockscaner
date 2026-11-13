@@ -88,6 +88,76 @@ export default function AcademyFutures() {
           </ul>
         </div>
 
+        {/* Article body */}
+        <div className="ac-body">
+          <h2 id="futures-unravelling">{_t("Unravelling Futures: highly utilised derivative financial instruments for the savvy trader")}</h2>
+          <p>In the simplest terms, <b>futures contracts</b> are a type of derivative instrument that allows investors to speculate on the future price movements of an underlying asset.</p>
+          <p>To elaborate slightly, futures are essentially sale and purchase agreements, or formal forward contracts, where the instrument's value is intrinsically linked to that of an underlying asset.</p>
+          <p>If that brief definition isn't quite enough to get your head around what futures are and how they operate, please don't fret! Do carry on reading this comprehensive article, where we'll explore everything you need to know about these sophisticated derivative instruments.</p>
+
+          <h2 id="futures-what">{_t("What exactly are Futures Contracts?")}</h2>
+          <p><b>Futures</b> are standardised contracts between two parties that govern, and indeed mandate, the commitment to sell and purchase a specific quantity of an asset at a predetermined price on a future date.</p>
+          <p>These contracts are available for an exceptionally wide range of assets, including:</p>
+          <ul>
+            <li><b>Commodities</b> (such as crude oil or grains)</li>
+            <li><b>Stock market indices</b> (like the FTSE 100 or the S&amp;P 500)</li>
+            <li><b>Interest rates</b></li>
+            <li><b>Currencies</b> (forex)</li>
+            <li>And, increasingly, <b>cryptocurrencies</b></li>
+          </ul>
+          <p>Futures based on traditional assets are typically bought and sold on formal, regulated exchanges—such as the <b>Chicago Mercantile Exchange (CME)</b> or the <b>Intercontinental Exchange (ICE)</b>. These central exchanges act as the counterparty to all transactions, guaranteeing the contracts and significantly reducing the risk of a counterparty failing to honour their agreement. Cryptocurrency futures, on the other hand, are traded on various centralised and decentralised crypto exchanges.</p>
+
+          <h2 id="futures-mechanics">{_t("The mechanics of derivative contracts")}</h2>
+          <p>Having established the fundamental nature of these financial instruments, let's now drill down into the mechanics of how futures actually work.</p>
+          <p>At their core, these contracts establish a binding obligation between the seller and the buyer to execute a financial transaction at a specified future date.</p>
+          <p>One critical feature that dictates the contract's name is the time element:</p>
+          <ul>
+            <li><b>Futures:</b> These contracts require the transaction to be executed on a specific, fixed date in the future.</li>
+            <li><b>Perpetuals:</b> For these, there is no set expiration or maturity date.</li>
+          </ul>
+          <p>In the digital asset space, perpetual futures have rapidly become the most popular and preferred instrument. Their inherent flexibility, coupled with their ability to align with markets that are relentlessly active 24 hours a day, 7 days a week, has cemented their status as a cornerstone of modern crypto trading.</p>
+
+          <h3>{_t("Focus on Perpetual Futures: tailor-made for Crypto Markets")}</h3>
+          <p>Given the non-stop nature of crypto markets, an instrument specifically designed for this dynamism was inevitable. In 2016, the <b>BitMEX</b> exchange introduced perpetual futures—derivative contracts without an expiry date, which perfectly complement the incessant rhythm of the cryptocurrency world.</p>
+          <p>Like traditional futures, perpetual contracts enable speculation on the price direction of an asset (e.g., Bitcoin) without requiring the physical possession of the underlying asset itself. The key distinction is, as mentioned, the absence of a maturity date, allowing traders to keep their positions open indefinitely.</p>
+          <p>To ensure the contract price remains tied to the price of the underlying asset, a mechanism called the <b>funding rate</b> is employed. At regular intervals (e.g., every eight hours), traders exchange payments based on the difference between the perpetual contract price and the real spot market price:</p>
+          <ul>
+            <li>If the perpetual price is <b>higher</b> than the spot price, traders with long positions pay the short traders. This encourages selling, pushing the contract price back towards equilibrium.</li>
+            <li>If the price is <b>lower</b>, the reverse happens: short traders pay the long traders, compelling the perpetual price to rise.</li>
+          </ul>
+          <p>This system effectively keeps the contract price in line with the actual market, providing an ideal environment for dynamic speculation.</p>
+
+          <h2 id="futures-margin">{_t("Contract guarantees and margin")}</h2>
+          <p>A critical component for understanding futures is the requirement for a <b>contract guarantee</b>. Both parties are obligatorily required to lock up capital to demonstrate that they will be mutually solvent and capable of meeting their obligations when the transaction is due.</p>
+          <p>For instance, if the agreement stipulates that a user must sell 1.00 BTC on a future date, they must lock up an equivalent amount as a guarantee. Similarly, the buyer promising the purchase must lock up collateral in fiat currency for the entire period the "position" remains open.</p>
+          <p>This locked-up value is known as the <b>margin</b>. When opening a futures position, an investor does not need to pay the full value of the underlying asset; instead, they deposit this margin, which is only a fraction of the total amount, serving as a performance bond.</p>
+
+          <h3>{_t("The role of leverage")}</h3>
+          <p>It is also possible to trade these derivative contracts using financial leverage. By employing leverage, one can stipulate contracts with a notional value far superior to the collateral deposited (sometimes up to <b>150 times</b> the margin).</p>
+          <p>This type of highly geared operation carries significant risks, most notably the risk of <b>liquidation</b>. This occurs when the margin is no longer sufficient to cover the losses on the position. Liquidation is typically triggered by substantial and sudden market fluctuations and involves the forced closure of the position, often resulting in the loss of all funds deposited as margin within that contract.</p>
+          <p>Futures are also <b>marked to market</b> on a daily basis. This means that gains and losses are calculated and applied to the margin account every day based on the market's closing price. If the price moves against the investor's position beyond a certain threshold, a "margin call" will be issued, requiring the investor to deposit additional funds promptly to maintain their position.</p>
+
+          <h2 id="futures-details">{_t("Futures: specific operational details")}</h2>
+          <p>Having covered the broader world of derivatives, let's now look at the specific operational features of futures contracts.</p>
+          <p>First and foremost, the final purchase or sale price is cemented the moment the contract is signed. Secondly, and critically, futures have a pre-established <b>expiry date</b>.</p>
+          <p>When a contract reaches its maturity, the positions are forcibly closed, and the holder receives or pays the difference in cash, or occasionally, receives the physical asset itself (though the latter is rare in financial markets).</p>
+          <p>For instance, if a contract provided for the purchase of 1.00 BTC, that amount (or its monetary equivalent) is settled into the account on the expiry day. It goes without saying that the profitability of this practice depends entirely on the price stipulated in the original contract. If Bitcoin was valued at $35,000 at the contract's inception and subsequently rose to $45,000 at expiry, the holder would realise a tidy profit of $10,000.</p>
+          <p>Finally, to offer a practical understanding of how futures appear in action, here are the key data points displayed by exchanges:</p>
+          <ul>
+            <li><b>Expiry Date:</b> The date by which the contract will be automatically terminated.</li>
+            <li><b>Index Price:</b> The current, real-time price of the underlying asset (e.g., Bitcoin).</li>
+            <li><b>Mark Price:</b> The current price of the derivative contract itself.</li>
+            <li><b>Open Interest:</b> The total notional value of all open derivative contracts in a market.</li>
+            <li><b>Volume:</b> The monetary amount exchanged in that market, typically over the last 24 hours.</li>
+            <li><b>Initial Margin:</b> The minimum collateral required to establish the position.</li>
+            <li><b>Maintenance Margin:</b> In leveraged trading, this refers to the price point at which the collateral is insufficient to maintain the position open. If the underlying price falls to this threshold, liquidation is activated.</li>
+          </ul>
+
+          <h2 id="futures-summary">{_t("Summary")}</h2>
+          <p>Futures are advanced financial instruments that present numerous opportunities but are equally accompanied by significant risks. Their effective comprehension and management demand experience and a meticulously defined strategy. It is imperative to remember that they are derivative instruments strictly intended for advanced-level traders. Utilising them correctly requires a high degree of preparation and market knowledge.</p>
+          <p>Used judiciously, futures can be a powerful instrument for both hedging and speculation, affording investors the security and flexibility needed to navigate complex financial markets. If you are new to trading and looking to venture into the world of investing, it might be sensible to begin with something more straightforward, such as the recurring purchase of digital currencies.</p>
+        </div>
+
       </div>
     </SiteLayout>
   );

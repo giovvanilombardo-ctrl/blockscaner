@@ -546,3 +546,11 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   Beginner badge, "You will learn" box with 6 anchor links (Unravelling Futures, What exactly are
   Futures Contracts, mechanics of derivative contracts, contract guarantees and margin, specific
   operational details, Summary). Body sections awaiting user copy. Route registered in App.tsx.
+
+- **Futures article body (2026-11-14)**: full body added to AcademyFutures.tsx — "Unravelling
+  Futures" H2 (3 paragraphs), "What exactly are Futures Contracts?" H2 (asset list, CME/ICE),
+  "The mechanics of derivative contracts" H2 (Futures vs Perpetuals bullets), "Focus on Perpetual
+  Futures" H3 (BitMEX, funding rate bullets), "Contract guarantees and margin" H2 (margin, leverage
+  H3, liquidation, marked to market), "Futures: specific operational details" H2 (expiry, data
+  points bullets), "Summary" H2. All bold highlights match user copy. Verified by screenshot.
+  Remaining: closing sign-up banner, disclaimer, Related grid.
