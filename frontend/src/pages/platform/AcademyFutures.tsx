@@ -158,6 +158,152 @@ export default function AcademyFutures() {
           <p>Used judiciously, futures can be a powerful instrument for both hedging and speculation, affording investors the security and flexibility needed to navigate complex financial markets. If you are new to trading and looking to venture into the world of investing, it might be sensible to begin with something more straightforward, such as the recurring purchase of digital currencies.</p>
         </div>
 
+        {/* Sign up banner */}
+        <div className="ac-signup" data-testid="futures-signup-banner">
+          <div className="ac-signup-left">
+            <span className="ac-buy-logo ac-signup-logo"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="#fff" strokeWidth="1.6"/><path d="M8 8h6a3 3 0 0 1 0 6H8zM8 14h7a3 3 0 0 1 0 6H8z" fill="none" stroke="#fff" strokeWidth="1.6"/><circle cx="17.5" cy="6.5" r="1.3" fill="#3ddc84"/></svg>blockscaner</span>
+            <h3>{_t("Sign up")}<br />{_t("to Blockscaner")}</h3>
+            <a className="ac-signup-btn" href="/products" onClick={(e) => e.preventDefault()}>{_t("Start now")} <span>→</span></a>
+          </div>
+          <div className="ac-signup-art">
+            <svg viewBox="0 0 240 190" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="futBanner" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stopColor="#0e5fb8"/><stop offset="1" stopColor="#1a7fd0"/>
+                </linearGradient>
+              </defs>
+              <rect width="240" height="190" fill="url(#futBanner)"/>
+              <path d="M120 190 Q150 96 240 110 L240 190 Z" fill="#3ddc84"/>
+              <rect x="86" y="18" width="92" height="180" rx="16" fill="#fff" stroke="#0d0d12" strokeWidth="3"/>
+              <text x="96" y="36" fontSize="9" fill="#0f0f12">9:41</text>
+              <g fill="#0f0f12"><rect x="150" y="30" width="8" height="6" rx="1"/><rect x="161" y="28" width="10" height="8" rx="2"/></g>
+              <text x="96" y="56" fontSize="11" fontWeight="800" fill="#0f0f12">Home</text>
+              <circle cx="150" cy="52" r="5" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+              <circle cx="162" cy="52" r="5" fill="none" stroke="#0f0f12" strokeWidth="1.4"/>
+              <text x="96" y="76" fontSize="15" fontWeight="800" fill="#0f0f12">1.350,00 €</text>
+              <text x="96" y="88" fontSize="7" fill="#8b8b93">Saldo Totale</text>
+              <text x="96" y="106" fontSize="9" fontWeight="800" fill="#0f0f12">I tuoi preferiti</text>
+              <text x="158" y="106" fontSize="7" fill="#8b8b93">Vedi tutti</text>
+              <g fontSize="8" fill="#0f0f12">
+                <circle cx="102" cy="122" r="7" fill="#f7931a"/><text x="102" y="125" fontSize="8" fontWeight="800" textAnchor="middle" fill="#fff">₿</text>
+                <text x="114" y="120" fontWeight="800">Bitcoin</text><text x="114" y="129" fontSize="6.5" fill="#8b8b93">BTC</text>
+                <text x="150" y="120" fontSize="8" fontWeight="800">36.079,35 €</text><text x="150" y="129" fontSize="6.5" fill="#16a34a">+0,29%</text>
+                <circle cx="102" cy="142" r="7" fill="#627eea"/><path d="M102 137 l4 5.4 -4 5.4 -4 -5.4 Z" fill="#fff"/>
+                <text x="114" y="140" fontWeight="800">Ethereum</text><text x="114" y="149" fontSize="6.5" fill="#8b8b93">ETH</text>
+                <text x="150" y="140" fontSize="8" fontWeight="800">2.502,40 €</text><text x="150" y="149" fontSize="6.5" fill="#16a34a">+2,17%</text>
+                <circle cx="102" cy="162" r="7" fill="#23292f"/><text x="102" y="165" fontSize="8" fontWeight="800" textAnchor="middle" fill="#fff">✕</text>
+                <text x="114" y="160" fontWeight="800">Ripple</text><text x="114" y="169" fontSize="6.5" fill="#8b8b93">XRP</text>
+                <text x="150" y="160" fontSize="8" fontWeight="800">0,8197 €</text><text x="150" y="169" fontSize="6.5" fill="#dc2626">-0,15%</text>
+                <circle cx="102" cy="182" r="7" fill="#ff007a"/><text x="102" y="185" fontSize="7" fontWeight="800" textAnchor="middle" fill="#fff">U</text>
+                <text x="114" y="180" fontWeight="800">Uniswap</text><text x="114" y="189" fontSize="6.5" fill="#8b8b93">UNI</text>
+                <text x="150" y="180" fontSize="8" fontWeight="800">20,14 €</text><text x="150" y="189" fontSize="6.5" fill="#dc2626">-0,50%</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <p className="ac-disclaimer">
+          This content is provided solely for informational and educational purposes and does not constitute financial, legal
+          or tax advice, nor does it represent a public offering or solicitation to invest pursuant to Legislative Decree
+          58/1998 (TUF). Crypto-assets are highly volatile instruments and carry a significant risk of partial or total loss of
+          invested capital. Past performance and any forecasts do not guarantee future results. For a detailed overview of
+          the risks, please refer to the <a href="#" onClick={(e) => e.preventDefault()}>General Risk Disclosure</a>. The payment account offered by Blockscaner is regulated
+          under Legislative Decree 11/2010 and cannot be equated with a bank current account; therefore, it does not
+          benefit from the protections applicable to bank deposits. You are encouraged to perform your own independent
+          and informed assessments, consult the latest <a href="#" onClick={(e) => e.preventDefault()}>Payment Account Terms and Conditions</a> and <a href="#" onClick={(e) => e.preventDefault()}>Currency Exchange
+          Terms and Conditions</a>, and, where appropriate, seek advice from a qualified professional before making any
+          financial or economic decision.
+        </p>
+
+        {/* Related */}
+        <section className="ac-related">
+          <h2>{_t("Related")}</h2>
+          <div className="ac-grid">
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#bfe9ff"/>
+                  {/* zigzag chart lines */}
+                  <g fill="none" stroke="#3ad0ff" strokeWidth="6" strokeLinejoin="round">
+                    <path d="M20 130 L56 70 L92 132 L128 76 L164 134 L200 74 L236 132 L272 78 L308 130"/>
+                  </g>
+                  <g fill="none" stroke="#0d0d12" strokeWidth="1.6">
+                    <path d="M20 130 L56 70 L92 132 L128 76 L164 134 L200 74 L236 132 L272 78 L308 130"/>
+                  </g>
+                  {/* ellipses */}
+                  <ellipse cx="92" cy="104" rx="18" ry="10" fill="#fff" stroke="#0d0d12" strokeWidth="3" transform="rotate(-18 92 104)"/>
+                  <ellipse cx="236" cy="104" rx="18" ry="10" fill="#fff" stroke="#0d0d12" strokeWidth="3" transform="rotate(18 236 104)"/>
+                  <ellipse cx="66" cy="168" rx="20" ry="11" fill="#fff" stroke="#0d0d12" strokeWidth="3" transform="rotate(-12 66 168)"/>
+                  <ellipse cx="278" cy="166" rx="20" ry="11" fill="#fff" stroke="#0d0d12" strokeWidth="3" transform="rotate(12 278 166)"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Crypto Technical Analysis</span></div>
+              <h3>Wyckoff theory: what is it, and how does it work?</h3>
+              <p className="ac-desc">Wyckoff theory is a trading method focused on market cycles, guiding traders in understanding price movements through accumulation and distribution.</p>
+              <p className="ac-meta">November 21, 2024&nbsp;&nbsp;•&nbsp;&nbsp;5 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#bfe9ff"/>
+                  {/* monitor */}
+                  <rect x="70" y="44" width="200" height="124" rx="12" fill="#fff" stroke="#0d0d12" strokeWidth="4"/>
+                  <rect x="150" y="168" width="40" height="14" rx="4" fill="#0d0d12"/>
+                  {/* candles */}
+                  <g fill="#3ad0ff" stroke="#0d0d12" strokeWidth="1.4">
+                    <rect x="92" y="96" width="10" height="34"/><rect x="106" y="86" width="10" height="48"/>
+                    <rect x="120" y="102" width="10" height="26"/><rect x="134" y="92" width="10" height="40"/>
+                    <rect x="148" y="80" width="10" height="50"/><rect x="162" y="94" width="10" height="30"/>
+                    <rect x="176" y="86" width="10" height="42"/><rect x="190" y="98" width="10" height="28"/>
+                    <rect x="204" y="88" width="10" height="38"/><rect x="218" y="100" width="10" height="24"/>
+                    <rect x="232" y="90" width="10" height="34"/>
+                  </g>
+                  {/* Supertrend label */}
+                  <rect x="108" y="54" width="124" height="30" rx="15" fill="#3ad0ff" stroke="#0d0d12" strokeWidth="3"/>
+                  <text x="170" y="75" fontSize="16" fontWeight="800" textAnchor="middle" fill="#0d0d12" fontStyle="italic">Supertrend</text>
+                  {/* arrows */}
+                  <path d="M146 128 l8 8 M154 128 l-8 8" stroke="#0d0d12" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+                  <path d="M206 122 l8 8 M214 122 l-8 8" stroke="#0d0d12" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Crypto Technical Analysis</span></div>
+              <h3>Supertrend Indicator: What is it, and how does it work?</h3>
+              <p className="ac-desc">Learn what the Supertrend indicator is, what it measures and how to use it for your trading strategies for cryptocurrencies.</p>
+              <p className="ac-meta">March 22, 2024&nbsp;&nbsp;•&nbsp;&nbsp;7 min</p>
+            </article>
+            <article className="ac-card">
+              <div className="ac-thumb"><Badge>Beginner</Badge>
+                <svg viewBox="0 0 340 210" preserveAspectRatio="xMidYMid slice">
+                  <rect width="340" height="210" fill="#c9b8f5"/>
+                  {/* monitor */}
+                  <rect x="70" y="44" width="200" height="124" rx="12" fill="#fff" stroke="#0d0d12" strokeWidth="4"/>
+                  <rect x="150" y="168" width="40" height="14" rx="4" fill="#0d0d12"/>
+                  {/* candles */}
+                  <g fill="#8b5cf6" stroke="#0d0d12" strokeWidth="1.2">
+                    <rect x="92" y="96" width="10" height="30"/><rect x="106" y="88" width="10" height="42"/>
+                    <rect x="120" y="102" width="10" height="22"/><rect x="134" y="92" width="10" height="36"/>
+                    <rect x="148" y="82" width="10" height="46"/><rect x="162" y="94" width="10" height="28"/>
+                    <rect x="176" y="86" width="10" height="38"/><rect x="190" y="98" width="10" height="24"/>
+                    <rect x="204" y="88" width="10" height="34"/><rect x="218" y="100" width="10" height="20"/>
+                    <rect x="232" y="90" width="10" height="30"/>
+                  </g>
+                  {/* Bollinger Bands label */}
+                  <rect x="96" y="54" width="148" height="30" rx="15" fill="#a98bff" stroke="#0d0d12" strokeWidth="3"/>
+                  <text x="170" y="75" fontSize="14" fontWeight="800" textAnchor="middle" fill="#fff">Bollinger Bands</text>
+                  {/* arrows */}
+                  <path d="M130 128 l8 8 M138 128 l-8 8" stroke="#0d0d12" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+                  <path d="M222 122 l8 8 M230 122 l-8 8" stroke="#0d0d12" strokeWidth="2.4" fill="none" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <div className="ac-tags"><span className="ac-tag">Crypto Technical Analysis</span></div>
+              <h3>Bollinger Bands: Understanding Market Volatility</h3>
+              <p className="ac-desc">What are Bollinger Bands? Why are they a valuable indicator for trading, and how should they be used?</p>
+              <p className="ac-meta">March 15, 2024&nbsp;&nbsp;•&nbsp;&nbsp;7 min</p>
+            </article>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );

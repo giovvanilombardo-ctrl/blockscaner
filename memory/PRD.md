@@ -554,3 +554,12 @@ The legacy case tracker remains at `/dashboard` (MiArea) — untouched.
   H3, liquidation, marked to market), "Futures: specific operational details" H2 (expiry, data
   points bullets), "Summary" H2. All bold highlights match user copy. Verified by screenshot.
   Remaining: closing sign-up banner, disclaimer, Related grid.
+
+- **Futures article completed (2026-11-14)**: full body added to AcademyFutures.tsx — Unravelling
+  Futures intro, What exactly are Futures Contracts (asset list), The mechanics of derivative
+  contracts (Futures vs Perpetuals), Focus on Perpetual Futures (BitMEX, funding rate), Contract
+  guarantees and margin (leverage, liquidation, marked to market), Futures: specific operational
+  details (expiry, data points), Summary. Closing blocks: "Sign up to Blockscaner" banner, legal
+  disclaimer, Related grid (Wyckoff theory zigzag art, Supertrend Indicator candlestick monitor art,
+  Bollinger Bands candlestick monitor art — all Crypto Technical Analysis tags). Futures article is
+  now fully built end to end. Verified by screenshot.
