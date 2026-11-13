@@ -279,6 +279,81 @@ export default function AcademyBitcoin() {
           <p>In any case, it is important to emphasise that the value of Bitcoin has not drawn a steady arc of growth, but rather an oscillation between bear markets and bull markets. Volatility has often characterised the price of Bitcoin, between exciting highs and lows. However, Bitcoin’s price trend does not have to be a mystery: there are several tools to monitor it, such as supports and resistances or trendlines!</p>
         </div>
 
+        {/* Academy chart: BTC vs Gold 2011–2017 */}
+        <section className="ac-chartsec" data-testid="bitcoin-chart">
+          <div className="ac-summary-brand">
+            <span className="ac-summary-check"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+            <span>academy</span>
+          </div>
+
+          <div className="ac-chart">
+            <svg viewBox="0 0 660 260" preserveAspectRatio="none" style={{ width: "100%", height: 260 }}>
+              {/* y grid + labels */}
+              {[1750, 1500, 1250, 1000, 750, 500, 250, 0].map((v, i) => (
+                <g key={v}>
+                  <line x1="50" y1={20 + i * 28.6} x2="650" y2={20 + i * 28.6} stroke="#ececf0" strokeWidth="1"/>
+                  <text x="42" y={24 + i * 28.6} fontSize="9" fill="#9a9aa0" textAnchor="end">${v}</text>
+                </g>
+              ))}
+              {/* gold area (light violet) */}
+              <path d="M50 150 L70 130 L90 120 L110 90 L130 110 L150 100 L170 105 L190 95 L210 115 L230 110 L250 125 L270 130 L290 150 L310 130 L330 140 L350 135 L370 150 L390 130 L410 140 L430 135 L450 150 L470 130 L490 125 L510 140 L530 130 L550 120 L570 135 L590 130 L610 100 L630 130 L650 140 L650 240 L50 240 Z" fill="#d9c9ff"/>
+              {/* bitcoin area (strong violet) */}
+              <path d="M50 240 L110 240 L170 236 L230 235 L290 230 L310 232 L350 224 L390 200 L410 150 L430 190 L450 210 L470 220 L490 215 L510 225 L530 210 L550 200 L570 215 L590 190 L610 185 L630 170 L650 130 L650 240 Z" fill="#9b6bff"/>
+              {/* legend labels */}
+              <text x="640" y="118" fontSize="9" fontWeight="700" fill="#7c5cff" textAnchor="end">BTC $1,274</text>
+              <text x="640" y="148" fontSize="9" fontWeight="700" fill="#b3a1e8" textAnchor="end">GOLD $1,226</text>
+              <g fontSize="10" fontWeight="700">
+                <text x="180" y="150" fill="#9a9aa0">Gold</text>
+                <text x="600" y="200" fill="#7c5cff">Bitcoin</text>
+              </g>
+              {/* icons */}
+              <circle cx="168" cy="140" r="8" fill="#fff" stroke="#0d0d12" strokeWidth="1.2"/><text x="168" y="144" fontSize="8" textAnchor="middle" fill="#0d0d12">▱</text>
+              <circle cx="592" cy="192" r="8" fill="#fff" stroke="#0d0d12" strokeWidth="1.2"/><text x="592" y="196" fontSize="8" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text>
+              {/* x axis years */}
+              <line x1="50" y1="240" x2="660" y2="240" stroke="#0d0d12" strokeWidth="1.2"/>
+              <path d="M652 236 L662 240 L652 244 Z" fill="#0d0d12"/>
+              {[2011, 2012, 2013, 2014, 2015, 2016, 2017].map((y, i) => (
+                <g key={y}>
+                  <rect x={44 + i * 86} y="236" width="42" height="16" rx="3" fill="#0d0d12"/>
+                  <text x={65 + i * 86} y="248" fontSize="9" fontWeight="800" fill="#fff" textAnchor="middle">{y}</text>
+                </g>
+              ))}
+            </svg>
+          </div>
+
+          {/* milestones */}
+          <div className="ac-miles">
+            <div className="ac-mile">
+              <span className="ac-mile-ic"><svg viewBox="0 0 32 32" width="30" height="30"><circle cx="12" cy="18" r="9" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><text x="12" y="22" fontSize="9" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text><path d="M24 4 l3 6 h-6 z M22 12 h6" stroke="#0d0d12" strokeWidth="1.2" fill="none"/></svg></span>
+              <p className="ac-mile-t"><b>MAY 2010</b><br/>The first purchase with BTC was a pizza.</p>
+            </div>
+            <div className="ac-mile">
+              <span className="ac-mile-ic"><svg viewBox="0 0 32 32" width="30" height="30"><circle cx="10" cy="12" r="7" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><text x="10" y="15" fontSize="8" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text><rect x="18" y="8" width="8" height="6" rx="2" fill="#c9a7ff"/><circle cx="22" cy="20" r="7" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><text x="22" y="23" fontSize="8" fontWeight="800" textAnchor="middle" fill="#0d0d12">$</text></svg></span>
+              <p className="ac-mile-t"><b>FEBRUARY 2011</b><br/>Bitcoin reaches parity with USD.</p>
+            </div>
+            <div className="ac-mile">
+              <span className="ac-mile-ic"><svg viewBox="0 0 32 32" width="30" height="30"><circle cx="10" cy="10" r="6" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><circle cx="17" cy="10" r="6" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><text x="13" y="13" fontSize="8" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text><rect x="8" y="20" width="18" height="7" rx="2" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><circle cx="13" cy="29" r="2" fill="none" stroke="#0d0d12" strokeWidth="1.2"/><circle cx="22" cy="29" r="2" fill="none" stroke="#0d0d12" strokeWidth="1.2"/></svg></span>
+              <p className="ac-mile-t"><b>OCTOBER 2012</b><br/>1000 merchants accept payments in Bitcoin.</p>
+            </div>
+            <div className="ac-mile">
+              <span className="ac-mile-ic"><svg viewBox="0 0 32 32" width="30" height="30"><circle cx="12" cy="12" r="8" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><text x="12" y="15" fontSize="9" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text><path d="M22 22 l6 -4 M24 24 l6 -4" stroke="#0d0d12" strokeWidth="1.2" fill="none"/></svg></span>
+              <p className="ac-mile-t"><b>DECEMBER 2013</b><br/>Bit coin almost reaches parity with gold.</p>
+            </div>
+            <div className="ac-mile">
+              <span className="ac-mile-ic"><svg viewBox="0 0 32 32" width="30" height="30"><circle cx="9" cy="10" r="6" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><text x="9" y="13" fontSize="8" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text><circle cx="16" cy="8" r="5" fill="none" stroke="#0d0d12" strokeWidth="1.2"/><text x="16" y="11" fontSize="7" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text><rect x="14" y="18" width="16" height="7" rx="2" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><circle cx="19" cy="27" r="2" fill="none" stroke="#0d0d12" strokeWidth="1.2"/><circle cx="27" cy="27" r="2" fill="none" stroke="#0d0d12" strokeWidth="1.2"/></svg></span>
+              <p className="ac-mile-t"><b>AUGUST 2015</b><br/>160,000 merchants accept payments in Bitcoin.</p>
+            </div>
+            <div className="ac-mile">
+              <span className="ac-mile-ic"><svg viewBox="0 0 32 32" width="30" height="30"><circle cx="14" cy="14" r="9" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><text x="14" y="18" fontSize="10" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text><path d="M26 6 l2 -4 M28 10 l3 -3" stroke="#0d0d12" strokeWidth="1.2" fill="none"/></svg></span>
+              <p className="ac-mile-t"><b>DECEMBER 2016</b><br/>Bitcoin is the best performing currency for the 2nd year in a row.</p>
+            </div>
+            <div className="ac-mile">
+              <span className="ac-mile-ic"><svg viewBox="0 0 32 32" width="30" height="30"><circle cx="12" cy="12" r="9" fill="none" stroke="#0d0d12" strokeWidth="1.4"/><text x="12" y="16" fontSize="10" fontWeight="800" textAnchor="middle" fill="#0d0d12">₿</text><path d="M22 24 l6 -8 M24 26 l6 -8" stroke="#0d0d12" strokeWidth="1.2" fill="none"/><path d="M22 10 l4 4 h-8 z" fill="#c9a7ff"/></svg></span>
+              <p className="ac-mile-t"><b>MARCH 2017</b><br/>Bitcoin exceeds the price of gold for the first time.</p>
+            </div>
+          </div>
+        </section>
+
       </div>
     </SiteLayout>
   );
