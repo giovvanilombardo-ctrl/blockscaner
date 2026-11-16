@@ -1,0 +1,20 @@
+# Blockscaner
+
+> Blockscaner is a European platform to buy, sell and swap crypto-assets such as Bitcoin and Ethereum, with live EUR market data, an account wallet with currency exchange, and multi-language support (EN, DE, FR, ES, IT).
+
+Blockscaner offers a live crypto markets page with prices, 7-day trends, market capitalisation and volume; a detail page for every listed crypto-asset with live charts and explainer content; and an account area where verified users hold balances, convert between currencies and request withdrawals.
+
+## Pages
+
+- / — Homepage: platform overview and sign-up entry points
+- /markets — Live crypto markets: EUR prices, sparklines, market cap and 24h volume for listed assets
+- /markets/{coin-id} — Detail page per crypto-asset: live price chart, market data, explainer sections and buying steps (e.g. /markets/bitcoin, /markets/ethereum, /markets/solana)
+- /products — Platform products overview
+- /business — Services for business clients
+- /about — About the platform
+- /blog — Academy: guides and insights on crypto-assets
+- /support — Help and support
+
+## Access
+
+Public pages are listed above. The account area (/account), admin area and case tracker require sign-in and are not crawlable content.
