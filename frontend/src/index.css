@@ -1269,10 +1269,31 @@ svg.pro-api-anim{ display:block; width:calc(100% + 3.6rem); height:16rem; margin
 .pro-ccard-photo .pro-mcard-body{ position:relative; z-index:2; padding:1.8rem; }
 .pro-ccard-photo h3{ color:#fff; font-size:1.5rem; }
 .pro-ccard-photo p{ color:#d6d6dd; }
+.pro-casp{ position:relative; z-index:2; max-width:72rem; margin:0 auto; padding:0 1.5rem 7rem;
+  text-align:center; }
+.pro-casp-card{ background:#12121a; border:1px solid #1d1d28; border-radius:20px; padding:2.6rem 2.4rem;
+  text-align:center; }
+.pro-casp-card h3{ color:#fff; font-size:1.7rem; font-weight:800; letter-spacing:-.01em; margin:0; }
+.pro-casp-card p{ color:#9d9da8; font-size:.95rem; line-height:1.65; margin:1rem auto 0; max-width:36rem; }
+.pro-solutions{ position:relative; z-index:2; max-width:72rem; margin:0 auto; padding:2rem 1.5rem 7rem;
+  text-align:center; }
+.pro-solutions h2{ color:#fff; font-size:clamp(2rem,4.2vw,3.2rem); font-weight:800; letter-spacing:-.03em;
+  line-height:1.12; margin:0; }
+.pro-solutions h2 em{ font-style:normal; color:#2ee58a; }
+.pro-solutions-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:2.6rem; }
+.pro-xcard{ min-height:22rem; overflow:hidden; }
+.pro-xcard-photo{ position:relative; }
+.pro-xcard-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.pro-xcard-overlay{ position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(8,8,12,.85) 0%, rgba(8,8,12,.55) 45%, rgba(8,8,12,.15) 80%, transparent 100%); }
+.pro-xcard-photo .pro-mcard-body{ position:relative; z-index:2; padding:1.8rem; }
+.pro-xcard-photo h3{ color:#fff; font-size:1.5rem; }
+.pro-xcard-photo p{ color:#d6d6dd; }
 @media (max-width:860px){
   .pro-markets-grid{ grid-template-columns:1fr; }
   .pro-service-grid{ grid-template-columns:1fr; }
   .pro-compliance-grid{ grid-template-columns:1fr; }
+  .pro-solutions-grid{ grid-template-columns:1fr; }
 }
 .pro-hero-bg{ position:absolute; inset:0; width:100%; height:100%; }
 .pro-page::after{ content:""; position:absolute; inset:0;

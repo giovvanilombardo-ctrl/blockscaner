@@ -6,6 +6,8 @@ import traderDesk from "@/assets/pro/trader-desk.png";
 import feeMedals from "@/assets/pro/fee-medals.png";
 import tradingTerminal from "@/assets/pro/trading-terminal.png";
 import taxManagement from "@/assets/pro/tax-management.png";
+import stakingPhone from "@/assets/pro/staking-phone.png";
+import supportMeeting from "@/assets/pro/support-meeting.png";
 
 
 /* Blurry candlestick chart backdrop */
@@ -180,6 +182,38 @@ export default function Pro() {
               <div className="pro-mcard-body">
                 <h3>{_t("Integrated tax management")}</h3>
                 <p>{_t("Get full tax support across all your digital assets, including external wallets, NFTs, and DeFi platforms. Access one-on-one assistance from crypto-specialised accountants for optimised, compliant tax filings.")}</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        {/* casp authorisation */}
+        <section className="pro-casp">
+          <div className="pro-casp-card">
+            <h3>{_t("CASP Authorisation")}</h3>
+            <p>{_t("Blockscaner is authorised by Consob as a Crypto-Asset Service Provider (CASP), pursuant to Regulation (EU) 2023/1114.")}</p>
+          </div>
+        </section>
+
+        {/* six years of advanced crypto solutions */}
+        <section className="pro-solutions">
+          <h2>{_t("Six years of")} <em>{_t("advanced crypto")}</em><br />{_t("solutions")}</h2>
+          <p className="pro-markets-sub">{_t("Earn high APYs through lending, with daily liquidity. Access 27 crypto pairs and advanced trading tools on the first OAM-approved platform.")}</p>
+          <div className="pro-solutions-grid">
+            <article className="pro-mcard pro-xcard pro-xcard-photo" data-testid="pro-support-card">
+              <img className="pro-xcard-bg" src={supportMeeting} alt="" aria-hidden="true" />
+              <div className="pro-xcard-overlay" />
+              <div className="pro-mcard-body">
+                <h3>{_t("Dedicated customer support")}</h3>
+                <p>{_t("Benefit from a dedicated account manager to answer your questions and support your trading journey, with live assistance available via live chat, phone, or virtual meeting.")}</p>
+              </div>
+            </article>
+            <article className="pro-mcard pro-xcard pro-xcard-photo" data-testid="pro-staking-card">
+              <img className="pro-xcard-bg" src={stakingPhone} alt="" aria-hidden="true" />
+              <div className="pro-xcard-overlay" />
+              <div className="pro-mcard-body">
+                <h3>{_t("Staking rewards & fee rebates")}</h3>
+                <p>{_t("Staking, APYs up to 16.7%, and reduced trading fees: with PUMP, the Blockscaner ecosystem token, you can access unique benefits. Learn more about the PUMP ecosystem and unlock exclusive advantages.")}</p>
               </div>
             </article>
           </div>
