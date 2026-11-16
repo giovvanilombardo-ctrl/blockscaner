@@ -1,0 +1,255 @@
+/* ============================================================
+   Blockscaner Account Portal — sidebar layout (Ciberdelito-style,
+   re-themed to Blockscaner light/blue branding)
+   ============================================================ */
+.account-portal{ --pa:#1663d9; --pa-soft:#eaf1fb; --ink:#0f172a; --mut:#64748b; --line:#e2e8f0;
+  --panel:#ffffff; --navy:#0c1b34; --navy-2:#122444; --mint:#1663d9;
+  min-height:100vh; background:#f4f7fb; font-family:"IBM Plex Sans",system-ui,sans-serif;
+  display:flex; gap:0; }
+.account-portal h1,.account-portal h2,.account-portal h3,.ap-title{ font-family:"Archivo",sans-serif; }
+
+/* ---- Sidebar ---- */
+.ap-sidebar{ width:290px; flex:none; position:sticky; top:0; height:100vh; align-self:flex-start;
+  background:var(--navy); color:#e6ecf5; border-radius:0 28px 28px 0; padding:1.6rem 1.1rem;
+  display:flex; flex-direction:column; gap:1.4rem; overflow:auto; }
+.ap-user{ display:flex; gap:.8rem; align-items:center; }
+.ap-avatar{ width:46px; height:46px; border-radius:50%; flex:none; display:grid; place-items:center;
+  background:var(--pa); color:#fff; font-weight:800; font-family:"Archivo"; font-size:1.05rem; box-shadow:0 6px 16px rgba(22,99,217,.4); }
+.ap-user-name{ font-weight:700; font-size:.95rem; line-height:1.15; }
+.ap-user-mail{ font-size:.72rem; color:#9fb0c9; word-break:break-all; }
+.ap-total{ background:var(--navy-2); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:.9rem 1rem; }
+.ap-total small{ display:block; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:#8fa2c0; }
+.ap-total strong{ font-size:1.5rem; font-weight:800; color:#7db4f5; font-family:"Archivo"; }
+.ap-nav-group small{ display:block; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:#7288a5; margin:1rem .4rem .4rem; }
+.ap-nav-item{ display:flex; align-items:center; gap:.7rem; width:100%; text-align:left; background:none; border:0;
+  padding:.62rem .8rem; border-radius:12px; color:#c6d2e4; font-size:.86rem; cursor:pointer; transition:.15s; }
+.ap-nav-item svg{ width:1.05rem; height:1.05rem; flex:none; }
+.ap-nav-item:hover{ background:var(--pa); color:#ffffff; }
+.ap-nav-item.is-active{ background:var(--pa); color:#ffffff; font-weight:700; }
+.ap-logout{ margin-top:auto; color:#c6d2e4; }
+
+/* ---- Content ---- */
+.ap-content{ flex:1; min-width:0; padding:2rem 2.5rem 4rem; }
+.ap-topbar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:1.4rem; }
+.ap-back{ display:inline-flex; align-items:center; gap:.4rem; background:#0c1b34; color:#fff; border:0;
+  border-radius:999px; padding:.5rem 1.1rem; font-size:.8rem; font-weight:600; cursor:pointer; }
+.ap-back:hover{ background:var(--pa); }
+.ap-link{ color:var(--mint); font-weight:600; font-size:.85rem; text-decoration:none; }
+.ap-kicker{ font-size:.68rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--mint); }
+.ap-title{ font-size:2.6rem; font-weight:800; color:var(--ink); line-height:1.05; margin:.25rem 0 .4rem; }
+.ap-sub{ color:var(--mut); font-size:.95rem; max-width:60ch; }
+
+/* ---- Wallet hero card ---- */
+.ap-card{ background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:1.6rem; margin-top:1.6rem; }
+.ap-card-kicker{ display:flex; align-items:center; gap:.45rem; font-size:.66rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--mint); }
+.ap-summary{ display:flex; gap:1.2rem; flex-wrap:wrap; margin-top:1.2rem; align-items:flex-start; }
+.ap-sum{ flex:1; min-width:220px; background:#fbfdff; border:1px solid var(--line); border-radius:18px; padding:1.2rem 1.3rem; }
+.ap-sum small{ display:flex; align-items:center; gap:.45rem; font-size:.66rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--mut); }
+.ap-sum b{ display:block; font-size:2rem; font-weight:800; color:var(--ink); font-family:"Archivo"; margin:.4rem 0 .2rem; }
+.ap-sum span{ font-size:.78rem; color:var(--mut); }
+.ap-market{ margin-left:auto; align-self:flex-start; background:#f6fbff; border:1px solid var(--line); border-radius:14px; padding:.7rem 1rem; font-size:.78rem; }
+.ap-market b{ display:flex; align-items:center; gap:.4rem; font-size:.8rem; }
+.ap-market span{ color:var(--mut); font-size:.68rem; }
+.ap-dot{ width:8px; height:8px; border-radius:50%; background:var(--mint); display:inline-block; box-shadow:0 0 0 3px rgba(22,99,217,.2); }
+.ap-banner{ display:flex; gap:.8rem; align-items:flex-start; border:1px dashed var(--line); background:#f8fbff; border-radius:16px; padding:1rem 1.2rem; margin-top:1.2rem; }
+.ap-banner svg{ color:var(--pa); flex:none; margin-top:.1rem; }
+.ap-banner b{ display:block; font-size:.92rem; color:var(--ink); }
+.ap-banner p{ font-size:.8rem; color:var(--mut); margin:.15rem 0 0; }
+
+/* ---- Asset list ---- */
+.ap-list-head{ display:flex; justify-content:space-between; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--mut); margin:1.6rem .2rem .6rem; }
+.ap-asset{ display:flex; align-items:center; gap:1rem; padding:1rem .4rem; border-bottom:1px solid var(--line); }
+.ap-asset:last-child{ border-bottom:0; }
+.ap-coin{ width:44px; height:44px; border-radius:50%; display:grid; place-items:center; font-weight:800; font-family:"Archivo"; flex:none; font-size:1.05rem; }
+.ap-asset-name{ font-weight:700; font-size:.95rem; }
+.ap-asset-sym{ font-size:.72rem; color:var(--mut); }
+.ap-asset-mid{ margin-left:auto; text-align:right; }
+.ap-asset-mid b{ display:block; font-size:.95rem; }
+.ap-asset-mid small{ color:var(--mut); font-size:.7rem; }
+.ap-asset-eur{ text-align:right; min-width:110px; }
+.ap-asset-eur b{ display:block; font-size:.95rem; }
+.ap-asset-eur small{ color:var(--mut); font-size:.7rem; }
+.ap-chev{ color:#cbd5e1; }
+
+/* coin colours */
+.c-BTC{background:#fff3e6;color:#f59e0b}.c-ETH{background:#eef0ff;color:#6366f1}.c-USDT{background:#e6f7f2;color:#14b8a6}
+.c-SOL{background:#f1e8ff;color:#a855f7}.c-BNB{background:#fff8e0;color:#eab308}.c-TRX{background:#ffe9ec;color:#ef4444}
+.c-EUR{background:#e7f0ff;color:#2563eb}.c-USD{background:#e7f6ec;color:#16a34a}.c-GBP{background:#efe8ff;color:#7c3aed}
+.c-CHF{background:#ffeaea;color:#dc2626}.c-JPY{background:#fff0e6;color:#ea580c}.c-CNY{background:#ffe6ef;color:#db2777}
+.c-AUD{background:#e6f4fb;color:#0284c7}.c-CAD{background:#ffecec;color:#e11d48}
+
+/* ---- Action buttons row ---- */
+.ap-actions{ display:flex; gap:.8rem; flex-wrap:wrap; margin:1.4rem 0; }
+.ap-action{ display:inline-flex; align-items:center; gap:.5rem; background:var(--pa); color:#fff; border:0;
+  border-radius:999px; padding:.65rem 1.3rem; font-size:.82rem; font-weight:700; cursor:pointer; transition:.15s; box-shadow:0 8px 18px rgba(22,99,217,.28); }
+.ap-action:hover{ background:#1252b8; transform:translateY(-1px); }
+.ap-action--ghost{ background:#fff; color:var(--ink); border:1px solid var(--line); box-shadow:none; }
+.ap-action--ghost:hover{ background:#f8fafc; }
+
+/* ---- Exchange panel ---- */
+.ap-exchange{ display:grid; grid-template-columns:1.3fr 1fr; gap:1.5rem; }
+.ap-panel{ background:#fbfdff; border:1px solid var(--line); border-radius:18px; padding:1.3rem; }
+.ap-field{ background:#f6f9fc; border:1px solid var(--line); border-radius:16px; padding:1rem 1.1rem; margin-bottom:1rem; }
+.ap-field label{ font-size:.68rem; font-weight:700; color:var(--mut); text-transform:uppercase; letter-spacing:.06em; }
+.ap-field input{ width:100%; background:none; border:0; outline:none; font-size:1.7rem; font-weight:800; font-family:"Archivo"; color:var(--ink); }
+.ap-field-row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.ap-asset-pill{ display:inline-flex; align-items:center; gap:.45rem; background:#fff; border:1px solid var(--line); border-radius:999px; padding:.35rem .8rem; font-size:.8rem; font-weight:600; cursor:pointer; }
+.ap-mini{ font-size:.72rem; color:var(--pa); font-weight:700; cursor:pointer; background:none; border:0; }
+.ap-meta{ display:flex; justify-content:space-between; font-size:.78rem; color:var(--mut); padding:.3rem 0; }
+.ap-meta b{ color:var(--ink); }
+.ap-btn{ width:100%; background:var(--pa); color:#fff; border:0; border-radius:12px; padding:.9rem; font-weight:700; font-size:.92rem; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; }
+.ap-btn:disabled{ opacity:.45; cursor:not-allowed; }
+.ap-btn:hover:not(:disabled){ background:#1252b8; }
+.ap-howto li{ display:flex; gap:.9rem; padding:.9rem 0; border-bottom:1px solid var(--line); list-style:none; }
+.ap-howto li:last-child{border-bottom:0}
+.ap-howto ol{ padding:0; margin:0; }
+.ap-stepnum{ width:22px; height:22px; border-radius:50%; background:var(--pa-soft); color:var(--pa); display:grid; place-items:center; font-size:.72rem; font-weight:800; flex:none; }
+.ap-howto b{ display:block; font-size:.85rem; }
+.ap-howto span{ font-size:.76rem; color:var(--mut); }
+
+/* ---- tables / activity / withdraw ---- */
+.ap-table-row{ display:flex; align-items:center; gap:1rem; padding:.9rem .2rem; border-bottom:1px solid var(--line); font-size:.86rem; }
+.ap-table-row:last-child{ border-bottom:0; }
+.ap-tag{ font-size:.64rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .6rem; border-radius:999px; }
+.ap-tag--ok{ background:#e7f0fe; color:#1663d9; } .ap-tag--pend{ background:#fff5e0; color:#d97706; } .ap-tag--bad{ background:#ffe7e7; color:#dc2626; }
+.ap-empty{ text-align:center; color:var(--mut); padding:2.5rem 1rem; font-size:.88rem; }
+.ap-grid2{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.ap-input{ width:100%; border:1px solid var(--line); background:#fff; border-radius:10px; padding:.6rem .8rem; font-size:.9rem; color:var(--ink); outline:none; }
+.ap-input:focus{ border-color:var(--pa); box-shadow:0 0 0 3px color-mix(in oklab,var(--pa) 15%,transparent); }
+.ap-label{ font-size:.7rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:#334155; display:block; margin-bottom:.35rem; }
+.ap-err{ color:#dc2626; font-size:.75rem; font-weight:600; margin-top:.4rem; }
+.ap-note{ display:flex; align-items:center; gap:.4rem; font-size:.68rem; color:#94a3b8; margin-top:.8rem; }
+
+@media (max-width:900px){
+  .account-portal{ flex-direction:column; }
+  .ap-sidebar{ width:100%; height:auto; position:static; border-radius:0 0 24px 24px; }
+  .ap-content{ padding:1.2rem 1rem 3rem; }
+  .ap-exchange{ grid-template-columns:1fr; }
+  .ap-title{ font-size:2rem; }
+}
+
+/* === Overview (Hola / total balance hero + asset grid) === */
+.ap-hero{ display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap;
+  background:linear-gradient(135deg,#0c1b34,#123058); border-radius:22px; padding:2.2rem 2.4rem; margin-top:1.6rem; color:#fff; }
+.ap-hero-left small{ display:block; font-size:.78rem; color:#a9c6ef; margin-bottom:.4rem; }
+.ap-hero-left b{ font-family:"Archivo"; font-size:3.4rem; font-weight:800; line-height:1; letter-spacing:-.02em; }
+.ap-hero-left span{ display:block; margin-top:.5rem; font-size:.82rem; color:#9db8e0; }
+.ap-hero-actions{ display:flex; gap:.7rem; flex-wrap:wrap; }
+.ap-hero-actions button{ display:flex; flex-direction:column; align-items:center; gap:.45rem; min-width:88px;
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); color:#eafff5; border-radius:14px;
+  padding:.9rem 1rem; font-size:.72rem; font-weight:600; cursor:pointer; transition:.15s; }
+.ap-hero-actions button:hover{ background:var(--pa); border-color:var(--pa); transform:translateY(-1px); }
+.ap-hero-actions button svg{ width:1.25rem; height:1.25rem; }
+
+.ap-dist{ position:relative; overflow:hidden; }
+.ap-dist-bar{ height:4px; background:#e9f5ef; border-radius:99px; margin-bottom:1.4rem; }
+.ap-dist-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem 1.6rem; }
+.ap-dist-cell{ opacity:.5; }
+.ap-dist-cell.has{ opacity:1; }
+.ap-dist-name{ display:flex; align-items:center; gap:.5rem; margin-bottom:.4rem; }
+.ap-dist-name b{ font-size:.82rem; font-weight:700; color:#0f172a; }
+.ap-dist-vals strong{ display:block; font-size:1rem; font-weight:800; color:#0f172a; }
+.ap-dist-vals small{ font-size:.68rem; color:#64748b; }
+
+.ap-overview-bottom{ display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1.5rem; }
+.ap-card-title{ font-size:1.05rem; font-weight:800; margin:0 0 1rem; font-family:"Archivo"; }
+.ap-linkbtn{ background:none; border:0; color:#1663d9; font-weight:600; font-size:.8rem; cursor:pointer; padding:0; margin-top:1rem; }
+.ap-progress{ height:6px; background:#e9f5ef; border-radius:99px; overflow:hidden; }
+.ap-progress>div{ height:100%; background:#1663d9; border-radius:99px; }
+.ap-progress-label{ display:block; font-size:.72rem; color:#64748b; margin:.5rem 0 1rem; }
+.ap-checklist{ display:grid; gap:.6rem; }
+.ap-check{ display:flex; align-items:center; gap:.6rem; font-size:.84rem; color:#64748b; }
+.ap-check.done{ color:#0f172a; }
+.ap-check.done svg{ color:#1663d9; }
+.ap-check-circle{ width:16px; height:16px; border-radius:50%; border:2px solid #cbd5e1; flex:none; }
+
+@media (max-width:900px){ .ap-dist-grid{ grid-template-columns:repeat(2,1fr); } .ap-overview-bottom{ grid-template-columns:1fr; } .ap-hero{ padding:1.6rem; } .ap-hero-left b{ font-size:2.4rem; } }
+
+/* hover -> brand blue */
+.ap-asset:hover{ background:#f2f7ff; border-radius:12px; }
+.ap-asset:hover .ap-chev{ color:var(--pa); }
+.ap-mini:hover{ color:#1252b8; }
+.ap-link:hover{ color:#1252b8; }
+.ap-linkbtn:hover{ color:#1252b8; }
+.ap-asset-pill:hover{ border-color:var(--pa); color:var(--pa); }
+
+/* === Professional money figures (metallic / engraved) === */
+/* Big hero balance — engraved metallic white with soft depth */
+.ap-hero-left b{
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing:-.03em;
+  background:linear-gradient(180deg,#ffffff 0%,#dbe7fb 34%,#9db8e6 50%,#eef4ff 58%,#ffffff 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 2px 10px rgba(0,0,0,.35));
+  position:relative;
+}
+/* Sidebar total — polished blue with subtle glow */
+.ap-total strong{
+  font-variant-numeric: tabular-nums lining-nums; letter-spacing:-.01em;
+  background:linear-gradient(180deg,#cfe2ff 0%,#7db4f5 50%,#bcd6fb 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 1px 6px rgba(22,99,217,.45));
+}
+
+/* Sum cards + asset values — refined mono-spaced figures with soft shadow */
+.ap-sum b,.ap-asset-eur b,.ap-asset-mid b,.ap-dist-vals strong{
+  font-variant-numeric: tabular-nums lining-nums; letter-spacing:-.015em;
+  color:#0f172a; text-shadow:0 1px 0 rgba(255,255,255,.6), 0 8px 18px rgba(15,23,42,.08);
+}
+.ap-sum b{ background:linear-gradient(180deg,#12213a 0%,#2c4a77 55%,#0f1c31 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+/* activity amount signs */
+.ap-amt-pos{ color:#16a34a; font-variant-numeric:tabular-nums; }
+.ap-amt-neg{ color:#dc2626; font-variant-numeric:tabular-nums; }
+
+/* === STRONGER professional money treatment (clearer) === */
+.ap-sum b{
+  background:none; -webkit-background-clip:initial; background-clip:initial; color:#0a0f1a;
+  font-variant-numeric:tabular-nums lining-nums;
+  text-shadow:0 1px 0 rgba(255,255,255,.55), 0 -1px 1px rgba(0,0,0,.35), 0 10px 22px rgba(2,6,23,.14);
+}
+.ap-asset-eur b,.ap-asset-mid b{
+  font-variant-numeric:tabular-nums lining-nums;
+  background:none; -webkit-background-clip:initial; background-clip:initial; color:#0d1420;
+}
+
+/* activity amount signs */
+.ap-amt-pos{ color:#16a34a; font-variant-numeric:tabular-nums; }
+.ap-amt-neg{ color:#dc2626; font-variant-numeric:tabular-nums; }
+
+/* === STRONGER professional money treatment (clearer) === */
+.ap-sum b{
+  background:none; -webkit-background-clip:initial; background-clip:initial; color:#0a0f1a;
+  font-variant-numeric:tabular-nums lining-nums;
+  text-shadow:0 1px 0 rgba(255,255,255,.55), 0 -1px 1px rgba(0,0,0,.35), 0 10px 22px rgba(2,6,23,.14);
+}
+.ap-asset-eur b,.ap-asset-mid b{
+  font-variant-numeric:tabular-nums lining-nums;
+  background:none; -webkit-background-clip:initial; background-clip:initial; color:#0d1420;
+}
+
+/* Crypto assets card — list of coins, amounts only (no EUR total) */
+.ap-crypto-list{ display:grid; gap:.4rem; margin:.4rem 0 .2rem; }
+.ap-crypto-line{ display:flex; align-items:center; gap:.5rem; }
+.ap-crypto-line b{ font-variant-numeric:tabular-nums lining-nums; font-weight:800; color:#0a0f1a; font-size:1.05rem; text-shadow:0 1px 0 rgba(255,255,255,.55), 0 -1px 1px rgba(0,0,0,.3), 0 8px 18px rgba(2,6,23,.12); }
+.ap-crypto-sym{ font-size:.72rem; color:#64748b; font-weight:700; letter-spacing:.04em; }
+
+/* crypto line: amount on top, small EUR value beneath */
+.ap-crypto-amt{ display:flex; flex-direction:column; line-height:1.05; }
+.ap-crypto-amt b{ font-variant-numeric:tabular-nums lining-nums; font-weight:800; color:#0a0f1a; font-size:1.05rem; text-shadow:0 1px 0 rgba(255,255,255,.55), 0 -1px 1px rgba(0,0,0,.3), 0 8px 18px rgba(2,6,23,.12); }
+.ap-crypto-eur{ font-size:.7rem; color:#64748b; font-weight:600; font-variant-numeric:tabular-nums; }
+
+/* === Crypto assets card — redesigned === */
+.ap-crypto-list{ display:grid; gap:.6rem; margin:.6rem 0 .3rem; }
+.ap-crypto-line{ display:flex; align-items:center; gap:.75rem; background:#f8fafc; border:1px solid #eef2f7; border-radius:12px; padding:.65rem .9rem; transition:.15s; }
+.ap-crypto-line:hover{ background:#f1f6ff; border-color:#dbe6fb; }
+.ap-crypto-line .ap-coin{ width:34px; height:34px; font-size:1rem; flex:none; }
+.ap-crypto-amt{ display:flex; flex-direction:column; line-height:1.1; }
+.ap-crypto-amt b{ font-variant-numeric:tabular-nums lining-nums; font-weight:800; color:#0a0f1a; font-size:1.2rem; letter-spacing:-.01em; text-shadow:0 1px 0 rgba(255,255,255,.5), 0 6px 16px rgba(2,6,23,.10); }
+.ap-crypto-amt .ap-crypto-sym{ font-size:.72rem; color:#1663d9; font-weight:700; letter-spacing:.05em; }
+.ap-crypto-eur{ font-size:.74rem; color:#64748b; font-weight:600; font-variant-numeric:tabular-nums; }
+.ap-sum-foot{ display:block; font-size:.72rem; color:#94a3b8; margin-top:.4rem; }
+
+/* activity amount signs */
+.ap-amt-pos{ color:#16a34a; font-variant-numeric:tabular-nums; }
+.ap-amt-neg{ color:#dc2626; font-variant-numeric:tabular-nums; }

@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"b0239c022c2a4e19a1b5d4db9f7973ae","collectionName":"cartera_movimientos","type":"collection"}
