@@ -195,6 +195,25 @@ export default function Pro() {
           </div>
         </section>
 
+        {/* our partners */}
+        <section className="pro-partners">
+          <h2>{_t("Our partners")}</h2>
+          <p className="pro-partners-sub">{_t("Blockscaner has established strong partnerships with leading banks, top global providers, and institutional investors on our cap table to deliver the highest reliability and security.")}</p>
+          <div className="pro-partners-logos">
+            <span className="pro-partner-logo">Sella</span>
+            <span className="pro-partner-logo">AZIMUT</span>
+            <span className="pro-partner-logo">united ventures</span>
+          </div>
+        </section>
+
+        {/* cta banner */}
+        <section className="pro-cta-banner">
+          <h3>{_t("Take your trading to the next")}<br />{_t("level with")} <em>{_t("Blockscaner")}</em></h3>
+          <a className="pro-cta-banner-btn" href="/signup" data-testid="pro-signup-cta">
+            {_t("Sign up")} <ArrowRight size={14} />
+          </a>
+        </section>
+
         {/* six years of advanced crypto solutions */}
         <section className="pro-solutions">
           <h2>{_t("Six years of")} <em>{_t("advanced crypto")}</em><br />{_t("solutions")}</h2>
@@ -214,6 +233,23 @@ export default function Pro() {
                 <p>{_t("Maximise your crypto portfolio's results with staking on top Proof-of-Stake cryptocurrencies: Ethereum, Celestia, Solana, and Cosmos. Ideal for growing your assets without active trading.")}</p>
               </div>
             </article>
+          </div>
+        </section>
+
+        {/* our partners */}
+        <section className="pro-partners">
+          <h2>{_t("Our partners")}</h2>
+          <p className="pro-partners-sub">{_t("Blockscaner has established strong partnerships with leading banks, top global providers, and institutional investors on our cap table to deliver the highest reliability and security.")}</p>
+          <div className="pro-partners-logos">
+            <div className="pro-partner-logo">Sella</div>
+            <div className="pro-partner-logo">AZIMUT</div>
+            <div className="pro-partner-logo">United Ventures</div>
+          </div>
+          <div className="pro-cta-banner">
+            <h3>{_t("Take your trading to the next level with")} <em>{_t("Blockscaner")}</em></h3>
+            <a className="pro-cta-banner-btn" href="/signup" data-testid="pro-cta-banner-btn">
+              {_t("Sign up")} <ArrowRight size={14} />
+            </a>
           </div>
         </section>
       </div>
