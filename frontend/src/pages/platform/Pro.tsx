@@ -207,12 +207,12 @@ export default function Pro() {
               </div>
               <img className="pro-scard-img" src={supportMeeting} alt="Two professionals looking at a laptop in an office" loading="lazy" />
             </article>
-            <article className="pro-mcard pro-xcard" data-testid="pro-staking-card">
+            <article className="pro-mcard pro-xcard pro-staking-card" data-testid="pro-staking-card">
               <div className="pro-mcard-body">
-                <h3>{_t("Staking rewards & fee rebates")}</h3>
-                <p>{_t("Staking, APYs up to 16.7%, and reduced trading fees: with PUMP, the Blockscaner ecosystem token, you can access unique benefits. Learn more about the PUMP ecosystem and unlock exclusive advantages.")}</p>
+                <h3>{_t("Up to +5% tokens with")} <em>{_t("staking.")}</em></h3>
+                <p>{_t("Maximise your crypto portfolio's results with staking on top Proof-of-Stake cryptocurrencies: Ethereum, Celestia, Solana, and Cosmos. Ideal for growing your assets without active trading.")}</p>
               </div>
-              <img className="pro-scard-img" src={stakingPhone} alt="Phone showing staking app with +16.7% APR" loading="lazy" />
+              <img className="pro-scard-img" src={stakingPhone} alt="Phone showing staking app with Solana and Ethereum" loading="lazy" />
             </article>
           </div>
         </section>
