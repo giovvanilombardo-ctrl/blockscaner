@@ -200,21 +200,19 @@ export default function Pro() {
           <h2>{_t("Six years of")} <em>{_t("advanced crypto")}</em><br />{_t("solutions")}</h2>
           <p className="pro-markets-sub">{_t("Earn high APYs through lending, with daily liquidity. Access 27 crypto pairs and advanced trading tools on the first OAM-approved platform.")}</p>
           <div className="pro-solutions-grid">
-            <article className="pro-mcard pro-xcard pro-xcard-photo" data-testid="pro-support-card">
-              <img className="pro-xcard-bg" src={supportMeeting} alt="" aria-hidden="true" />
-              <div className="pro-xcard-overlay" />
+            <article className="pro-mcard pro-xcard" data-testid="pro-support-card">
               <div className="pro-mcard-body">
                 <h3>{_t("Dedicated customer support")}</h3>
                 <p>{_t("Benefit from a dedicated account manager to answer your questions and support your trading journey, with live assistance available via live chat, phone, or virtual meeting.")}</p>
               </div>
+              <img className="pro-scard-img" src={supportMeeting} alt="Two professionals looking at a laptop in an office" loading="lazy" />
             </article>
-            <article className="pro-mcard pro-xcard pro-xcard-photo" data-testid="pro-staking-card">
-              <img className="pro-xcard-bg" src={stakingPhone} alt="" aria-hidden="true" />
-              <div className="pro-xcard-overlay" />
+            <article className="pro-mcard pro-xcard" data-testid="pro-staking-card">
               <div className="pro-mcard-body">
                 <h3>{_t("Staking rewards & fee rebates")}</h3>
                 <p>{_t("Staking, APYs up to 16.7%, and reduced trading fees: with PUMP, the Blockscaner ecosystem token, you can access unique benefits. Learn more about the PUMP ecosystem and unlock exclusive advantages.")}</p>
               </div>
+              <img className="pro-scard-img" src={stakingPhone} alt="Phone showing staking app with +16.7% APR" loading="lazy" />
             </article>
           </div>
         </section>
