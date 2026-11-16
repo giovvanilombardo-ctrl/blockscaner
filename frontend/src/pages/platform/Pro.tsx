@@ -205,6 +205,7 @@ export default function Pro() {
               <div className="pro-sol-body">
                 <h3>{_t("Dedicated customer support")}</h3>
                 <p>{_t("Benefit from a dedicated account manager to answer your questions and support your trading journey, with live assistance available via live chat, phone, or virtual meeting.")}</p>
+                <a className="pro-sol-btn" href="/contact">{_t("Contact us")} <ArrowRight size={14} /></a>
               </div>
             </article>
             <article className="pro-sol-card pro-sol-photo" data-testid="pro-staking-card">
