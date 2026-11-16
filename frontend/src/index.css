@@ -1283,12 +1283,14 @@ svg.pro-api-anim{ display:block; width:calc(100% + 3.6rem); height:16rem; margin
 .pro-solutions h2 em{ font-style:normal; color:#2ee58a; }
 .pro-solutions-sub{ color:#9d9da8; font-size:.95rem; margin:1.1rem auto 0; }
 .pro-solutions-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:2.6rem; }
-.pro-sol-card{ background:#12121a; border:1px solid #1d1d28; border-radius:20px; padding:2.2rem 2.2rem 0; overflow:hidden; display:flex; flex-direction:column; min-height:32rem; }
-.pro-sol-body{ flex:0 0 auto; }
+.pro-sol-card{ position:relative; background:#12121a; border:1px solid #1d1d28; border-radius:20px; overflow:hidden; min-height:30rem; }
+.pro-sol-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.pro-sol-photo::before{ content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(10,10,14,.85) 0%, rgba(10,10,14,.5) 40%, rgba(10,10,14,.05) 75%, transparent 100%); }
+.pro-sol-body{ position:relative; z-index:2; padding:2.2rem; }
 .pro-sol-card h3{ color:#fff; font-size:1.7rem; font-weight:800; letter-spacing:-.01em; margin:0; }
 .pro-sol-card h3 em{ font-style:normal; color:#2ee58a; }
-.pro-sol-card p{ color:#9d9da8; font-size:.9rem; line-height:1.65; margin:1rem 0 0; }
-.pro-sol-img{ display:block; width:calc(100% + 4.4rem); flex:1; min-height:18rem; object-fit:cover; object-position:top center; margin:1.6rem -2.2rem 0; }
+.pro-sol-card p{ color:#d6d6dd; font-size:.9rem; line-height:1.65; margin:1rem 0 0; }
 @media (max-width:860px){
   .pro-markets-grid{ grid-template-columns:1fr; }
   .pro-service-grid{ grid-template-columns:1fr; }
