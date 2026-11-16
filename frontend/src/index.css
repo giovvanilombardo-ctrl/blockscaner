@@ -1242,6 +1242,16 @@ html {
 .pro-scard-green{ background:linear-gradient(160deg, #0e5c36 0%, #084527 55%, #063420 100%); border-color:#125c38; }
 .pro-scard-green h4{ color:#2ee58a; }
 .pro-scard-img{ display:block; width:calc(100% + 3.6rem); height:16rem; object-fit:cover; object-position:top; margin:1.6rem -1.8rem 0; }
+svg.pro-api-anim{ display:block; width:calc(100% + 3.6rem); margin:1.6rem -1.8rem 0; aspect-ratio:640/420; }
+.pro-api-pulse{ animation:proApiFlow 2.4s linear infinite; }
+@keyframes proApiFlow{ to{ stroke-dashoffset:-266; } }
+.pro-scard-art{ margin-top:1.6rem; }
+svg.pro-api-anim{ display:block; width:calc(100% + 3.6rem); height:16rem; margin:0 -1.8rem; }
+.pro-api-pulse{ animation:proApiDash 2.4s linear infinite; }
+@keyframes proApiDash{
+  from{ stroke-dashoffset:266; }
+  to{ stroke-dashoffset:0; }
+}
 @media (max-width:860px){
   .pro-markets-grid{ grid-template-columns:1fr; }
   .pro-service-grid{ grid-template-columns:1fr; }

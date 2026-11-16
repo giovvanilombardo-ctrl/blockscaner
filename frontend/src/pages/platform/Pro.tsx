@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import traderDesk from "@/assets/pro/trader-desk.png";
 import feeMedals from "@/assets/pro/fee-medals.png";
 import tradingTerminal from "@/assets/pro/trading-terminal.png";
-import apiNodes from "@/assets/pro/api-nodes.png";
+
 
 /* Blurry candlestick chart backdrop */
 function ProBackdrop() {
@@ -55,6 +55,41 @@ function ProBackdrop() {
           );
         })}
       </g>
+    </svg>
+  );
+}
+
+/* Animated API nodes: light pulses travel from the central node to 6 outer nodes on a loop */
+function ApiNodesAnimated() {
+  const cx = 320;
+  const cy = 330;
+  const R = 200;
+  const angles = [-70, -42, -14, 14, 42, 70];
+  return (
+    <svg viewBox="0 0 640 420" preserveAspectRatio="xMidYMax slice" className="pro-api-anim">
+      <defs>
+        <radialGradient id="proApiCenter" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stopColor="#0e5c36"/><stop offset="100%" stopColor="#084527"/>
+        </radialGradient>
+      </defs>
+      <rect width="640" height="420" fill="transparent"/>
+      {angles.map((deg, i) => {
+        const rad = (deg - 90) * (Math.PI / 180);
+        const x2 = cx + R * Math.cos(rad);
+        const y2 = cy + R * Math.sin(rad) * 0.9;
+        return (
+          <g key={i}>
+            <path d={`M${cx} ${cy} Q ${cx + (x2 - cx) * 0.5} ${cy + (y2 - cy) * 0.35 - 20} ${x2} ${y2}`}
+              stroke="#2ee58a" strokeWidth="2" fill="none" opacity=".35"/>
+            <path d={`M${cx} ${cy} Q ${cx + (x2 - cx) * 0.5} ${cy + (y2 - cy) * 0.35 - 20} ${x2} ${y2}`}
+              stroke="#7dffb8" strokeWidth="3.5" fill="none" strokeLinecap="round"
+              strokeDasharray="26 240" className="pro-api-pulse" style={{ animationDelay: `${i * 0.28}s` }}/>
+            <circle cx={x2} cy={y2} r="7" fill="#0a3d24" stroke="#2ee58a" strokeWidth="2.5"/>
+          </g>
+        );
+      })}
+      <circle cx={cx} cy={cy} r="34" fill="url(#proApiCenter)" stroke="#2ee58a" strokeWidth="3"/>
+      <circle cx={cx} cy={cy} r="16" fill="#2ee58a" opacity=".9"/>
     </svg>
   );
 }
@@ -121,7 +156,7 @@ export default function Pro() {
                   {_t("Find out more")} <ArrowRight size={14} />
                 </a>
               </div>
-              <img className="pro-scard-img" src={apiNodes} alt="API network nodes" loading="lazy" />
+              <div className="pro-scard-art"><ApiNodesAnimated /></div>
             </article>
           </div>
         </section>
