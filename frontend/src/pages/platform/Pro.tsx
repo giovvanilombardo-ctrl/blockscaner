@@ -4,6 +4,8 @@ import { t as _t } from "@/i18n";
 import { ArrowRight } from "lucide-react";
 import traderDesk from "@/assets/pro/trader-desk.png";
 import feeMedals from "@/assets/pro/fee-medals.png";
+import tradingTerminal from "@/assets/pro/trading-terminal.png";
+import apiNodes from "@/assets/pro/api-nodes.png";
 
 /* Blurry candlestick chart backdrop */
 function ProBackdrop() {
@@ -95,6 +97,31 @@ export default function Pro() {
                 {_t("Discover Clubs")} <ArrowRight size={14} />
               </a>
               <img src={feeMedals} alt="Blue, gold, silver and bronze check-mark medals" loading="lazy" />
+            </article>
+          </div>
+        </section>
+
+        {/* our trading service */}
+        <section className="pro-service">
+          <h2>{_t("Our Trading Service")}</h2>
+          <p className="pro-markets-sub">{_t("Leverage complex order types to enhance your trading strategies. Our platform enables simultaneous order placements and automated risk monitoring for effective portfolio management.")}</p>
+          <div className="pro-service-grid">
+            <article className="pro-mcard pro-scard pro-scard-dark" data-testid="pro-tradingview-card">
+              <div className="pro-mcard-body">
+                <h3>{_t("Precision")} <em>Trading</em> {_t("with TradingView")}</h3>
+                <p>{_t("Analyse market trends and spot trading opportunities with advanced charts and 80+ technical indicators integrated from TradingView.")}</p>
+              </div>
+              <img className="pro-scard-img" src={tradingTerminal} alt="Professional trading terminal with candlestick chart" loading="lazy" />
+            </article>
+            <article className="pro-mcard pro-scard pro-scard-green" data-testid="pro-api-card">
+              <div className="pro-mcard-body">
+                <h3>{_t("High-Performance API")}</h3>
+                <h4>{_t("Connect via API, WebSocket, or REST with IP whitelisting capabilities for secure, customised access.")}</h4>
+                <a className="pro-mbtn" href="/products" onClick={(e) => e.preventDefault()} data-testid="pro-api-btn">
+                  {_t("Find out more")} <ArrowRight size={14} />
+                </a>
+              </div>
+              <img className="pro-scard-img" src={apiNodes} alt="API network nodes" loading="lazy" />
             </article>
           </div>
         </section>

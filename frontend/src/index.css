@@ -1229,8 +1229,23 @@ html {
   color:#04140b; border-radius:99px; padding:.5rem 1.1rem; font-size:.8rem; font-weight:800;
   text-decoration:none; transition:background-color .15s; }
 .pro-mbtn:hover{ background:#4bf09e; }
+.pro-service{ position:relative; z-index:2; max-width:72rem; margin:0 auto; padding:2rem 1.5rem 7rem;
+  text-align:center; }
+.pro-service h2{ color:#fff; font-size:clamp(2rem,4.2vw,3.2rem); font-weight:800; letter-spacing:-.03em;
+  line-height:1.12; margin:0; }
+.pro-service-grid{ display:grid; grid-template-columns:1.35fr 1fr; gap:1.4rem; margin-top:2.6rem; }
+.pro-scard{ padding:0; }
+.pro-scard .pro-mcard-body{ padding:1.8rem 1.8rem 0; }
+.pro-scard h3{ font-size:1.6rem; }
+.pro-scard h4{ color:#fff; font-size:1.45rem; font-weight:800; letter-spacing:-.01em; line-height:1.25;
+  margin:.8rem 0 0; }
+.pro-scard-green{ background:linear-gradient(160deg, #0e5c36 0%, #084527 55%, #063420 100%); border-color:#125c38; }
+.pro-scard-green h4{ color:#2ee58a; }
+.pro-scard-art{ margin-top:1.6rem; border-radius:0 0 20px 20px; overflow:hidden; }
+.pro-scard-img{ display:block; width:100%; height:auto; margin-top:1.6rem; border-radius:0 0 20px 20px; object-fit:cover; }
 @media (max-width:860px){
   .pro-markets-grid{ grid-template-columns:1fr; }
+  .pro-service-grid{ grid-template-columns:1fr; }
 }
 .pro-hero-bg{ position:absolute; inset:0; width:100%; height:100%; }
 .pro-page::after{ content:""; position:absolute; inset:0;
