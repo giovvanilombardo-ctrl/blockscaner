@@ -1272,10 +1272,10 @@ svg.pro-api-anim{ display:block; width:calc(100% + 3.6rem); height:16rem; margin
 .pro-ccard-photo p{ color:#d6d6dd; }
 .pro-casp{ position:relative; z-index:2; max-width:72rem; margin:0 auto; padding:0 1.5rem 7rem;
   text-align:center; }
-.pro-casp-card{ background:#12121a; border:1px solid #1d1d28; border-radius:20px; padding:2.6rem 2.4rem;
-  text-align:center; }
-.pro-casp-card h3{ color:#fff; font-size:1.7rem; font-weight:800; letter-spacing:-.01em; margin:0; }
-.pro-casp-card p{ color:#9d9da8; font-size:.95rem; line-height:1.65; margin:1rem auto 0; max-width:36rem; }
+.pro-casp-card{ background:#e6f9ef; border:1px solid #c8eeda; border-radius:16px; padding:1.6rem 2rem;
+  text-align:center; max-width:44rem; margin:0 auto; }
+.pro-casp-card h3{ color:#0d3b22; font-size:1.15rem; font-weight:800; letter-spacing:-.01em; margin:0; }
+.pro-casp-card p{ color:#2c5c40; font-size:.85rem; line-height:1.6; margin:.6rem auto 0; max-width:36rem; }
 .pro-solutions{ position:relative; z-index:2; max-width:72rem; margin:0 auto; padding:2rem 1.5rem 7rem;
   text-align:center; }
 .pro-solutions h2{ color:#fff; font-size:clamp(2rem,4.2vw,3.2rem); font-weight:800; letter-spacing:-.03em;
