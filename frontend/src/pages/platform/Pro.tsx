@@ -2,6 +2,8 @@ import SiteLayout from "@/components/site/SiteLayout";
 import Seo from "@/components/Seo";
 import { t as _t } from "@/i18n";
 import { ArrowRight } from "lucide-react";
+import traderDesk from "@/assets/pro/trader-desk.png";
+import feeMedals from "@/assets/pro/fee-medals.png";
 
 /* Blurry candlestick chart backdrop */
 function ProBackdrop() {
@@ -73,6 +75,29 @@ export default function Pro() {
             {_t("Sign up")}
           </a>
         </div>
+
+        {/* advanced trading */}
+        <section className="pro-markets">
+          <h2>{_t("Advanced Trading across")} <b>27</b><br />{_t("Markets")}</h2>
+          <p className="pro-markets-sub">{_t("Manage risk with limit and stop-limit orders in the most dynamic markets.")}</p>
+          <div className="pro-markets-grid">
+            <article className="pro-mcard pro-mcard-photo" data-testid="pro-liquidity-card">
+              <img className="pro-mcard-bg" src={traderDesk} alt="" aria-hidden="true" />
+              <div className="pro-mcard-body">
+                <h3>{_t("Instant trading and high liquidity")}</h3>
+                <p>{_t("Instant executions with tight spreads, optimised even for high volumes. Rely on a fast, scalable infrastructure for seamless access to crypto markets, with transactions processed in milliseconds for maximum control and accuracy.")}</p>
+              </div>
+            </article>
+            <article className="pro-mcard" data-testid="pro-fees-card">
+              <h3><em>0% fees,</em> {_t("maximum profitability")}</h3>
+              <p>{_t("With a volume-based fee structure, no subscription fees, and no minimum portfolio size, you decide how you trade on crypto markets. Join Blockscaner Clubs for 90% lower trading fees.")}</p>
+              <a className="pro-mbtn" href="/products" onClick={(e) => e.preventDefault()} data-testid="pro-clubs-btn">
+                {_t("Discover Clubs")} <ArrowRight size={14} />
+              </a>
+              <img src={feeMedals} alt="Blue, gold, silver and bronze check-mark medals" loading="lazy" />
+            </article>
+          </div>
+        </section>
       </div>
     </SiteLayout>
   );
