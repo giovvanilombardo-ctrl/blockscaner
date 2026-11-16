@@ -38,7 +38,7 @@ function ProBackdrop() {
           <stop offset="0" stopColor="#e11d48"/><stop offset="1" stopColor="#5c0a1e"/>
         </linearGradient>
         <filter id="proBlur" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="14"/>
+          <feGaussianBlur stdDeviation="5"/>
         </filter>
       </defs>
       <g filter="url(#proBlur)" opacity="1" transform="translate(0,-80)">

@@ -1258,7 +1258,7 @@ svg.pro-api-anim{ display:block; width:calc(100% + 3.6rem); height:16rem; margin
 }
 .pro-hero-bg{ position:absolute; inset:0; width:100%; height:100%; }
 .pro-page::after{ content:""; position:absolute; inset:0;
-  background:radial-gradient(ellipse 70% 60% at 50% 55%, rgba(3,3,8,.62) 0%, rgba(3,3,8,.32) 55%, rgba(3,3,8,.08) 100%); }
+  background:radial-gradient(ellipse 70% 60% at 50% 55%, rgba(3,3,8,.68) 0%, rgba(3,3,8,.38) 55%, rgba(3,3,8,.12) 100%); }
 .pro-hero{ position:relative; z-index:2; text-align:center; padding:6rem 1.5rem 8rem; max-width:52rem; }
 .pro-hero h1{ color:#fff; font-size:clamp(2.6rem,5.5vw,4.4rem); font-weight:500; letter-spacing:-.03em;
   line-height:1.08; margin:0; }
