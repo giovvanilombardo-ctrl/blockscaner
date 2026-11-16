@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import traderDesk from "@/assets/pro/trader-desk.png";
 import feeMedals from "@/assets/pro/fee-medals.png";
 import tradingTerminal from "@/assets/pro/trading-terminal.png";
+import taxManagement from "@/assets/pro/tax-management.png";
 
 
 /* Blurry candlestick chart backdrop */
@@ -157,6 +158,29 @@ export default function Pro() {
                 </a>
               </div>
               <div className="pro-scard-art"><ApiNodesAnimated /></div>
+            </article>
+          </div>
+        </section>
+
+        {/* compliance & tax management */}
+        <section className="pro-compliance">
+          <h2>{_t("Compliance & Tax Management")}</h2>
+          <p className="pro-markets-sub">{_t("Blockscaner Pro complies with MiCA regulations and is recognised by major European authorities, including for tax reporting.")}</p>
+          <div className="pro-compliance-grid">
+            <article className="pro-mcard pro-ccard pro-ccard-dark" data-testid="pro-custody-card">
+              <div className="pro-mcard-body">
+                <h3>{_t("Security priority")}</h3>
+                <h4>{_t("1:1 Custody")}<br />{_t("Your assets are protected; never lent or reused.")}</h4>
+                <p>{_t("The highest security standards protect your investments, thanks to advanced systems such as two-factor authentication (2FA), mobile biometrics, and multifactorial risk management.")}</p>
+              </div>
+            </article>
+            <article className="pro-mcard pro-ccard pro-ccard-photo" data-testid="pro-tax-card">
+              <img className="pro-ccard-bg" src={taxManagement} alt="" aria-hidden="true" />
+              <div className="pro-ccard-overlay" />
+              <div className="pro-mcard-body">
+                <h3>{_t("Integrated tax management")}</h3>
+                <p>{_t("Get full tax support across all your digital assets, including external wallets, NFTs, and DeFi platforms. Access one-on-one assistance from crypto-specialised accountants for optimised, compliant tax filings.")}</p>
+              </div>
             </article>
           </div>
         </section>

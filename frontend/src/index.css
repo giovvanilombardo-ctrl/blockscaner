@@ -1252,9 +1252,28 @@ svg.pro-api-anim{ display:block; width:calc(100% + 3.6rem); height:16rem; margin
   from{ stroke-dashoffset:266; }
   to{ stroke-dashoffset:0; }
 }
+.pro-compliance{ position:relative; z-index:2; max-width:72rem; margin:0 auto; padding:2rem 1.5rem 7rem;
+  text-align:center; }
+.pro-compliance h2{ color:#fff; font-size:clamp(2rem,4.2vw,3.2rem); font-weight:800; letter-spacing:-.03em;
+  line-height:1.12; margin:0; }
+.pro-compliance-grid{ display:grid; grid-template-columns:1fr 1.4fr; gap:1.4rem; margin-top:2.6rem; }
+.pro-ccard{ min-height:24rem; }
+.pro-ccard-dark{ background:#12121a; }
+.pro-ccard-dark h3{ font-size:1.35rem; }
+.pro-ccard-dark h4{ color:#2ee58a; font-size:1.55rem; font-weight:800; letter-spacing:-.01em; line-height:1.22;
+  margin:1rem 0 0; }
+.pro-ccard-dark p{ color:#9d9da8; font-size:.85rem; line-height:1.65; margin:1.2rem 0 0; }
+.pro-ccard-photo{ position:relative; overflow:hidden; }
+.pro-ccard-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.pro-ccard-overlay{ position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(8,8,12,.82) 0%, rgba(8,8,12,.5) 45%, rgba(8,8,12,.12) 80%, transparent 100%); }
+.pro-ccard-photo .pro-mcard-body{ position:relative; z-index:2; padding:1.8rem; }
+.pro-ccard-photo h3{ color:#fff; font-size:1.5rem; }
+.pro-ccard-photo p{ color:#d6d6dd; }
 @media (max-width:860px){
   .pro-markets-grid{ grid-template-columns:1fr; }
   .pro-service-grid{ grid-template-columns:1fr; }
+  .pro-compliance-grid{ grid-template-columns:1fr; }
 }
 .pro-hero-bg{ position:absolute; inset:0; width:100%; height:100%; }
 .pro-page::after{ content:""; position:absolute; inset:0;
