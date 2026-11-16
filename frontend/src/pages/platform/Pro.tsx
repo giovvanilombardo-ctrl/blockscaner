@@ -200,19 +200,21 @@ export default function Pro() {
           <h2>{_t("Six years of")} <em>{_t("advanced crypto")}</em><br />{_t("solutions")}</h2>
           <p className="pro-markets-sub">{_t("Earn high APYs through lending, with daily liquidity. Access 27 crypto pairs and advanced trading tools on the first OAM-approved platform.")}</p>
           <div className="pro-solutions-grid">
-            <article className="pro-mcard pro-xcard" data-testid="pro-support-card">
+            <article className="pro-mcard pro-xcard pro-xcard-photo" data-testid="pro-support-card">
+              <img className="pro-xcard-bg" src={supportMeeting} alt="" aria-hidden="true" />
+              <div className="pro-xcard-overlay" />
               <div className="pro-mcard-body">
                 <h3>{_t("Dedicated customer support")}</h3>
                 <p>{_t("Benefit from a dedicated account manager to answer your questions and support your trading journey, with live assistance available via live chat, phone, or virtual meeting.")}</p>
               </div>
-              <img className="pro-scard-img" src={supportMeeting} alt="Two professionals looking at a laptop in an office" loading="lazy" />
             </article>
-            <article className="pro-mcard pro-xcard pro-staking-card" data-testid="pro-staking-card">
+            <article className="pro-mcard pro-xcard pro-xcard-photo" data-testid="pro-staking-card">
+              <img className="pro-xcard-bg" src={stakingPhone} alt="" aria-hidden="true" />
+              <div className="pro-xcard-overlay" />
               <div className="pro-mcard-body">
                 <h3>{_t("Up to +5% tokens with")} <em>{_t("staking.")}</em></h3>
                 <p>{_t("Maximise your crypto portfolio's results with staking on top Proof-of-Stake cryptocurrencies: Ethereum, Celestia, Solana, and Cosmos. Ideal for growing your assets without active trading.")}</p>
               </div>
-              <img className="pro-scard-img" src={stakingPhone} alt="Phone showing staking app with Solana and Ethereum" loading="lazy" />
             </article>
           </div>
         </section>

@@ -1282,8 +1282,14 @@ svg.pro-api-anim{ display:block; width:calc(100% + 3.6rem); height:16rem; margin
   line-height:1.12; margin:0; }
 .pro-solutions h2 em{ font-style:normal; color:#2ee58a; }
 .pro-solutions-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:2.6rem; }
-.pro-xcard{ min-height:30rem; }
-.pro-xcard .pro-scard-img{ height:19rem; }
+.pro-xcard{ min-height:30rem; overflow:hidden; position:relative; }
+.pro-xcard-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.pro-xcard-overlay{ position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,10,14,.9) 0%, rgba(10,10,14,.55) 45%, rgba(10,10,14,.1) 75%, transparent 100%); }
+.pro-xcard .pro-mcard-body{ position:relative; z-index:2; padding:2rem; }
+.pro-xcard h3{ color:#fff; font-size:1.6rem; }
+.pro-xcard h3 em{ font-style:normal; color:#2ee58a; }
+.pro-xcard p{ color:#d6d6dd; font-size:.85rem; }
 .pro-staking-card h3 em{ font-style:normal; color:#2ee58a; }
 @media (max-width:860px){
   .pro-markets-grid{ grid-template-columns:1fr; }
