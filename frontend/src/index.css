@@ -1284,7 +1284,7 @@ svg.pro-api-anim{ display:block; width:calc(100% + 3.6rem); height:16rem; margin
 .pro-solutions-sub{ color:#9d9da8; font-size:.95rem; margin:1.1rem auto 0; }
 .pro-solutions-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:2.6rem; }
 .pro-sol-card{ position:relative; background:#12121a; border:1px solid #1d1d28; border-radius:28px; overflow:hidden; min-height:42rem; }
-.pro-sol-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 65%; }
+.pro-sol-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 90%; }
 .pro-sol-photo::before{ content:""; position:absolute; inset:0; z-index:1;
   background:linear-gradient(180deg, rgba(10,10,14,.88) 0%, rgba(10,10,14,.55) 38%, rgba(10,10,14,.08) 70%, transparent 100%); }
 .pro-sol-body{ position:relative; z-index:2; padding:3rem; text-align:left; max-width:28rem; }
