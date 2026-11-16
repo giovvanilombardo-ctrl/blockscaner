@@ -41,7 +41,7 @@ function ProBackdrop() {
           <feGaussianBlur stdDeviation="14"/>
         </filter>
       </defs>
-      <g filter="url(#proBlur)" opacity=".8">
+      <g filter="url(#proBlur)" opacity="1" transform="translate(0,-80)">
         {candles.map(([x, o, c, h, l], i) => {
           const up = c < o;
           const col = up ? "url(#proUp)" : "url(#proDn)";
