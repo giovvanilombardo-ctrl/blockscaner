@@ -148,3 +148,9 @@ frontend/node_modules/.cache/default-development/4.pack_
 frontend/node_modules/.cache/default-development/21.pack
 WEBSITE_DESIGN_ONLY_EXPORT.zip
 frontend/public/WEBSITE_DESIGN_ONLY_EXPORT.zip
+.env
+.env.*
+*.env
+credentials.json
+*.key
+.credentials
